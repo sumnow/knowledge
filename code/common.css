@@ -1,0 +1,399 @@
+/*common*/
+    
+    body,
+    div,
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    pre,
+    fieldset,
+    p,
+    blockquote,
+    th,
+    td {
+        margin: 0;
+        padding: 0
+    }
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0
+    }
+    
+    fieldset,
+    img {
+        border: 0;
+        display: block;
+    }
+    
+    ol,
+    ul {
+        list-style: none
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 100%;
+        font-weight: normal
+    }
+    
+    q:before,
+    q:after {
+        content: ''
+    }
+    
+    abbr,
+    acronym {
+        border: 0;
+        font-variant: normal
+    }
+    
+    sup {
+        vertical-align: text-top
+    }
+    
+    sub {
+        vertical-align: text-bottom
+    }
+    
+    input,
+    textarea,
+    select {
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        *font-size: 100%;
+    }
+    
+    legend {
+        color: #000
+    }
+    
+    iframe {
+        display: block;
+    }
+    /* yui3 fonts */
+
+    
+    select,
+    input,
+    button,
+    textarea {
+        font: 99% arial, helvetica, clean, sans-serif
+    }
+    
+    table {
+        font-size: inherit;
+        font: 100%
+    }
+    
+    pre,
+    code,
+    kbd,
+    samp,
+    tt {
+        font-family: monospace;
+        *font-size: 108%;
+        line-height: 100%
+    }
+    
+    button,
+    a {
+        cursor: pointer;
+    }
+    /* utilities */
+    
+    .center-block {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .clearfix {
+        *zoom: 1;
+    }
+    
+    .clearfix:before,
+    .clearfix:after {
+        display: table;
+        line-height: 0;
+        content: "";
+    }
+    
+    .clearfix:after {
+        clear: both;
+    }
+    
+    .l {
+        float: left !important;
+    }
+    
+    .r {
+        float: right !important;
+    }
+    
+    .hidden {
+        display: none !important;
+    }
+    
+    .invisible {
+        visibility: hidden !important;
+    }
+    
+    .container {
+        margin: 0 auto;
+    }
+    
+    .row {
+        overflow: hidden;
+    }
+    /*body*/
+    
+    body {
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    
+
+    /*澶撮儴鏍峰紡*/
+    
+    
+
+
+    
+    .time-bottom:before {
+        top: calc(100% - 2px);
+    }
+    
+    .time-bottom:last-child:after {
+        background: #fff;
+    }
+    
+    .time {
+        float: left;
+        position: relative;
+        width: 60px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        overflow: hidden;
+    }
+    
+    .time:before {
+        position: absolute;
+        display: block;
+        width: 100%;
+        top: 0;
+        left: 0;
+        content: '';
+        background: #eac;
+    }
+    
+    .time:after {
+        position: absolute;
+        display: block;
+        width: 2px;
+        height: 100%;
+        top: 0;
+        left: calc(100% - 2px);
+        background: #eac;
+        content: '';
+    }
+    
+    #firstone:before {
+        top: calc( 100% - 5px);
+        height: 5px;
+        left: -100%;
+        animation: firstoneMove 10s linear infinite;
+    }
+    
+    #firstone:after {
+        top: 100%;
+        width: 5px;
+        left: calc(100% - 5px);
+        animation: firstoneMovea 10s linear infinite;
+    }
+    
+    @keyframes firstoneMove {
+        10% {
+            left: 0;
+        }
+        100% {
+            left: 0;
+        }
+    }
+    
+    @keyframes firstoneMovea {
+        10% {
+            top: 100%;
+        }
+        20% {
+            top: 0;
+        }
+        100% {
+            top: 0;
+        }
+    }
+    
+    #hour:before {
+        left: -100%;
+        height: 4px;
+        animation: hourMove 10s linear infinite;
+    }
+    
+    #hour:after {
+        top: -100%;
+        left: calc(100% - 4px);
+        width: 4px;
+        animation: hourMovea 10s linear infinite;
+    }
+    
+    @keyframes hourMove {
+        20% {
+            left: -100%;
+        }
+        30% {
+            left: 0;
+        }
+        100% {
+            left: 0;
+        }
+    }
+    
+    @keyframes hourMovea {
+        30% {
+            top: -100%;
+        }
+        40% {
+            top: 0;
+        }
+        100% {
+            top: 0;
+        }
+    }
+    
+    #min:before {
+        top: calc(100% - 3px);
+        left: -100%;
+        height: 5px;
+        animation: minMove 10s linear infinite;
+    }
+    
+    #min:after {
+        top: 100%;
+        width: 3px;
+        left: calc(100% - 3px);
+        animation: minMovea 10s linear infinite;
+    }
+    
+    @keyframes minMove {
+        40% {
+            left: -100%;
+        }
+        50% {
+            left: 0%;
+        }
+        100% {
+            left: 0%;
+        }
+    }
+    
+    @keyframes minMovea {
+        50% {
+            top: 100%
+        }
+        60% {
+            top: 0;
+        }
+        100% {
+            top: 0;
+        }
+    }
+    
+    #sec:before {
+        left: -100%;
+        height: 2px;
+        animation: secMove 10s linear infinite;
+    }
+    
+    #sec:after {
+        top: -100%;
+        left: calc(100% - 2px);
+        width: 2px;
+        animation: secMovea 10s linear infinite;
+    }
+    
+    @keyframes secMove {
+        60% {
+            left: -100%;
+        }
+        70% {
+            left: 0;
+        }
+        100% {
+            left: 0;
+        }
+    }
+    
+    @keyframes secMovea {
+        70% {
+            top: -100%;
+        }
+        80% {
+            top: 0;
+        }
+        100% {
+            top: 0;
+        }
+    }
+    
+    #lastone:before {
+        top: calc(100% - 1px);
+        height: 1px;
+        left: -100%;
+        animation: lastMove 10s linear infinite;
+    }
+    
+    #lastone:after {
+        top: 100%;
+        animation: lastMovea 10s linear infinite;
+        visibility: hidden;
+    }
+    
+    @keyframes lastMove {
+        80% {
+            left: -100%;
+        }
+        90% {
+            left: 0%;
+        }
+        100% {
+            left: 0%;
+        }
+    }
+    
+    @keyframes lastMovea {
+        90% {
+            top: 100%
+        }
+        100% {
+            top: 0;
+        }
+    }
