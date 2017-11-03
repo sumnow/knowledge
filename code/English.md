@@ -36,3 +36,4 @@ pipeline 管道
 parse 解析
 suspend 暂缓，挂起
 expression 表达式
+entry 进入，入口
