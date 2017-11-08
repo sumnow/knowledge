@@ -40,3 +40,23 @@ entry 进入，入口
 segmentation 分段，切分，分节
 
 convert to 转换...到...
+
+feature 特征
+inception 创立
+alter 改变
+
+facet 方面，特点
+reflect 反映 vt.
+reflection 反映 n.
+adjust 调整
+structure 结构 n.
+semantics 语义，含义 n.
+operate 操作 vt.
+operator 操作员 n.
+assign 分配
+assign 任务，作业
+enumeration 枚举
+express 快递 n. 快速的 adj. adv.
+
+
+statement 声明
