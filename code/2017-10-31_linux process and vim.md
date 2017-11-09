@@ -1,4 +1,4 @@
-# linux 下常用命令与进程问题
+# linux 下process与vim命令
 
 
 代码均在ubuntu(16.04)下测试通过。
@@ -69,3 +69,15 @@
 
     ctrl + l // 相当于clear
 
+
+## vim
+
+insert变成插入模式
+
+esc后
+
+:q! 强制退出，不保存修改
+
+:w 保存修改
+
+:wq 保存修改且退出
