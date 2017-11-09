@@ -59,4 +59,4 @@ enumeration 枚举
 express 快递 n. 快速的 adj. adv.
 
 
-statement 声明
+statement 声明 n.
