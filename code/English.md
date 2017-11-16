@@ -57,6 +57,11 @@ assign 分配
 assign 任务，作业
 enumeration 枚举
 express 快递 n. 快速的 adj. adv.
+pend 悬而未决
+pending 直到 prep. 未定的 adj.
 
+fold 折叠
+
+folder 文件夹
 
 statement 声明 n.
