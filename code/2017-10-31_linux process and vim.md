@@ -39,6 +39,19 @@
 
     nohup node serve.js &
 
+### forever 
+
+    // install global
+    npm install forever -g
+
+    service forever start 
+
+    forever start index.js
+
+    forever list
+
+>目前测试最为稳定的方法
+
 ## 常用命令与快捷键操作
 
 ### 命令
