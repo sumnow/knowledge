@@ -18,6 +18,14 @@ CentOs version: 6.5
     yum install python-pip
     pip install shadowsocks
 
+
+centos 7
+
+    $ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+    $ python get-pip.py
+
+
+
 root目录下新建ss/ssserver.json 
 
     vim ~/ss/ssserver.json
