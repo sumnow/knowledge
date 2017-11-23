@@ -42,6 +42,8 @@ set可以方便地去除数组中重复项。
     function unique(arr){
       return Array.from(new Set(arr));
     };
+    
     //使用ES6的方法可以去重。
     console.log(unique(arr));
-
+    // 还可以
+    [...new Set(arr)]
