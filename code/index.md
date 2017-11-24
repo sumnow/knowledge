@@ -114,6 +114,9 @@
 
 2017-09-18 restful接口
 
+2017-10-07 es6代理proxy
+
+2017-10-10 es6 import和export
 
 
 
@@ -143,3 +146,11 @@ proxy的canvas应用
 
 疑惑：
 
+function request () {
+    return new Promise((resolve, reject)=>{
+        axios(config).catch(err=>{
+            console.log(err.response.status)
+            //这个获取不到错误码，返回的似乎是errMessage
+        })
+    })
+}
