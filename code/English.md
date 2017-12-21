@@ -65,3 +65,7 @@ fold 折叠
 folder 文件夹
 
 statement 声明 n.
+
+dynamic 动态的 adj.
+
+parameter 参数 n.
