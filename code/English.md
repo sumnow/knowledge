@@ -69,3 +69,8 @@ statement 声明 n.
 dynamic 动态的 adj.
 
 parameter 参数 n.
+
+assignment 分配，任务，工作 n.
+assign 分配，选派 vt.
+
+assignee 受让人 n.
