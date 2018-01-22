@@ -74,3 +74,6 @@ assignment 分配，任务，工作 n.
 assign 分配，选派 vt.
 
 assignee 受让人 n.
+
+addtion 额外 n.
+additional 额外的 adj.
