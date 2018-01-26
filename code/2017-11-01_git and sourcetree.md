@@ -1,4 +1,6 @@
-# git 
+# git and sourcetree
+
+## git
 
 git 的基本信息就不赘述了，只说些重要命令。
 
@@ -55,5 +57,33 @@ git 分为本地和远端，本地有工作区，暂存区，以及库(库包括
 #### git branch -d (branchname)
 
 删除某分支。
+
+## sourcetree
+
+sourcetree 是git的图形管理界面，某种意义上的更易操作，内置了gitflow工作流。
+
+#### 撤回某次提交
+
+![img](../img/2017110101.png)
+
+分为 `hard` `mixed` `soft` 三种何必方式，`hard`删去以后所有改动。
+
+```git push -f```
+
+#### 合并develop到master
+
+切换到`master`
+
+![img](../img/2017110102.png)
+
+然后对`master` 执行 `git push` 即可。
+
+#### git rebase 和 git merge的区别
+
+例如将`dev`合并到`master`上
+
+`git merge` 合并分支时，将`dev`分支的改动集合，创建一个新节点，合并改动。
+
+`git rebase` 合并分支时，将`dev`分支的每个改动复制一次，在`master`上一一变更。
 
 
