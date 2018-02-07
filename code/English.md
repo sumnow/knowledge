@@ -79,3 +79,6 @@ addtion 额外 n.
 additional 额外的 adj.
 
 duplicate 重复的
+
+
+fetch v. 取来
