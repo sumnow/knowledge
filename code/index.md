@@ -182,6 +182,7 @@ canvas贝塞尔
 flex
 markdown编辑器
 环形音乐播放器
+canvas 轻轻浮动
 CORS权限控制
 CSS变量
 编译原理 自写解释器，像.vue文件
