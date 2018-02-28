@@ -10,6 +10,10 @@ cpu阵营里，分为AMD与Intel，目前AMD移动市场赢弱，并不推荐。
 
 只做简介，更详细的请自行查找[笔记本CPU天梯图](https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=%E7%AC%94%E8%AE%B0%E6%9C%ACcpu%E5%A4%A9%E6%A2%AF%E5%9B%BE&rsv_pq=d7bb926f00009de1&rsv_t=5e07XyAGEyXqPDt%2BaipJOVo5%2BmoHdLhbITyx3X%2FmYI3iwKLPBjR5sHAN%2BZM&rqlang=cn&rsv_enter=1&rsv_sug3=12&rsv_sug1=11&rsv_sug7=100)
 
+> 更新于 2018.01
+
+> intel的cpu每代日常提升5%，人称牙膏厂，但是八代cpu性能大幅提升，约达30%，性价比十足。
+
 ##### 型号
 
 如 core i3， i5 ，i7， Pentium等
@@ -18,27 +22,34 @@ cpu阵营里，分为AMD与Intel，目前AMD移动市场赢弱，并不推荐。
 
 型号主要区别在规格上，i7是4核8线程，i5是双核4线程（5代以后变成了4核），i3是双核双线程
 
+核是物理核心，线程是虚拟核心，都是越多越好，但是越多带来的收益会有边界效应。
 
->核是物理核心，线程是虚拟核心，都是越多越好，但是越多带来的收益也越小。
+此外，专业的图像处理，视频渲染，3D建模之类，需要巨大的算力，此类工作无需考虑直接i7。
 
 ##### 次代
 
-cpu的第二位数字一般代表次代
+cpu的第二位数字一般代表次代。
 
 如 i7-7500U i5-3210m
 
 上面第一个是7代，第二个是3代，一般代数越高越好，但intel号称牙膏厂，就是因为每次代提升太小，所以也不用太追求
-如i7-7700HQ和i6-6700HQ仅6%的提升而已，
+如i7-7700HQ和i6-6700HQ仅6%的提升而已。
+
+> 更新于2018.01
+
+> 八代cpu性能大幅提升，约达30%，而且兼容老平台主板，强烈推荐。
 
 ##### 后缀
 
 如 M，U，HQ
 
-M／MQ 标准移动CPU，性能尚可。
+M／MQ 标准移动CPU，性能尚可（目前市面上已经少见了，不用考虑）。
 
 U 低压移动CPU，为了降低功耗，性能较弱。
 
-HQ 目前比较流行的在游戏本上常见，性能可以。
+HQ 目前比较流行的在游戏本上常见，性能不错。
+
+还有些后缀，多是标记功率，工程之用，参考意义不大。
 
 后缀，还有一个作用就是看出cpu的封装方式，目前只有m后缀是可以更换的PGA封装，其他都是无法更换的BGA。
 
@@ -46,9 +57,9 @@ HQ 目前比较流行的在游戏本上常见，性能可以。
 
 有独立显卡与核心显卡（也叫集成显卡）之分。
 
-独立显卡，不了解，只知道10系显卡1080，1060等,更详细请自行查找[显卡天梯图](https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=%E6%98%BE%E5%8D%A1%E5%A4%A9%E6%A2%AF%E5%9B%BE&rsv_pq=bf33c61e0000d0eb&rsv_t=a595ALtk%2BzXClRtxRIiojp8gT7EvjHbruKrU5K2E4s7jxRIakPsImqLGO6g&rqlang=cn&rsv_enter=1&rsv_sug3=9&rsv_sug1=16&rsv_sug7=100)
+独立显卡，不了解，只知道10系显卡1050，1060等,更详细请自行查找[显卡天梯图](https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=%E6%98%BE%E5%8D%A1%E5%A4%A9%E6%A2%AF%E5%9B%BE&rsv_pq=bf33c61e0000d0eb&rsv_t=a595ALtk%2BzXClRtxRIiojp8gT7EvjHbruKrU5K2E4s7jxRIakPsImqLGO6g&rqlang=cn&rsv_enter=1&rsv_sug3=9&rsv_sug1=16&rsv_sug7=100)
 
-区别在显存，不玩游戏，显卡没用，玩大型单机游戏，应去度娘询问某游戏需要多少G显存，按需购买。
+区别在显存，不玩游戏，不做渲染，显卡无效，玩大型单机游戏，应去度娘询问某游戏需要多少G显存，按需购买。
 
 核心显卡，是在集成在CPU上的，amd的CPU无核显，看视频，小游戏都可以，功耗还低。
 
