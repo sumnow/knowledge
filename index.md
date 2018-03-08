@@ -191,6 +191,9 @@ proxy的canvas应用
 装饰器模式es7
 grid
 microtask微任务
+Typescript
+WebAssembly
+范式泛型
 
 PWA 渐进式网页
 
