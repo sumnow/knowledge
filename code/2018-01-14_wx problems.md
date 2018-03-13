@@ -76,3 +76,15 @@ ACCESS_TOKEN每7200秒需要重新获取一次。
     wx.error(function(res){
         // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
     });
+
+
+
+### 微信openId获取
+
+携带 `appid` 和 `scope` 为参数，将页面重置到一下url
+
+    https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx488e92a58d28ac83&redirect_uri=https%3a%2f%2ffile.10010sh.cn%2fWeiting%2f&response_type=code&scope=snsapi_base&state=123#wechat_redirects
+
+redirect_url 为重定向的url ，重定向后在url中携带code参数，
+
+code参数发送往后台，获取 `ACCESS_TOKEN` ,可以用来获取用户的 `OPENID`
