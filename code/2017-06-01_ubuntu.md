@@ -110,33 +110,33 @@ over！
 #### tar -xf all.tar
 这条命令是解出all.tar包中所有文件，-t是解开的意思
 
-压缩
+#### 压缩
 
-tar -cvf jpg.tar *.jpg //将目录里所有jpg文件打包成tar.jpg 
+    tar -cvf jpg.tar *.jpg //将目录里所有jpg文件打包成tar.jpg 
 
-tar -czf jpg.tar.gz *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz
+    tar -czf jpg.tar.gz *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz
 
- tar -cjf jpg.tar.bz2 *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2
+    tar -cjf jpg.tar.bz2 *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2
 
-tar -cZf jpg.tar.Z *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z
+    tar -cZf jpg.tar.Z *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z
 
-rar a jpg.rar *.jpg //rar格式的压缩，需要先下载rar for linux
+    rar a jpg.rar *.jpg //rar格式的压缩，需要先下载rar for linux
 
-zip jpg.zip *.jpg //zip格式的压缩，需要先下载zip for linux
+    zip jpg.zip *.jpg //zip格式的压缩，需要先下载zip for linux
 
-解压
+#### 解压
 
-tar -xvf file.tar //解压 tar包
+    tar -xvf file.tar //解压 tar包
 
-tar -xzvf file.tar.gz //解压tar.gz
+    tar -xzvf file.tar.gz //解压tar.gz
 
-tar -xjvf file.tar.bz2   //解压 tar.bz2
+    tar -xjvf file.tar.bz2   //解压 tar.bz2
 
-tar -xZvf file.tar.Z   //解压tar.Z
+    tar -xZvf file.tar.Z   //解压tar.Z
 
-unrar e file.rar //解压rar
+    unrar e file.rar //解压rar
 
-unzip file.zip //解压zi
+    unzip file.zip //解压zi
 
 下面的参数-f是必须的
 
@@ -309,6 +309,8 @@ albert &
 
     sudo npm install npm@lastest -g
     // 更新npm
+
+    sudo npm install -g yarn
 
 ### monogodb
 
