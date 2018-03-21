@@ -209,7 +209,7 @@ microtask微任务
 Typescript
 WebAssembly
 范式泛型
-写一个console.green等
+写一个console.green，再发布正式的时候屏蔽console
 
 PWA 渐进式网页
 
