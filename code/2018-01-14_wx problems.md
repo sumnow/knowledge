@@ -85,6 +85,8 @@ ACCESS_TOKEN每7200秒需要重新获取一次。
 
     https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx488e92a58d28ac83&redirect_uri=https%3a%2f%2ffile.10010sh.cn%2fWeiting%2f&response_type=code&scope=snsapi_base&state=123#wechat_redirects
 
-redirect_url 为重定向的url ，重定向后在url中携带code参数，
+`redirect_url` 为重定向的url ，且为 `decodeUrl` 转换的url路径，重定向后在url中携带code参数，
 
 code参数发送往后台，获取 `ACCESS_TOKEN` ,可以用来获取用户的 `OPENID`
+
+注意 `redirect_url`
