@@ -8,10 +8,14 @@
         1:4,
         2:6
     }
-    Array.from(obj)//[2,4,6];
-    Array.prototype.slice.call(obj,0);//[2,4,6]
-    Array.prototype.slice.call(obj);//[2,4,6]
-    Array.prototype.slice.call(obj,undefined);//[2,4,6]
+    Array.from(obj)
+    // [2,4,6];
+    Array.prototype.slice.call(obj,0);
+    // [2,4,6]
+    Array.prototype.slice.call(obj)
+    //[2,4,6]
+    Array.prototype.slice.call(obj,undefined);
+    //[2,4,6]
 
     obj = {
         length:3,
@@ -19,7 +23,8 @@
         3:6,
         5:10
     }
-    Array.from(obj)//[undefined,2,undefined];
+    Array.from(obj)
+    //[undefined,2,undefined];
 
 
 
