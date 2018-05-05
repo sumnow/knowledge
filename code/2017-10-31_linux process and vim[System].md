@@ -5,6 +5,15 @@
 
 ## 进程相关
 
+### linux 下远程连接
+
+    ssh -t root@192.168.0.1 -p 22949
+    password: xxxxxxx
+
+### 重置密码
+
+    passwd
+
 ### lsof -i :hostname
 
 检查hostname（端口号）的占用进程。
@@ -38,6 +47,10 @@
 #### nohup 也可以实现后台运行的效果
 
     nohup node serve.js &
+
+> nohup 有个特别需要注意的地方，目前在centos7x86_64上发现的问题
+
+我使用 `nohup node server.js &` 命令,然后关闭终端会导致程序依然关闭了。应该在 `nohup node server.js &` 后 ,再单击空格推出 `nohup.out`，然后 `exit`  关闭远程链接。
 
 ### forever 
 
