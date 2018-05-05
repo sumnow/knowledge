@@ -6,7 +6,10 @@ CentOs version: 6.0
 
     curl -sL https://rpm.nodesource.com/setup_7.x | bash -
 
-    yum install nodejs
+    // node 8.x 版本
+    curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
+
+    sudo yum install nodejs -y
 
 ## CentOs 下 shadowsocks配置
 
@@ -29,6 +32,11 @@ centos 7
 
     $ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
     $ python get-pip.py
+
+
+如果显示wget command not found
+
+    yum -y install wget
 
 centOS 7 下可以使用Google BBR算法来加速
 
@@ -68,8 +76,8 @@ root目录下新建ss/ssserver.json
 
 运行ss
 
-    nohup ssserver -c /root/ss/ssserver.json -d start &
-    ssserver -c /root/ss/ssserver.json -d stop
+    nohup ssserver -c /home/ss/ssserver.json -d start &
+    ssserver -c /home/ss/ssserver.json -d stop
 
-    
-
+    ssserver -c /etc/shadowsocks.json -d start
+    ssserver -c /etc/shadowsocks.json -d stop
