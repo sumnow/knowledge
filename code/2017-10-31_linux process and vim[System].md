@@ -10,6 +10,10 @@
     ssh -t root@192.168.0.1 -p 22949
     password: xxxxxxx
 
+##### 退出登录
+
+    logout
+
 ### 重置密码
 
     passwd
@@ -17,6 +21,8 @@
 ### lsof -i :hostname
 
 检查hostname（端口号）的占用进程。
+
+> lsof 在centos下默认没有安装使用 `yum install lsof` 即可。
 
 ### 守护进程
 
