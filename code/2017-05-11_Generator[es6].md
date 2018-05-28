@@ -37,7 +37,7 @@ Generator 函数可以不用yield表达式，这时就变成了一个单纯的�
       generator.next()//只会在这里执行
     }, 2000);
 
-使用for of 循环可以直接遍历，当next第一次done为true时，就会结束。
+使用 `for of` 循环可以直接遍历，当next第一次done为true时，就会结束。
 
     function *foo() {
       yield 1;
