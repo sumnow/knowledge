@@ -25,3 +25,23 @@
     const tailFactorial = curry(factorial, 1)
 
     tailFactorial(5) //120
+
+
+    //一般转换
+
+    function add(a,b) {
+        return a+b
+    }
+
+    function add(a) {
+        return function (b) {
+            return a+b
+        }
+    }
+
+    // use lamada function
+    const add = a => b => a+b
+
+    //
+    const compose = (...fns) => fns.reduce((f,g)=>(...args)=>f(g(...args))); 
+
