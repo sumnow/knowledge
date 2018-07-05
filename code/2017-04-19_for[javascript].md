@@ -12,6 +12,17 @@
     }
     log(arr)//["d", "o", "g", " ", "e", "a", "t", " ", "b", "o", "n", "e", "."]
 
+还有别的写法
+
+    // 顺序
+    for(let i = 0 ; andy[i]; i++) {
+        arr.push(andy[i])
+    }
+    // 逆序
+    for(let i = andy.length -1 ; andy[i]; i--) {
+        arr.push(andy[i])
+    }
+
 也可以使用continue和break来中断循环。
 
     for(let i = 0;i<andy.length;i++){
