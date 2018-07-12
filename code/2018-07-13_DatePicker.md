@@ -11,3 +11,4 @@
         /* 返回当月的天数 */
         return curDate.getDate();
     }
+
