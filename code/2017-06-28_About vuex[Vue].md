@@ -61,8 +61,17 @@ getters主要是为了获取数据库中的某个值（且可以加工）。
 		}
 
 通过methods，就告知了actions,然后actions会通过increment来处理数据。
-
+		export const increment = (context) => context.commit('increment')
+		// 使用解构
 		export const increment = ({ commit }) => commit('increment')
+
+这个看起来似乎不太好理解，其实是这样的
+
+	const store = {commit : function (){ console.log('test') }}
+	const {commit}  = store
+
+	commit 
+	// function () {console.log(test)}
 
 commit 就是改变之后触发的函数，而increment就是它的回调
 
@@ -72,3 +81,41 @@ commit 就是改变之后触发的函数，而increment就是它的回调
 对了，虽然写在最后，你应该最先写的是将vuex引入main.js中，将它注入到整个Vue根组件里。
 
 另外，在根组件引用vuex的时候，如果文件目录store下有getters,actions,mutations,index，可以直接引用'/store',会自动索引到index文件，但是如果index名字叫state，那你就需要自己引到'./store/state'。
+
+
+#### 关于mutation和action为什么不把写在一起
+
+这其实是一种拆分思想，举个例子，我想对state中的a进行 `++` 操作后再 乘2
+
+	// mutation
+	
+	const multiply = state = state.a * 2
+
+	const plus = state => state.a++
+
+	// action
+	const handleA = ({commit}) => {
+		commit('plus')
+		commit('multiply')
+	}
+	
+这样拼装的好处，灵活，低耦合，而且，mutation总是 **期望** 它同步地修改数据。
+
+并不是不可以异步，而是因为一旦异步，
+
+const add = state => asynsMethod(()=>{state.a++})
+
+在mutation被commit 的时刻，`state.a` 并没有任何变化，何时改变也是未知的。
+
+> callback fucntion 会在何时触发是难以预计的。
+
+如是是使用const action 
+
+
+> 题外话，mutation这个命名真的很到位，突变，没有任何延时性，action，指令。
+
+
+
+
+
+
