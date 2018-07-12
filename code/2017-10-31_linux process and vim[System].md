@@ -113,3 +113,7 @@ esc后
 :w 保存修改
 
 :wq 保存修改且退出
+
+## rename
+
+`rename` 在 `OSX` 下不可用
