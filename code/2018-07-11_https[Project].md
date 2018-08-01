@@ -49,3 +49,15 @@ CA是为了防止中间人伪造身份，发送虚假的密钥，来截取信息
 
 
 ![img](../img/2018071101.png)
+
+
+##### PS
+
+在https 的网页里加载 http的资源是会导致报错的，例如加载一个css资源。
+
+    Mixed Content: The page at 'https://blog.csdn.net/toubaokewu/article/details/78873697' was loaded over HTTPS, but requested an insecure stylesheet 'http://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css'. This request has been blocked; the content must be served over HTTPS.
+
+目前一个可靠的解决方案是，有两套css文件分别部署在 http 和 https 服务下，页面中使用自适应协议来解决。
+
+    <link href="//exmaple.css">
+
