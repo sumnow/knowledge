@@ -1,5 +1,26 @@
 # word
 
+### 超出长度变为省略号
+
+css 方式：
+
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+
+js方式： 
+
+    const overLengthEillpsis = (l, obj, ...props) => {
+        let str
+        if (typeof obj === 'string') {
+            return obj.length > l ? obj.slice(0,l) + '...' : obj
+        }
+        if(obj instanceof Object && props.length > 0 ) {
+            props.forEach(e=>obj[e] = obj[e].slice(0,l) + '...')
+        } else {
+            throw new Error ('parameter missed')
+        }
+    }
 
 ### white-space
 
