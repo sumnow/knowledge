@@ -51,6 +51,12 @@
 
 此外，还可以使用JSON的方法来实现。
 
+### 函数式数组解决方案
+
+    const arr = [1,2,3,4]
+
+    const arrCopy = arr.slice(0)
+
 ### 已存在的函数式的方法
 
 例如 `immutable.js` 就是一个成熟的解决方案。

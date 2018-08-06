@@ -36,7 +36,7 @@ Perfect Binary Tree 是 Complete Binary Tree 的子集。即`The tree is  a Perf
 
 将任意一颗二叉树填充成CBT(没有的节点用0或者undefined代替)。
 
-![img](../img/2018071601.png)
+![img](../../img/2018071601.png)
 
 存储为数组[A,B,C,0,D,E,0,0,0,F,0,0,0,G]
 

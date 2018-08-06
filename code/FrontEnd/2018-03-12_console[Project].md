@@ -11,7 +11,7 @@ console.error 用于输出错误信息
 
 console.warn 用于输出警示信息 
 
-![img](../img/2018031201.jpg)
+![img](../../img/2018031201.jpg)
 
 ##### group
 
@@ -19,20 +19,20 @@ console.group 输出一组信息的开头
 
 console.groupEnd 结束一组输出信息 
 
-![img](../img/2018031202.jpg)
+![img](../../img/2018031202.jpg)
 
 ##### assert
 
 console.assert 对输入的表达式进行断言，只有表达式为false时，才输出相应的信息到控制台 
 
-![img](../img/2018031203.jpg)
+![img](../../img/2018031203.jpg)
 
 
 ##### count
 
 console.count （这个方法非常实用哦）当你想统计代码被执行的次数 
 
-![img](../img/2018031204.jpg)
+![img](../../img/2018031204.jpg)
 
 ##### dir
 
@@ -44,29 +44,29 @@ console.time 计时开始
 
 console.timeEnd 计时结束（看了下面的图你瞬间就感受到它的厉害了） 
 
-![img](../img/2018031205.jpg)
+![img](../../img/2018031205.jpg)
 
 
 ##### profile
 
 console.profile 和 console.profileEnd 配合一起使用来查看CPU使用相关信息 
 
-![img](../img/2018031206.jpg)
+![img](../../img/2018031206.jpg)
 
-![img](../img/2018031207.jpg)
+![img](../../img/2018031207.jpg)
 
 
 ##### table
 
 console.table 可以表格形式输出Array and Object ,但无法输出Set等。
 
-![img](../img/2018031208.png)
+![img](../../img/2018031208.png)
 
 ###### $_
 
 $_ 命令返回最近一次表达式执行的结果，功能跟按向上的方向键再回车是一样的 
 
-![img](../img/2018031209.jpg)
+![img](../../img/2018031209.jpg)
 
 
 console.trace
