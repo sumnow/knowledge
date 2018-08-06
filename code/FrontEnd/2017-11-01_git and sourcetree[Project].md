@@ -64,7 +64,7 @@ sourcetree 是git的图形管理界面，某种意义上的更易操作，内置
 
 #### 撤回某次提交
 
-![img](../img/2017110101.png)
+![img](../../img/2017110101.png)
 
 分为 `hard` `mixed` `soft` 三种何必方式，`hard`删去以后所有改动。
 
@@ -74,7 +74,7 @@ sourcetree 是git的图形管理界面，某种意义上的更易操作，内置
 
 切换到`master`
 
-![img](../img/2017110102.png)
+![img](../../img/2017110102.png)
 
 然后对`master` 执行 `git push` 即可。
 

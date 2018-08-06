@@ -29,7 +29,7 @@ Acknowledge number(确认号码)
 
 establish  建立，创建
 
-![img](../img/2017062001.png)
+![img](../../img/2017062001.png)
 
 
 （1）第一次握手：Client将标志位SYN置为1，随机产生一个值seq=J，并将该数据包发送给Server，Client进入SYN_SENT状态，等待Server确认。
@@ -52,13 +52,13 @@ establish  建立，创建
 （4）第四次挥手：Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手。
 
 
-![img](../img/2017062002.png)
+![img](../../img/2017062002.png)
 
 
 
 #### tcp报文
 
-![img](../img/2017062003.png)
+![img](../../img/2017062003.png)
 
 
 （1）序号：Seq序号，占32位，用来标识从TCP源端向目的端发送的字节流，发起方发送数据时对此进行标记。

@@ -117,4 +117,4 @@ HDLC  （High-Level Data Link Control ）高级数据链路控制同步网上传
 
 以太网物理层、调制解调器、PLC 、SONET/SDH 、G.709 、光导纤维、 同轴电缆、双绞线 
 
-![img](../img/2018011001.jpg)
+![img](../../img/2018011001.jpg)

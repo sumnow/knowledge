@@ -11,7 +11,7 @@ cpu阵营里，分为AMD与Intel，目前AMD移动市场赢弱，并不推荐。
 只做简介，更详细的请自行查找[笔记本CPU天梯图](https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=%E7%AC%94%E8%AE%B0%E6%9C%ACcpu%E5%A4%A9%E6%A2%AF%E5%9B%BE&rsv_pq=d7bb926f00009de1&rsv_t=5e07XyAGEyXqPDt%2BaipJOVo5%2BmoHdLhbITyx3X%2FmYI3iwKLPBjR5sHAN%2BZM&rqlang=cn&rsv_enter=1&rsv_sug3=12&rsv_sug1=11&rsv_sug7=100)
 
 
-![img](../img/2017112501.png)
+![img](../../img/2017112501.png)
 
 > 更新于 2018.01
 
@@ -78,7 +78,7 @@ HQ 目前比较流行的在游戏本上常见，性能不错。
 
 部分笔记本是板载内存，无法添加更换内存条，购买前请查阅资料。
 
-![img](../img/2017112502.png)
+![img](../../img/2017112502.png)
 
 
 有DDR3 ，DDR3L ，DDR4
@@ -101,11 +101,11 @@ tlc：民用，低等，寿命较短，品牌差速度非常不稳定，有几�
 
 固态接口也各有不同，如SATA3，m.sata.，nvme接口，依次如下
 
-![img](../img/2017112503.png)
+![img](../../img/2017112503.png)
 
-![img](../img/2017112504.png)
+![img](../../img/2017112504.png)
 
-![img](../img/2017112505.png)
+![img](../../img/2017112505.png)
 
 不考虑升级固态的朋友无需关注，而且部分笔记本无法更换。
 

@@ -57,23 +57,23 @@ js方式：
 
 normal
 
-![img](../img/2017120501.png)
+![img](../../img/2017120501.png)
 
 nowrap
 
-![img](../img/2017120502.png)
+![img](../../img/2017120502.png)
 
 pre-line
 
-![img](../img/2017120503.png)
+![img](../../img/2017120503.png)
 
 pre
 
-![img](../img/2017120504.png)
+![img](../../img/2017120504.png)
 
 pre-wrap
 
-![img](../img/2017120505.png)
+![img](../../img/2017120505.png)
 
 
 ### word-wrap
