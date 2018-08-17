@@ -4,6 +4,11 @@
 
 异步任务总是在执行栈清空后，从消息队列中取出执行。
 
+macrotasks: setTimeout, setInterval, setImmediate, I/O, UI rendering
+
+microtasks: process.nextTick, Promises, Object.observe(废弃), MutationObserver
+
+
 因此异步任务总是慢于同步任务的，即使是 `settimeout(fun, 0)`
 
 再另外 `Promise` 也是异步调用的一种方式，那么对比 `settimeout` 有什么区别呢?
