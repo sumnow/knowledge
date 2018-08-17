@@ -76,6 +76,10 @@ over！
 
 即文件夹下的文件都授予读写和可执行权限。
 
+> 赋予脚本写权限
+
+    chmod +x test.sh
+
 ### mkdir folderName
 
 创建文件夹
