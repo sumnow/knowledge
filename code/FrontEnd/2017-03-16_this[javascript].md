@@ -142,7 +142,7 @@ this的指向只有在方法调用的时候才能决定。
     };
     obj.getAge(); // 25
 
-其实通过babel编译会发现其实是使用了类似that,self这种方式缓存了this的指向
+其实通过babel编译会发现其实是使用了类似that,self这种方式保存了this的指向
 
 
 

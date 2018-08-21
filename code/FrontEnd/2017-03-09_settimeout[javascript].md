@@ -211,7 +211,7 @@ settimeout中this一般指向window,所以里面获取this都会错误。
     var o = new obj(); 
     o.fn(); 
 
-还有用that,self缓存this指向的方法。
+还有用that,self保存this指向的方法。
 
     function obj() { 
     this.fn = function() { 
