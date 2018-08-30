@@ -11,11 +11,13 @@ vue的diff算法，是用来遍历 `virtual dom` 的改变。
 首先需要定义一个数据结构来表示dom树，
 
     class Vnode {
-        constructor(tag, data, children, text) {
-            this.tag = tag;
-            this.data = data;
-            this.children = children;
-            this.text = text;
+        constructor(obj) {
+            this.el = obj.el;
+            this.tag = obj.tag;
+            this.sel = obj.sel;
+            this.data = obj.data;
+            this.children = obj.children;
+            this.text = obj.text;
         }
     }
 
@@ -44,10 +46,23 @@ vue的diff算法，是用来遍历 `virtual dom` 的改变。
 
 根据这样一个虚拟的dom树就可以使用 `createElement` 方法来遍历，实现真实的节点。
 
-function createElm() {
-
+function _createElement(vnode, p) {
+    const le = document.createElement(vnode.tag)
+    le.appendChild(document.createTextNode(vnode.text))
+    if (vnode.el) {
+        document.querySelector(p).appendChild(le)
+    } else if (p) {
+        document.querySelector(p).appendChild(le)
+    }
+    if (vnode.data) {
+        for (key in vnode.data) {
+            le.setAttribute(key, vnode.data[key])
+        }
+    }
+    if (vnode.children.length > 0) {
+        vnode.children.map(e => _createElement(e, vnode.sel))
+    }
 }
-
 
 
 
