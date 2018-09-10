@@ -21,3 +21,7 @@
 3. `canvas` 在小屏幕机型上的适配,例如,ip5(320), 小米8(360), etc. ,由于没有办法使用 `transfrom` , 应该设置一个系数, 根据 `wx.getSystemInfoSync()` 获取的设备物理像素宽度,来判断系数为多少来完成绘图.
 
 4. `canvas` 绘制了透明图片以后, 使用 `canvasToTempFilePath` 默认保存为png透明背景,但是设置 `fileType: 'jpg'` 就可以保存为白色背景
+
+>  `android` 默认透明保存为黑色背景, `ios` 是白色背景
+
+5. 小程序的开发版, 体验版, 正式版 共用同一个 `storage` , 而 `globalData` 则不同.
