@@ -24,4 +24,50 @@
 
 >  `android` 默认透明保存为黑色背景, `ios` 是白色背景
 
-5. 小程序的开发版, 体验版, 正式版 共用同一个 `storage` , 而 `globalData` 则不同.
+5. 小程序的开发版, 体验版, 正式版 共用同一个 `localStorage` , 而 `globalData` 则不同.
+
+6. 小程序中使用clip切出圆形, 在开发者工具中是没有效果的,但是甄姬是有滴.
+
+
+##### canvas 文字换行
+
+    const obj = {
+      size: 12,
+      // 文字
+      text: 'HELLO',
+      // 行宽
+      width: 270, 
+      // 行高
+      height: 18 
+    };
+
+    // 文字换行, 回车或者超出长度都会换行
+    function textWrap(obj) {
+      ctx.setFontSize(obj.size);
+      var reg = /\n/g;
+      obj.text = obj.text.replace(reg, '灬');
+      let arrText = obj.text.split('');
+      let line = '';
+      let arrTr = [];
+      for (let i = 0; i < arrText.length; i++) {
+        var testLine = line + arrText[i];
+        var metrics = ctx.measureText(testLine);
+        var width = metrics.width;
+        if ((width > obj.width && i > 0) || arrText[i] === '灬') {
+          arrTr.push(line);
+          if (arrText[i] === '灬') {
+            line = '';
+          } else {
+            line = arrText[i];
+          }
+        } else {
+          line = testLine;
+        }
+        if (i == arrText.length - 1) {
+          arrTr.push(line);
+        }
+      }
+      return arrTr;
+    }
+  
+##### canvas 图片剪切
