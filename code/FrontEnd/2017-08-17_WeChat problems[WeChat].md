@@ -2,6 +2,9 @@
 
 ### 微信小程序
 
+
+小程序的开发版, 体验版, 正式版 共用同一个 `localStorage` , 而 `globalData` 则不同.
+
 #### scroll
 
 微信小程序的 `wx.pageScrollTo(OBJECT)` 方法，在部分安卓手机上每次都会滚动到头部，再滚动到目标地方。
@@ -24,9 +27,11 @@
 
 >  `android` 默认透明保存为黑色背景, `ios` 是白色背景
 
-5. 小程序的开发版, 体验版, 正式版 共用同一个 `localStorage` , 而 `globalData` 则不同.
+5. 微信小程序的canvas要隐藏,不可以使用 `visiblity` 或者 `transfrom` 之类, `display:none` 可以隐藏,但是隐藏后,再导出,只会出现一个纯黑(白, 与设备有关)的图片,也不可以设置canvas的大小过小来解决, 使用 `position` 可以解决,但不可以设置 `top:9999px` 这种大值来解决,因为ios设备会无视page的 `overflow:hidden` ,依然是可以滚动的,但是如果设置 `top:-100px` 就不会滚动了.  
 
 6. 小程序中使用clip切出圆形, 在开发者工具中是没有效果的,但是甄姬是有滴.
+
+
 
 
 ##### canvas 文字换行
