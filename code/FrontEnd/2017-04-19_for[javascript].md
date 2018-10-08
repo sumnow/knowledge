@@ -52,6 +52,8 @@ forEach()是Array类型所拥有的方法，因此遍历字符串需要call的�
     })
     log(arr)//["d", "o", "g", " ", "e", "a", "t", " ", "b", "o", "n", "e", "."]
 
+> `forEach` 相比普通的 `for` 循环的优势在于对稀疏数组的处理，会跳过数组中的空位。
+
 ## for in
 
     for(let prop in andy){
