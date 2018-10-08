@@ -100,11 +100,15 @@ js没有后顾
 ## RegExp
 
 ### 属性
+
 #### global multiline ignore 都是只读的boolean型
+
 #### lastIndex 当前匹配结果的最后一个字符的下一个字符
+
 #### source 字面量（不包括g之类）
 
 ### 方法
+
 #### RegExp.prototype.test(str)
 
 有匹配结果返回true，否则false，这里有个小问题
@@ -142,6 +146,23 @@ js没有后顾
 
     'a1b2c3'.search('2')//3
 
-###match
+### match
 
     'a1b2c3'.match(/\d/g)//['1','2','3']
+
+还可以对分组进行匹配,例如
+
+    const reg = /^(\d{4}-(0[0-9]|1[0-2])-(3[0-1]|[0-2][0-9]))_([\S\s]+)\[[\S\s]+\]/;
+    const arrResult = '2017-05-01_大新闻[新闻]'.match(reg)
+    // ["2017-05-01_大新闻[新闻]", "2017-05-01", "05", "01", "大新闻", index: 0, input: "2017-05-01_大新闻[新闻]", groups: undefined]
+
+此时,也会在 `RegExp` 对象上挂载 `$1` , `$2` ... 等属性, 使用 RegExp.$1调用 
+
+### replace
+
+    const reg = /^(\d{4}-(0[0-9]|1[0-2])-(3[0-1]|[0-2][0-9]))_([\S\s]+)\[[\S\s]+\]/;
+    const strResult = '2017-05-01_大新闻[新闻]'.replace(reg, '$1')
+    // 2017-05-01
+
+
+    
