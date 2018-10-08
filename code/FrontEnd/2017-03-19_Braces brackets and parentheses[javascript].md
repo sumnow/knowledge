@@ -3,7 +3,7 @@
 
 主要探究这三个的区别
 
-## /[/]
+## /[/] Brackets
 
     var o = {
         wid:100,
@@ -36,7 +36,7 @@
 3.定义对象成员;
 4.取对象成员;
 
-## ()
+## () Parentheses
 
 ()的语义
 1.函数声明时参数表;
@@ -65,7 +65,7 @@
     typeof (function(){return undefined}())//'undefined'
     typeof (function(){return undefined})//'function'
 
-## {}
+## {} Braces 
 {}的语义
 1.组织复合语句
 
