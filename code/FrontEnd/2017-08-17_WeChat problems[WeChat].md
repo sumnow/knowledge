@@ -81,3 +81,25 @@
     }
   
 ##### canvas 图片剪切
+
+##### 保存到相册授权
+
+用户可能会拒绝授权,而后再次点击保存到相册就没有反应了.
+
+    wx.saveImageToPhotosAlbum({
+      filePath: imgpath,
+      success () {
+        console.log('success saved')
+      },
+      fail () {
+        wx.openSetting({
+          success(settingdata) {
+            if(settingdata.authSetting['scope.writePhotosAlbum']) {
+              console.log('success auth deny')
+            } else {
+              console.log('fail auth deny')
+            }
+          }
+        })
+      }
+    })
