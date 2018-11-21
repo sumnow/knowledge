@@ -3,7 +3,6 @@
 
 ## 冒泡排序
 
-
     function popSort(arr){
         if(arr instanceof Array) {
             for(let i = arr.length ; i > 0  ; i--) {
@@ -15,5 +14,5 @@
             }
         }
         return arr;
-    }   
+    }
     
