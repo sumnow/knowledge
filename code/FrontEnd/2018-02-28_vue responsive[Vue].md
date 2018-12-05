@@ -1,21 +1,19 @@
 # vue responsive theory
 
-    <script>
+    < script >
         const vm = new Vue({
-            el: '#app',
+            el: '#app', 
             data: {
                 message: 'hello'
-            },
-            render (h) {
+            }, 
+            render(h) {
                 return h('div', {}, [
                     h('p', {}, this.message)
                 ])
             }
         })
-
-        setTimeout(()=>{
-            vm.messgae = 'girl'
-        },1000);
-    </script>
+    setTimeout(() => {
+        vm.messgae = 'girl'
+    }, 1000); < /script>
 
     

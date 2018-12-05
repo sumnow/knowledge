@@ -14,19 +14,21 @@
 #### 依赖安装
 
 ```
+
 npm install - g yo generator - code
 ```
 
 这是一个包括cli命令在内的官方开发工具
 
 ```
+
 //cli
 yo code
 ```
 
 需要你填写一些信息, 例如项目名字之类.~~随便填~~
 
-其实也就是一些 `package.json` 里的信息,也可以先对付着,后面再改.
+其实也就是一些 `package.json` 里的信息, 也可以先对付着, 后面再改.
 
 > 注意: 会让你选择使用 `typescript` 或者 `javascript` , 会依据你的选择创建~~极其相似的~~模版.
 
@@ -34,25 +36,24 @@ yo code
 
     file: {
         out: {
-            dir: '输出文件目录',
+            dir: '输出文件目录', 
             cd: {
                 src: {
                     dir: '输出转换后的代码'
-                },
+                }, 
                 test: {
                     dir: '输出测试代码'
                 }
             }
-        },
+        }, 
         src: {
-            dir: '代码目录',
+            dir: '代码目录', 
             cd: {
                 extension.ts: {
                     file: '代码入口'
                 }
             }
         }
-
     }
 
 	

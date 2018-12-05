@@ -1,29 +1,28 @@
 # insertAdjcentHTML
 
-insertAdjcentHTML,可以添加
+insertAdjcentHTML, 可以添加
 
     element.insertAdjcentHTML(position, text)
 
-`position` 可选参数:
+ `position` 可选参数:
 
-- beforebegin : before the ele itself;
+- beforebegin : before the ele itself; 
 
-- afterbegin: inside the ele, before its first child;
+- afterbegin: inside the ele, before its first child; 
 
-- beforend: inside the ele, after its last child;
+- beforend: inside the ele, after its last child; 
 
-- afterend: after the ele itself;
+- afterend: after the ele itself; 
 
     // beforebegin
-    <div>
+    < div >
         // afterbegin
-        <span></span>
+        < span > < /span>
         // beforeend
-    </div>
+        < /div>
     // afterend
 
 ### querySelectorAll
-
 
 ### 上/下一个元素
 
@@ -33,13 +32,12 @@ insertAdjcentHTML,可以添加
 ### 获取/设置属性
 
     el.getAttribute('boo')
-    el.setAttribute('boo','foo')
+    el.setAttribute('boo', 'foo')
 
 ### getComputedStyle
 
     // null 不返回伪类
-    getComputedStyle(el,null).color
-
+    getComputedStyle(el, null).color
 
 ### 设置样式
 
@@ -47,6 +45,6 @@ insertAdjcentHTML,可以添加
 
 ### class
 
-    el.classList.add/remove/toggle
+    el.classList.add / remove / toggle
 
     

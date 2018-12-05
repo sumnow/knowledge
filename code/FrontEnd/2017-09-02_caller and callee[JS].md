@@ -24,6 +24,7 @@ caller是function的属性， 值为调用该函数的函数(若函数为顶层�
     'caller'
     and 'arguments'
     are restricted
+
     function properties and cannot be accessed in this context.
 
 > 严格模式中也无法使用 `arguments` , 且当函数为匿名函数的时候， `callee` 返回 `undefined` 。 

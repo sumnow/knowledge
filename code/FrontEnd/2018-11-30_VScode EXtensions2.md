@@ -8,18 +8,18 @@
 
     file: {
         out: {
-            dir: '输出文件目录',
+            dir: '输出文件目录', 
             cd: {
                 src: {
                     dir: '输出转换后的代码'
-                },
+                }, 
                 test: {
                     dir: '输出测试代码'
                 }
             }
-        },
+        }, 
         src: {
-            dir: '代码目录',
+            dir: '代码目录', 
             cd: {
                 extension.ts: {
                     file: '代码入口'
@@ -35,21 +35,18 @@
     // 注册事件
     let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
         // 页面提示
-        vscode.window.showInformationMessage('Hello World!');
-    });
+        vscode.window.showInformationMessage('Hello World!'); 
+    }); 
     // 在订阅者里放入注册事件
-    context.subscriptions.push(disposable);
+    context.subscriptions.push(disposable); 
 
 再看package.json
 
     // 触发注册事件的行为
-    "activationEvents": [
-        "onCommand:extension.sayHello"
-    ],
-    "contributes": {
+    "activationEvents": ["onCommand:extension.sayHello"], "contributes": {
         // 命令行触发
         "commands": [{
-            "command": "extension.sayHello",
+            "command": "extension.sayHello", 
             "title": "Hello World"
         }]
     }
@@ -60,8 +57,7 @@
 
 然后
 
-    context.subscriptions.push(vscode.languages.registerDocumentFormattingEditProvider(
-        'markdown', {
-            provideDocumentFormattingEdits(document, options, token) {}
-        }))
+    context.subscriptions.push(vscode.languages.registerDocumentFormattingEditProvider('markdown', {
+        provideDocumentFormattingEdits(document, options, token) {}
+    }))
 
