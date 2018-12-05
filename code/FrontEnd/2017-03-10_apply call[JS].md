@@ -11,13 +11,13 @@ apply和call是一个改变上下文环境的方法， 让一个方法可以在�
     }
 
     function Person(name) {
-        this.name = name;
+        this.name = name; 
         this.say = function() {
             console.log('i am ' + this.name)
         }
     }
-    var tom = new Person('tom');
-    var john = new Child('john');
+    var tom = new Person('tom'); 
+    var john = new Child('john'); 
     john.say(); // i am john
 
 结果为： 
@@ -36,13 +36,13 @@ apply和call是一个改变上下文环境的方法， 让一个方法可以在�
             var o = {
                 'prototype': clas.prototype
             }
-            clas.apply(o, arguments);
-            return o;
+            clas.apply(o, arguments); 
+            return o; 
         }
     }
 
     function Person(name) {
-        this.name = name;
+        this.name = name; 
         this.say = function() {
             console.log('i am ' + this.name)
         }
@@ -63,9 +63,9 @@ callee则是arguments专有属性， arguments.callee指向了当前执行当前
 
     var array1 = [12, "foo", {
         name "Joe"
-    }, -2458];
-    var array2 = ["Doe", 555, 100];
-    Array.prototype.push.apply(array1, array2);
+    }, -2458]; 
+    var array2 = ["Doe", 555, 100]; 
+    Array.prototype.push.apply(array1, array2); 
     console.log('array1 值为 ' + array1); // array1 值为 [12 , "foo" , {name "Joe"} , -2458 , "Doe" , 555 , 100]； 
     Array.apply(null, {
         length: 10
@@ -77,10 +77,10 @@ callee则是arguments专有属性， arguments.callee指向了当前执行当前
 
 这是合并数组, 此外还可以求数组的最大最小值, 将页面中的p作为数组输出： 
 
-    var numbers = [5, 458, 120, -215];
+    var numbers = [5, 458, 120, -215]; 
     var maxInNumbers = Math.max.apply(Math, numbers), //458
         var minInNumbers = Math.max.apply(Math, numbers) //-215
-    var domNodes = Array.prototype.slice.call(document.getElementsByTagName("p"));
+    var domNodes = Array.prototype.slice.call(document.getElementsByTagName("p")); 
 
 类数组和数组都有各项和length属性， 不同的只是_proto_中的各种方法。 
 
