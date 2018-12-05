@@ -6,18 +6,20 @@
 ## 进程相关
 
 ### linux 下远程连接
-
+```bash
     ssh -t root@192.168.0.1 -p 22949
     password: xxxxxxx
-
+```
 ##### 退出登录
+```bash
 
     logout
-
+```
 ### 重置密码
+```bash
 
     passwd
-
+```
 ### lsof -i :hostname
 
 检查hostname（端口号）的占用进程。
@@ -25,10 +27,11 @@
 > lsof 在centos下默认没有安装使用 `yum install lsof` 即可。
 
 ### 守护进程
+```bash
 
     $ node serve.js & //后台启动进程
     $ disown
-
+```
 #### 移出最近一个正在执行的后台任务
 
     $ disown
@@ -59,6 +62,7 @@
 我使用 `nohup node server.js &` 命令,然后关闭终端会导致程序依然关闭了。应该在 `nohup node server.js &` 后 ,再单击空格推出 `nohup.out`，然后 `exit`  关闭远程链接。
 
 ### forever 
+```bash
 
     // install global
     npm install forever -g
@@ -68,17 +72,18 @@
     forever start index.js
 
     forever list
-
+```
 >目前测试最为稳定的方法
 
 ## 常用命令与快捷键操作
 
 ### 命令
+```bash
 
     pwd  // 展示当前路径
 
     cd ~  // 打开用户目录 /Users/{username}
-
+```
 ### 快捷键
 
     Ctrl + left/right      // 前进后退页面
