@@ -1,8 +1,10 @@
-# vscode 的插件编写
+# vscode markdown格式化的插件编写
+
+这一篇是介绍开发vscode插件的准备过程以及发布过程, ~~总之就是和代码无关啦~~
+
+具体开发流程可以戳[这里]()
 
 ### 开发准备
-
-
 
 #### 开发工具
 
@@ -24,41 +26,44 @@ yo code
 
 需要你填写一些信息, 例如项目名字之类.~~随便填~~
 
-其实也就是一些 `package.json` 里的信息
+其实也就是一些 `package.json` 里的信息,也可以先对付着,后面再改.
 
 > 注意: 会让你选择使用 `typescript` 或者 `javascript` , 会依据你的选择创建~~极其相似的~~模版.
 
-以 `typescript` 为例, 
+以 `typescript` 为例, 生成的目录如下
 
     file: {
-    	out: {
-    		dir: '输出文件目录',
-    		cd: {
-    			src: {
-    				dir: '输出转换后的代码'
-    			},
-    			test: {
-    				dir: '输出测试代码'
-    			}
-    		}
-    	},
-    	src: {
-    		dir: '代码目录',
-    		cd: {
-    			extension.ts: {
-    				file: '代码入口'
-    			}
-    		}
-    	}
+        out: {
+            dir: '输出文件目录',
+            cd: {
+                src: {
+                    dir: '输出转换后的代码'
+                },
+                test: {
+                    dir: '输出测试代码'
+                }
+            }
+        },
+        src: {
+            dir: '代码目录',
+            cd: {
+                extension.ts: {
+                    file: '代码入口'
+                }
+            }
+        }
 
     }
+
+	
 
 #### 开发
 
 在生成的项目目录下, 打开vscode, `command+shift+D` 打开调试模式, 
 
-
 点击 `Starting Debug` 会打开一个新的VS code窗口, 那个页面就是生效的代码, 每次修改代码后, 需要重新 `Run` .
+
+具体开发流程可以戳[这里]()
 
 ### 插件上传
 
@@ -76,12 +81,11 @@ yo code
 
 然后选择 `Security` 
 
-![2018112901.png](../../img/2018112901.png)
+![img](../../img/2018112901.png)
 
 接着 `add token` , 会自动生成一串token, `organization` 选择 `all accessible organization` , `scope` 选择 `full access` .
 
 > 注意: 生成的token是无法再次打开查看的, 请保存到一个安全的地方, 这是将来你登录自己账户的 `PAT` 
-
 
 ~~为什么我会知道呢?肯定不可能是我后来发现没法登录, 又重新生成了一个~~
 
