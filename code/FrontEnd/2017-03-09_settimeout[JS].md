@@ -171,7 +171,33 @@ animate的变化方法大致为在规定时间内让变动的要素变化。
 
 **这段代码反映了settimeout中将'x()'作为一个语句执行。 类似eval(‘x()’), 而且是在window的context中执行， 而x， 则是标准上下文， 在最近的函数作用域之中生效。 **
 
-##settimeout中关于this
+## settimeout与闭包closure
+
+    for (var i = 0; i < 10; i++) {
+        setTimeout(function() {
+            console.log(i); 
+        }, 100 * i); 
+    }
+
+这是段很有名的函数, 几乎可以说, 经验告诉我们, 它输出的是10个10, 而不是0~9, 究竟为什么呢?
+
+众所周知, settimeout会在eventloop中执行, 且在stack的最后, 那么它会在stack中推入10个 `function(console.log(i))` , 在它推入完成后, for循环也结束了, 开始执行这10个函数, 不出意外, 它开始输出10了.
+
+解决方法么
+
+    for (var i = 0; i < 10; i++) {
+        // capture the current state of 'i'
+        // by invoking a function with its current value
+        (function(i) {
+            setTimeout(function() {
+                console.log(i); 
+            }, 100 * i); 
+        })(i); 
+    }
+
+这也是众所周知的方法了, 通过 `IIFE(Immediately Invoked Function Expression)` 即立即执行函数来解决, 或者使用let声明. 都是在for 里创建一个独立的i变量的临时区域.
+
+## settimeout中关于this
 
 “超时调用的代码都是在全局作用域中执行的， 因此函数中this的值在非严格模式下指向window对象， 在严格模式下是undefined” ----JavaScript高级程序设计
 
@@ -236,7 +262,7 @@ settimeout中this一般指向window, 所以里面获取this都会错误。
     var o = new obj(); 
     o.fn(); 
 
-##setTimeout和setInterval区别
+## setTimeout和setInterval区别
 
 setInterval和setTimeout略有不同， settimeout总是会执行的（尽管有可能延后）， 而setInterval如果间隔时间小于了执行时间， 第一次循环的代码执行之前， 所有后续插入的都会被忽视掉， 因为队列中只会有一份未执行的定时器代码。 
 
