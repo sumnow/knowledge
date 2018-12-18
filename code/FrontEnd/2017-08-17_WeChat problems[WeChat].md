@@ -1,24 +1,24 @@
 # 微信的问题
 
-### 微信小程序
+## 微信小程序
 
 小程序的开发版, 体验版, 正式版 共用同一个 `localStorage` , 而 `globalData` 则不同.
 
-#### scroll
+### scroll
 
 微信小程序的 `wx.pageScrollTo(OBJECT)` 方法， 在部分安卓手机上每次都会滚动到头部， 再滚动到目标地方。 
 
 解决方案： 使用 `scroll-view` 标签。 
 
-#### wepy
+### wepy
 
 使用wepy开发的时候， 需要关闭es6转es5， 以及代码自动压缩， 否则会报错或者出现打包出现问题的情况。 
 
-#### 小程序button
+### 小程序button
 
  `button` 的 `border` 是在其 `::after` 上
 
-#### canvas
+### canvas
 
 1. 微信中 `canvas` 的元素层级最高, 除了 `coverview` 以外, 是不会被覆盖的.
 
@@ -34,7 +34,7 @@
 
 6. 小程序中使用clip切出圆形, 在开发者工具中是没有效果的, 但是甄姬是有滴.
 
-##### canvas 文字换行
+#### canvas 文字换行
 
     const obj = {
         size: 12, 
@@ -49,7 +49,7 @@
     function textWrap(obj) {
         ctx.setFontSize(obj.size); 
         var reg = /\n/g; 
-        obj.text = obj.text.replace(reg, '灬'); 
+        // obj.text = obj.text.replace(reg, '灬'); 
         let arrText = obj.text.split(''); 
         let line = ''; 
         let arrTr = []; 
@@ -57,9 +57,9 @@
             var testLine = line + arrText[i]; 
             var metrics = ctx.measureText(testLine); 
             var width = metrics.width; 
-            if ((width > obj.width && i > 0) || arrText[i] === '灬') {
+            if ((width > obj.width && i > 0) || arrText[i].match(reg)) {
                 arrTr.push(line); 
-                if (arrText[i] === '灬') {
+                if (arrText[i].match(reg)) {
                     line = ''; 
                 } else {
                     line = arrText[i]; 
@@ -74,13 +74,35 @@
         return arrTr; 
     }
 
-  
+#### 组合文字居中
 
-##### canvas 图片剪切
+##### 水平居中
+
+例如: 不同字号或者字体的组合字, 水平居中, 使用下面的方法计算出每个的宽度.
+
+    function handleTexts(_arr = [{
+        text: 'xxx', 
+        style: '14px normal'
+    }]) {
+        return _arr.map(e => {
+            ctx.font = e.style; 
+            return ctx.measureText(e.text).width; 
+        }); 
+    }
+
+##### 垂直居中  
+
+利用上面的 `textWrap` 算出共几行.
+
+再按照行高来判断就好, 没多一行, 各往上下移动半行高度
+
+#### canvas 图片剪切
 
 ##### 保存到相册授权
 
 用户可能会拒绝授权, 而后再次点击保存到相册就没有反应了.
+
+> ps: 这个方法已经被废弃了, 必须使用 `button` 来呼起 `OpenSetting` 
 
     wx.saveImageToPhotosAlbum({
         filePath: imgpath, 
