@@ -1,6 +1,4 @@
-
-
-### 类数组对象与Iterator of
+# 类数组对象与Iterator of
 
 Iterator（遍历器）是一个接口， 实现了该接口的都可以完成遍历操作。 
 
