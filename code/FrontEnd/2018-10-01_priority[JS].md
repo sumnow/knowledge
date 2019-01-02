@@ -82,7 +82,7 @@
     function getName() {
         alert(5); 
     }
-    //请写出以下输出结果： 
+    //请写出以下输出结果: 
     Foo.getName(); //2
     getName(); //4
     Foo().getName(); //1
