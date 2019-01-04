@@ -84,11 +84,9 @@ ACCESS_TOKEN每7200秒需要重新获取一次。
 
  `redirect_url` 为重定向的url ， 且为 `decodeUrl` 转换的url路径， 重定向后在url中携带code参数， 
 
-<<<<<<< HEAD:code/2018-01-14_wx problems.md
 code参数发送往后台， 获取 `ACCESS_TOKEN` , 可以用来获取用户的 `OPENID` 
 
 注意 `redirect_url` 
-=======
 
 > scope 可选参数为 `snsapi_userinfo` 或者 `snsapi_base` 区别在于， `snsapi_base` 只要用户关注了此公众号， 无需要再请求获取用户的信息， 这种方式也只能获取用户的基本信息， 至于 `snsapi_userinfo` 则可以获取用户的高级信息， 但也需要用户手动授权。 
 
@@ -106,5 +104,4 @@ code参数发送往后台， 获取 `ACCESS_TOKEN` , 后台凭借 `ACESS_TOKEN` 
 
 理论上， 用户关注了几个公众号就拥有几个 `openid` ， 而 `unionid` 是归属同一个集团下的所有公众号标记同一个用户的编码。 即使用 `unionid` 可以让多个公众号， 认证到同一个用户的身份， 以达成用户信息的互通， 用于免登陆等等。 
 
->>>>>>> e261c94427ab6cd523c6e1841bb0692ba07e0bfb:code/2018-01-14_wx problems[Project].md
 
