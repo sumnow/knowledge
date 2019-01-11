@@ -1,0 +1,46 @@
+# npm命令和nrm
+
+## npm
+
+更新
+
+```bash
+//update
+npm install -g npm
+//update to version
+npm -g install npm@2.9.1
+```
+
+安装cnpm
+
+```bash
+npm install -g cnpm --registry=http://registry.npm.taobao.org
+```
+
+切换npm仓库
+
+```bash
+// 切换仓库
+npm config set registry https: //registry.npm.taobao.org 
+// 查看仓库
+npm config get registry
+```
+
+## 使用nrm管理
+
+安装
+
+```bash
+npm install -g nrm
+// 查看可选仓库
+nrm ls
+```
+
+添加仓库
+
+```bash
+nrm add tuniu http://registry.npmjs.org
+// 使用仓库
+nrm use tuniu 
+```
+
