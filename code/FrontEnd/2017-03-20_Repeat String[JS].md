@@ -1,10 +1,10 @@
 # 重复输出字符串
 
-在 String 对象上定义一个 repeatify 函数。 这个函数接受一个整数参数， 来明确字符串需要重复几次。 这个函数要求字符串重复指定的次数。 
+在 String 对象上定义一个 repeatify 函数。 这个函数接受一个整数参数, 来明确字符串需要重复几次。 这个函数要求字符串重复指定的次数。 
 
-所有的字符串的方法应该添加到String函数构造出的所有字符串上， 首先应当判断是否已经有了这个方法， 没有则添加。 
+所有的字符串的方法应该添加到String函数构造出的所有字符串上, 首先应当判断是否已经有了这个方法, 没有则添加。 
 
-最简单的循环方式： 
+最简单的循环方式: 
 
     String.prototype.repeatify = String.prototype.repeatify || function(times) {
         var str = ''; 
@@ -23,7 +23,7 @@
     }; 
     console.log('asd'.repeatify(3.1))
 
-， 以下省略判断正整数， while循环模式： 
+, 以下省略判断正整数, while循环模式: 
 
     String.prototype.repeatify = String.prototype.repeatify || function(times) {
         var str = ''; 
@@ -44,7 +44,7 @@
             }
             return str.join(''); 
 
-递归也可以达到效果： 
+递归也可以达到效果: 
 
     String.prototype.repeatify = String.prototype.repeatify || function(times) {
         var str = ''; 
@@ -61,7 +61,7 @@
     }; 
     console.log('asd'.repeatify(3)) //'asdasdasd'
 
-es6中String有repeat方法， 接受一个[0, 无穷)的整数
+es6中String有repeat方法, 接受一个[0, 无穷)的整数
 
     String.prototype.repeatify = String.prototype.repeatify || function(times) {
         return times > 0 ? this.repeat(times) : ''

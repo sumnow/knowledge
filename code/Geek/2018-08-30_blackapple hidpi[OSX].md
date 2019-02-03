@@ -8,4 +8,4 @@
     ~/enable-HiDPI.sh
 ```
 
-重启， 使用RDM（见附件）选择HiDPI分辨率。 
+重启, 使用RDM(见附件)选择HiDPI分辨率。 

@@ -90,9 +90,9 @@ HMAC 加密:
 
 #### 使用https, get请求的url是否被加密
 
-是的，HTTPS对URL加密了。SSL连接建立在TCP层和HTTP层之间。客户端和服务器首先建立一个安全的加密的TCP连接(通过SSL/TLS协议)，然后客户端将通过该加密的TCP连接发送HTTP请求(GET，POST，DELETE ...)。
+是的, HTTPS对URL加密了。 SSL连接建立在TCP层和HTTP层之间。 客户端和服务器首先建立一个安全的加密的TCP连接(通过SSL/TLS协议), 然后客户端将通过该加密的TCP连接发送HTTP请求(GET, POST, DELETE ...)。 
 
-由于请求URL是一个HTTP事物(OSI第7层)，因此URL的其余部分(/path/?some=parameters&go=here)在ClientHello中看不到，因此它永远不会在TLS握手(第4层或第5层)中显示。
+由于请求URL是一个HTTP事物(OSI第7层), 因此URL的其余部分(/path/?some=parameters&go=here)在ClientHello中看不到, 因此它永远不会在TLS握手(第4层或第5层)中显示。 
 
 --- 
 

@@ -14,13 +14,15 @@ insertAdjcentHTML, 可以添加
 
 - afterend: after the ele itself; 
 
+```html
     // beforebegin
-    < div >
+    <div>
         // afterbegin
-        < span > < /span>
+        <span> </span>
         // beforeend
-        < /div>
+    </div>
     // afterend
+```
 
 ### querySelectorAll
 

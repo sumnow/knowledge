@@ -11,7 +11,7 @@ parseInt(string, radix)
 
     parseInt(17, 8) // 8+7 = 15
 
-“破案了。 ”
+"破案了。 "
 
 .map(callback[, thisObj])
 

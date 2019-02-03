@@ -2,7 +2,7 @@
 
 ### Array.from
 
-从一个类似数组（如NodeList, arguments）或可迭代对象（如map， set, `string既是数组又是可迭代对象` ）创建一个新的数组实例。 
+从一个类似数组(如NodeList, arguments)或可迭代对象(如map, set, `string既是数组又是可迭代对象` )创建一个新的数组实例。 
 
     //字符串转换
     Array.from('foo'); 

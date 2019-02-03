@@ -13,15 +13,13 @@
 
 #### 依赖安装
 
-```
-
+```bash
 npm install - g yo generator - code
 ```
 
 这是一个包括cli命令在内的官方开发工具
 
-```
-
+```bash
 //cli
 yo code
 ```
@@ -74,7 +72,7 @@ yo code
 
 去 [marketPlace](https://marketplace.visualstudio.com/) 注册一个账号用来发布包
 
-“是, 确定......”常规的邮箱注册流程...
+"是, 确定......"常规的邮箱注册流程...
 
 #### 创建组织以及PAT(Personal Access Token)
 

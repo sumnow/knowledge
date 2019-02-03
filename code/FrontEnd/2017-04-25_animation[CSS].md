@@ -41,6 +41,6 @@
         html.addEventListener("animationend", end); 
         //开始执行动画
         html.style.animation = html.style.WebkitAnimation = "test 1s linear 0s 3"; 
-        }; 
+    }; 
 
 ```

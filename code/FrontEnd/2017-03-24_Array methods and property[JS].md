@@ -4,7 +4,7 @@
 
 ### Array.length
 
-## Array的方法： 
+## Array的方法: 
 
 ### Array.of
 
@@ -25,7 +25,7 @@ arrary新建数组
 
 ### Array.from
 
-从一个类似数组（如NodeList, arguments）或可迭代对象（如map， set, `string既是数组又是可迭代对象` ）创建一个新的数组实例。 
+从一个类似数组(如NodeList, arguments)或可迭代对象(如map, set, `string既是数组又是可迭代对象` )创建一个新的数组实例。 
 
     //字符串转换
     Array.from('foo'); 
@@ -68,7 +68,7 @@ arrary新建数组
 
 ### Array.prototype.concat() 
 
-用于合并两个或多个数组。 此方法不会更改现有数组， 而是返回一个新数组。 
+用于合并两个或多个数组。 此方法不会更改现有数组, 而是返回一个新数组。 
 
     let arr1 = ["a", "b", "c"]; 
     let arr2 = ["d", "e", "f"]; 
@@ -83,7 +83,7 @@ arrary新建数组
 
 ### Array.prototype.entries
 
-返回一个新的Array Iterator对象， 该对象包含数组中每个索引的键/值对。 
+返回一个新的Array Iterator对象, 该对象包含数组中每个索引的键/值对。 
 
     var arr = ["a", "b", "c"]; 
     var iterator = arr.entries(); 
@@ -105,14 +105,14 @@ arrary新建数组
     // [0, "a"] 
     // [1, "b"] 
     // [2, "c"]
-    使用解构， 会更加清晰
+    使用解构, 会更加清晰
     for (const [index, elem] of arr.entries()) {
         console.log(index + '. ' + elem); 
     }
 
 ### Array.prototype.every()
 
-every() 方法测试数组的所有元素是否 `都` 通过了指定函数的测试。 都通过就返回true， 否则返回false
+every() 方法测试数组的所有元素是否 `都` 通过了指定函数的测试。 都通过就返回true, 否则返回false
 
     function isBigEnough(element, index, array) {
         return (element >= 10); 
@@ -122,7 +122,7 @@ every() 方法测试数组的所有元素是否 `都` 通过了指定函数的�
     passed = [12, 54, 18, 130, 44].every(isBigEnough); 
     // passed is true
 
-让不支持every的浏览器支持： 
+让不支持every的浏览器支持: 
 
     if (!Array.prototype.every) {
         Array.prototype.every = function(fun /*, thisArg */ ) {
@@ -155,7 +155,7 @@ some()方法测试数组中的某些元素是否通过由提供的函数实现�
 
 数组填充
 
-arr .fill（value(填充的值)， start(开始索引， 可选) ， end(结束索引)）
+arr .fill(value(填充的值), start(开始索引, 可选) , end(结束索引))
 
     [1, 2, 3].fill(4); // [4, 4, 4]
     [1, 2, 3].fill(4, 1); // [1, 4, 4]
@@ -196,12 +196,12 @@ arr .fill（value(填充的值)， start(开始索引， 可选) ， end(结束�
         return result; 
     }; 
     [1, 4, 7, 2, 10].sum(); // 24
-    //不传统求和， 在数组极长的时候效率会指数提高
+    //不传统求和, 在数组极长的时候效率会指数提高
     eval([1, 4, 7, 2, 10].join('+')) //24
 
 ### Array .prototype .filter()
 
-过滤不符合要求的元素， filter是不会改变远数组的， 有点类似every()， 但every返回的是boolean
+过滤不符合要求的元素, filter是不会改变远数组的, 有点类似every(), 但every返回的是boolean
 
     function isBigEnough(value) {
         return value >= 10; 
@@ -262,7 +262,7 @@ findIndex()方法返回数组中满足提供的测试功能的第一个元素的
 
 ### Array.prototype.includes()
 
-includes()方法确定数组是否包含某个元素， 返回true或false。 
+includes()方法确定数组是否包含某个元素, 返回true或false。 
 
     [1, 2, 3].includes(2); // true
     [1, 2, 3].includes(4); // false
@@ -272,7 +272,7 @@ includes()方法确定数组是否包含某个元素， 返回true或false。
 
 ### Array.prototype.indexOf()
 
-indexOf()方法返回在数组中可以找到给定元素的第一个索引， 如果不存在则返回-1。 
+indexOf()方法返回在数组中可以找到给定元素的第一个索引, 如果不存在则返回-1。 
 
     var array = [2, 9, 9]; 
     array.indexOf(2); // 0
@@ -283,7 +283,7 @@ indexOf()方法返回在数组中可以找到给定元素的第一个索引， �
 
 ### Array.prototype.join()
 
-把数组（或数组类对象）的所有元素连接到字符串中。 
+把数组(或数组类对象)的所有元素连接到字符串中。 
 
     var a = ['Wind', 'Rain', 'Fire']; 
     a.join(); // 'Wind, Rain, Fire'
@@ -295,7 +295,7 @@ indexOf()方法返回在数组中可以找到给定元素的第一个索引， �
 
 ### Array.prototype.pop()
 
-该pop()方法从数组中删除最后一个元素， 并返回该元素。 此方法更改数组的长度。 
+该pop()方法从数组中删除最后一个元素, 并返回该元素。 此方法更改数组的长度。 
 
 ### Array.prototype.push()
 
@@ -307,27 +307,27 @@ indexOf()方法返回在数组中可以找到给定元素的第一个索引， �
 
 ### Array.prototype.unshift()
 
-unshift()方法将一个或多个元素添加到数组的开头， 并返回新数组的新长度。 
+unshift()方法将一个或多个元素添加到数组的开头, 并返回新数组的新长度。 
 
 ### Array.prototype.reserve()
 
-该reverse()方法将阵列反转到位。 第一个数组元素成为最后一个数组元素， 最后一个数组元素成为第一个。 
+该reverse()方法将阵列反转到位。 第一个数组元素成为最后一个数组元素, 最后一个数组元素成为第一个。 
 
 ### Array.prototype.splice()
 
-    array.splice（ start， deleteCount， item1， item2， ...）
-    //从下标start开始， 删除deleteCount个元素， 然后插入item1, item2...
+    array.splice( start, deleteCount, item1, item2, ...)
+    //从下标start开始, 删除deleteCount个元素, 然后插入item1, item2...
 
 通过删除现有元素和/或添加新元素来更改数组的内容。 
 
 ### Array.prototype.slice()
 
     arr.slice(begin, end)
-    //begin, end可省略， 默认为开始和结尾
+    //begin, end可省略, 默认为开始和结尾
 
-把数组从begin到end（并不包括end）的部分浅拷贝到新的数组对象。 原始数组不会被修改。 
+把数组从begin到end(并不包括end)的部分浅拷贝到新的数组对象。 原始数组不会被修改。 
 
-silce省略参数， 可以把类数组的形式(具有length)转换到数组
+silce省略参数, 可以把类数组的形式(具有length)转换到数组
 
     function list() {
         return Array.prototype.slice.call(arguments); 
@@ -336,8 +336,8 @@ silce省略参数， 可以把类数组的形式(具有length)转换到数组
 
 ### Array.prototype.sort()
 
-sort()方法排序的数组的元素代替， 并返回该数组。 
-参数为定义排序顺序的函数。 如果省略， 则根据每个字符的Unicode代码点值， 根据每个元素的字符串转换对数组进行排序。 
+sort()方法排序的数组的元素代替, 并返回该数组。 
+参数为定义排序顺序的函数。 如果省略, 则根据每个字符的Unicode代码点值, 根据每个元素的字符串转换对数组进行排序。 
 
     var numbers = [4, 2, 5, 1, 3]; 
     numbers.sort(function(a, b) {

@@ -6,7 +6,7 @@
 
     typeof null //object
     typeof undefined //undefined
-    //typeof string , boolean等都是undefined， 这些是未定义的变量
+    //typeof string , boolean等都是undefined, 这些是未定义的变量
     //undefined则是属性就是undefined
     typeof 'str' //string
     typeof true //boolean
@@ -15,7 +15,7 @@
     //是没有Null这个内置的变量属性的
     typeof String //function
     typeof [1, 2, 3] //object
-    //typeof只能判断基础数据类型， Date, RegExp， Array都只是object的扩展！ 
+    //typeof只能判断基础数据类型, Date, RegExp, Array都只是object的扩展! 
     //使用instanceof可以判断
     [1, 2, 3] instanceof Array //true
 
@@ -30,7 +30,7 @@ null与undefined没有任何方法
 
     console.log(String); 
 
-String的属性有： 
+String的属性有: 
 
 ### constructor //创建函数的对象
 
@@ -42,9 +42,9 @@ String的属性有：
 
 ### arguments:null //传入参数
 
-### caller:null //调用的函数， 因为是顶层返回null
+### caller:null //调用的函数, 因为是顶层返回null
 
-String函数有： 
+String函数有: 
     
 
 ### fromCharCode//从若干 Unicode 字符值中返回一个字符串。 无参则返回空字符串
@@ -109,7 +109,7 @@ String的方法(弃用的方法就不举例了)
 
 返回一个 Unicode UTF-16 字符的码位。 
 
-### concat 方法（字符串）
+### concat 方法(字符串)
 
 返回由提供的两个字符串串联而成的字符串。 
 
@@ -118,14 +118,14 @@ String的方法(弃用的方法就不举例了)
 
 ### EndsWith 方法
 
-返回一个布尔值， 该值指示字符串或子字符串是否以传入字符串结尾。 
+返回一个布尔值, 该值指示字符串或子字符串是否以传入字符串结尾。 
 
 ### includes 方法
 
-返回一个布尔值， 该值指示传入字符串是否包含在字符串对象中。 
+返回一个布尔值, 该值指示传入字符串是否包含在字符串对象中。 
 
     "abcde".includes("cd") //true
-    "abcde".includes("cd", 2) //true 以2为索引， 从第3个字符开始匹配
+    "abcde".includes("cd", 2) //true 以2为索引, 从第3个字符开始匹配
     "abcde".includes("CD") //false
     "abcde".includes("cd", 3) //false
 
@@ -143,13 +143,13 @@ String的方法(弃用的方法就不举例了)
 
 ### hasOwnProperty 方法
 
-返回一个布尔值， 该值指示某个对象是否具有指定名称的属性。 (是不会寻找原型链的)
+返回一个布尔值, 该值指示某个对象是否具有指定名称的属性。 (是不会寻找原型链的)
 
     var s = new String("Sample"); 
     log(s.hasOwnProperty("split")); //false
     log(String.prototype.hasOwnProperty("split")); //true
 
-### indexOf 方法（字符串）
+### indexOf 方法(字符串)
 
 返回字符串内第一次出现子字符串的字符位置。 
 
@@ -162,7 +162,7 @@ String的方法(弃用的方法就不举例了)
 
 ### isPrototypeOf 方法
 
-返回一个布尔值， 该值指示某个对象是否存在于另一个对象的原型链中。 
+返回一个布尔值, 该值指示某个对象是否存在于另一个对象的原型链中。 
 
     function Rectangle() {}
     var rec = new Rectangle(); 
@@ -172,14 +172,14 @@ String的方法(弃用的方法就不举例了)
 
 将 HTML I 标记放置在文本两侧。 
 
-### lastIndexOf 方法（字符串）
+### lastIndexOf 方法(字符串)
 
-返回字符串内子字符串的最后一个匹配项。 类似indexOf, 索引值startindex如果 startindex 为负， 则 startindex 将被视为零。 如果它大于最大字符位置索引， 则将它视为可能的最大索引。 
-搜索将从字符串中的最后一个字符开始执行。 否则， 该方法和 indexOf 相同。 
+返回字符串内子字符串的最后一个匹配项。 类似indexOf, 索引值startindex如果 startindex 为负, 则 startindex 将被视为零。 如果它大于最大字符位置索引, 则将它视为可能的最大索引。 
+搜索将从字符串中的最后一个字符开始执行。 否则, 该方法和 indexOf 相同。 
 
 ### localeCompare 方法
 
-返回一个值， 该值指示两个字符串在当前区域设置中是否相等。 
+返回一个值, 该值指示两个字符串在当前区域设置中是否相等。 
 
 ### match 方法
 
@@ -199,11 +199,11 @@ String的方法(弃用的方法就不举例了)
 
 ### propertyIsEnumerable 方法
 
-返回一个布尔值， 该值指示指定属性是否为对象的一部分且是否可枚举。 
+返回一个布尔值, 该值指示指定属性是否为对象的一部分且是否可枚举。 
 
 ### repeat 方法
 
-返回一个新的字符串对象， 它的值等于重复了指定次数的原始字符串。 
+返回一个新的字符串对象, 它的值等于重复了指定次数的原始字符串。 
     
 
     "abc".repeat(3); //'abcabcabc'
@@ -236,7 +236,7 @@ String的方法(弃用的方法就不举例了)
     pos = src.search(re); 
     log(pos); //9
 
-### slice 方法（字符串）
+### slice 方法(字符串)
 
 返回字符串的片段。 
 
@@ -259,7 +259,7 @@ String的方法(弃用的方法就不举例了)
 
 ### StartsWith 方法
 
-返回一个布尔值， 该值指示字符串或子字符串是否以传入字符串开头。 
+返回一个布尔值, 该值指示字符串或子字符串是否以传入字符串开头。 
 
 ### strike 方法
 
@@ -282,10 +282,10 @@ String的方法(弃用的方法就不举例了)
 ### substring 方法
 
 返回 String 对象中指定位置处的子字符串。 
-substring 方法将返回一个字符串， 该字符串包含从 start 直到 end（不包含该参数）的子字符串。 
-substring 方法使用 start 和 end 两者中的较小值作为子字符串的起始点。 例如， strvar.substring(0, 3) 和 strvar.substring(3, 0) 将返回相同的子字符串。 
-如果 start 或 end 为 NaN 或负数， 那么它将被替换为 0。 
-子字符串的长度等于 start 和 end 之差的绝对值。 例如， 在 strvar.substring(0, 3) 和 strvar.substring(3, 0) 中， 返回的子字符串的长度为 3。 
+substring 方法将返回一个字符串, 该字符串包含从 start 直到 end(不包含该参数)的子字符串。 
+substring 方法使用 start 和 end 两者中的较小值作为子字符串的起始点。 例如, strvar.substring(0, 3) 和 strvar.substring(3, 0) 将返回相同的子字符串。 
+如果 start 或 end 为 NaN 或负数, 那么它将被替换为 0。 
+子字符串的长度等于 start 和 end 之差的绝对值。 例如, 在 strvar.substring(0, 3) 和 strvar.substring(3, 0) 中, 返回的子字符串的长度为 3。 
 
     var s = "advance"; 
     var ss1 = s.substring(1, 3); //dv
@@ -297,7 +297,7 @@ substring 方法使用 start 和 end 两者中的较小值作为子字符串的�
 
 ### toLocaleLowerCase 方法
 
-返回一个字符串， 其中所有字母字符都转换为小写形式， 并将考虑主机环境的当前区域设置。 
+返回一个字符串, 其中所有字母字符都转换为小写形式, 并将考虑主机环境的当前区域设置。 
 
 ### toLocaleString 方法
 
@@ -305,11 +305,11 @@ substring 方法使用 start 和 end 两者中的较小值作为子字符串的�
 
 ### toLocaleUpperCase 方法
 
-返回一个字符串， 其中所有字母字符都转换为大写形式， 并将考虑主机环境的当前区域设置。 
+返回一个字符串, 其中所有字母字符都转换为大写形式, 并将考虑主机环境的当前区域设置。 
 
 ### toLowerCase 方法
 
-返回一个字符串， 其中所有字母字符都转换为小写形式。 
+返回一个字符串, 其中所有字母字符都转换为小写形式。 
 
 ### toString 方法
 
@@ -317,7 +317,7 @@ substring 方法使用 start 和 end 两者中的较小值作为子字符串的�
 
 ### toUpperCase 方法
 
-返回一个字符串， 其中所有字母字符都转换为大写形式。 
+返回一个字符串, 其中所有字母字符都转换为大写形式。 
 
 ### trim 方法
 
@@ -327,9 +327,9 @@ substring 方法使用 start 和 end 两者中的较小值作为子字符串的�
 
 返回字符串。 与indexOf方法相同
 
-### padStart()， padEnd()
+### padStart(), padEnd()
 
-如果某个字符串不够指定长度， 会在头部或尾部补全。 padStart()用于头部补全， padEnd()用于尾部补全。 
+如果某个字符串不够指定长度, 会在头部或尾部补全。 padStart()用于头部补全, padEnd()用于尾部补全。 
 
     'x'.padStart(5, 'ab') // 'ababx'
     'x'.padStart(4, 'ab') // 'abax'

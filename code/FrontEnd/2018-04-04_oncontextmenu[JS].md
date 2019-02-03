@@ -10,7 +10,7 @@
             return false; 
         }); 
 
-    <body oncontextmenu=”return false”></body>
+    <body oncontextmenu="return false"></body>
 
     <body oncopy="returnfalse">  
     //禁止复制

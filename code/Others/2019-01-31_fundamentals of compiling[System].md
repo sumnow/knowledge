@@ -2,16 +2,16 @@
 
 在阅读本文前, 不妨思考一下这几个问题, 如果没有头绪, 建议看完文章以后再思考一遍。 如果觉得答案显而易见, 恭喜你, 这篇文章并非为你准备的:
 
-什么是编译器, 它以什么为分界线, 分为前端和后端？ 
-Java 是编译型语言还是解释型语言, Python 呢？ 
-C 语言的编译器也是 C 语言, 那它怎么被编译的？ 
-目标文件的格式是什么样的, 段表、 符号表、 重定位表有什么作用？ 
-Swift 是静态语言, 为什么还有运行时库？ 
-什么是 ABI, ABI 不稳定有什么问题？ 
-什么是 WebAssembly, 为什么要推出这门技术, 用 C++ 代替 JavaScript 可行么？ 
-JavaScript 和 DOM API 是什么关系, JavaScript 可以读写文件么？ 
-C++ 代码可以自动转换成 Java 代码么, 任意两种语言是否可以互转？ 
-为什么说 Python 是胶水语言, 它可以用来开发 iOS/Android 么？ 
+1. 什么是编译器, 它以什么为分界线, 分为前端和后端？ 
+2. Java 是编译型语言还是解释型语言, Python 呢？ 
+3. C 语言的编译器也是 C 语言, 那它怎么被编译的？ 
+4. 目标文件的格式是什么样的, 段表、 符号表、 重定位表有什么作用？ 
+5. Swift 是静态语言, 为什么还有运行时库？ 
+6. 什么是 ABI, ABI 不稳定有什么问题？ 
+7. 什么是 WebAssembly, 为什么要推出这门技术, 用 C++ 代替 JavaScript 可行么？ 
+8. JavaScript 和 DOM API 是什么关系, JavaScript 可以读写文件么？ 
+9. C++ 代码可以自动转换成 Java 代码么, 任意两种语言是否可以互转？ 
+10. 为什么说 Python 是胶水语言, 它可以用来开发 iOS/Android么？ 
 
 ## 编译原理
 
@@ -488,7 +488,6 @@ class UIView:
 首先, OCS 基于 clang 对下发的 Objective-C 代码做词法、 语法分析, 生成 AST 然后转化成自定义的一套中间码(OSScript)。 当然, 原生的 Objective-C 可以运行, 绝不仅仅是编译器的功劳。 就像之前反复强调的那样, 运行时环境也必不可少, 比如负责 GCD 的 libdispatch 库, 还有内存管理, 多线程等等功能。 这些功能原来都由系统的动态库实现, 但现在必须由解释器实现, 所以 OCS 的做法是开发了一套自己的虚拟机去解释执行中间码。 这个运行原理就和 JVM 非常类似了。 
 
 当然, 最终还是要和 Objective-C 的 Runtime 打交道, 这样才能调用 UIKit 等框架。 由于对虚拟机的实现原理并不清楚, 这里就不敢多讲了, 希望在学习完 JVM 以后再做分享。 
-
 
 [原文地址](http://fullstack.blog/2017/06/24/%E5%A4%A7%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%80%85%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E5%9F%BA%E7%A1%80%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%92%8C%E8%AF%AD%E8%A8%80%E7%9F%A5%E8%AF%86/?nsukey=9G4zvSOVCA0b49Ng4rhqNHkw55dE1OsVGQ3exvS12Nfchm8N38y5eU8Aw2VaHY72/yPT0cyMQK2ewKJjU6F0EqDj3rkpTv/EFl10CW6zk/29dY8DlDLjxh0YRyQFZvmUN4xWwW3e16mpXMDjKu4LVje6cwykadEMWU4klPXFOXWYLBZKqc1ocxBZCnTAH7ZF)
 

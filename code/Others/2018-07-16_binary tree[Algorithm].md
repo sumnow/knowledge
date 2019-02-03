@@ -9,21 +9,21 @@ All internal nodes have degree 2.**
 
 ### Complete Binary Tree
 
-**A Complete Binary Tree （CBT) is a binary tree in which every level, 
+**A Complete Binary Tree (CBT) is a binary tree in which every level, 
 except possibly the last, is completely filled, and all nodes 
 are as far left as possible.**
 
-> 子节点需要左侧对齐， 且除去最后一层即为PBT
+> 子节点需要左侧对齐, 且除去最后一层即为PBT
 
 Perfect Binary Tree 是 Complete Binary Tree 的子集。 即 `The tree is  a Perfect Binary Tree` 是 `The tree is a Computed Binary Tree` 充分不必要条件。 
 
 ### Common Binary Tree
 
-1. 若二叉树的层次从0开始， 则在二叉树的第i层至多有2^i个结点(i>=0)。 
+1. 若二叉树的层次从0开始, 则在二叉树的第i层至多有2^i个结点(i>=0)。 
 
 2. 高度为k的二叉树最多有2^(k+1) - 1个结点(k>=-1)。 (空树的高度为-1)
 
-3. 对任何一棵二叉树， 如果其叶子结点(degree为0)数为m, 度为2的结点数为n, 则m = n + 1。 
+3. 对任何一棵二叉树, 如果其叶子结点(degree为0)数为m, 度为2的结点数为n, 则m = n + 1。 
 
 ### Binary Tree struct
 
@@ -37,9 +37,9 @@ Perfect Binary Tree 是 Complete Binary Tree 的子集。 即 `The tree is  a Pe
 
 每层的节点数为[1, 2, 4, 8, 2^n] (n从0开始)
 
-每层的节点下标为[ 2^n , 2^(n+1) - 1 ]（下标从1开始）
+每层的节点下标为[ 2^n , 2^(n+1) - 1 ](下标从1开始)
 
-下标为i的节点， 其左子节点为 2 * i , 右子节点为 2 * i + 1
+下标为i的节点, 其左子节点为 2 * i , 右子节点为 2 * i + 1
 
 以先序遍历举例
 

@@ -12,7 +12,7 @@ js 本身是没有惰性求值的, 这个会导致一些问题, 例如一些特�
 
 那么我们写一个惰性求值的函数
 
-    function getTime(){
+    function getTime() {
         var date = new Date()
         getTime = function() {
             return date

@@ -9,7 +9,7 @@ Object 对象的属性有 `Object.prototype` , `Object.prototype.__proto__` , `O
     
  `Object.assign()` 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。 它将返回目标对象。 
 
-拷贝的值如果时引用属性， 会依然存在引用关系， 应当生成一个新对象来解决这个问题。 
+拷贝的值如果时引用属性, 会依然存在引用关系, 应当生成一个新对象来解决这个问题。 
 
     // deep clone 
     obj1 = {
@@ -25,7 +25,7 @@ Object 对象的属性有 `Object.prototype` , `Object.prototype.__proto__` , `O
 
 ## Object.freeze()
 
-冻结一个对象， 使得无法添加修改删除其属性， 也无法修改可枚举性， 可配置性， 可写性。 
+冻结一个对象, 使得无法添加修改删除其属性, 也无法修改可枚举性, 可配置性, 可写性。 
 
     var obj = {
         aoo: 12, 
@@ -36,7 +36,7 @@ Object 对象的属性有 `Object.prototype` , `Object.prototype.__proto__` , `O
     obj.aoo = 3
     // throw a TypeError
 
-但如果冻结的属性是对象的话， 就可以了， 因为并没有改变其指向。 
+但如果冻结的属性是对象的话, 就可以了, 因为并没有改变其指向。 
 
     var obj = {
             aoo: {}
@@ -71,7 +71,7 @@ Object 对象的属性有 `Object.prototype` , `Object.prototype.__proto__` , `O
 ## Object.prototype.propertyIsEnumerable(prop)
 
     obj.propertyIsEnumerable(prop)
-    //返回一个bool， 判断指定的属性是否可枚举。 
+    //返回一个bool, 判断指定的属性是否可枚举。 
 
 ## Object.getOwnPropertyNames(obj)
 
@@ -92,11 +92,11 @@ Object 对象的属性有 `Object.prototype` , `Object.prototype.__proto__` , `O
 
     Object.seal(obj)
 
-将一个对象密封， 密封对象不可添加新属性， 而且会把已有属性的configurable置为false， 但writable为true的依然可以被修改。 
+将一个对象密封, 密封对象不可添加新属性, 而且会把已有属性的configurable置为false, 但writable为true的依然可以被修改。 
 
 ## Object.entries(obj)
 
- `Object.entries()` 方法返回一个给定对象自身可枚举属性的键值对数组， 其排列与使用 for...in 循环遍历该对象时返回的顺序一致（区别在于 for-in 循环也枚举原型链中的属性）。 
+ `Object.entries()` 方法返回一个给定对象自身可枚举属性的键值对数组, 其排列与使用 for...in 循环遍历该对象时返回的顺序一致(区别在于 for-in 循环也枚举原型链中的属性)。 
 
     const obj = {
         foo: 'bar', 

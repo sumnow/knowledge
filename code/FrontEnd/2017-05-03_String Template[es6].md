@@ -3,12 +3,12 @@
     var name = "Jerry", 
         name2 = "Tom"; 
     console.log(`Hi, ${name}
-        hello， ${name2}`); 
+        hello, ${name2}`); 
 
-结果： 
+结果: 
 
 > Hi, Jerry        
-> hello， Tom
+> hello, Tom
 
 可以使用变量替代模版里的数据, 如果要
 
@@ -30,9 +30,9 @@
     tag(['Hello ', ' world ', ''], 15, 50); 
     console.log `Hello ${ a + b } world ${ a * b }` ; //['Hello ', ' world ', ''], 15, 50
 
-第一个参数是一个数组， 是把所有不需要替换的字符串分组， 结尾是一个''空字符， 之后的参数都是需要替换的变量， 理论上来说 `数组长度-1 = 替换变量数` 
+第一个参数是一个数组, 是把所有不需要替换的字符串分组, 结尾是一个''空字符, 之后的参数都是需要替换的变量, 理论上来说 `数组长度-1 = 替换变量数` 
 
-标签模版可以过滤用户的输入， 防止恶意代码
+标签模版可以过滤用户的输入, 防止恶意代码
 
     function SaferHTML(templateData) {
         var s = templateData[0]; 

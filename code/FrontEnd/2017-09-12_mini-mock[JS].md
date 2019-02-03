@@ -4,13 +4,13 @@
 
 > 服务器地址为 `http://138.128.192.220:8080/` 
 
-使用方法如下， 例如有接口文档如下： 
+使用方法如下, 例如有接口文档如下: 
 
     Reuquest: userid(string)
     Response: phonenumber(int)
     username(string)
 
-然后， 代码如下： 
+然后, 代码如下: 
 
     $.ajax({
         url: 'http://138.128.192.220:8080/phonenumber', 
@@ -18,7 +18,7 @@
         message
     })
 
-message的值如下： 
+message的值如下: 
 
     $m.obj({
         phonenumber: $m.str_num(13, 13), 
@@ -38,7 +38,7 @@ message的值如下：
     $m.obj({
         name: '123', 
         name2: $m.cstr(1, 3), 
-    }) // 传入一个对象， 生成该对象的复制
+    }) // 传入一个对象, 生成该对象的复制
     $m.arr() // 长度为0~10的随机大写字母
 
     

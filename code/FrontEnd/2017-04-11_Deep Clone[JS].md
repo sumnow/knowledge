@@ -1,6 +1,6 @@
 # 深拷贝
 
-### 第一种： 
+### 第一种: 
 
 利用JSON序列化解决
 
@@ -12,7 +12,7 @@
         return obj; 
     }
 
-### 第二种： 
+### 第二种: 
 
     function deepClone(initalObj, finalObj) {
         var obj = finalObj || {}; 
@@ -27,7 +27,7 @@
         return obj; 
     }
 
-一旦出现对象相互引用， 会出现死循环， 下面这样就好
+一旦出现对象相互引用, 会出现死循环, 下面这样就好
 
     function deepClone(initalObj, finalObj) {
         var obj = finalObj || {}; 
@@ -36,7 +36,7 @@
 
     
 
-            // 避免相互引用对象导致死循环， 如initalObj.a = initalObj的情况
+            // 避免相互引用对象导致死循环, 如initalObj.a = initalObj的情况
             if (prop === obj) {
                 continue; 
             }
@@ -53,14 +53,14 @@
             return obj; 
             }
 
-### 第三种： 
+### 第三种: 
 
     function deepClone(initalObj, finalObj) {
         var obj = finalObj || {}; 
         for (var i in initalObj) {
             var prop = initalObj[i]; 
 
-            // 避免相互引用对象导致死循环， 如initalObj.a = initalObj的情况
+            // 避免相互引用对象导致死循环, 如initalObj.a = initalObj的情况
             if (prop === obj) {
                 continue; 
             }
@@ -75,7 +75,6 @@
     }
 
 ```
-
 var cloneObj = function(obj) {
     var str, newobj = obj.constructor === Array ? [] : {}; 
     if (typeof obj !== 'object') {

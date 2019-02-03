@@ -5,7 +5,8 @@
     const REJECTED = 'rejected'; // 捕获错误状态
     class nPromise {
         constructor(handler) {
-            this.init(); 
+            this.ini
+            t(); 
             handler(this.resolve.bind(this), this.reject.bind(this)); 
         }
         init() {
@@ -107,7 +108,7 @@
     }); 
     const test2 = new nPromise((resolve, reject) => {
         setTimeout(() => {
-            reject('我出错啦！ ')
+            reject('我出错啦! ')
         }, 2000)
     })
     test1.then(data => {

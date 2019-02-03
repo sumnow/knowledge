@@ -4,7 +4,6 @@
 观察者模式
 
 ```
-
 //观察者列表
 function ObserverList() {
     this.observerList = []; 
@@ -60,7 +59,6 @@ function Observer() {
 订阅发布模式
 
 ```
-
 var pubsub = {}; 
 (function(myObject) {
     // Storage for topics that can be broadcast
