@@ -191,4 +191,21 @@ Object.keys()返回一个对象的所有可枚举的自身属性(非继承的)�
     var map = new Map(Object.entries(obj)); 
     console.log(map); // Map { foo: "bar", baz: 42 }
 
+## Object.getOwnPropertyDescriptor
+
+获取对象属性的描述信息.
+
+    o = {
+        get foo() {
+            return 17; 
+        }
+    }; 
+    d = Object.getOwnPropertyDescriptor(o, 'foo'); 
+    // {
+    //    configurable: true
+    //    enumerable: true
+    //    get: ƒ foo()
+    //    set: undefined
+    // }
+
     
