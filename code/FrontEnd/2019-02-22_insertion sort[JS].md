@@ -11,19 +11,21 @@
 5. 将新元素插入到该位置
 6. 重复步骤2~5, 直到排序完成
 
-    function insertionSort(arr) {
-        var len = arr.length; 
-        var preIndex, current; 
-        for (var i = 1; i < len; i++) {
-            preIndex = i - 1; 
-            current = arr[i]; 
-            while (preIndex >= 0 && arr[preIndex] > current) {
-                arr[preIndex + 1] = arr[preIndex]; 
-                preIndex--; 
-            }
-            arr[preIndex + 1] = current; 
+```js
+function insertionSort(arr) {
+    var len = arr.length; 
+    var preIndex, current; 
+    for (var i = 1; i < len; i++) {
+        preIndex = i - 1; 
+        current = arr[i]; 
+        while (preIndex >= 0 && arr[preIndex] > current) {
+            arr[preIndex + 1] = arr[preIndex]; 
+            preIndex--; 
         }
-        return arr; 
+        arr[preIndex + 1] = current; 
     }
+    return arr; 
+}
+```
 
 ![img](../../img/2019022201.gif)
