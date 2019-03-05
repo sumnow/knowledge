@@ -10,16 +10,30 @@
         [1, '123'], 
         [2, '123']
     ])
-    //也可以
+    // 也可以
     var map2 = new Map(); 
     map2.set(1, '321'); 
     map1.get(1); 
+    // 甚至可以
+    map.set('1', 'str1')
+        .set(1, 'num1')
+        .set(true, 'bool1'); 
 
 ### map方法:
 
-#### get
+1. get 
+2. set
 
-#### set
+    let map = new Map(); 
+
+    map.set('1', 'str1'); // a string key
+    map.set(1, 'num1'); // a numeric key
+    map.set(true, 'bool1'); // a boolean key
+
+    alert(map.get(1)); // 'num1'
+    alert(map.get('1')); // 'str1'
+
+    alert(map.size); // 3
 
 #### has 检查是否有此key
 
@@ -32,6 +46,22 @@
     log(map1) //Map(1) {2 => "123"}
 
  `set无法使用重复的key, 都以key最后一次赋值为准。 ` 
+
+#### How Map compares keys
+
+To test values for equivalence, Map uses the algorithm [SameValueZero](https://tc39.github.io/ecma262/#sec-samevaluezero). It is roughly the same as strict equality ===, but the difference is that NaN is considered equal to NaN. So NaN can be used as the key as well.
+
+This algorithm can't be changed or customized.
+
+#### Iteration over Map
+
+For looping over a map, there are 3 methods:
+
+map.keys() – returns an iterable for keys, 
+
+map.values() – returns an iterable for values, 
+
+map.entries() – returns an iterable for entries [key, value], it's used by default in for..of.
 
 ### set
 
