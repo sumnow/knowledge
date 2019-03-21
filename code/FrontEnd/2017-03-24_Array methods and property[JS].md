@@ -1,5 +1,9 @@
 # Array
 
+一图流:
+
+![img](../../img/2017032401.png)
+
 ## Array的属性:
 
 ### Array.length
