@@ -2,6 +2,10 @@
 
 # 使用Proxy 去监听 Javascript 类
 
+[原文](https://medium.com/front-end-weekly/using-proxy-to-track-javascript-class-50a33a6ccb)
+
+[翻译](https://juejin.im/post/5c484b76e51d45522b4f5f7d)
+
 One of the cool and probably less known features of ES6 is the Proxy object. While it has been around for quite some time, I want to take this post and explain a little bit about this feature, and use a real example how it could be used.
 
 一个酷并可能不为人知的ES6的功能是Proxy 对象. 尽管他已经出来相当一段时间了, 我想用这篇文章来解释一些关于这个功能, 并用一个真实的如何使用它的例子.
@@ -32,7 +36,7 @@ proxy 的api 允许我们创建 一些 各种各样的布局在对象和他的�
 
 ## Proxy API
 
-    var p = new Proxy(target, handler); 
+    var p = new Proxy(target, handler);
 
 The Proxy object gets a target object and a handler object to trap different behaviors in the target object. Here is a partial list of the traps you can set:
 
@@ -64,21 +68,21 @@ Lets see a simple example of using proxy for validation:
 
 ```
 const Car = {
-    maker: 'BMW', 
+    maker: 'BMW',
     year: '2018, 
-}; 
+};
 const proxyCar = new Proxy(Car, {
     set(obj, prop, value) {
         if (prop === 'maker' && value.length < 1) {
-            throw new Error('Invalid maker'); 
+            throw new Error('Invalid maker');
         }
         if (prop === 'year' && typeof value !== 'number') {
-            throw new Error('Invalid year'); 
+            throw new Error('Invalid year');
         }
-        obj[prop] = value; 
-        return true; 
+        obj[prop] = value;
+        return true;
     }
-}); 
+});
 proxyCar.maker = ''; // throw exception
 proxyCar.year = '1999'; // throw exception
 ```
@@ -128,32 +132,32 @@ function MyClass() {}
 
 MyClass.prototype = {
     isPrime: function() {
-        const num = this.num; 
+        const num = this.num;
         for (var i = 2; i < num; i++)
-            if (num % i === 0) return false; 
-        return num !== 1 && num !== 0; 
-    }, 
+            if (num % i === 0) return false;
+        return num !== 1 && num !== 0;
+    },
 
-    num: null, 
-}; 
+    num: null,
+};
 
-MyClass.prototype.constructor = MyClass; 
+MyClass.prototype.constructor = MyClass;
 
-const trackedClass = proxyTrack(MyClass); 
+const trackedClass = proxyTrack(MyClass);
 
 function start() {
-    const my = new trackedClass(); 
-    my.num = 573723653; 
+    const my = new trackedClass();
+    my.num = 573723653;
     if (!my.isPrime()) {
-        return `${my.num} is not prime` ; 
+        return `${my.num} is not prime` ;
     }
 }
 
 function main() {
-    start(); 
+    start();
 }
 
-main(); 
+main();
 ```
 
 If we will run this code we should see in the console:
@@ -173,14 +177,14 @@ proxyTrack 获取两个参数: 第一个是监听的对象/类, 第二个是一�
 
 ```
 const defaultOptions = {
-    trackFunctions: true, 
-    trackProps: true, 
-    trackTime: true, 
-    trackCaller: true, 
-    trackCount: true, 
-    stdout: null, 
-    filter: null, 
-}; 
+    trackFunctions: true,
+    trackProps: true,
+    trackTime: true,
+    trackCaller: true,
+    trackCount: true,
+    stdout: null,
+    filter: null,
+};
 ```
 
 As you can see, you can control what you want to track by setting the appropriate flag. In case you want to control that the output will go somewhere else then to the `console.log` you can pass a function to the `stdout` .
@@ -191,10 +195,3 @@ You can also control which tracking message will be output if you pass the filte
 
 你也能够控制输出捕获信息如果你传递一个filter回调.你会获得一个关于捕获数据的信息的对象, 你必须返回true来拿到信息或者false来忽略它.
 
-## Using proxyTrack with React
-
-# 使用proxyTrack 和 React
-
-Since react components are actually classes, you can track a class to examine it in real time. For example:
-
-自从
