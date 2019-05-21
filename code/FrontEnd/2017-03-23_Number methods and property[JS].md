@@ -31,6 +31,6 @@ POSITIVE_INFINITY:Infinity//正无穷
 
 转换为浮点数, i为转换的进制数[2-36]
 
-### parseInt()
+### parseInt(num, i)
 
 转换为整数, i为转换的进制数[2-36]
