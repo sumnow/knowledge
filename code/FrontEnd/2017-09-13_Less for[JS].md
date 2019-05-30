@@ -13,14 +13,14 @@ null的定义是+0
 例如有一个学生数组students `[{age: 15}, ....]` , 过了一年把所有学生的age+1, 
 
     for (let i = 0; i < students.length; i++) {
-        students[i].age++; 
+        students[i].age++;
     }
 
 这是一个远古的正确方法, 现在你可以使用map
 
     students.map((s) => {
         s.age++
-        return s; 
+        return s;
     })
 
 这样极大增强了可读性
@@ -29,11 +29,11 @@ null的定义是+0
 
 就是类似 `for(let i = 0; i < 10; i++)` 这种, 其实你可以这么处理
 
-Array.from({length: 10}, (i, j)=>j).map((i) =>> {
-
-    console.log(i) // 0 1 2 3 ... 9
-
-})
+    Array.from({
+        length: 10
+    }, (i, j) => j).map((i) => > {
+        console.log(i) // 0 1 2 3 ... 9
+    })
 
  `Array.from({length: 10}, (i, j)=>j)` 生成一个长度为10, 且值为对应下标的数组
 
@@ -47,5 +47,5 @@ Array.from({length: 10}, (i, j)=>j).map((i) =>> {
 
 ---
 
-减少for的使用, 可以让代码更简洁。 
+减少for的使用, 可以让代码更简洁. 
 
