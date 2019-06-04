@@ -70,7 +70,7 @@ Parameters to a function behave like regular bindings, but their initial values 
 
 ### Bindings and scopes
 
-### 绑定和范围
+### 绑定和作用域
 
 Each binding has a scope, which is the part of the program in which the binding is visible. For bindings defined outside of any function or block, the scope is the whole program—you can refer to such bindings wherever you want. These are called global. 
 
@@ -528,7 +528,7 @@ The inner function find does the actual recursing. It takes two arguments: the c
 
 To do this, the function performs one of three actions. If the current number is the target number, the current history is a way to reach that target, so it is returned. If the current number is greater than the target, there's no sense in further exploring this branch because both adding and multiplying will only make the number bigger, so it returns null. Finally, if we're still below the target number, the function tries both possible paths that start from the current number by calling itself twice, once for addition and once for multiplication. If the first call returns something that is not null, it is returned. Otherwise, the second call is returned, regardless of whether it produces a string or null. 
 
-为了做这个, 函数执行三个操作中的一个.如果当前数字是目标数字, 那么当前的历史就是得到目标的一种方法, 因此返回. 如果当前数字比目标要大, 那么探索这个分支就没有意义了, 因为加和乘都会使数字变大, 因此它返回 `null` . 最后, 如果我们还小于目标数字, 函数会从当前数字尝试所有的可能路径通过调用它自己两次, 要么加要么乘. 如果第一个调用返回不是 `null` 的值, 它就返回. 另外, 第二个调用返回, 无论它是否得到一个字符串或者 `null` .
+为了做这个, 函数执行三个操作中的一个. 如果当前数字是目标数字, 那么当前的历史就是得到目标的一种方法, 因此返回. 如果当前数字比目标要大, 那么探索这个分支就没有意义了, 因为加和乘都会使数字变大, 因此它返回 `null` . 最后, 如果我们还小于目标数字, 函数会从当前数字尝试所有的可能路径通过调用它自己两次, 要么加要么乘. 如果第一个调用返回不是 `null` 的值, 它就返回. 另外, 第二个调用返回, 无论它是否得到一个字符串或者 `null` .
 
 To better understand how this function produces the effect we're looking for, let's look at all the calls to find that are made when searching for a solution for the number 13. 
 
@@ -572,7 +572,7 @@ The first is that you find yourself writing similar code multiple times. You'd p
 
 How difficult it is to find a good name for a function is a good indication of how clear a concept it is that you're trying to wrap. Let's go through an example.
 
-为函数找一个好名字是一个好提醒解释一个你尝试包裹的代码的概念是非常困难的.让我们通过一个例子来说明.
+为函数找一个好名字是一个好提醒解释一个你尝试包裹的代码的概念是非常困难的. 让我们通过一个例子来说明.
 
 We want to write a program that prints two numbers: the numbers of cows and chickens on a farm, with the words Cows and Chickens after them and zeros padded before both numbers so that they are always three digits long.
 
@@ -601,13 +601,15 @@ This asks for a function of two arguments—the number of cows and the number of
 
 Writing .length after a string expression will give us the length of that string. Thus, the while loops keep adding zeros in front of the number strings until they are at least three characters long.
 
-写 .length 在字符串表达式后面会给我们这个字符串的长度.因此, while循环会一直添加0在数字的前面直到他们至少已经三位字符长.
+写 .length 在字符串表达式后面会给我们这个字符串的长度. 因此, while循环会一直添加0在数字的前面直到他们至少已经三位字符长.
 
 Mission accomplished! But just as we are about to send the farmer the code (along with a hefty invoice), she calls and tells us she's also started keeping pigs, and couldn't we please extend the software to also print pigs?
 
-任务完成! 但是只是
+任务完成! 但正如我们即将向农民发送密码(以及一张沉重的发票), 她打电话告诉我们她也开始饲养猪了, 我们不能将软件扩展到打印猪吗? 
 
 We sure can. But just as we're in the process of copying and pasting those four lines one more time, we stop and reconsider. There has to be a better way. Here's a first attempt:
+
+我们当然可以. 但是我们在复制和粘贴这四行代码多次的过程中, 我们停下并且重新思考. 有种更好的方式. 这里是一个解决方案:
 
     function printZeroPaddedWithLabel(number, label) {
         let numberString = String(number);
@@ -627,7 +629,11 @@ We sure can. But just as we're in the process of copying and pasting those four 
 
 It works! But that name, printZeroPaddedWithLabel, is a little awkward. It conflates three things—printing, zero-padding, and adding a label—into a single function.
 
+它奏效了! 但是这个名字, `printZeroPaddedWithLabel` , 是一个小小的尴尬之处. 它组合了三个事物-- `print` , `zero-padding` 和 `add a label` --到一个单一函数里. 
+
 Instead of lifting out the repeated part of our program wholesale, let's try to pick out a single concept.
+
+我们试图找出一个单一的概念, 而不是解除我们程序批发的重复部分. 
 
     function zeroPad(number, width) {
         let string = String(number);
@@ -647,20 +653,165 @@ Instead of lifting out the repeated part of our program wholesale, let's try to 
 
 A function with a nice, obvious name like zeroPad makes it easier for someone who reads the code to figure out what it does. And such a function is useful in more situations than just this specific program. For example, you could use it to help print nicely aligned tables of numbers.
 
-How smart and versatile should our function be? We could write anything, from a terribly simple function that can only pad a number to be three characters wide to a complicated generalized number-formatting system that handles fractional numbers, negative numbers, alignment of decimal dots, padding with different characters, and so on.
+一个函数又一个好的, 直观的名字, 像 `zeroPad` 使得它对于读代码的人来说, 容易理解. 并且这样一个函数在很多场景里有用, 而不是仅仅这个特殊的程序. 例如, 你可以用它来帮助输出对齐数字的表格.
+
+*How smart and versatile should our function be? We could write anything, from a terribly simple function that can only pad a number to be three characters wide to a complicated generalized number-formatting system that handles fractional numbers, negative numbers, alignment of decimal dots, padding with different characters, and so on*.
+
+我们的函数应该变得多聪明和通用的? 我们可以编写任何东西, 从一个非常简单的函数, 只能将一个数字填充为三个字符宽, 到一个复杂的广义数字格式系统, 处理小数, 负数, 小数点对齐, 不同字符的填充, 等等. 
 
 A useful principle is to not add cleverness unless you are absolutely sure you're going to need it. It can be tempting to write general "frameworks" for every bit of functionality you come across. Resist that urge. You won't get any real work done—you'll just be writing code that you never use.
 
+一个有用的原则是不要添加小聪明, 除非你完全确定你需要它. 为您遇到的每一点功能编写通用的"框架"可能很诱人. 抵制那种冲动. 你不会有任何实质的工作进展--你不过写了你从不会用到的代码.
+
 ### Functions and side effects
+
+### 函数和副作用
 
 Functions can be roughly divided into those that are called for their side effects and those that are called for their return value. (Though it is definitely also possible to both have side effects and return a value.)
 
+函数可以粗略地分为那些为副作用调用的函数和为其返回值调用的函数. (虽然两者都有可能产生副作用并返回值. )
+
 The first helper function in the farm example, printZeroPaddedWithLabel, is called for its side effect: it prints a line. The second version, zeroPad, is called for its return value. It is no coincidence that the second is useful in more situations than the first. Functions that create values are easier to combine in new ways than functions that directly perform side effects.
+
+第一个函数在农场的例子里, `printZeroPaddedWithLabel` , 是为了副作用调用的: 它输出了一行文字. 第二个版本, `zeroPad` , 就是为了返回值调用的. 第二个在多数情况下比第一个更有用, 不是一个巧合. 创建值的函数比那些明显产生副作用的函数更容易以一种新的方式组合.
 
 A pure function is a specific kind of value-producing function that not only has no side effects but also doesn't rely on side effects from other code—for example, it doesn't read global bindings whose value might change. A pure function has the pleasant property that, when called with the same arguments, it always produces the same value (and doesn't do anything else). A call to such a function can be substituted by its return value without changing the meaning of the code. When you are not sure that a pure function is working correctly, you can test it by simply calling it and know that if it works in that context, it will work in any context. Nonpure functions tend to require more scaffolding to test.
 
-Still, there's no need to feel bad when writing functions that are not pure or to wage a holy war to purge them from your code. Side effects are often useful. There'd be no way to write a pure version of console.log, for example, and console.log is good to have. Some operations are also easier to express in an efficient way when we use side effects, so computing speed can be a reason to avoid purity.
+一个纯函数是一个特殊的值--产生函数, 完全没有任何副作用, 但也不依赖其他代码的副作用--例如, 它不读可能改变值的全局变量. 一个纯函数有令人愉快的特性, 当用同样的参数调用它, 它总是得到相同的值(并且不做其它任何事). 一个这样的函数调用可以被它的返回值取代, 而不改变任何代码的含义. 当你不确定一个纯函数是否正常工作了, 你可以通过简单地调用它来测试它并且知道它如果在那个上下文里正常工作, 那它就可以在任何上下文环境里工作. 非纯函数就趋向于需要更多的材料去测试.
+
+*Still, there's no need to feel bad when writing functions that are not pure or to wage a holy war to purge them from your code. Side effects are often useful. There'd be no way to write a pure version of console.log, for example, and console.log is good to have. Some operations are also easier to express in an efficient way when we use side effects, so computing speed can be a reason to avoid purity*.
+
+尽管如此, 在编写不纯粹的函数或进行圣战以清除代码中的函数时, 没有必要感到难过. 副作用通常是有用的. 举个例子, 没有办法去写一个纯函数版本的 `console.log` , `console.log` 也非常好用. 当我们使用副作用时, 某些操作也更容易以有效的方式表达, 因此计算速度可能是避免纯度的原因. 
 
 ### Summary
 
 This chapter taught you how to write your own functions. The function keyword, when used as an expression, can create a function value. When used as a statement, it can be used to declare a binding and give it a function as its value. Arrow functions are yet another way to create functions.
+
+这个章节教会了你如何写你自己的函数. `function` 关键字, 当用作一个表达式, 可以创建一个函数值. 当用作一个语句, 它可以用来声明一个变量并且给他一个函数作为它的值. 箭头函数用另一种方式创建函数.
+
+    // Define f to hold a function value
+    const f = function(a) {
+        console.log(a + 2);
+    };
+
+    // Declare g to be a function
+    function g(a, b) {
+        return a * b * 3.5;
+    }
+
+    // A less verbose function value
+    let h = a => a % 3;
+
+A key aspect in understanding functions is understanding scopes. Each block creates a new scope. Parameters and bindings declared in a given scope are local and not visible from the outside. Bindings declared with var behave differently—they end up in the nearest function scope or the global scope.
+
+理解函数的一个关键方面是理解作用域. 每个块创建一个新的作用域. 在给定作用域里生命的参数和变量是本地的且外部不可见. 用var绑定的生命有些许的不同--他们在最近的函数作用域里生效或者全局的作用域里.
+
+Separating the tasks your program performs into different functions is helpful. You won't have to repeat yourself as much, and functions can help organize a program by grouping code into pieces that do specific things.
+
+划分你的程序实现的任务到不同函数是非常有帮助的. 你不用重复你自己很多次, 并且函数可以帮助组织一个程序通过聚合代码到做特殊的事情的片段里.
+
+### Exercises
+
+#### Minimum
+
+The previous chapter introduced the standard function Math.min that returns its smallest argument. We can build something like that now. Write a function min that takes two arguments and returns their minimum.
+
+先前的章节介绍了标准函数 `Math.min` , 得到最小的那个参数. 我们可以做一些像这样的事情. 写一个函数 `min` 来获取两个参数并返回他们的最小值.
+
+    // Your code here.
+    function min(...rest) {
+        return rest.sort((a, b) => a - b)[0]
+    }
+
+    console.log(min(0, 10));
+    // → 0
+    console.log(min(0, -10));
+    // → -10
+
+> If you have trouble putting braces and parentheses in the right place to get a valid function definition, start by copying one of the examples in this chapter and modifying it.
+
+> A function may contain multiple return statements.
+
+> 如果您无法将大括号和括号放在正确的位置以获得有效的函数定义, 请首先复制本章中的一个示例并进行修改. 
+
+> 一个函数可以包含多个返回语句.
+
+#### Recursion
+
+We've seen that % (the remainder operator) can be used to test whether a number is even or odd by using % 2 to see whether it's divisible by two. Here's another way to define whether a positive whole number is even or odd:
+
+- Zero is even.
+
+- One is odd.
+
+- For any other number N, its evenness is the same as N - 2.
+
+我们看到 %(求模操作符) 可以用来测试一个数是奇数或者偶数通过 % 2来看是否被2整除. 这里有另一种方式定义正整数是奇还是偶:
+
+- 0是偶数
+
+- 1是奇数
+
+- 对任意数字N, 它的奇偶性和N-2一样.
+
+Define a recursive function isEven corresponding to this description. The function should accept a single parameter (a positive, whole number) and return a Boolean.
+
+定义一个递归函数 `isEven` 来符合这一描述. 函数应该接受单个参数(一个正整数)并且返回一个布尔值.
+
+Test it on 50 and 75. See how it behaves on -1. Why? Can you think of a way to fix this?
+
+在50和75测试它. 再看看-1的时候是怎么表现的, 为什么? 你可以想到一个方法来修复这个么?
+
+    // Your code here.
+    function isEven(num) {
+        if (num == 1) return false
+        if (num == 0) return true
+        return isEven(num - 2)
+    }
+
+    console.log(isEven(50));
+    // → true
+    console.log(isEven(75));
+    // → false
+    console.log(isEven(-1));
+    // → ??
+
+> Your function will likely look somewhat similar to the inner find function in the recursive findSolution example in this chapter, with an if/else if/else chain that tests which of the three cases applies. The final else, corresponding to the third case, makes the recursive call. Each of the branches should contain a return statement or in some other way arrange for a specific value to be returned.
+
+> 你的函数会看起来接近在这个章节的例子递归函数 `findSolution` 内部的 `find` 函数, 用一个if/elseif/else 组合来测试三种情况的调用. 最后一个else, 符合第三种情况, 使递归调用. 每个分支应该包含一个 `return` 语句或者用其它方式安排特殊的值返回.
+
+> When given a negative number, the function will recurse again and again, passing itself an ever more negative number, thus getting further and further away from returning a result. It will eventually run out of stack space and abort.
+
+> 当给了一个负数, 函数会一次次递归, 传递它自身到一个更小的负数, 因此离返回结果越来越远. 它最后会溢出栈空间并且中止.
+
+#### Bean counting
+
+#### 数豆子
+
+You can get the Nth character, or letter, from a string by writing "string"[N]. The returned value will be a string containing only one character (for example, "b"). The first character has position 0, which causes the last one to be found at position string.length - 1. In other words, a two-character string has length 2, and its characters have positions 0 and 1.
+
+你可以得到第n个字符, 或者字母, 从一个字符串里通过 `string[n]` . 它会返回一个只包含一个字符的字符串, 例如"b". 第一个字符定位是0, 所以最后一个可以找到定位在 `string.length - 1` . 在另一个单词里, 一个两字符的字符串长度是2, 并且它的字符定位是0和1.
+
+Write a function countBs that takes a string as its only argument and returns a number that indicates how many uppercase "B" characters there are in the string.
+
+编写一个函数countBs, 它将一个字符串作为唯一参数, 并返回一个数字, 表示字符串中有多少个大写"B"字符. 
+
+Next, write a function called countChar that behaves like countBs, except it takes a second argument that indicates the character that is to be counted (rather than counting only uppercase "B" characters). Rewrite countBs to make use of this new function.
+
+接下来, 编写一个名为countChar的函数, 其行为类似于countBs, 除了它采用第二个参数指示要计数的字符(而不是仅计算大写的"B"字符). 重写countBs以使用这个新函数. 
+
+    // Your code here.
+
+    console.log(countBs("BBC"));
+    // → 2
+    console.log(countChar("kakkerlak", "k"));
+    // → 4
+
+> Your function will need a loop that looks at every character in the string. It can run an index from zero to one below its length (< string.length). If the character at the current position is the same as the one the function is looking for, it adds 1 to a counter variable. Once the loop has finished, the counter can be returned.
+
+> Take care to make all the bindings used in the function local to the function by properly declaring them with the let or const keyword.
+
+> 你的函数需要一个循环来查看字符串中的每个字符. 它可以在低于其长度( `<string.length` )的0到1之间运行索引. 如果当前位置的字符与函数正在查找的字符相同, 则将1加到计数器变量中. 循环结束后, 可以返回计数器. 
+
+> 通过使用let或const关键字正确声明函数, 注意使函数本地函数中使用的所有绑定. 
+
