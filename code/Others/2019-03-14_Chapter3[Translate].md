@@ -790,15 +790,15 @@ Test it on 50 and 75. See how it behaves on -1. Why? Can you think of a way to f
 
 You can get the Nth character, or letter, from a string by writing "string"[N]. The returned value will be a string containing only one character (for example, "b"). The first character has position 0, which causes the last one to be found at position string.length - 1. In other words, a two-character string has length 2, and its characters have positions 0 and 1.
 
-你可以得到第n个字符, 或者字母, 从一个字符串里通过 `string[n]` . 它会返回一个只包含一个字符的字符串, 例如“b”. 第一个字符定位是0, 所以最后一个可以找到定位在 `string.length - 1` . 在另一个单词里, 一个两字符的字符串长度是2, 并且它的字符定位是0和1.
+你可以得到第n个字符, 或者字母, 从一个字符串里通过 `string[n]` . 它会返回一个只包含一个字符的字符串, 例如"b". 第一个字符定位是0, 所以最后一个可以找到定位在 `string.length - 1` . 在另一个单词里, 一个两字符的字符串长度是2, 并且它的字符定位是0和1.
 
 Write a function countBs that takes a string as its only argument and returns a number that indicates how many uppercase "B" characters there are in the string.
 
-写一个函数
-
-
+编写一个函数countBs, 它将一个字符串作为唯一参数, 并返回一个数字, 表示字符串中有多少个大写"B"字符. 
 
 Next, write a function called countChar that behaves like countBs, except it takes a second argument that indicates the character that is to be counted (rather than counting only uppercase "B" characters). Rewrite countBs to make use of this new function.
+
+接下来, 编写一个名为countChar的函数, 其行为类似于countBs, 除了它采用第二个参数指示要计数的字符(而不是仅计算大写的"B"字符). 重写countBs以使用这个新函数. 
 
     // Your code here.
 
@@ -810,4 +810,8 @@ Next, write a function called countChar that behaves like countBs, except it tak
 > Your function will need a loop that looks at every character in the string. It can run an index from zero to one below its length (< string.length). If the character at the current position is the same as the one the function is looking for, it adds 1 to a counter variable. Once the loop has finished, the counter can be returned.
 
 > Take care to make all the bindings used in the function local to the function by properly declaring them with the let or const keyword.
+
+> 你的函数需要一个循环来查看字符串中的每个字符. 它可以在低于其长度( `<string.length` )的0到1之间运行索引. 如果当前位置的字符与函数正在查找的字符相同, 则将1加到计数器变量中. 循环结束后, 可以返回计数器. 
+
+> 通过使用let或const关键字正确声明函数, 注意使函数本地函数中使用的所有绑定. 
 
