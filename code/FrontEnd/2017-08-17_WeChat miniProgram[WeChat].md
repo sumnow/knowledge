@@ -10,13 +10,13 @@
 
 ### scroll
 
-微信小程序的 `wx.pageScrollTo(OBJECT)` 方法， 在部分安卓手机上每次都会滚动到头部， 再滚动到目标地方。 
+微信小程序的 `wx.pageScrollTo(OBJECT)` 方法, 在部分安卓手机上每次都会滚动到头部, 再滚动到目标地方. 
 
-解决方案： 使用 `scroll-view` 标签。 
+解决方案: 使用 `scroll-view` 标签. 
 
 ### wepy
 
-使用wepy开发的时候， 需要关闭es6转es5， 以及代码自动压缩， 否则会报错或者出现打包出现问题的情况。 
+使用wepy开发的时候, 需要关闭es6转es5, 以及代码自动压缩, 否则会报错或者出现打包出现问题的情况. 
 
 ### 小程序button
 
@@ -41,41 +41,41 @@
 #### canvas 文字换行
 
     const obj = {
-        size: 12, 
+        size: 12,
         // 文字
-        text: 'HELLO', 
+        text: 'HELLO',
         // 行宽
-        width: 270, 
+        width: 270,
         // 行高
         height: 18
-    }; 
+    };
     // 文字换行, 回车或者超出长度都会换行
     function textWrap(obj) {
-        ctx.setFontSize(obj.size); 
-        var reg = /\n/g; 
+        ctx.setFontSize(obj.size);
+        var reg = /\n/g;
         // obj.text = obj.text.replace(reg, '灬'); 
-        let arrText = obj.text.split(''); 
-        let line = ''; 
-        let arrTr = []; 
+        let arrText = obj.text.split('');
+        let line = '';
+        let arrTr = [];
         for (let i = 0; i < arrText.length; i++) {
-            var testLine = line + arrText[i]; 
-            var metrics = ctx.measureText(testLine); 
-            var width = metrics.width; 
+            var testLine = line + arrText[i];
+            var metrics = ctx.measureText(testLine);
+            var width = metrics.width;
             if ((width > obj.width && i > 0) || arrText[i].match(reg)) {
-                arrTr.push(line); 
+                arrTr.push(line);
                 if (arrText[i].match(reg)) {
-                    line = ''; 
+                    line = '';
                 } else {
-                    line = arrText[i]; 
+                    line = arrText[i];
                 }
             } else {
-                line = testLine; 
+                line = testLine;
             }
             if (i == arrText.length - 1) {
-                arrTr.push(line); 
+                arrTr.push(line);
             }
         }
-        return arrTr; 
+        return arrTr;
     }
 
 #### 组合文字居中
@@ -85,13 +85,13 @@
 例如: 不同字号或者字体的组合字, 水平居中, 使用下面的方法计算出每个的宽度.
 
     function handleTexts(_arr = [{
-        text: 'xxx', 
+        text: 'xxx',
         style: '14px normal'
     }]) {
         return _arr.map(e => {
-            ctx.font = e.style; 
-            return ctx.measureText(e.text).width; 
-        }); 
+            ctx.font = e.style;
+            return ctx.measureText(e.text).width;
+        });
     }
 
 ##### 垂直居中  
@@ -109,10 +109,10 @@
 > ps: 这个方法已经被废弃了, 必须使用 `button` 来呼起 `OpenSetting` 
 
     wx.saveImageToPhotosAlbum({
-        filePath: imgpath, 
+        filePath: imgpath,
         success() {
             console.log('success saved')
-        }, 
+        },
         fail() {
             wx.openSetting({
                 success(settingdata) {
@@ -130,4 +130,19 @@
 
 提示某接口已废弃
 
-如果这个接口不是被废弃的,那么更可能是因为版本库不对,将项目设置里的调试基础库改为最新即可.
+如果这个接口不是被废弃的, 那么更可能是因为版本库不对, 将项目设置里的调试基础库改为最新即可.
+
+### wx.showModal
+
+在需要换行的位置加上 `\r\n` , 即可实现内容的换行. (++注: 微信开发者工具可能看不到效果, 但是真机实测是会换行的++)
+
+```js
+wx.showModal({
+    title: '书信',
+    content: '车马很慢，\r\n书信很远',
+    success: function(res) {
+        if (res.confirm) {}
+    }
+});
+```
+
