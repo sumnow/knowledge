@@ -51,13 +51,64 @@ use configure default
 ./configure
 ```
 
-```编译安装
+编译安装
+
+```
 make
 make install
 ```
 
+启动
+
 ```bash 
+# 启动nginx
+cd /usr/local/nginx/sbin/
+./nginx 
 # 查询nginx服务端口
 ps aux|grep nginx
+
+//查询nginx主进程号
+$ ps -ef | grep nginx
+
+//从容停止Nginx: 
+$ kill -QUIT 主进程号
+
+//快速停止Nginx: 
+kill -TERM 主进程号
+
+//强制停止Nginx: 
+pkill -9 nginx
 ```
+
+现在就可以访问默认的80端口, 查看nginx启动的状态
+
+## 安装ssl模块
+
+Nginx如果未开启SSL模块, 配置Https时提示如下错误:
+
+```bash
+nginx: [emerg] the "ssl" parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf
+```
+
+进入nginx源码包目录, 运行:
+
+```bash
+./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module
+make
+```
+
+> 注意: 此处不能进行 `make install` , 否则就是覆盖安装
+
+将新编译的库覆盖旧库
+
+```bash
+cp ./objs/nginx /usr/local/nginx/sbin/
+```
+
+``` bash
+/usr/local/nginx/sbin/nginx -V
+```
+
+此时应该显示为即配置成功: 
+configure arguments: --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module
 
