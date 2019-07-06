@@ -64,6 +64,9 @@ make install
 # 启动nginx
 cd /usr/local/nginx/sbin/
 ./nginx 
+# restart nginx
+./nginx -s reload
+
 # 查询nginx服务端口
 ps aux|grep nginx
 
