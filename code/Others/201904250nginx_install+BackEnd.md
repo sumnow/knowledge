@@ -60,7 +60,7 @@ make install
 
 启动
 
-```bash 
+``` bash 
 # 启动nginx
 cd /usr/local/nginx/sbin/
 ./nginx 
@@ -95,13 +95,13 @@ pkill -9 nginx
 
 Nginx如果未开启SSL模块, 配置Https时提示如下错误:
 
-```bash
+``` bash
 nginx: [emerg] the "ssl" parameter requires ngx_http_ssl_module in /usr/local/nginx/conf/nginx.conf
 ```
 
-进入nginx源码包目录, 运行:
+进入nginx目录后执行
 
-```bash
+``` bash
 ./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module
 make
 ```
