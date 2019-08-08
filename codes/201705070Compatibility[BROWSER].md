@@ -1,4 +1,5 @@
-# css
+
+# 记录兼容性的小问题
 
 ### font-size:0; 
 
@@ -75,8 +76,8 @@ ios上的网页滚动不顺滑, 加上这句就好, 其实不用管啥环境, �
 ```css
 html, body { scroll-behavior:smooth; }
 ```
-
+``` js
     document.links[0].scrollIntoView({
         behavior: "smooth"
     });
-
+```
