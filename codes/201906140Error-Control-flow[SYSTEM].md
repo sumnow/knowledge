@@ -91,7 +91,7 @@
 
 举个例子, 假设用户调用了 open(filename, options), 系统实际上会执行 __open 函数, 也就是进行系统调用 syscall, 如果返回值是负数, 则是出错, 汇编代码如下: 
 
-```bash
+``` bash
 00000000000e5d70 <__open>:
     ...
     e5d79: b8 02 00 00 00     mov $0x2, %eax    # open 是编号 2 的系统调用
@@ -115,7 +115,7 @@
 
 比如: 
 
-```c
+``` c
 int a[1000];
 main()
 {
@@ -129,7 +129,7 @@ main()
 
 但是如果代码改为这样: 
 
-```c
+``` c
 int a[1000];
 main()
 {
@@ -181,7 +181,7 @@ main()
 
 例如, 对于 fork() 函数, 我们应该这么写: 
 
-```c
+``` c
 if ((pid = fork()) < 0) {
     fprintf(stderr, "fork error: %s\n", strerror(errno));
     exit(0);
@@ -190,7 +190,7 @@ if ((pid = fork()) < 0) {
 
 如果觉得这样写太麻烦, 可以利用一个辅助函数: 
 
-```c
+``` c
 void unix_error(char *msg) /* Unix-style error */
 {
     fprintf(stderr, "%s: %s\n", msg, strerror(errno));
@@ -203,7 +203,7 @@ if ((pid = fork()) < 0)
 
 我们甚至可以更进一步, 把整个 fork() 包装起来, 就可以自带错误处理, 比如
 
-```c
+``` c
 pid_t Fork(void)
 {
     pid_t pid;
@@ -255,7 +255,7 @@ void exit(int status)
 
 调用 fork 来创造新进程. 这个函数很有趣, 执行一次, 但是会返回两次, 具体的函数原型为
 
-```c
+``` c
 // 对于子进程，返回 0
 // 对于父进程，返回子进程的 PID
 int fork(void)
@@ -265,7 +265,7 @@ int fork(void)
 
 看一个简单的例子
 
-```c
+``` c
 int main()
 {
     pid_t pid;
@@ -286,7 +286,7 @@ int main()
 
 输出是
 
-```bash
+``` bash
 linux> ./forkdemo
 I'm the parent! x = 0
 I'm the child!  x = 2
@@ -315,7 +315,7 @@ printf 节点可以用输出来进行标记
 
 对于进程图来说, 只要满足拓扑排序, 就是可能的输出. 我们还是用刚才的例子来简单示意一下: 
 
-```c
+``` c
 int main()
 {
     pid_t pid;
@@ -402,7 +402,7 @@ setpgid() - 设置一个进程的进程组
 
 ### 创建子进程
 
-```bash
+``` bash
 linux> ./forks 16
 Child1: pid=24818 pgrp=24817
 Child2: pid=24819 pgrp=24817
@@ -410,7 +410,7 @@ Child2: pid=24819 pgrp=24817
 
 ### 查看进程
 
-```bash
+``` bash
 linux> ps
   PID TTY      TIME  CMD
 24788 pts/2 00:00:00 tcsh
@@ -421,19 +421,19 @@ linux> ps
 
 ### 可以选择关闭某个进程
 
-```bash
+``` bash
 linux> /bin/kill -9 24818
 ```
 
 ### 也可以关闭某个进程组, 会关闭该组中所有进程
 
-```bash
+``` bash
 linux> /bin/kill -9 -24817
 ```
 
 ### 查看进程
 
-```bash
+``` bash
 linux> ps
   PID TTY      TIME  CMD
 24788 pts/2 00:00:00 tcsh
@@ -450,7 +450,7 @@ SIGTSTP - ctrl+z 默认挂起进程
 
 下面是一个简单的例子
 
-```bash
+``` bash
 linux> ./forks 17
 Child: pid=28108 pgrp=28107
 Parent: pid=28107 pgrp=28107
@@ -483,7 +483,7 @@ s: 会话管理者 session leader
 
 如果想要发送信号, 可以使用 kill 函数, 下面是一个简单的示例, 父进程通过发送 SIGINT 信号来终止正在无限循环的子进程. 
 
-```c
+``` c
 void forkandkill()
 {
     pid_t pid[N];
@@ -540,7 +540,7 @@ void forkandkill()
 
 signal 函数可以修改默认的动作, 函数原型为 handler_t *signal(int signum, handler_t *handler). 我们通过一个简单的例子来感受下, 这里我们屏蔽了 SIGINT 函数, 即使按下 ctrl+c 也不会终止
 
-```c
+``` c
 void sigint_handler(int sig) // SIGINT 处理器
 {
     printf("想通过 ctrl+c 来关闭我？\n");
@@ -632,7 +632,7 @@ longjmp 将会恢复由 setjmp 保存的程序堆栈上下文, 即程序从调�
 
 我们可以利用这种方式, 来跳转到其他的栈帧中, 比方说在嵌套函数中, 我们可以利用这个快速返回栈底的函数, 我们来看如下代码
 
-```c
+``` c
 jmp_buf env;
 
 P1()
@@ -667,7 +667,7 @@ P3()
 
 也就是说, 我们直接从 P3 跳转回了 P1, 但是也有限制, 函数必须在栈中(也就是还没完成)才可以进行跳转, 下面的例子中, 因为 P2 已经返回, 所以不能跳转了
 
-```c
+``` c
 jmp_buf env;
 
 P1()
