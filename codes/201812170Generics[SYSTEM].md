@@ -6,7 +6,7 @@
 
 ## 泛型方法
 
-```ts
+``` typescript
 function loggingIdentity<T>(arg: T[]): T[] {
     console.log(arg.length); // Array has a .length, so no more error
     return arg; 
@@ -21,23 +21,32 @@ function loggingIdentity<T>(arg: Array<T>): Array<T> {
 ## 泛型类
 
 ``` typescript
-class arr<T>{
-    value: T; 
-    add: (x: T, y: T) => T; 
+class GenericNumber<T> {
+    zeroValue: T;
+    add: (x: T, y: T) => T;
 }
+​
+let myGenericNumber = new GenericNumber<number>();
+myGenericNumber.zeroValue = 0;
+myGenericNumber.add = function(x, y) { return x + y; };
 ```
 
 ## 泛型接口
 
-```ts
-interface Test {
-    <T>(args: T): T
+``` typescript
+interface CreateArrayFunc<T> {
+    (length: number, value: T): Array<T>;
 }
-
-function myfn<T>(args: T): T {
-    return args; 
+​
+let createArray: CreateArrayFunc<any>;
+createArray = function<T>(length: number, value: T): Array<T> {
+    let result: T[] = [];
+    for (let i = 0; i < length; i++) {
+        result[i] = value;
+    }
+    return result;
 }
-
-let myTest: Test = myfn; 
+​
+createArray(3, 'x'); // ['x', 'x', 'x']
 ```
 

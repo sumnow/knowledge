@@ -12,7 +12,7 @@
 
 然后我们现在遍历一遍Bit区域, 将该位是一的位的编号输出(2, 3, 4, 5, 7), 这样就达到了排序的目的. 下面的代码给出了一个BitMap的用法: 排序. 
 
-```c
+``` c
 //定义每个Byte中有8个Bit位  
 #include ＜memory.h＞  
 #define BYTESIZE 8  
@@ -102,3 +102,4 @@ int _tmain(int argc, _TCHAR* argv[])
 而且, 还可以方便得进行查找, 例如要找出所有的男, 程序员, 只需要把男数字和程序员数字相并就可以得到.
 
 [参考](https://www.fanhaobai.com/2017/08/bitmap.html)
+
