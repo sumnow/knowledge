@@ -136,7 +136,7 @@ There are three special values in JavaScript that are considered numbers but don
 
 The first two are Infinity and -Infinity, which represent the positive and negative infinities. Infinity - 1 is still Infinity, and so on. Don't put too much trust in infinity-based computation, though. It isn't mathematically sound, and it will quickly lead to the next special number: NaN.
 
-头两个是正无穷和负无穷, 表示最大的正数和最小的负数. 无穷-1依然是无穷, 以此类推. 因此, 不要轻信基于无穷的估算. 它不是数学上的, 它就是接下来谈到的特殊数字:NaN.
+头两个是正无穷和负无穷, 表示最大的正数和最小的负数. 无穷-1依然是无穷, 以此类推. 因此, 不要轻信基于无穷的估算. 它不是数学上的, 它就是接下来谈到的特殊数字: NaN.
 
 NaN stands for "not a number", even though it is a value of the number type. You'll get this result when you, for example, try to calculate 0 / 0 (zero divided by zero), Infinity - Infinity, or any number of other numeric operations that don't yield a meaningful result.
 
@@ -148,8 +148,8 @@ The next basic data type is the string. Strings are used to represent text. They
 
 接下来说的基础数据类型是字符串. 字符串一般用来表示文本. 它们被闭合于它们的引号中.
 
-```
- `Down on the sea` 
+``` 
+`Down on the sea` 
  "Lie on the ocean"
  'Float on the ocean'
 ```
@@ -205,8 +205,8 @@ Strings written with single or double quotes behave very much the same—the onl
 
 单或者双引号写的字符串行为基本一致, 唯一差别是在里面哪种引号你需要转义. 反引号字符串, 通常叫做模版文字, 可以做一些技巧. 除了可以跨越行, 它们还可以嵌入其他值.
 
-```
- `half of 100 is ${100 / 2}` 
+``` 
+`half of 100 is ${100 / 2}` 
 ```
 
 When you write something inside ${} in a template literal, its result will be computed, converted to a string, and included at that position. The example produces "half of 100 is 50".
@@ -221,10 +221,12 @@ Not all operators are symbols. Some are written as words. One example is the typ
 
 不是所有操作符都是符号. 一些被写成词语. 一个例子是typeof 操作符, 它可以得到你给的一个值的类型的字符串值.
 
-    console.log(typeof 4.5)
-    // → number
-    console.log(typeof "x")
-    // → string
+``` js
+console.log(typeof 4.5)
+// → number
+console.log(typeof "x")
+// → string
+```
 
 We will use console.log in example code to indicate that we want to see the result of evaluating something. More about that in the next chapter.
 
@@ -234,8 +236,10 @@ The other operators shown all operated on two values, but typeof takes only one.
 
 其他操作符都是和两个值一起的, 但typeof 只需要一个. 那些需要两个值的操作符叫做二元操作符, 只要一个的叫做一元操作符. 减号符即是一元操作符又是二元操作符
 
-    console.log(-(10 - 2))
-    // → -8
+``` js
+console.log(-(10 - 2))
+// → -8
+```
 
 ### Boolean values
 
@@ -252,10 +256,12 @@ It is often useful to have a value that distinguishes between only two possibili
 Here is one way to produce Boolean values:
 这里有一个方法来得到布尔值:
 
-    console.log(3 > 2)
-    // → true
-    console.log(3 < 2)
-    // → false
+``` js
+console.log(3 > 2)
+// → true
+console.log(3 < 2)
+// → false
+```
 
 The > and < signs are the traditional symbols for "is greater than" and "is less than", respectively. They are binary operators. Applying them results in a Boolean value that indicates whether they hold true in this case.
 
@@ -265,18 +271,20 @@ Strings can be compared in the same way.
 
 字符串可以用同种方式比较.
 
-    console.log("Aardvark" < "Zoroaster")
-    // → true
+``` js
+console.log("Aardvark" < "Zoroaster")
+// → true
+```
 
 The way strings are ordered is roughly alphabetic but not really what you'd expect to see in a dictionary: uppercase letters are always "less" than lowercase ones, so "Z" < "a", and nonalphabetic characters (!, -, and so on) are also included in the ordering. When comparing strings, JavaScript goes over the characters from left to right, comparing the Unicode codes one by one.
 
-字符串排序是粗略按照字母排序的但不是如你在字典里看到的那样:大写字母总是排在小写字母后, 像 "Z" < "a", 并且非字母的符号(!, -, 等等)都包括在排序中. 当比较字符串时, js从左到右仔细检查字符, 一个接一个比较unicode字符.
+字符串排序是粗略按照字母排序的但不是如你在字典里看到的那样: 大写字母总是排在小写字母后, 像 "Z" < "a", 并且非字母的符号(!, -, 等等)都包括在排序中. 当比较字符串时, js从左到右仔细检查字符, 一个接一个比较unicode字符.
 
 Other similar operators are >= (greater than or equal to), <= (less than or equal to), == (equal to), and != (not equal to).
 
 另外相似的操作符有 >= (大于等于), <=(小于等于), ==(等于), !=(不等于). 
 
-```
+``` 
     console.log("Itchy" != "Scratchy")
     // → true
     console.log("Apple" == "Orange")
@@ -287,8 +295,10 @@ There is only one value in JavaScript that is not equal to itself, and that is N
 
 在js中, 只有一个值不等于它自己, 就是NaN.
 
-    console.log(NaN == NaN)
-    // → false
+``` js
+console.log(NaN == NaN)
+// → false
+```
 
 NaN is supposed to denote the result of a nonsensical computation, and as such, it isn't equal to the result of any other nonsensical computations.
 
@@ -304,23 +314,26 @@ There are also some operations that can be applied to Boolean values themselves.
 
 The && operator represents logical and. It is a binary operator, and its result is true only if both the values given to it are true.
 
- `&&` 表示逻辑和. 这是一个二元操作符, 并且他的结果是真只要两个值都给出真.
+`&&` 表示逻辑和. 这是一个二元操作符, 并且他的结果是真只要两个值都给出真.
 
-    console.log(true && false)
-    // → false
-    console.log(true && true)
-    // → true
+``` js
+console.log(true && false)
+// → false
+console.log(true && true)
+// → true
+```
 
 The || operator denotes logical or. It produces true if either of the values given to it is true.
 
- `||` 操作符表示逻辑或. 如果两个值中之一为真, 它得到真
+`||` 操作符表示逻辑或. 如果两个值中之一为真, 它得到真
 
-    console.log(false || true)
-    // → true
-    console.log(false || false)
-    // → false
+``` js
+console.log(false || true)
+// → true
+console.log(false || false)
+// → false
+```
 
-    
 Not is written as an exclamation mark (!). It is a unary operator that flips the value given to it—!true produces false, and !false gives true.
 
 not 被写成惊叹符(!). 它是一个一元操作符, 可以反转给它的值-- !true 得到 false , !false得到true.
@@ -329,16 +342,18 @@ not 被写成惊叹符(!). 它是一个一元操作符, 可以反转给它的值
 
 当这些布尔符和数学符以及其他符号混在一起, 需要括号时并不总是很明显. 实际上, 你通常可以理解这些我们现在已经见过的操作符, || 优先级最低, 然后是 && , 然后是比较符(>, ==, 等), 然后是其他. 选择这个顺序使得, 在像下面这个经典表达式里, 尽可能少的括号是必须的:
 
- `1 + 1 == 2 && 10 * 10 > 50` 
+`1 + 1 == 2 && 10 * 10 > 50` 
 
 The last logical operator I will discuss is not unary, not binary, but ternary, operating on three values. It is written with a question mark and a colon, like this:
 
 最后的逻辑操作符我没有谈到的不是一元, 也不是二. 而是三元, 操作三个值. 她被写成一个问好和一个冒号, 像这样:
 
-    console.log(true ? 1 : 2);
-    // → 1
-    console.log(false ? 1 : 2);
-    // → 2
+``` js
+console.log(true ? 1 : 2);
+// → 1
+console.log(false ? 1 : 2);
+// → 2
+```
 
 This one is called the conditional operator (or sometimes just the ternary operator since it is the only such operator in the language). The value on the left of the question mark "picks" which of the other two values will come out. When it is true, it chooses the middle value, and when it is false, it chooses the value on the right.
 
@@ -368,18 +383,19 @@ undefined 和null 之间不同的意义是一个js设计的意外, 它们多数�
 
 在介绍里, 我提及了js几乎可以接受你提供的任何程序, 甚至是那些做古怪事情的程序. 这可以用下面的解释来漂亮得表明.
 
-    console.log(8 * null)
-    // → 0
-    console.log("5" - 1)
-    // → 4
-    console.log("5" + 1)
-    // → 51
-    console.log("five" * 2)
-    // → NaN
-    console.log(false == 0)
-    // → true
+``` js
+console.log(8 * null)
+// → 0
+console.log("5" - 1)
+// → 4
+console.log("5" + 1)
+// → 51
+console.log("five" * 2)
+// → NaN
+console.log(false == 0)
+// → true
+```
 
-    
 When an operator is applied to the "wrong" type of value, JavaScript will quietly convert that value to the type it needs, using a set of rules that often aren't what you want or expect. This is called type coercion. The null in the first expression becomes 0, and the "5" in the second expression becomes 5 (from string to number). Yet in the third expression, + tries string concatenation before numeric addition, so the 1 is converted to "1" (from number to string).
 
 当一个操作符被一个错误类型的值调用了, js会静默地转换值为需要的类型, 使用一套你没有想到或者预期的规则. 这被叫做强制类型. 第一个表达式里的null变成了-, 第二个表达式的"5"变成了 5(从字符串到数字). 在第三个表达式里, + 连接了数字前的字符串, 因此1被转换成"1"(从数字到字符串).
@@ -392,12 +408,13 @@ When comparing values of the same type using ==, the outcome is easy to predict:
 
 当比较两个相同的类型的值使用==, 输出非常容易预料: 你在值都一样的时候得到真, 除非是NaN. 但当类型不同的时候, js使用一套复杂且令人困惑的规则来决定怎么做. 多数例子里, 它尝试转换一个值到另一个值类型. 箪食. 当空或者 undefined 其中一个出现在符号的一边, 只有在两边都是null或者undefined中的一个的时候才得到真.
 
-    console.log(null == undefined);
-    // → true
-    console.log(null == 0);
-    // → false
+``` js
+console.log(null == undefined);
+// → true
+console.log(null == 0);
+// → false
+```
 
-    
 That behavior is often useful. When you want to test whether a value has a real value instead of null or undefined, you can compare it to null with the == (or !=) operator.
 
 这个行为通常很有用. 当你想要测试一个值是不是真值而不是null或者undefined, 你可以把它和null用==(或者 !=)比较.
@@ -422,12 +439,13 @@ The || operator, for example, will return the value to its left when that can be
 
 在 || 操作符, 举个例子, 在左侧的值可以转换为真会放回它左侧的值, 否则返回右侧的值. 当值为布尔或者其他类似作用的值类型, 可以预期结果.
 
-    console.log(null || "user")
-    // → user
-    console.log("Agnes" || "user")
-    // → Agnes
+``` js
+console.log(null || "user")
+// → user
+console.log("Agnes" || "user")
+// → Agnes
+```
 
-    
 We can use this functionality as a way to fall back on a default value. If you have a value that might be empty, you can put || after it with a replacement value. If the initial value can be converted to false, you'll get the replacement instead. The rules for converting strings and numbers to Boolean values state that 0, NaN, and the empty string ("") count as false, while all the other values count as true. So 0 || -1 produces -1, and "" || "!?" yields "!?".
 
 我们可以使用这个作为一种退回默认值的方式. 如果你有一个值可能是空的, 你可以在它的后面放一个 || 带一个替补值. 如果初始值被转换成假, 你反而会得到替补值. 转换的字符串和数字到布尔值的规则申明, 0, NaN, 和 空字符串  被计为假, 而其他所有值被视作真. 因此 0 || -1 得到 -1 , "" || "!?" 产出 "!?".

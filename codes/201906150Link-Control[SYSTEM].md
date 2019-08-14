@@ -113,11 +113,11 @@ linux> ./prog
 所谓的对象文件(Object File)实际上是一个统称, 具体来说有以下三种形式:
 
 * 可重定位目标文件 Relocatable object file (.o file)
-    + 每个 .o 文件都是由对应的 .c 文件通过编译器和汇编器生成, 包含代码和数据, 可以与其他可重定位目标文件合并创建一个可执行或共享的目标文件
+    - 每个 .o 文件都是由对应的 .c 文件通过编译器和汇编器生成, 包含代码和数据, 可以与其他可重定位目标文件合并创建一个可执行或共享的目标文件
 * 可执行目标文件 Executable object file (a.out file)
-    + 由链接器生成, 可以直接通过加载器加载到内存中充当进程执行的文件, 包含代码和数据
+    - 由链接器生成, 可以直接通过加载器加载到内存中充当进程执行的文件, 包含代码和数据
 * 共享目标文件 Shared object file (.so file)
-    + 在 windows 中被称为 Dynamic Link Libraries(DLLs), 是类特殊的可重定位目标文件, 可以在链接(静态共享库)时加入目标文件或加载时或运行时(动态共享库)被动态的加载到内存并执行
+    - 在 windows 中被称为 Dynamic Link Libraries(DLLs), 是类特殊的可重定位目标文件, 可以在链接(静态共享库)时加入目标文件或加载时或运行时(动态共享库)被动态的加载到内存并执行
 
 ## 对象文件格式
 
@@ -128,37 +128,37 @@ linux> ./prog
 下面分别介绍一下各个部分:
 
 * ELF header
-    + 包含 word size, byte ordering, file type (.o, exec, .so), machine type, etc
+    - 包含 word size, byte ordering, file type (.o, exec, .so), machine type, etc
 * Segment header table
-    + 包含 page size, virtual addresses memory segments(sections), segment sizes
+    - 包含 page size, virtual addresses memory segments(sections), segment sizes
 * .text section
-    + 代码部分
+    - 代码部分
 * .rodata section
-    + 只读数据部分, 例如跳转表
+    - 只读数据部分, 例如跳转表
 * .data section
-    + 初始化的全局变量
+    - 初始化的全局变量
 * .bss section
-    + 未初始化的全局变量
+    - 未初始化的全局变量
 * .symtab section
-    + 包含 symbol table, procudure 和 static variable names 以及 section names 和 location
+    - 包含 symbol table, procudure 和 static variable names 以及 section names 和 location
 * .rel.txt section
-    + .text section 的重定位信息
+    - .text section 的重定位信息
 * .rel.data section
-    + .data section 的重定位信息
+    - .data section 的重定位信息
 * .debug section
-    + 包含 symbolic debugging (gcc -g) 的信息
+    - 包含 symbolic debugging (gcc -g) 的信息
 * Section header table
-    + 每个 section 的大小和偏移量
+    - 每个 section 的大小和偏移量
 
 链接器实际上会处理三种不同的符号, 对应于代码中不同写法的部分:
 
 * 全局符号 Global symbols
-    + 在当前模块中定义, 且可以被其他代码引用的符号, 例如非静态 C 函数和非静态全局变量
+    - 在当前模块中定义, 且可以被其他代码引用的符号, 例如非静态 C 函数和非静态全局变量
 * 外部符号 External symbols
-    + 同样是全局符号, 但是是在其他模块(也就是其他的源代码)中定义的, 但是可以在当前模块中引用
+    - 同样是全局符号, 但是是在其他模块(也就是其他的源代码)中定义的, 但是可以在当前模块中引用
 * 本地符号 Local symbols
-    + 在当前模块中定义, 只能被当前模块引用的符号, 例如静态函数和静态全局变量
-    + 注意, Local linker symbol 并不是 local program variables
+    - 在当前模块中定义, 只能被当前模块引用的符号, 例如静态函数和静态全局变量
+    - 注意, Local linker symbol 并不是 local program variables
 
 ## 链接过程
 
@@ -243,7 +243,7 @@ p2() { ... } // 强符号, 函数
 
 我们可以看看下面几个例子:
 
-```c
+``` c
 // 文件 p1.c
 int x; 
 p1() { ... } 
@@ -433,7 +433,7 @@ void multvec(int *x, int *y, int *z, int n)
 
 因为是按顺序查找, 所以实际上是有引用依赖问题的, 也就是说写编译命令的时候, 顺序是很重要的! 我们看下面这个例子, 这里 libtest.o 中引用了 lmine 库中的 libfun 函数, 仔细比较两个的顺序:
 
-```bash
+``` bash
 unix> gcc -L. libtest.o -lmine
 # 上面这句不会出错, 但是下面的会
 unix> gcc -L. -lmine libtest.o
@@ -470,14 +470,14 @@ libtest.o(.text+0x4): Undefined reference to `libfun`
 这个技术可以应用在
 
 * 安全方面
-    + 沙盒机制
-    + 加密
+    - 沙盒机制
+    - 加密
 * 调试方面
-    + 可以找到隐藏比较深的 bug
+    - 可以找到隐藏比较深的 bug
 * 监控和查看性能
-    + 统计函数调用的次数
-    + 检测内存泄露
-    + 生成地址记录
+    - 统计函数调用的次数
+    - 检测内存泄露
+    - 生成地址记录
 
 具体的例子可以参考[Tutorial: Function Interposition in Linux](http://jayconrod.com/posts/23/tutorial-function-interposition-in-linux), 这里不再赘述.
 

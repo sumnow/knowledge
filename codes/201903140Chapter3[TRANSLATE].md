@@ -26,12 +26,14 @@ A function definition is a regular binding where the value of the binding is a f
 
 一个函数定义是一个常规绑定, 它绑定的值是一个函数. 例如, 这个代码定义 `square` 来引用一个函数, 它计算给出数字的平方: 
 
-    const square = function(x) {
-        return x * x;
-    };
+``` js
+const square = function(x) {
+    return x * x;
+};
 
-    console.log(square(12));
-    // → 144
+console.log(square(12));
+// → 144
+```
 
 A function is created with an expression that starts with the keyword function. Functions have a set of parameters (in this case, only x) and a body, which contains the statements that are to be executed when the function is called. The function body of a function created this way must always be wrapped in braces, even when it consists of only a single statement. 
 
@@ -41,25 +43,32 @@ A function can have multiple parameters or no parameters at all. In the followin
 
 一个函数可以有多样的参数或者完全没有参数. 在下面的例子里, makeNoise 没有列出任何参数的名字, 但power列出了两个: 
 
-    const makeNoise = function() {
-        console.log("Pling!");
-    };
+``` js
+const makeNoise = function() {
+    console.log("Pling!");
+};
 
-    makeNoise();
-    // → Pling!
+makeNoise();
+// → Pling!
+```
 
-    const power = function(base, exponent) {
-        let result = 1;
-        for (let count = 0; count < exponent; count++) {
-            result *= base;
-        }
-        return result;
-    };
+``` js
+const power = function(base, exponent) {
+    let result = 1;
+    for (let count = 0; count < exponent; count++) {
+        result *= base;
+    }
+    return result;
+};
 
-    console.log(power(2, 10));
-    // → 1024
+console.log(power(2, 10));
+// → 1024
+```
 
-    
+``` js
+
+```
+
 Some functions produce a value, such as power and square, and some don't, such as makeNoise, whose only result is a side effect. A return statement determines the value the function returns. When control comes across such a statement, it immediately jumps out of the current function and gives the returned value to the code that called the function. A return keyword without an expression after it will cause the function to return undefined. Functions that don't have a return statement at all, such as makeNoise, similarly return undefined. 
 
 一些函数得到一个值, 例如 `power` 和 `square` , 还有一些不得到, 例如 `makeNoise` , 结果只是一个副作用. 一个 `return` 语句决定了函数返回的值. 当控制穿越了这样一个语句, 它会立刻跳出当前的函数, 并且给出叫做函数的代码的返回值. 一个 `return` 关键字没有一个表达式跟在它后面会导致函数去返回 `undefined` . 没有一个 `return` 语句的函数, 像 `makeNoise` , 类似于返回 `undefined` . 
@@ -84,16 +93,18 @@ Bindings declared with let and const are in fact local to the block that they ar
 
 使用 `let` 和 `const` 的绑定声明 事实上是位于他们声明的模块内, 因此如果你在循环里创建了他们中的一个, 在循环之前和之后的代码都不能"看到"它. 在 pre-2015 js中, 只有函数可以创建新的区域, 因此老风格的绑定, 用var关键字创建的, 是可见的尽管是在他们出现的整个函数, 或者尽管整个全局范围里, 如果他们不在一个函数里. 
 
-    let x = 10;
-    if (true) {
-        let y = 20;
-        var z = 30;
-        console.log(x + y + z);
-        // → 60
-    }
-    // y is not visible here
-    console.log(x + z);
-    // → 40
+``` js
+let x = 10;
+if (true) {
+    let y = 20;
+    var z = 30;
+    console.log(x + y + z);
+    // → 60
+}
+// y is not visible here
+console.log(x + z);
+// → 40
+```
 
 Each scope can "look out" into the scope around it, so x is visible inside the block in the example. The exception is when multiple bindings have the same name—in that case, code can see only the innermost one. For example, when the code inside the halve function refers to n, it is seeing its own n, not the global n. 
 
@@ -102,6 +113,10 @@ Each scope can "look out" into the scope around it, so x is visible inside the b
     const halve = function(n) {
         return n / 2;
     };
+
+``` js
+
+```
 
     let n = 10;
     console.log(halve(100));
@@ -121,21 +136,23 @@ For example, this function—which outputs the ingredients needed to make a batc
 
 举个例子, 这个函数--输出一批鹰嘴豆泥所需要的原料--有两一个函数在它里面: 
 
-    const hummus = function(factor) {
-        const ingredient = function(amount, unit, name) {
-            let ingredientAmount = amount * factor;
-            if (ingredientAmount > 1) {
-                unit += "s";
-            }
-            console.log( `${ingredientAmount} ${unit} ${name}` );
-        };
-        ingredient(1, "can", "chickpeas");
-        ingredient(0. 25, "cup", "tahini");
-        ingredient(0. 25, "cup", "lemon juice");
-        ingredient(1, "clove", "garlic");
-        ingredient(2, "tablespoon", "olive oil");
-        ingredient(0. 5, "teaspoon", "cumin");
+``` js
+const hummus = function(factor) {
+    const ingredient = function(amount, unit, name) {
+        let ingredientAmount = amount * factor;
+        if (ingredientAmount > 1) {
+            unit += "s";
+        }
+        console.log( `${ingredientAmount} ${unit} ${name}` );
     };
+    ingredient(1, "can", "chickpeas");
+    ingredient(0. 25, "cup", "tahini");
+    ingredient(0. 25, "cup", "lemon juice");
+    ingredient(1, "clove", "garlic");
+    ingredient(2, "tablespoon", "olive oil");
+    ingredient(0. 5, "teaspoon", "cumin");
+};
+```
 
 The code inside the `ingredient` function can see the `factor` binding from the outer function. But its local bindings, such as `unit` or `ingredientAmount` , are not visible in the outer function. 
 
@@ -157,12 +174,15 @@ But the two are different. A function value can do all the things that other val
 
 但是有两处是不同的. 一个函数值可以所有其他值可以做的事情--你可以使用它在一个一元表达式里, 而不仅仅是调用它. 可能去存储一个函数值在一个新的变量里, 将它作为一个参数传递给一个函数, 这样. 相似的, 一个持有一个函数的变量依然是一个正常的变量并且, 如果不是常量, 分配给一个新的值, 像这样: 
 
-    let launchMissiles = function() {
-        missileSystem.launch("now");
-    };
-    if (safeMode) {
-        launchMissiles = function() { /* do nothing */ };
-    }
+``` js
+let launchMissiles = function() {
+    missileSystem.launch("now");
+};
+if (safeMode) {
+    launchMissiles = function() {
+        /* do nothing */ };
+}
+```
 
 *In Chapter 5, we will discuss the interesting things that can be done by passing around function values to other functions*. 
 
@@ -176,9 +196,11 @@ There is a slightly shorter way to create a function binding. When the function 
 
 有一个稍微短点创建函数变量的方式. 当function关键被用在一个语句的开头, 它工作就不同了. 
 
-    function square(x) {
-        return x * x;
-    }
+``` js
+function square(x) {
+    return x * x;
+}
+```
 
 This is a function declaration. The statement defines the binding square and points it at the given function. It is slightly easier to write and doesn't require a semicolon after the function. 
 
@@ -189,6 +211,10 @@ There is one subtlety with this form of function definition.
 这种形式的功能定义有一个微妙之处. 
 
     console.log("The future says: ", future());
+
+``` js
+
+```
 
     function future() {
         return "You'll never have flying cars";
@@ -206,13 +232,15 @@ There's a third notation for functions, which looks very different from the othe
 
 这是一个函数的第三种符号, 看来和其他的非常不同. 不是function关键字, 它使用一个箭头 (=>) 由一个等号和一个大于号组成(不要和写作>=的大于等于符号混淆了). 
 
-    const power = (base, exponent) => {
-        let result = 1;
-        for (let count = 0; count < exponent; count++) {
-            result *= base;
-        }
-        return result;
-    };
+``` js
+const power = (base, exponent) => {
+    let result = 1;
+    for (let count = 0; count < exponent; count++) {
+        result *= base;
+    }
+    return result;
+};
+```
 
 The arrow comes after the list of parameters and is followed by the function's body. It expresses something like "this input (the parameters) produces this result (the body)". 
 
@@ -222,18 +250,22 @@ When there is only one parameter name, you can omit the parentheses around the p
 
 当只有一个参数名的时候, 你可以省略函数列表周围的括号. 如果函数体是一单个表达式, 而不是一个括号里的块, 这个表达式会被函数返回. 因此, 这是两种定义 `square` , 做相同的事情: 
 
-    const square1 = (x) => {
-        return x * x;
-    };
-    const square2 = x => x * x;
+``` js
+const square1 = (x) => {
+    return x * x;
+};
+const square2 = x => x * x;
+```
 
 When an arrow function has no parameters at all, its parameter list is just an empty set of parentheses. 
 
 当一个箭头函数完全没有参数, 他的参数列表就是一对空的括号. 
 
-    const horn = () => {
-        console.log("Toot");
-    };
+``` js
+const horn = () => {
+    console.log("Toot");
+};
+```
 
 There's no deep reason to have both arrow functions and function expressions in the language. Apart from a minor detail, which we'll discuss in Chapter 6, they do the same thing. Arrow functions were added in 2015, mostly to make it possible to write small function expressions in a less verbose way. We'll be using them a lot in Chapter 5. 
 
@@ -253,6 +285,10 @@ There's no deep reason to have both arrow functions and function expressions in 
     greet("Harry");
     console.log("Bye");
 
+``` js
+
+```
+
     
 A run through this program goes roughly like this: the call to `greet` causes control to jump to the start of that function (line 2). The function calls `console.log` , which takes control, does its job, and then returns control to line 2. There it reaches the end of the greet function, so it returns to the place that called it, which is line 4. The line after that calls console. log again. After that returns, the program reaches its end. 
 
@@ -262,7 +298,7 @@ We could show the flow of control schematically like this:
 
 我们可以图像化地显示控制流像这样: 
 
-```bash
+``` bash
 not in function
    in greet
         in console. log
@@ -288,6 +324,10 @@ Storing this stack requires space in the computer's memory. When the stack grows
         return egg();
     }
 
+``` js
+
+```
+
     function egg() {
         return chicken();
     }
@@ -302,10 +342,13 @@ The following code is allowed and executes without any problem:
 
 接下来的代码是允许并且执行没有任何问题: 
 
-    function square(x) {
-        return x * x;
-    }
-    console.log(square(4, true, "hedgehog"));
+``` js
+function square(x) {
+    return x * x;
+}
+```
+
+    console.log(square(4, true, "hedgehog")); 
     // → 16
 
 We defined square with only one parameter. Yet when we call it with three, the language doesn't complain. It ignores the extra arguments and computes the square of the first one. 
@@ -329,6 +372,10 @@ The upside is that this behavior can be used to allow a function to be called wi
         else return a - b;
     }
 
+``` js
+
+```
+
     console.log(minus(10));
     // → -10
     console.log(minus(10, 5));
@@ -350,6 +397,10 @@ For example, this version of power makes its second argument optional. If you do
         return result;
     }
 
+``` js
+
+```
+
     console.log(power(4));
     // → 16
     console.log(power(2, 6));
@@ -359,8 +410,10 @@ In the next chapter, we will see a way in which a function body can get at the w
 
 在下一个章节, 我们会看到一种方式函数体可以获得所有被传递的参数列表. 这是有用的因为它使函数接受任意数量的参数成为可能. 例如, `console.log` 做的那样--它输出所有它被赋予的值. 
 
-    console.log("C", "O", 2);
-    // → C O 2
+``` js
+console.log("C", "O", 2);
+// → C O 2
+```
 
 ### Closure
 
@@ -378,6 +431,10 @@ The following code shows an example of this. It defines a function, wrapValue, t
         let local = n;
         return () => local;
     }
+
+``` js
+
+```
 
     let wrap1 = wrapValue(1);
     let wrap2 = wrapValue(2);
@@ -402,9 +459,17 @@ With a slight change, we can turn the previous example into a way to create func
         return number => number * factor;
     }
 
+``` js
+
+```
+
     let twice = multiplier(2);
     console.log(twice(5));
     // → 10
+
+``` js
+
+```
 
     
 The explicit local binding from the wrapValue example isn't really needed since a parameter is itself a local binding. 
@@ -434,6 +499,10 @@ In the example, multiplier is called and creates an environment in which its fac
             return base * power(base, exponent - 1);
         }
     }
+
+``` js
+
+```
 
     console.log(power(2, 3));
     // → 8
@@ -494,6 +563,10 @@ Here is a recursive solution:
     console.log(findSolution(24));
     // → (((1 * 3) + 5) * 3)
 
+``` js
+
+```
+
     // 这是我的解决方案, 确实很差
     function recursion(m) {
         if (m === 1) {
@@ -524,7 +597,7 @@ It is okay if you don't see how it works right away. Let's work through it, sinc
 
 The inner function find does the actual recursing. It takes two arguments: the current number and a string that records how we reached this number. If it finds a solution, it returns a string that shows how to get to the target. If no solution can be found starting from this number, it returns null. 
 
-里面函数做了递归. 它获取两个参数:当前的数字和一个记录我们如何得到这个数字的字符串. 如果它找到一个解决方案, 它返回一个展示如何得到目标的字符串. 如果没有解决方案被找到, 它返回 `null` .
+里面函数做了递归. 它获取两个参数: 当前的数字和一个记录我们如何得到这个数字的字符串. 如果它找到一个解决方案, 它返回一个展示如何得到目标的字符串. 如果没有解决方案被找到, 它返回 `null` .
 
 To do this, the function performs one of three actions. If the current number is the target number, the current history is a way to reach that target, so it is returned. If the current number is greater than the target, there's no sense in further exploring this branch because both adding and multiplying will only make the number bigger, so it returns null. Finally, if we're still below the target number, the function tries both possible paths that start from the current number by calling itself twice, once for addition and once for multiplication. If the first call returns something that is not null, it is returned. Otherwise, the second call is returned, regardless of whether it produces a string or null. 
 
@@ -534,7 +607,7 @@ To better understand how this function produces the effect we're looking for, le
 
 为了更好地理解这个函数如何产生我们正在寻找的效果, 看看所有的调用来找到他们是怎么做的, 在探索到数字13的解决方法.
 
-```bash
+``` bash
 find(1, "1")
   find(6, "(1 + 5)")
     find(11, "((1 + 5) + 5)")
@@ -576,28 +649,32 @@ How difficult it is to find a good name for a function is a good indication of h
 
 We want to write a program that prints two numbers: the numbers of cows and chickens on a farm, with the words Cows and Chickens after them and zeros padded before both numbers so that they are always three digits long.
 
-我们想要写一个程序, 输出两个数字:农场里奶牛和鸡的数目, Cows和Chickens跟在它们的后面, 并且用0填充前面, 使他们都是三位整数长.
+我们想要写一个程序, 输出两个数字: 农场里奶牛和鸡的数目, Cows和Chickens跟在它们的后面, 并且用0填充前面, 使他们都是三位整数长.
 
-    007 Cows
-    011 Chickens
+``` js
+007 Cows
+011 Chickens
+```
 
 This asks for a function of two arguments—the number of cows and the number of chickens. Let's get coding.
 
 这要求两个参数的功能 -- 奶牛的数量和鸡的数量. 让我们开始编码.
 
-    function printFarmInventory(cows, chickens) {
-        let cowString = String(cows);
-        while (cowString.length < 3) {
-            cowString = "0" + cowString;
-        }
-        console.log( `${cowString} Cows` );
-        let chickenString = String(chickens);
-        while (chickenString.length < 3) {
-            chickenString = "0" + chickenString;
-        }
-        console.log( `${chickenString} Chickens` );
+``` js
+function printFarmInventory(cows, chickens) {
+    let cowString = String(cows);
+    while (cowString.length < 3) {
+        cowString = "0" + cowString;
     }
-    printFarmInventory(7, 11);
+    console.log( `${cowString} Cows` );
+    let chickenString = String(chickens);
+    while (chickenString.length < 3) {
+        chickenString = "0" + chickenString;
+    }
+    console.log( `${chickenString} Chickens` );
+}
+printFarmInventory(7, 11);
+```
 
 Writing .length after a string expression will give us the length of that string. Thus, the while loops keep adding zeros in front of the number strings until they are at least three characters long.
 
@@ -619,11 +696,19 @@ We sure can. But just as we're in the process of copying and pasting those four 
         console.log( `${numberString} ${label}` );
     }
 
+``` js
+
+```
+
     function printFarmInventory(cows, chickens, pigs) {
         printZeroPaddedWithLabel(cows, "Cows");
         printZeroPaddedWithLabel(chickens, "Chickens");
         printZeroPaddedWithLabel(pigs, "Pigs");
     }
+
+``` js
+
+```
 
     printFarmInventory(7, 11, 3);
 
@@ -643,11 +728,19 @@ Instead of lifting out the repeated part of our program wholesale, let's try to 
         return string;
     }
 
+``` js
+
+```
+
     function printFarmInventory(cows, chickens, pigs) {
         console.log( `${zeroPad(cows, 3)} Cows` );
         console.log( `${zeroPad(chickens, 3)} Chickens` );
         console.log( `${zeroPad(pigs, 3)} Pigs` );
     }
+
+``` js
+
+```
 
     printFarmInventory(7, 16, 3);
 
@@ -694,10 +787,18 @@ This chapter taught you how to write your own functions. The function keyword, w
         console.log(a + 2);
     };
 
+``` js
+
+```
+
     // Declare g to be a function
     function g(a, b) {
         return a * b * 3.5;
     }
+
+``` js
+
+```
 
     // A less verbose function value
     let h = a => a % 3;
@@ -723,6 +824,10 @@ The previous chapter introduced the standard function Math.min that returns its 
         return rest.sort((a, b) => a - b)[0]
     }
 
+``` js
+
+```
+
     console.log(min(0, 10));
     // → 0
     console.log(min(0, -10));
@@ -740,19 +845,19 @@ The previous chapter introduced the standard function Math.min that returns its 
 
 We've seen that % (the remainder operator) can be used to test whether a number is even or odd by using % 2 to see whether it's divisible by two. Here's another way to define whether a positive whole number is even or odd:
 
-- Zero is even.
+* Zero is even.
 
-- One is odd.
+* One is odd.
 
-- For any other number N, its evenness is the same as N - 2.
+* For any other number N, its evenness is the same as N - 2.
 
 我们看到 %(求模操作符) 可以用来测试一个数是奇数或者偶数通过 % 2来看是否被2整除. 这里有另一种方式定义正整数是奇还是偶:
 
-- 0是偶数
+* 0是偶数
 
-- 1是奇数
+* 1是奇数
 
-- 对任意数字N, 它的奇偶性和N-2一样.
+* 对任意数字N, 它的奇偶性和N-2一样.
 
 Define a recursive function isEven corresponding to this description. The function should accept a single parameter (a positive, whole number) and return a Boolean.
 
@@ -768,6 +873,10 @@ Test it on 50 and 75. See how it behaves on -1. Why? Can you think of a way to f
         if (num == 0) return true
         return isEven(num - 2)
     }
+
+``` js
+
+```
 
     console.log(isEven(50));
     // → true
@@ -801,6 +910,10 @@ Next, write a function called countChar that behaves like countBs, except it tak
 接下来, 编写一个名为countChar的函数, 其行为类似于countBs, 除了它采用第二个参数指示要计数的字符(而不是仅计算大写的"B"字符). 重写countBs以使用这个新函数. 
 
     // Your code here.
+
+``` js
+
+```
 
     console.log(countBs("BBC"));
     // → 2

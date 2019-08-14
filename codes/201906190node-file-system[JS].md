@@ -8,15 +8,19 @@ Node.js 文件系统(fs 模块)模块中的方法均有异步和同步版本, �
 
 ## 文件模块
 
-    var fs = require('fs')
+``` js
+var fs = require('fs')
+```
 
 引入文件系统管理模块
 
-    console.log(fs)
+``` js
+console.log(fs)
+```
 
 的结果如下
 
-```bash
+``` bash
 { constants: 
    { O_RDONLY: 0,
      O_WRONLY: 1,
@@ -165,16 +169,25 @@ Node.js 文件系统(fs 模块)模块中的方法均有异步和同步版本, �
 
 ### 重命名
 
+``` js
+// javascript
 fs.rename(oldPath, newPath, callback)
+```
+
 异步 rename(). 回调函数没有参数, 但可能抛出异常. 
 
 ### 删除
 
+``` js
+// javascript
 fs.unlink(path, callback)
+```
 
 ### 新建目录
 
-    fs.mkdir(path[, options], callback)
+``` js
+fs.mkdir(path[, options], callback)
+```
 
 path - 文件路径. 
 
@@ -184,19 +197,21 @@ recursive - 是否以递归的方式创建目录, 默认为 false.
 
 mode - 设置目录权限, 默认为 0777. 
 
-    var fs = require("fs");
-    // tmp 目录必须存在
-    console.log("创建目录 /tmp/test/");
-    fs.mkdir("/tmp/test/", function(err) {
-        if (err) {
-            return console.error(err);
-        }
-        console.log("目录创建成功。");
-    });
+``` js
+var fs = require("fs");
+// tmp 目录必须存在
+console.log("创建目录 /tmp/test/");
+fs.mkdir("/tmp/test/", function(err) {
+    if (err) {
+        return console.error(err);
+    }
+    console.log("目录创建成功。");
+});
+```
 
 以上代码执行结果如下: 
 
-```
+``` 
 $ node file.js
 创建目录 / tmp / test /
     目录创建成功.
@@ -204,29 +219,33 @@ $ node file.js
 
 可以添加 recursive: true 参数, 不管创建的目录 /tmp 和 /tmp/a 是否存在: 
 
-    fs.mkdir('/tmp/a/apple', {
-        recursive: true
-    }, (err) => {
-        if (err) throw err;
-    });
+``` js
+fs.mkdir('/tmp/a/apple', {
+    recursive: true
+}, (err) => {
+    if (err) throw err;
+});
+```
 
 ### 读取目录
 
-    fs.readdir(path, callback)
+``` js
+fs.readdir(path, callback)
+```
 
 callback - 回调函数, 回调函数带有两个参数err, files, err 为错误信息, files 为 目录下的文件数组列表. 
 
-    var fs = require("fs");
+``` js
+var fs = require("fs");
 
-    console.log("查看 /tmp 目录");
-    fs.readdir("/tmp/", function(err, files) {
-        if (err) {
-            return console.error(err);
-        }
-        files.forEach(function(file) {
-            console.log(file);
-        });
+console.log("查看 /tmp 目录");
+fs.readdir("/tmp/", function(err, files) {
+    if (err) {
+        return console.error(err);
+    }
+    files.forEach(function(file) {
+        console.log(file);
     });
-
-
+});
+```
 

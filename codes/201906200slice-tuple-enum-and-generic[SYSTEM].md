@@ -16,20 +16,19 @@ python 中的tuple就与go中的array很相似了, 甚至都没有办法改变�
 
 枚举比较像反向的数组, 多数情况下是用有意义的字符来表示不太容易读懂的数字, 就像
 
-```c
+``` c
 #include<stdio.h>
 
-enum DAY
-{
-      MON=1, TUE, WED, THU, FRI, SAT, SUN
-} day;
+enum DAY {
+  MON = 1, TUE, WED, THU, FRI, SAT, SUN
+}
+day;
 
-int main()
-{
-    // 遍历枚举元素
-    for (day = MON; day <= SUN; day++) {
-        printf("枚举元素：%d \n", day);
-    }
+int main() {
+  // 遍历枚举元素
+  for (day = MON; day <= SUN; day++) {
+    printf("枚举元素：%d \n", day);
+  }
 }
 ```
 

@@ -2,7 +2,7 @@
 
 ## 服务器端配置
 
-```
+``` 
 {
   "log": {
     "access": "/var/run/v2ray/access.log",
@@ -35,7 +35,7 @@
 
 ## 客户端配置
 
-```
+``` 
 {
   "inbounds": [{
     "port": 1080,
@@ -86,36 +86,36 @@ events {
 
 http {
     access_log  /var/log/nginx/access.log  main;
-
+    
     sendfile            on;
     tcp_nopush          on;
     tcp_nodelay         on;
     keepalive_timeout   65;
     types_hash_max_size 2048;
-
+    
     include             /etc/nginx/mime.types;
     default_type        application/octet-stream;
-
+    
     server {
         listen       80 default_server;
         listen       [::]:80 default_server;
         server_name  _;
         root         /usr/share/nginx/html;
-
+    
         include /etc/nginx/default.d/*.conf;
-
+    
         location / {
         }
-
+    
         error_page 404 /404.html;
             location = /40x.html {
         }
-
+    
         error_page 500 502 503 504 /50x.html;
             location = /50x.html {
         }
     }
-
+    
     server {
         listen  443 ssl;
         ssl on;
@@ -127,12 +127,12 @@ http {
         location /ray { 
             proxy_redirect off;
             proxy_pass http://127.0.0.1:10000;
-
+    
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";
             proxy_set_header Host $http_host;
-
+    
             # proxy_set_header X-Real-IP $remote_addr;
             # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
@@ -140,3 +140,4 @@ http {
 }
 
 ```
+

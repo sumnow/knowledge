@@ -41,22 +41,22 @@
 这个和下面这段代码是很相似的
 
 ``` java
-    byte[] bs = digest.digest(origin.getBytes(Charset.forName(charsetName))) ;  
-    for (int i = 0; i < bs.length; i++) {  
-        int c = bs[i] & 0xFF ;
-        if(c < 16){ 
-            sb.append("0");  
-        }  
-        sb.append(Integer.toHexString(c)) ;  
+byte[] bs = digest.digest(origin.getBytes(Charset.forName(charsetName))) ;  
+for (int i = 0; i < bs.length; i++) {  
+    int c = bs[i] & 0xFF ;
+    if(c < 16){ 
+        sb.append("0");  
     }  
-    return sb.toString() ;  
+    sb.append(Integer.toHexString(c)) ;  
+}  
+return sb.toString() ;  
 ```
 
 bs是由一段字符串经过MD5加密后, 输出的byte数组. 我起初难以理解为什么在接下来的循环中要将bs[i]&oxFF再复制给int类型呢? 
 
 bs[i]是8位二进制, 0xFF转化成8位二进制就是11111111, 那么bs[i]&0xFF不是还是bs[i]本身吗? 有意思吗? 
 
-```java
+``` java
 package jvmProject;
 
 public class Test {

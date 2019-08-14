@@ -14,7 +14,7 @@
 
 因为Linux防火墙可能会阻挡我们去连接v2ray, 所以需要关闭它. 使用以下三组命令关闭防火墙, 你只需要选择其中的一组来执行即可, 如果报错, 才需要去执行下一组的命令. 
 
-```bash
+``` bash
 systemctl stop firewalld
 systemctl disable firewalld
  

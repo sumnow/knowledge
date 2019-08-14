@@ -30,27 +30,33 @@ This is the most naive garbage collection algorithm. This algorithm reduces the 
 
 There is a limitation when it comes to cycles. In the following example, two objects are created and reference one another, thus creating a cycle. They will go out of scope after the function call, so they are effectively useless and could be freed. However, the reference-counting algorithm considers that since each of the two objects is referenced at least once, neither can be garbage-collected.
 
-    function f() {
-        var o = {}; 
-        var o2 = {}; 
-        o.a = o2; // o references o2
-        o2.a = o; // o2 references o
+``` js
+function f() {
+    var o = {};
+    var o2 = {};
+    o.a = o2; // o references o2
+    o2.a = o; // o2 references o
 
-        return 'azerty'; 
-    }
+    return 'azerty';
+}
+```
 
-    f(); 
+``` js
+f();
+```
 
 ### Real-life example
 
 Internet Explorer 6 and 7 are known to have reference-counting garbage collectors for DOM objects. Cycles are a common mistake that can generate memory leaks:
 
-    var div; 
-    window.onload = function() {
-        div = document.getElementById('myDivElement'); 
-        div.circularReference = div; 
-        div.lotsOfData = new Array(10000).join('*'); 
-    }; 
+``` js
+var div;
+window.onload = function() {
+    div = document.getElementById('myDivElement');
+    div.circularReference = div;
+    div.lotsOfData = new Array(10000).join('*');
+};
+```
 
 In the above example, the DOM element "myDivElement" has a circular reference to itself in the "circularReference" property. If the property is not explicitly removed or nulled, a reference-counting garbage collector will always have at least one reference intact and will keep the DOM element in memory even if it was removed from the DOM tree. If the DOM element holds lots of data (illustrated in the above example with the "lotsOfData" property), the memory consumed by this data will never be released.
 

@@ -18,28 +18,34 @@
 
 V8有它的难处: JavaScript标准中允许开发者以非常灵活的方式定义对象, 因此很难用一种形式来高效地表示对象. 一个对象基本上就是一堆属性的集合: 也就是一群键值对. 你可以以两种方式来访问对象的属性:
 
-	obj.prop
-	obj["prop"]
+``` js
+obj.prop
+obj["prop"]
+```
 
 根据标准, 属性的名称永远是字符串. 如果你用不是字符串的东西来作为属性的名称, 那它将会被隐式转换为字符串. 所以一个怪异的情况就是, 如果用数字作为属性名, 则数字也会被转换为字符串(至少根据标准就是这样). 因此, 你可以以小数或者负数来作为下标.
 
-	obj[1]; //
-	obj["1"]; // 这些都是同一个属性哦
-	obj[1.0]; //
+``` js
+obj[1]; //
+obj["1"]; // 这些都是同一个属性哦
+obj[1.0]; //
 
-	var o = {
-	  toString: function() {
-	    return "-1.5";
-	  }
-	};
-	obj[-1.5]; // 这俩也是同一个属性
-	obj[o]; // 因为o转换成了字符串
+var o = {
+    toString: function() {
+        return "-1.5";
+    }
+};
+obj[-1.5]; // 这俩也是同一个属性
+obj[o]; // 因为o转换成了字符串
+```
 
 数组在JS中也只是带有神奇length属性的对象. 大多数数组的属性名都是非负整数, 而length的值则来计算于这些属性名中最大的那个加一, 比如:
 
-	var a = new Array();
-	a[100] = "foo";
-	a.length; // 返回101
+``` js
+var a = new Array();
+a[100] = "foo";
+a.length; // 返回101
+```
 
 除此之外数组和普通的对象没什么区别. 函数也是对象, 只不过它们的length属性返回的是其定义的参数个数.
 
@@ -51,7 +57,7 @@ V8有它的难处: JavaScript标准中允许开发者以非常灵活的方式定
 
 我们来看看字符串和哈希表在V8中如何工作. 字符串有多种表达方式, 用来表示属性名的是最常见的ASCII码序列——所有字符挨个排列, 每个字符1字节.
 
-```bash
+``` bash
 	0:  map (字符串类型)
 	4:  length (字符数)
 	8:  hash code (惰性计算而来)
@@ -64,7 +70,7 @@ V8有它的难处: JavaScript标准中允许开发者以非常灵活的方式定
 
 V8中的哈希表由一个包含键和值的大数组组成. 初始时, 所有的键和值都被初始化为undefined(一个特殊值), 当有键值对插入到哈希表中时, 键的哈希值被计算出来, 其低位被用作数组的下标. 如果数组的该位置已经被占用, 则哈希表尝试(取模过后的)下一个位置, 以此类推. 以下是这一过程的伪代码:
 
-```bash
+``` bash
 	insert(table, key, value):
 		table = ensureCapacity(table, length(table) + 1)
 		code = hash(key)
@@ -73,7 +79,7 @@ V8中的哈希表由一个包含键和值的大数组组成. 初始时, 所有�
 		while getKey(table, index) is not undefined:
 			index += 1 (mod n)
 		set(table, index, key, value)
-
+    
 	lookup(table, key):
 		code = hash(key)
 		n = capacity(table)
@@ -95,16 +101,18 @@ V8中的哈希表由一个包含键和值的大数组组成. 初始时, 所有�
 
 在Lars Bak(V8的缔造团队领导者)2008年的这段视频当中, 他讲述了一种可以在通常情况下更快速访问属性的对象表达方式. 考虑如下的构造函数:
 
-	function Point(x, y) {
-	  this.x = x;
-	  this.y = y;
-	}
+``` js
+function Point(x, y) {
+    this.x = x;
+    this.y = y;
+}
+```
 
 像这样的构造函数是最为多见的. 绝大多数时间里, 同一构造函数所产生的对象会拥有以相同顺序赋值的相同属性. 既然这些对象有着如此类似的结构, 我们在内存中就可以以这样相同的结构来布局这些对象.
 
 V8将这种描述对象的方式称为Map. 你可以假想Map为一张填满描述符的表, 每一项都表示一个属性. Map也包含其他信息, 比如对象的大小以及指向构造函数和原型的指针等, 但这里我们主要关注这些描述符. 同样结构的对象, 通常会共享同一个Map. 一个完成初始化的Point实例可能就像这样:
 
-```bash
+``` bash
 	Map M2
 		object size: 20 (2个属性的空间)
 		"x": FIELD at offset 12
@@ -115,16 +123,16 @@ V8将这种描述对象的方式称为Map. 你可以假想Map为一张填满描�
 
 V8处理通过一种特殊的描述符来处理这种情形: Transition. 当增加一个新的属性时, 除非迫不得已, 我们不会创建新的Map, 而是尽可能使用一个现存符合结构的Map. Transition描述符就是用来指向这些Map的.
 
-```bash
+``` bash
 	Map M0
 		"x": TRANSITION to M1 at offset 12
-
+    
 	this.x = x;
 
 	Map M1
 		"x": FIELD at offset 12
 		"y": TRANSITION to M2 at offset 16
-
+    
 	this.y = y;
 
 	Map M2
@@ -136,12 +144,12 @@ V8处理通过一种特殊的描述符来处理这种情形: Transition. 当增�
 
 如果在M2的基础上再新增属性呢?
 
-```bash
+``` bash
 	Map M2
 		"x": FIELD at offset 12
 		"y": FIELD at offset 16
 		"z": TRANSITION to M3 at offset 20
-
+    
 	this.z = z;
 
 	Map M3
@@ -154,15 +162,17 @@ V8处理通过一种特殊的描述符来处理这种情形: Transition. 当增�
 
 如果对象的属性并不是以相同的顺序出现呢? 比如:
 
-	function Point(x, y, reverse) {
-	  if (reverse) {
-	    this.x = x;
-	    this.y = y;
-	  } else {
-	    this.y = x;
-	    this.x = y;
-	  }
-	}
+``` js
+function Point(x, y, reverse) {
+    if (reverse) {
+        this.x = x;
+        this.y = y;
+    } else {
+        this.y = x;
+        this.x = y;
+    }
+}
+```
 
 在这种情况下, 我们最终会得到一个Transition树, 而不是链. 初始的Map(上面的M0)将会有两个Transition, 具体代码中转向哪个, 会根据x和y的赋值顺序来定. 正因为这样, 不是所有的Point都会有相同的Map了.
 
@@ -184,17 +194,19 @@ JavaScript没有类, 因此它的成员函数调用与C++及Java不同. JavaScri
 
 译注: 在C++中, obj.method(param)实际是C代码method(this, param)的语法糖, 因此this指针实际是函数的目标对象, 而不是函数的发起者.
 
-	function Point(x, y) {
-	  this.x = x;
-	  this.y = y;
-	  this.distance = PointDistance;
-	}
+``` js
+function Point(x, y) {
+    this.x = x;
+    this.y = y;
+    this.distance = PointDistance;
+}
 
-	function PointDistance(p) {
-	  var dx = this.x - p.x;
-	  var dy = this.y - p.y;
-	  return Math.sqrt(dx * dx, dy * dy);
-	}
+function PointDistance(p) {
+    var dx = this.x - p.x;
+    var dy = this.y - p.y;
+    return Math.sqrt(dx * dx, dy * dy);
+}
+```
 
 如果distance像普通的对象内属性一样对待, 那很显然会占用大量的内存空间, 原因是每一个Point实例都会有一个Field来存放这个共同的属性. 对于有大量成员函数的对象更是如此. 我们可以对此改进.
 
@@ -202,25 +214,27 @@ C++解决这个问题的方法是虚表(译注: 原文v-table). 虚表是一个�
 
 为了让Map有类似虚表的功能, 我们需要为其增加一种新的描述符: Constant Function. CF类型的描述符表示该对象有一个已知名称的属性, 该属性不存放在对象中, 而是直接尾随描述符.
 
-	
+``` js
 
-```bash
+```
+
+``` bash
 	Map M0
 		"x": TRANSITION to M1 at offset 12
-
+    
 	this.x = x;
 
 	Map M1
 		"x": FIELD at offset 12
 		"y": TRANSITION to M2 at offset 16
-
+    
 	this.y = y;
 
 	Map M2
 		"x": FIELD at offset 12
 		"y": FIELD at offset 16
 		"distance": TRANSITION to M3 
-
+    
 	this.distance = PointDistance;
 
 	Map M3
@@ -233,17 +247,20 @@ C++解决这个问题的方法是虚表(译注: 原文v-table). 虚表是一个�
 
 JavaScript中还有另一种方法来提供公共属性, 那就是通过构造函数所关联的原型对象. 对于一个构造函数的实例来说, 原型对象所拥有的属性, 它也可以直接使用. 举例来说:
 
-	function Point(x, y) {
-	  this.x = x;
-	  this.y = y;
-	}
+``` js
+function Point(x, y) {
+    this.x = x;
+    this.y = y;
+}
+```
 
+    
 	Point.prototype.distance = function(p) {
 		var dx = this.x - p.x; 
 		var dy = this.y - p.y; 
 		return Math.sqrt(dx*dx, dy*dy); 
 	}
-
+    
 	...
 	var u = new Point(1, 2); 
 	var v = new Point(3, 4); 
@@ -268,13 +285,15 @@ JavaScript不提供任何确定存储元素多少的办法. 你可能会说像�
 
 当然, Fast Element也有其限制. 如果你在远远超过当前数组大小的下标赋值, V8会将数组转换为字典模式, 将值以哈希表的形式存储. 这对于稀疏数组来说很有用, 但性能上肯定打了折扣, 无论是从转换这一过程来说, 还是从之后的访问来说. 如果你需要复制整个数组, 不要逆向复制(索引从高到低), 因为这几乎必然触发字典模式.
 
-	// 这会大大降低大数组的性能
-	function copy(a) {
-	  var b = new Array();
-	  for (var i = a.length - 1; i >= 0; i--)
-	    b[i] = a[i];
-	  return b;
-	}
+``` js
+// 这会大大降低大数组的性能
+function copy(a) {
+    var b = new Array();
+    for (var i = a.length - 1; i >= 0; i--)
+        b[i] = a[i];
+    return b;
+}
+```
 
 由于普通的属性和数字式属性分开存放, 即使数组退化为字典模式, 也不会影响到其他属性的访问速度(反之亦然).
 

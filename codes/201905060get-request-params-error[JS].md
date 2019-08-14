@@ -8,7 +8,7 @@ get 请求一般会将参数这样 `?key1=value1&key2=value2` 拼接在url的后
 
 在chrome中查看, 发现query string params被解析成这样:
 
-```chrome
+``` chrome
     key1[]: "{\"a\": \"2\"}"
     key2: 1
 ```

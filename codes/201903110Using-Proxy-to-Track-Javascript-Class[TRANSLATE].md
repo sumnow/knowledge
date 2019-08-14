@@ -28,7 +28,7 @@ While this is pretty much sum it up, when I read it it was not so clear what it 
 
 To begin with, the Proxy concept is from the meta-programming world. In simple words, meta programming is the code which allow us to play with the application (or core) code that we write. For example the infamous eval function which allows us to evaluate string code into executable code, is in the meta programming realm.
 
-从此开始, proxy概念是来自元-编程世界.简单的说, 元编程是一段允许我们使用我们写的应用代码的代码. 例如声名狼藉的 `eval` 函数 允许我们求值字符串代码为可执行代码, 就是在元编程的领域.
+从此开始, proxy概念是来自元-编程世界. 简单的说, 元编程是一段允许我们使用我们写的应用代码的代码. 例如声名狼藉的 `eval` 函数 允许我们求值字符串代码为可执行代码, 就是在元编程的领域.
 
 The Proxy API allows us to create some some kind of a layer between an object and its consuming entities, that gives us the power to control the behavior of that object, like deciding how how the get and set is being done, or even decide what should we do if someone is trying to access a property in a object which is not defined.
 
@@ -36,7 +36,9 @@ proxy 的api 允许我们创建 一些 各种各样的布局在对象和他的�
 
 ## Proxy API
 
-    var p = new Proxy(target, handler);
+``` js
+var p = new Proxy(target, handler);
+```
 
 The Proxy object gets a target object and a handler object to trap different behaviors in the target object. Here is a partial list of the traps you can set:
 
@@ -48,15 +50,15 @@ has - 来捕获 `in` 操作符. 例如, 它允许你隐藏对象的的某一属�
 
 2. get — to trap getting property value. For example, this will allow you to return some default value if this property does not exist.
 
-get - 来捕获 get 属性的值.例如, 它允许你返回一些默认值如果这个属性不存在
+get - 来捕获 get 属性的值. 例如, 它允许你返回一些默认值如果这个属性不存在
 
 3. set — to trap setting property value. For example, this will allow you to validate the value that is being set to a property and throw an exception if the value is not valid.
 
-set - 来捕获设置一些特性的值.例如, 它允许你验证被赋给某个属性的值, 并且如果值无效, 可以抛出一个异常.
+set - 来捕获设置一些特性的值. 例如, 它允许你验证被赋给某个属性的值, 并且如果值无效, 可以抛出一个异常.
 
 4. apply — to trap a function call. For example, this will allow you to wrap all the functions in a try and catch block.
 
-apply - 来捕获一个函数的调用.例如, 它允许你包裹所有函数在try和catch的块里.
+apply - 来捕获一个函数的调用. 例如, 它允许你包裹所有函数在try和catch的块里.
 
 This is just a small traps and you can check the full list in the MDN website.
 
@@ -66,7 +68,7 @@ Lets see a simple example of using proxy for validation:
 
 让我们看一个简单使用proxy来验证的例子:
 
-```
+``` 
 const Car = {
     maker: 'BMW',
     year: '2018, 
@@ -99,15 +101,15 @@ To show the power of proxy in action I created a simple tracking lib which track
 
 为了显示proxy的强力, 我创建了一个简单的跟踪库跟踪下面这些给出的对象/类 
 
-- Execution time for functions
+* Execution time for functions
 
 函数执行时间
 
-- Who called each function or property
+* Who called each function or property
 
 调用函数或者属性.
 
-- Count the number of calls for each function or property.
+* Count the number of calls for each function or property.
 
 统计每个调用函数或属性
 
@@ -117,7 +119,7 @@ It is being done by calling a function proxyTrack on any object or class, or eve
 
 This could be really useful if you want to track who is changing a value in an object, or how long and how many times a function is being called, and who calls it. I know that there are probably better tools out there to do that, but I created this tool just for the purpose of playing a bit with this API.
 
-着可能非常有用如果你想要跟组对象里谁在改变值, 或者一个函数被调用了多长时间, 和谁调用了它.我知道, 可能有很多更好的工具来做这个, 但我创建这个工具只是为了和这个API玩一下这个目标.
+着可能非常有用如果你想要跟组对象里谁在改变值, 或者一个函数被调用了多长时间, 和谁调用了它. 我知道, 可能有很多更好的工具来做这个, 但我创建这个工具只是为了和这个API玩一下这个目标.
 
 ## Using proxyTrack
 
@@ -127,7 +129,7 @@ First, lets see how you can use it:
 
 首先, 让我们看看如何使用它:
 
-```
+``` 
 function MyClass() {}
 
 MyClass.prototype = {
@@ -137,7 +139,7 @@ MyClass.prototype = {
             if (num % i === 0) return false;
         return num !== 1 && num !== 0;
     },
-
+    
     num: null,
 };
 
@@ -164,7 +166,7 @@ If we will run this code we should see in the console:
 
 如果我们运行这段代码, 我们会看到控制台:
 
-```bash
+``` bash
 MyClass.num is being set by start for the 1 time
 MyClass.num is being get by isPrime for the 1 time
 MyClass.isPrime was called by start for the 1 time and took 0 mils.
@@ -173,9 +175,9 @@ MyClass.num is being get by start for the 2 time
 
 The proxyTrack gets 2 parameters: the first is the object/class to track, and the second one is an options object, which will be set to default options in case it is not passed. Let's take a look at this options object:
 
-proxyTrack 获取两个参数: 第一个是监听的对象/类, 第二个是一个万一没有通过, 会被设置成默认选项的选项对象.让我们看看这个选项对象:
+proxyTrack 获取两个参数: 第一个是监听的对象/类, 第二个是一个万一没有通过, 会被设置成默认选项的选项对象. 让我们看看这个选项对象:
 
-```
+``` 
 const defaultOptions = {
     trackFunctions: true,
     trackProps: true,
@@ -193,5 +195,5 @@ As you can see, you can control what you want to track by setting the appropriat
 
 You can also control which tracking message will be output if you pass the filter callback. you will get an object with the info about the tracking data, and you will have to return true to keep the message or false to ignore it.
 
-你也能够控制输出捕获信息如果你传递一个filter回调.你会获得一个关于捕获数据的信息的对象, 你必须返回true来拿到信息或者false来忽略它.
+你也能够控制输出捕获信息如果你传递一个filter回调. 你会获得一个关于捕获数据的信息的对象, 你必须返回true来拿到信息或者false来忽略它.
 

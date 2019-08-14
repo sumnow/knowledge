@@ -1,6 +1,6 @@
 # V8 之旅: 垃圾回收器
 
-在之前的几篇文章当中, 我们深入了V8引擎的实现, 讨论了Full Compiler、Crankshaft以及对象的内部表达. 在这篇文章当中, 我们来看看V8的 垃圾回收器 .
+在之前的几篇文章当中, 我们深入了V8引擎的实现, 讨论了Full Compiler、Crankshaft以及对象的内部表达. 在这篇文章当中, 我们来看看V8的 垃圾回收器.
 
 本文来自Jay Conrod的A tour of V8: Garbage Collection, 其中的术语、代码请以原文为准.
 
@@ -18,13 +18,15 @@
 
 从侧面来说, 上面的定义非常宽松. 实际上我们可以说, 当一个对象可被程序引用时, 它就是活跃的. 比如:
 
-	function f() {
-	  var obj = {
-	    x: 12
-	  };
-	  g(); // 可能包含一个死循环
-	  return obj.x;
-	}
+``` js
+function f() {
+  var obj = {
+    x: 12
+  };
+  g(); // 可能包含一个死循环
+  return obj.x;
+}
+```
 
 译注: 这里的obj.x和obj都是活跃的, 尽管对其的再度引用是在死循环之后.
 
@@ -68,7 +70,7 @@ V8将所有属于-230…230-1范围内的小整数(V8内部称其为Smis)以32bi
 
 以下是这个算法的伪代码描述:
 
-```bash
+``` bash
 	def scavenge():
 	  swap(fromSpace, toSpace)
 	  allocationPtr = toSpace.bottom
@@ -135,7 +137,7 @@ Scavenge算法对于快速回收、紧缩小片内存效果很好, 但对于大�
 
 以下是标记算法的伪码:
 
-```bash
+``` bash
 	markingDeque = []
 	overflow = false
 
@@ -199,3 +201,4 @@ Google近期还新增了并行清理支持. 由于脚本的执行线程不会再
 垃圾回收真的很复杂. 我在文章中已经略过了大量的细节, 而文章仍然变得很长. 我一个同事说他觉得研究垃圾回收器比寄存器分配还要可怕, 我表示确实如此. 也就是说, 我宁可将这些繁琐的细节交给运行时来处理, 也不想将其交给所有的应用开发者来做. 尽管垃圾回收存在一些性能问题而且偶尔会出现灵异现象, 它还是将我们从大量的细节中解放了出来, 以便让我们集中精力于更重要的事情上.
 
 如果你还想了解更多垃圾回收上的东西, 我建议你读读Richard Jones和Rafael Lins写的[《Garbage Collection》](https://www.amazon.com/Garbage-Collection-Algorithms-Automatic-Management/dp/0471941484), 这是一个绝好的参考, 涵盖了大量你需要了解的内容. 你可能还对[《Garbage First Garbage-Collection》](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.63.6386&rep=rep1&type=pdf)感兴趣, 这是一篇描述JVM所使用的垃圾回收算法的论文.
+

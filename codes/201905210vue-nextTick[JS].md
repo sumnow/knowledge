@@ -16,7 +16,7 @@ vue 中的 `v-for` 循环, 依赖 `key` 的值, 进行vdom的diff算法的替换
 
 因为 $nextTick() 返回一个 Promise 对象, 所以你可以使用新的 ES2016 async/await 语法完成相同的事情: 
 
-```js
+``` js
 methods: {
     updateMessage: async function() {
         this.message = '已更新'
@@ -29,7 +29,7 @@ methods: {
 
 ### 代码分析
 
-```html
+``` html
 <template>
     <div>
         <div ref="test">{{test}}</div>
@@ -38,7 +38,7 @@ methods: {
 </template>
 ```
 
-```
+``` 
 export default {
     data() {
         return {
@@ -56,47 +56,51 @@ export default {
 
 事实上, 在触发了某个响应式属性的变化的时候, setter方法会推送给Dep, Dep会调用它管理的所有Watch对象, 从而触发某个update方法.
 
-    update() {
-        /* istanbul ignore else */
-        if (this.lazy) {
-            this.dirty = true
-        } else if (this.sync) {
-            /*同步则执行run直接渲染视图*/
-            this.run()
-        } else {
-            /*异步推送到观察者队列中，下一个tick时调用。*/
-            queueWatcher(this)
-        }
+``` js
+update() {
+    /* istanbul ignore else */
+    if (this.lazy) {
+        this.dirty = true
+    } else if (this.sync) {
+        /*同步则执行run直接渲染视图*/
+        this.run()
+    } else {
+        /*异步推送到观察者队列中，下一个tick时调用。*/
+        queueWatcher(this)
     }
+}
+```
 
 下面是 `queueWatcher` 方法
 
-    /*将一个观察者对象push进观察者队列，在队列中已经存在相同的id则该观察者对象将被跳过，除非它是在队列被刷新时推送*/
-    export function queueWatcher(watcher: Watcher) {
-        /*获取watcher的id*/
-        const id = watcher.id
-        /*检验id是否存在，已经存在则直接跳过，不存在则标记哈希表has，用于下次检验*/
-        if (has[id] == null) {
-            has[id] = true
-            if (!flushing) {
-                /*如果没有flush掉，直接push到队列中即可*/
-                queue.push(watcher)
-            } else {
-                // if already flushing, splice the watcher based on its id
-                // if already past its id, it will be run next immediately.
-                let i = queue.length - 1
-                while (i >= 0 && queue[i].id > watcher.id) {
-                    i--
-                }
-                queue.splice(Math.max(i, index) + 1, 0, watcher)
+``` js
+/*将一个观察者对象push进观察者队列，在队列中已经存在相同的id则该观察者对象将被跳过，除非它是在队列被刷新时推送*/
+export function queueWatcher(watcher: Watcher) {
+    /*获取watcher的id*/
+    const id = watcher.id
+    /*检验id是否存在，已经存在则直接跳过，不存在则标记哈希表has，用于下次检验*/
+    if (has[id] == null) {
+        has[id] = true
+        if (!flushing) {
+            /*如果没有flush掉，直接push到队列中即可*/
+            queue.push(watcher)
+        } else {
+            // if already flushing, splice the watcher based on its id
+            // if already past its id, it will be run next immediately.
+            let i = queue.length - 1
+            while (i >= 0 && queue[i].id > watcher.id) {
+                i--
             }
-            // queue the flush
-            if (!waiting) {
-                waiting = true
-                nextTick(flushSchedulerQueue)
-            }
+            queue.splice(Math.max(i, index) + 1, 0, watcher)
+        }
+        // queue the flush
+        if (!waiting) {
+            waiting = true
+            nextTick(flushSchedulerQueue)
         }
     }
+}
+```
 
 Watch对象并不是立即更新视图, 而是被push进了一个队列queue, 此时状态处于waiting的状态, 这时候会继续会有Watch对象被push进这个队列queue, 等到下一个tick运行时, 这些Watch对象才会被遍历取出, 更新视图. 同时, id重复的Watcher不会被多次加入到queue中去, 因为在最终渲染时, 我们只需要关心数据的最终结果. 
 
@@ -106,7 +110,7 @@ vue.js提供了一个nextTick函数, 其实也就是上面调用的nextTick.
 
 nextTick的实现比较简单, 执行的目的是在microtask或者task中推入一个function, 在当前栈执行完毕(也许还会有一些排在前面的需要执行的任务)以后执行nextTick传入的function, 看一下源码: 
 
-```js
+``` js
 /**
  * Defer a task to execute it asynchronously.
  */
@@ -252,7 +256,7 @@ setTimeout是最后的一种备选方案, 它会将回调函数加入task中, �
 
 #### flushSchedulerQueue
 
-```js
+``` js
 /*Github:https://github.com/answershuto*/
 /**
  * Flush both queues and run the watchers.
@@ -272,9 +276,11 @@ function flushSchedulerQueue() {
     //    its watchers can be skipped.
     /*
       给queue排序，这样做可以保证：
+
       1. 组件更新的顺序是从父组件到子组件的顺序, 因为父组件总是比子组件先创建. 
       2. 一个组件的user watchers比render watcher先运行, 因为user watchers往往比render watcher更早创建
       3. 如果一个组件在父组件watcher运行期间被销毁, 它的watcher执行将被跳过. 
+
     */
     queue.sort((a, b) => a.id - b.id)
 
@@ -305,8 +311,8 @@ function flushSchedulerQueue() {
                 warn(
                     'You may have an infinite update loop ' + (
                         watcher.user ?
- `in watcher with expression "${watcher.expression}"` :
- `in a component render function.` 
+`in watcher with expression "${watcher.expression}"` :
+`in a component render function.` 
                     ),
                     watcher.vm
                 )

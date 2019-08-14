@@ -41,10 +41,12 @@ version必须可以被npm依赖的一个node-semver模块解析. 具体规则见
 
 填写一个bug提交地址或者一个邮箱, 被你的模块坑到的人可以通过这里吐槽, 例如: 
 
-    {
-        "url": "https://github.com/owner/project/issues",
-        "email": "project@hostname.com"
-    }
+``` js
+{
+    "url": "https://github.com/owner/project/issues",
+    "email": "project@hostname.com"
+}
+```
 
 url和email可以任意填或不填, 如果只填一个, 可以直接写成一个字符串而不是对象. 如果填写了url, npm bugs命令会使用这个url. 
 
@@ -55,11 +57,13 @@ url和email可以任意填或不填, 如果只填一个, 可以直接写成一�
 和用户相关的属性: author, contributors
 "author"是一个码农, "contributors"是一个码农数组. "person"是一个有一些描述属性的对象, 如下 like this:
 
-    {
-        "name": "Barney Rubble",
-        "email": "b@rubble.com",
-        "url": "http://barnyrubble.tumblr.com/"
-    }
+``` js
+{
+    "name": "Barney Rubble",
+    "email": "b@rubble.com",
+    "url": "http://barnyrubble.tumblr.com/"
+}
+```
 
 也可以按如下格式缩写, npm会帮着转换:"Barney Rubble b@rubble.com (http://barnyrubble.tumblr.com/)"email和url属性实际上都是可以省略的. 描述用户信息的还有一个"maintainers"(维护者)属性. 
 
@@ -75,61 +79,73 @@ main属性指定了程序的主入口文件. 意思是, 如果你的模块被命
 
 很多模块有一个或多个需要配置到PATH路径下的可执行模块, npm让这个工作变得十分简单(实际上npm本身也是通过bin属性安装为一个可执行命令的)如果要用npm的这个功能, 在package.json里边配置一个bin属性. bin属性是一个已命令名称为key, 本地文件名称为value的map如下: 
 
-    {
-        "bin": {
-            "myapp": "./cli.js"
-        }
+``` js
+{
+    "bin": {
+        "myapp": "./cli.js"
     }
+}
+```
 
 模块安装的时候, 若是全局安装, 则npm会为bin中配置的文件在bin目录下创建一个软连接(对于windows系统, 默认会在C:\Users\username\AppData\Roaming\npm目录下), 若是局部安装, 则会在项目内的./node_modules/.bin/目录下创建一个软链接. 因此, 按上面的例子, 当你安装myapp的时候, npm就会为cli.js在/usr/local/bin/myapp路径创建一个软链接. 如果你的模块只有一个可执行文件, 并且它的命令名称和模块名称一样, 你可以只写一个字符串来代替上面那种配置, 例如: 
 
-    {
-        "name": "my-program",
-        "version": "1.2.5",
-        "bin": "./path/to/program"
-    }
+``` js
+{
+    "name": "my-program",
+    "version": "1.2.5",
+    "bin": "./path/to/program"
+}
+```
 
 作用和如下写法相同:
 
-    {
-        "name": "my-program",
-        "version": "1.2.5",
-        "bin": {
-            "my-program": "./path/to/program"
-        }
+``` js
+{
+    "name": "my-program",
+    "version": "1.2.5",
+    "bin": {
+        "my-program": "./path/to/program"
     }
+}
+```
 
 ## man
 
 制定一个或通过数组制定一些文件来让linux下的man命令查找文档地址. 如果只有一个文件被指定的话, 安装后直接使用man+模块名称, 而不管man指定的文件的实际名称. 例如:
 
-    {
-        "name": "foo",
-        "version": "1.2.3",
-        "description": "A packaged foo fooer for fooing foos",
-        "main": "foo.js",
-        "man": "./man/doc.1"
-    }
+``` js
+{
+    "name": "foo",
+    "version": "1.2.3",
+    "description": "A packaged foo fooer for fooing foos",
+    "main": "foo.js",
+    "man": "./man/doc.1"
+}
+```
 
 通过man foo命令会得到 ./man/doc.1 文件的内容. 如果man文件名称不是以模块名称开头的, 安装的时候会给加上模块名称前缀. 因此, 下面这段配置: 
 
-    {
-        "name": "foo",
-        "version": "1.2.3",
-        "description": "A packaged foo fooer for fooing foos",
-        "main": "foo.js",
-        "man": ["./man/foo.1", "./man/bar.1"]
-    }
+``` js
+{
+    "name": "foo",
+    "version": "1.2.3",
+    "description": "A packaged foo fooer for fooing foos",
+    "main": "foo.js",
+    "man": ["./man/foo.1", "./man/bar.1"]
+}
+```
 
 会创建一些文件来作为man foo和man foo-bar命令的结果. man文件必须以数字结尾, 或者如果被压缩了, 以.gz结尾. 数字表示文件将被安装到man的哪个部分. 
 
-    {
-        "name": "foo",
-        "version": "1.2.3",
-        "description": "A packaged foo fooer for fooing foos",
-        "main": "foo.js",
-        "man": ["./man/foo.1", "./man/foo.2"]
-    }
+``` js
+{
+    "name": "foo",
+    "version": "1.2.3",
+    "description": "A packaged foo fooer for fooing foos",
+    "main": "foo.js",
+    "man": ["./man/foo.1", "./man/foo.2"]
+}
+```
 
 会创建 man foo 和 man 2 foo 两条命令. 
 
@@ -161,25 +177,31 @@ CommonJs通过directories来制定一些方法来描述模块的结构, 看看np
 
 指定一个代码存放地址, 对想要为你的项目贡献代码的人有帮助. 像这样: 
 
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/npm/npm.git"
-    }
+``` js
+"repository": {
+    "type": "git",
+    "url": "https://github.com/npm/npm.git"
+}
 
-    "repository": {
-        "type": "svn",
-        "url": "https://v8.googlecode.com/svn/trunk/"
-    }
+"repository": {
+    "type": "svn",
+    "url": "https://v8.googlecode.com/svn/trunk/"
+}
+```
 
 若你的模块放在GitHub, GitHub gist, Bitbucket, or GitLab的仓库里, npm install的时候可以使用缩写标记来完成: 
 
-    "repository": "npm/npm"
+``` js
+"repository": "npm/npm"
 
-    "repository": "gist:11081aaa281"
+"repository": "gist:11081aaa281"
+```
 
-    "repository": "bitbucket:example/repo"
+``` js
+"repository": "bitbucket:example/repo"
 
-    "repository": "gitlab:another/repo"
+"repository": "gitlab:another/repo"
+```
 
 ## scripts
 
@@ -189,16 +211,20 @@ scripts属性是一个对象, 里边指定了项目的生命周期个各个环�
 
 用来设置一些项目不怎么变化的项目配置, 例如port等. 用户用的时候可以使用如下用法: 
 
-    http.createServer(...).listen(process.env.npm_package_config_port)
+``` js
+http.createServer(...).listen(process.env.npm_package_config_port)
+```
 
 可以通过npm config set foo:port 80来修改config. 详见https://docs.npmjs.com/misc/config
 
-    {
-        "name": "foo",
-        "config": {
-            "port": "8080"
-        }
+``` js
+{
+    "name": "foo",
+    "config": {
+        "port": "8080"
     }
+}
+```
 
 ## dependencies
 
@@ -238,22 +264,24 @@ tag 发布的一个特殊的标签, 见npm-tag的文档 https://docs.npmjs.com/g
 
 path/path/path 见下面本地模块的说明下面的写法都是可以的:
 
-    {
-        "dependencies": {
-            "foo": "1.0.0 - 2.9999.9999",
-            "bar": ">=1.0.2 <2.1.2",
-            "baz": ">1.0.2 <=2.3.4",
-            "boo": "2.0.1",
-            "qux": "<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0",
-            "asd": "http://asdf.com/asdf.tar.gz",
-            "til": "~1.2",
-            "elf": "~1.2.3",
-            "two": "2.x",
-            "thr": "3.3.x",
-            "lat": "latest",
-            "dyl": "file:../dyl"
-        }
+``` js
+{
+    "dependencies": {
+        "foo": "1.0.0 - 2.9999.9999",
+        "bar": ">=1.0.2 <2.1.2",
+        "baz": ">1.0.2 <=2.3.4",
+        "boo": "2.0.1",
+        "qux": "<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0",
+        "asd": "http://asdf.com/asdf.tar.gz",
+        "til": "~1.2",
+        "elf": "~1.2.3",
+        "two": "2.x",
+        "thr": "3.3.x",
+        "lat": "latest",
+        "dyl": "file:../dyl"
     }
+}
+```
 
 ## URLs as Dependencies
 
@@ -262,11 +290,13 @@ path/path/path 见下面本地模块的说明下面的写法都是可以的:
 Git URLs as Dependencies
 Git url可以像下面一样:
 
-    git: //github.com/user/project.git#commit-ish
-        git + ssh: //user@hostname:project.git#commit-ish
-        git + ssh: //user@hostname/project.git#commit-ish
-        git + http: //user@hostname/project/blah.git#commit-ish
-        git + https: //user@hostname/project/blah.git#commit-ish
+``` js
+git: //github.com/user/project.git#commit-ish
+    git + ssh: //user@hostname:project.git#commit-ish
+    git + ssh: //user@hostname/project.git#commit-ish
+    git + http: //user@hostname/project/blah.git#commit-ish
+    git + https: //user@hostname/project/blah.git#commit-ish
+```
 
 commit-ish 可以是任意标签, 哈希值, 或者可以检出的分支, 默认是master分支. 
 
@@ -274,35 +304,45 @@ commit-ish 可以是任意标签, 哈希值, 或者可以检出的分支, 默认
 
 支持github的 username/modulename 的写法, #后边可以加后缀写明分支hash或标签: 
 
-    {
-        "name": "foo",
-        "version": "0.0.0",
-        "dependencies": {
+``` js
+{
+    "name": "foo",
+    "version": "0.0.0",
+    "dependencies": {
 
-            "express": "visionmedia/express",
-            "mocha": "visionmedia/mocha#4727d357ea"
+        "express": "visionmedia/express",
+        "mocha": "visionmedia/mocha#4727d357ea"
+```
 
-        }
-    }
+``` js
+}
+}
+```
 
 ## Local Paths
 
 npm2.0.0版本以上可以提供一个本地路径来安装一个本地的模块, 通过npm install xxx –save 来安装, 格式如下: 
 
-    .. / foo / bar~/foo/bar
-        . / foo / bar /
-        foo / bar
+``` js
+.. / foo / bar~/foo/bar
+    . / foo / bar /
+    foo / bar
+```
 
 package.json 生成的相对路径如下:
 
-    {
-        "name": "baz",
-        "dependencies": {
+``` js
+{
+    "name": "baz",
+    "dependencies": {
 
-            "bar": "file:../foo/bar"
+        "bar": "file:../foo/bar"
+```
 
-        }
-    }
+``` js
+}
+}
+```
 
 这种属性在离线开发或者测试需要用npm install的情况, 又不想自己搞一个npm server的时候有用, 但是发布模块到公共仓库时不应该使用这种属性. 
 
@@ -310,22 +350,28 @@ package.json 生成的相对路径如下:
 
 如果有人想要下载并使用你的模块, 也许他们并不希望或需要下载一些你在开发过程中使用的额外的测试或者文档框架. 在这种情况下, 最好的方法是把这些依赖添加到devDependencies属性的对象中. 这些模块会在npm link或者npm install的时候被安装, 也可以像其他npm配置一样被管理, 详见npm的config文档. 对于一些跨平台的构建任务, 例如把CoffeeScript编译成JavaScript, 就可以通过在package.json的script属性里边配置prepublish脚本来完成这个任务, 然后需要依赖的coffee-script模块就写在devDependencies属性种. 例如:
 
-    {
-        "name": "ethopia-waza",
-        "description": "a delightfully fruity coffee varietal",
-        "version": "1.2.3",
-        "devDependencies": {
+``` js
+{
+    "name": "ethopia-waza",
+    "description": "a delightfully fruity coffee varietal",
+    "version": "1.2.3",
+    "devDependencies": {
 
-            "coffee-script": "~1.6.3"
+        "coffee-script": "~1.6.3"
+```
 
-        },
-        "scripts": {
+``` js
+},
+"scripts": {
 
-            "prepublish": "coffee -o lib/ -c src/waza.coffee"
+    "prepublish": "coffee -o lib/ -c src/waza.coffee"
+```
 
-        },
-        "main": "lib/waza.js"
-    }
+``` js
+},
+"main": "lib/waza.js"
+}
+```
 
 prepublish脚本会在发布之前运行, 因此用户在使用之前就不用再自己去完成编译的过程了. 在开发模式下, 运行npm install也会执行这个脚本(见npm script文档), 因此可以很方便的调试. 
 
@@ -333,15 +379,19 @@ prepublish脚本会在发布之前运行, 因此用户在使用之前就不用�
 
 有时候做一些插件开发, 比如grunt等工具的插件, 它们往往是在grunt的某个版本的基础上开发的, 而在他们的代码中并不会出现require("grunt")这样的依赖, dependencies配置里边也不会写上grunt的依赖, 为了说明此模块只能作为插件跑在宿主的某个版本范围下, 可以配置peerDependencies: 
 
-    {
-        "name": "tea-latte",
-        "version": "1.3.5",
-        "peerDependencies": {
+``` js
+{
+    "name": "tea-latte",
+    "version": "1.3.5",
+    "peerDependencies": {
 
-            "tea": "2.x"
+        "tea": "2.x"
+```
 
-        }
-    }
+``` js
+}
+}
+```
 
 上面这个配置确保再npm install的时候tea-latte会和2.x版本的tea一起安装, 而且它们两个的依赖关系是同级的: ├── tea-latte@1.3.5└── tea@2.2.0这个配置的目的是让npm知道, 如果要使用此插件模块, 请确保安装了兼容版本的宿主模块. 
 
@@ -353,21 +403,25 @@ prepublish脚本会在发布之前运行, 因此用户在使用之前就不用�
 
 如果一个依赖模块可以被使用, 同时你也希望在该模块找不到或无法获取时npm继续运行, 你可以把这个模块依赖放到optionalDependencies配置中. 这个配置的写法和dependencies的写法一样, 不同的是这里边写的模块安装失败不会导致npm install失败. 当然, 这种模块就需要你自己在代码中处理模块确实的情况了, 例如: 
 
-    try {
-        var foo = require('foo')
-        var fooVersion = require('foo/package.json').version
-    } catch (er) {
-        foo = null
-    }
-    if (notGoodFooVersion(fooVersion)) {
-        foo = null
-    }
+``` js
+try {
+    var foo = require('foo')
+    var fooVersion = require('foo/package.json').version
+} catch (er) {
+    foo = null
+}
+if (notGoodFooVersion(fooVersion)) {
+    foo = null
+}
 
-    // .. then later in your program ..
+// .. then later in your program ..
+```
 
-    if (foo) {
-        foo.doFooThings()
-    }
+``` js
+if (foo) {
+    foo.doFooThings()
+}
+```
 
 optionalDependencies 中的配置会覆盖dependencies中的配置, 最好只在一个地方写. 
 
@@ -406,3 +460,4 @@ npm设置了一些默认参数, 如: "scripts": {"start": "node server.js"}如�
 ---
 
 [参考](https://zoucz.com/blog/2016/02/17/npm-package/)
+

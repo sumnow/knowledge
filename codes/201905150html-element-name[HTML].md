@@ -17,7 +17,7 @@ em	倾斜(强调语义)	emphasize ['emfəsaɪz]	强调	用倾斜来起到强调�
 
 u	下划线	underline	下划线	 
 
-ins	下划线(强调语义)	insert	插入	ins标签准确来说是:插入字效果
+ins	下划线(强调语义)	insert	插入	ins标签准确来说是: 插入字效果
 
 s	删除线	strikethrough	删除线	
 
@@ -205,3 +205,4 @@ vertical-align	垂直对齐方式	vertical	垂直的
 | 外层   | wrap                                            | 常用于包含在元素外部的div, 中文翻译为包裹           |
 | 容器   | container                                       | 常用于给元素的外部增加一个包含区域, 中文翻译为容器    |
 | 当前   | current	常用于导航中表示当前栏目, current翻译为当前的 |                                               |
+

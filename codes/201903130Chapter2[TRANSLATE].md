@@ -33,10 +33,11 @@ The simplest kind of statement is an expression with a semicolon after it. This 
 
 最简单的声明类型就是一个句后有个分号表达式. 这是程序:
 
-    1;
-    !false;
+``` js
+1;
+!false;
+```
 
-    
 It is a useless program, though. An expression can be content to just produce a value, which can then be used by the enclosing code. A statement stands on its own, so it amounts to something only if it affects the world.*It could display something on the screen—that counts as changing the world—or it could change the internal state of the machine in a way that will affect the statements that come after it.* These changes are called side effects. The statements in the previous example just produce the values 1 and true and then immediately throw them away. This leaves no impression on the world at all. When you run this program, nothing observable happens.
 
 尽管这是一个无用的程序. 一个表达式可以仅仅表达得到只可以被闭包代码使用的一个值. 一个声明只是一个声明, 只有在它影响世界的时候才相当于某物. 它可以在屏幕上展示某物--它视为改变世界--或者它改变了机器的内部状态, 从而影响后面的语句. 这些改变被叫做副作用. 前面给出的例子里的声明仅仅得出值1和真, 然后立刻抛开它们. 它们完全没在世界上留下任何影响. 当你运行这个程序, 没有什么明显的事情发生.
@@ -53,7 +54,9 @@ How does a program keep an internal state? How does it remember things? We have 
 
 一个程序如何持有一个内部的声明? 它如何记住事物的? 我们已经看到如何从旧值里得到新的值, 但没有改变旧值, 并且新值也要立刻使用, 否则就会消散. 为了抓住并持有值, js提供了一个东西叫做绑定, 或者赋值:
 
-    let caught = 5 * 5;
+``` js
+let caught = 5 * 5;
+```
 
 That's a second kind of statement. The special word (keyword) let indicates that this sentence is going to define a binding. It is followed by the name of the binding and, if we want to immediately give it a value, by an = operator and an expression.
 
@@ -67,20 +70,24 @@ After a binding has been defined, its name can be used as an expression. The val
 
 在绑定定义后, 他的名字可以像一个表达式一样使用. 这样一个表达式的值就是绑定当前持有的值. 这里有一个例子:
 
-    let ten = 10;
-    console.log(ten * ten);
-    // → 100
+``` js
+let ten = 10;
+console.log(ten * ten);
+// → 100
+```
 
 When a binding points at a value, that does not mean it is tied to that value forever. The = operator can be used at any time on existing bindings to disconnect them from their current value and have them point to a new one.
 
 当一个绑定命中一个值, 不意味着它永远和那个值在一起. = 操作符可以在任何时候使用存在绑定来断开和他们当前值的连接, 并让他们命中一个新值.
 
-    let mood = "light";
-    console.log(mood);
-    // → light
-    mood = "dark";
-    console.log(mood);
-    // → dark
+``` js
+let mood = "light";
+console.log(mood);
+// → light
+mood = "dark";
+console.log(mood);
+// → dark
+```
 
 You should imagine bindings as tentacles, rather than boxes. They do not contain values; they grasp them—two bindings can refer to the same value. A program can access only the values that it still has a reference to. When you need to remember something, you grow a tentacle to hold on to it or you reattach one of your existing tentacles to it.
 
@@ -90,10 +97,12 @@ Let's look at another example. To remember the number of dollars that Luigi stil
 
 让我们看另一个例子. 为了记住卢齐欠你的金额数目, 你创建一个绑定. 然后当他还了35元时, 你给这个绑定一个新值.
 
-    let luigisDebt = 140;
-    luigisDebt = luigisDebt - 35;
-    console.log(luigisDebt);
-    // → 105
+``` js
+let luigisDebt = 140;
+luigisDebt = luigisDebt - 35;
+console.log(luigisDebt);
+// → 105
+```
 
 When you define a binding without giving it a value, the tentacle has nothing to grasp, so it ends in thin air. If you ask for the value of an empty binding, you'll get the value undefined.
 
@@ -103,20 +112,23 @@ A single let statement may define multiple bindings. The definitions must be sep
 
 一个 let 表达式 也许定义了多种绑定值. 这个定义必须被逗号分割.
 
-    let one = 1,
-        two = 2;
-    console.log(one + two);
-    // → 3
+``` js
+let one = 1,
+    two = 2;
+console.log(one + two);
+// → 3
+```
 
-    
 The words var and const can also be used to create bindings, in a way similar to let.
 
 关键字 `var` 和 `const` 也可以用类似 `let` 的方式创建绑定, 
 
-    var name = "Ayda";
-    const greeting = "Hello ";
-    console.log(greeting + name);
-    // → Hello Ayda
+``` js
+var name = "Ayda";
+const greeting = "Hello ";
+console.log(greeting + name);
+// → Hello Ayda
+```
 
 The first, var (short for "variable"), is the way bindings were declared in pre-2015 JavaScript. I'll get back to the precise way it differs from let in the next chapter. For now, remember that it mostly does the same thing, but we'll rarely use it in this book because it has some confusing properties.
 
@@ -160,7 +172,9 @@ A lot of the values provided in the default environment have the type function. 
 
 在默认环境中提供的许多值有type函数. 一个函数是被一段程序包裹进的一个值. 这些值可以被调用用来运行包装程序. 举个例子, 在一个浏览器环境中, 绑定提示符包含一个函数, 该函数显示一个要求用户输入的小型对话框. 像这样使用:
 
-    prompt("Enter passcode");
+``` js
+prompt("Enter passcode");
+```
 
 ![img](../img/20190313001.png)
 
@@ -184,9 +198,11 @@ When running the examples (or your own code) on the pages of this book, console.
 
 当运行这本书上的示例(或者你自己的代码), `console.log` 会显示在例子的后面, 而不是浏览器的js控制台.
 
-    let x = 30;
-    console.log("the value of x is", x);
-    // → the value of x is 30
+``` js
+let x = 30;
+console.log("the value of x is", x);
+// → the value of x is 30
+```
 
 Though binding names cannot contain period characters, console.log does have one. This is because console.log isn't a simple binding. It is actually an expression that retrieves the log property from the value held by the console binding. We'll find out exactly what this means in Chapter 4.
 
@@ -200,15 +216,19 @@ Showing a dialog box or writing text to the screen is a side effect. A lot of fu
 
 显示一个对话框或者写文本到屏幕上是一个副作用. 很多函数是有空的因为他们产生的副作用. 函数还可以得到一些值, 在某些情况下他们不产生副作用是很有用的. 例如, 函数 Math.max 接受一些数目的数字参数 并且给出最大的.
 
-    console.log(Math.max(2, 4));
-    // → 4
+``` js
+console.log(Math.max(2, 4));
+// → 4
+```
 
 When a function produces a value, it is said to return that value. Anything that produces a value is an expression in JavaScript, which means function calls can be used within larger expressions. Here a call to Math.min, which is the opposite of Math.max, is used as part of a plus expression:
 
 当函数得到一个值, 这被叫做返回值. 任何可以得到值的在js里是表达式, 它意味着函数可以调用在更大的表达式里. 这里一个调用 `Math.min` , 与 `Math.max` 相反 , 用作加号表达式的一部分.
 
-    console.log(Math.min(2, 4) + 100);
-    // → 102
+``` js
+console.log(Math.min(2, 4) + 100);
+// → 102
+```
 
 The next chapter explains how to write your own functions.
 
@@ -222,9 +242,11 @@ When your program contains more than one statement, the statements are executed 
 
 当你的程序里包含不知一个语句, 如果他们是一个故事, 语句会从头到脚被执行. 这个示例程序有两个语句. 第一个语句问用户要一个数字, 在第一个之后执行的第二个, 显示这个数字的平方.
 
-    let theNumber = Number(prompt("Pick a number"));
-    console.log("Your number is the square root of " +
-        theNumber * theNumber);
+``` js
+let theNumber = Number(prompt("Pick a number"));
+console.log("Your number is the square root of " +
+    theNumber * theNumber);
+```
 
 The function Number converts a value to a number. We need that conversion because the result of prompt is a string value, and we want a number. There are similar functions called String and Boolean that convert values to those types.
 
@@ -254,11 +276,13 @@ Conditional execution is created with the if keyword in JavaScript. In the simpl
 
 条件执行在js里是用if关键词创造的. 在一个简单的例子里, 我们希望当且仅当某个条件成立时才执行某些代码. 例如, 我们希望只有在输入事实上确实是个数字, 才显示输入的平方.
 
-    let theNumber = Number(prompt("Pick a number"));
-    if (!Number.isNaN(theNumber)) {
-        console.log("Your number is the square root of " +
-            theNumber * theNumber);
-    }
+``` js
+let theNumber = Number(prompt("Pick a number"));
+if (!Number.isNaN(theNumber)) {
+    console.log("Your number is the square root of " +
+        theNumber * theNumber);
+}
+```
 
 With this modification, if you enter "parrot", no output is shown.
 
@@ -276,34 +300,40 @@ The statement after the if is wrapped in braces ({ and }) in this example. The b
 
 在这个例子里, if后面的 语句 被包裹在花括号里 . 花括号可以用来组合很多声明为单个声明, 叫做块. 在这个例子里, 你还可以省略他们, 你为他们只有一个语句. 但为了避免考虑是否括号是必须的, 多数js程序员在每个包裹的语句外使用, 像这样. 我们在这本书里多数遵循这样的习惯, 除了特殊的一行之内.
 
-    if (1 + 1 == 2) console.log("It's true");
-    // → It's true
+``` js
+if (1 + 1 == 2) console.log("It's true");
+// → It's true
+```
 
 You often won't just have code that executes when a condition holds true, but also code that handles the other case. This alternate path is represented by the second arrow in the diagram. You can use the else keyword, together with if, to create two separate, alternative execution paths.
 
 你通常不会只有条件为真时候执行的代码, 还有另一种情况下的代码. 这个备用路径由图中的第二个箭头表示. 你可以使用else 关键字, 和if 一起, 来创建两个分支, 备用执行路径.
 
-    let theNumber = Number(prompt("Pick a number"));
-    if (!Number.isNaN(theNumber)) {
-        console.log("Your number is the square root of " +
-            theNumber * theNumber);
-    } else {
-        console.log("Hey. Why didn't you give me a number?");
-    }
+``` js
+let theNumber = Number(prompt("Pick a number"));
+if (!Number.isNaN(theNumber)) {
+    console.log("Your number is the square root of " +
+        theNumber * theNumber);
+} else {
+    console.log("Hey. Why didn't you give me a number?");
+}
+```
 
 If you have more than two paths to choose from, you can "chain" multiple if/else pairs together. Here's an example:
 
 如果你有超过两条路径选择, 你可以 链住 多个 `if/else` 对一起. 这里有一个例子:
 
-    let num = Number(prompt("Pick a number"));
+``` js
+let num = Number(prompt("Pick a number"));
 
-    if (num < 10) {
-        console.log("Small");
-    } else if (num < 100) {
-        console.log("Medium");
-    } else {
-        console.log("Large");
-    }
+if (num < 10) {
+    console.log("Small");
+} else if (num < 100) {
+    console.log("Medium");
+} else {
+    console.log("Large");
+}
+```
 
 The program will first check whether num is less than 10. If it is, it chooses that branch, shows "Small", and is done. If it isn't, it takes the else branch, which itself contains a second if. If the second condition (< 100) holds, that means the number is between 10 and 100, and "Medium" is shown. If it doesn't, the second and last else branch is chosen.
 
@@ -323,13 +353,15 @@ Consider a program that outputs all even numbers from 0 to 12. One way to write 
 
 考虑一个程序, 它输出所有从0到12的偶数. 一种方式是像下面这样写: 
 
-    console.log(0);
-    console.log(2);
-    console.log(4);
-    console.log(6);
-    console.log(8);
-    console.log(10);
-    console.log(12);
+``` js
+console.log(0);
+console.log(2);
+console.log(4);
+console.log(6);
+console.log(8);
+console.log(10);
+console.log(12);
+```
 
 That works, but the idea of writing a program is to make something less work, not more. If we needed all even numbers less than 1, 000, this approach would be unworkable. What we need is a way to run a piece of code multiple times. This form of control flow is called a loop.
 
@@ -341,14 +373,16 @@ Looping control flow allows us to go back to some point in the program where we 
 
 循环控制 允许我们回到程序的某个点, 我们在之前并且重复它在当前程序状态下. 如果我们组合这个和一个绑定计数, 我们可以做到像这样的事情: 
 
-    let number = 0;
-    while (number <= 12) {
-        console.log(number);
-        number = number + 2;
-    }
-    // → 0
-    // → 2
-    //   … etcetera
+``` js
+let number = 0;
+while (number <= 12) {
+    console.log(number);
+    number = number + 2;
+}
+// → 0
+// → 2
+//   … etcetera
+```
 
 A statement starting with the keyword while creates a loop. The word while is followed by an expression in parentheses and then a statement, much like if. The loop keeps entering that statement as long as the expression produces a value that gives true when converted to Boolean.
 
@@ -362,14 +396,16 @@ As an example that actually does something useful, we can now write a program th
 
 作为实际做一些有用事情的例子, 现在, 我们可以写一个程序计算并显示2^10(2的10次方)的值. 我们使用两个绑定: 一个保持跟踪我们的结果并且一个来统计我们把结果乘以几个2了.
 
-    let result = 1;
-    let counter = 0;
-    while (counter < 10) {
-        result = result * 2;
-        counter = counter + 1;
-    }
-    console.log(result);
-    // → 1024
+``` js
+let result = 1;
+let counter = 0;
+while (counter < 10) {
+    result = result * 2;
+    counter = counter + 1;
+}
+console.log(result);
+// → 1024
+```
 
 The counter could also have started at 1 and checked for <= 10, *but for reasons that will become apparent in Chapter 4, it is a good idea to get used to counting from 0*.
 
@@ -379,13 +415,14 @@ A do loop is a control structure similar to a while loop. It differs only on one
 
 一个 `do` 循环是一个控制语句类似 `while` 循环. 它只在一点上不同: 一个 do 循环总是执行他的主体至少一次, 并且他会开始测试是否它在第一次执行后应该停止. 为了反映这个, 测试出现在循环体的后面.
 
-    let yourName;
-    do {
-        yourName = prompt("Who are you?");
-    } while (!yourName);
-    console.log(yourName);
+``` js
+let yourName;
+do {
+    yourName = prompt("Who are you?");
+} while (!yourName);
+console.log(yourName);
+```
 
-    
 This program will force you to enter a name. It will ask again and again until it gets something that is not an empty string. Applying the ! operator will convert a value to Boolean type before negating it, and all strings except "" convert to true. This means the loop continues going round until you provide a non-empty name.
 
 程序会强制你输入一个名字. 它会问你一遍又一遍直到它得到了一个非空的字符串. 调用 ! 操作符会在否定之前转换值为布尔类型, 并且 所有字符串出了 "" 都转化为真. 这意味着循环继续执行直到你提供了一个非空的名字.
@@ -400,14 +437,15 @@ The role of this indentation inside blocks is to make the structure of the code 
 
 这些块里的缩进使代码的结构突出. 在代码里新块在其他的块里打开, 它变得非常难以看出哪里是一块的结束和另一个的开始. 用适当的缩进, 代码的视觉边缘和块里的边缘一致. 我喜欢为每个打开的块使用两个空格, 但口味不同--一些人喜欢用四个空格, 还有些人用tab符. 重要的是每个新块要添加相同数量的空格. 
 
-    if (false != true) {
-        console.log("That makes sense.");
-        if (1 < 2) {
-            console.log("No surprise there.");
-        }
+``` js
+if (false != true) {
+    console.log("That makes sense.");
+    if (1 < 2) {
+        console.log("No surprise there.");
     }
+}
+```
 
-    
 Most code editor programs (including the one in this book) will help by automatically indenting new lines the proper amount.
 
 大多数代码编辑器(包括这本书里的那个)会帮助自动缩进新一行合适的数量.
@@ -424,12 +462,14 @@ Because this pattern is so common, JavaScript and similar languages provide a sl
 
 因为这个模式非常地常见, js和相似的语言提供了一种轻微简短并且更综合的形式, for 循环. 
 
-    for (let number = 0; number <= 12; number = number + 2) {
-        console.log(number);
-    }
-    // → 0
-    // → 2
-    //   … etcetera
+``` js
+for (let number = 0; number <= 12; number = number + 2) {
+    console.log(number);
+}
+// → 0
+// → 2
+//   … etcetera
+```
 
 This program is exactly equivalent to the earlier even-number-printing example. The only change is that all the statements that are related to the "state" of the loop are grouped together after for.
 
@@ -443,12 +483,14 @@ This is the code that computes 2^10 using for instead of while:
 
 这是计算2^10用for而不是while的代码:
 
-    let result = 1;
-    for (let counter = 0; counter < 10; counter = counter + 1) {
-        result = result * 2;
-    }
-    console.log(result);
-    // → 1024
+``` js
+let result = 1;
+for (let counter = 0; counter < 10; counter = counter + 1) {
+    result = result * 2;
+}
+console.log(result);
+// → 1024
+```
 
 ### Breaking Out of a Loop
 
@@ -462,15 +504,16 @@ This program illustrates the break statement. It finds the first number that is 
 
 这个程序举例说明了break语句. 它找到第一个同事大于或者等于20且被7整除的数字.
 
-    for (let current = 20;; current = current + 1) {
-        if (current % 7 == 0) {
-            console.log(current);
-            break;
-        }
+``` js
+for (let current = 20;; current = current + 1) {
+    if (current % 7 == 0) {
+        console.log(current);
+        break;
     }
-    // → 21
+}
+// → 21
+```
 
-    
 Using the remainder (%) operator is an easy way to test whether a number is divisible by another number. If it is, the remainder of their division is zero.
 
 使用 模符号 是测试是否数字可以被另一个数整除的简单方法. 如果它是, 它们的模应该是0.
@@ -499,13 +542,17 @@ Especially when looping, a program often needs to "update" a binding to hold a v
 
 特别当循环的时候, 一个程序通常需要"更新"一个绑定来持有以恶搞值基于绑定的先前的值.
 
-    counter = counter + 1;
+``` js
+counter = counter + 1;
+```
 
 JavaScript provides a shortcut for this.
 
 js为此提供了一种简写.
 
-    counter += 1;
+``` js
+counter += 1;
+```
 
 Similar shortcuts work for many other operators, such as result *= 2 to double result or counter -= 1 to count downward.
 
@@ -515,9 +562,11 @@ This allows us to shorten our counting example a little more.
 
 这允许我们简短一点我们的计数例子.
 
-    for (let number = 0; number <= 12; number += 2) {
-        console.log(number);
-    }
+``` js
+for (let number = 0; number <= 12; number += 2) {
+    console.log(number);
+}
+```
 
 For counter += 1 and counter -= 1, there are even shorter equivalents: counter++ and counter--.
 
@@ -531,28 +580,32 @@ It is not uncommon for code to look like this:
 
 这样的代码是不常见的:
 
-    if (x == "value1") action1();
-    else if (x == "value2") action2();
-    else if (x == "value3") action3();
-    else defaultAction();
+``` js
+if (x == "value1") action1();
+else if (x == "value2") action2();
+else if (x == "value3") action3();
+else defaultAction();
+```
 
 There is a construct called switch that is intended to express such a "dispatch" in a more direct way. Unfortunately, the syntax JavaScript uses for this (which it inherited from the C/Java line of programming languages) is somewhat awkward—-a chain of if statements may look better. Here is an example:
 
 这种叫做switch的结构, 目的是以更明确的方式表达这种"调度". 不幸的是, js 使用的语法(从 C/Java系列编程语言继承的) 有些尴尬-- 系列if语句可能看起来更好. 这是一个例子:
 
-    switch (prompt("What is the weather like?")) {
-        case "rainy":
-            console.log("Remember to bring an umbrella.");
-            break;
-        case "sunny":
-            console.log("Dress lightly.");
-        case "cloudy":
-            console.log("Go outside.");
-            break;
-        default:
-            console.log("Unknown weather type!");
-            break;
-    }
+``` js
+switch (prompt("What is the weather like?")) {
+    case "rainy":
+        console.log("Remember to bring an umbrella.");
+        break;
+    case "sunny":
+        console.log("Dress lightly.");
+    case "cloudy":
+        console.log("Go outside.");
+        break;
+    default:
+        console.log("Unknown weather type!");
+        break;
+}
+```
 
 You may put any number of case labels inside the block opened by switch. The program will start executing at the label that corresponds to the value that switch was given, or at default if no matching value is found. It will continue executing, even across other labels, until it reaches a break statement. In some cases, such as the "sunny" case in the example, this can be used to share some code between cases (it recommends going outside for both sunny and cloudy weather). But be careful-—it is easy to forget such a break, which will cause the program to execute code you do not want executed.
 
@@ -566,10 +619,12 @@ Binding names may not contain spaces, yet it is often helpful to use multiple wo
 
 绑定名称不包含空格, 但使用多样的单词来明确描述绑定代表的东西通常很有帮助. 这些几乎是您编写带有多个单词的绑定名称的选择:
 
-    fuzzylittleturtle
-    fuzzy_little_turtle
-    FuzzyLittleTurtle
-    fuzzyLittleTurtle
+``` js
+fuzzylittleturtle
+fuzzy_little_turtle
+FuzzyLittleTurtle
+fuzzyLittleTurtle
+```
 
 The first style can be hard to read. I rather like the look of the underscores, though that style is a little painful to type. The standard JavaScript functions, and most JavaScript programmers, follow the bottom style—they capitalize every word except the first. *It is not hard to get used to little things like that, and code with mixed naming styles can be jarring to read, so we follow this convention*.
 
@@ -591,28 +646,34 @@ A comment is a piece of text that is part of a program but is completely ignored
 
 注释是程序的一部分的一段文本, 但完全被计算机忽略. js有两种方法写注释. 写单行注释, 你可以使用双 斜线符号(//) 然后注释紧随其后.
 
-    let accountBalance = calculateBalance(account);
-    // It's a green hollow where a river sings
-    accountBalance.adjust();
-    // Madly catching white tatters in the grass.
-    let report = new Report();
-    // Where the sun on the proud mountain rings:
-    addToReport(accountBalance, report);
-    // It's a little valley, foaming like light in a glass.
+``` js
+let accountBalance = calculateBalance(account);
+// It's a green hollow where a river sings
+accountBalance.adjust();
+// Madly catching white tatters in the grass.
+let report = new Report();
+// Where the sun on the proud mountain rings:
+addToReport(accountBalance, report);
+// It's a little valley, foaming like light in a glass.
+```
 
 A // comment goes only to the end of the line. A section of text between /* and */ will be ignored in its entirety, regardless of whether it contains line breaks. This is useful for adding blocks of information about a file or a chunk of program.
 
 一个//注释 只到一行结束. 一段文本在 /* 和 */ 之间会被完整忽略, 无论它是否包含换行. 这是非常有用的对于添加信息块有关一个文件或者一个代码块.
 
-    /*
-    I first found this number scrawled on the back of an old notebook.
-    Since then, it has often dropped by, showing up in phone numbers
-    and the serial numbers of products that I've bought. It obviously
-    likes me, so I've decided to keep it.
+``` js
+/*
+I first found this number scrawled on the back of an old notebook.
+Since then, it has often dropped by, showing up in phone numbers
+and the serial numbers of products that I've bought. It obviously
+likes me, so I've decided to keep it.
 
-    */
+*/
+```
 
-    const myNumber = 11213;
+``` js
+const myNumber = 11213;
+```
 
 ### Summary
 
@@ -652,7 +713,7 @@ Write a loop that makes seven calls to console.log to output the following trian
 
 写一个循环, 使得七次调用console.log输出下面的三角形:
 
-```bash
+``` bash
 #
 ##
 ###
@@ -666,15 +727,19 @@ It may be useful to know that you can find the length of a string by writing .le
 
 这或许很有用, 你可以找到一个字符串的长度通过在它之后的 `.length` .
 
-    let abc = "abc";
-    console.log(abc.length);
-    // → 3
+``` js
+let abc = "abc";
+console.log(abc.length);
+// → 3
+```
 
 Most exercises contain a piece of code that you can modify to solve the exercise. Remember that you can click code blocks to edit them.
 
 多数习题包含一段代码, 你可以修改来解决问题. 记住 你可以点击代码块来编辑他们.
 
-    // Your code here.
+``` js
+// Your code here.
+```
 
 ### FizzBuzz
 
@@ -692,8 +757,11 @@ When you have that working, modify your program to print "FizzBuzz" for numbers 
 
 (这实际上是一个面试问题, 据称已经淘汰了相当比例的程序员候选. 所以, 如果你解决了这个问题, 你的劳动力市场价值就会上升. )
 
-    // Your code here.
+``` js
+// Your code here.
+```
 
+    
     
 
 ### Chessboard
@@ -708,7 +776,7 @@ Passing this string to console.log should show something like this:
 
 将此字符串传递给console.log应该显示如下内容:
 
-```bash
+``` bash
  # # # #
 # # # # 
  # # # #

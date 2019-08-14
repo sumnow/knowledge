@@ -18,11 +18,12 @@ Polymer, a library based on Web Components was released by Google in 2013.[18]
 
 这是给予用户自定义标签的能力
 
-```html
-<my-buttom></my-button>
+``` html
+<my-buttom>
+    </my-button>
 ```
 
-```
+``` 
  var MyButtom = document.registerElement('my-buttom', {})
 ```
 
@@ -30,7 +31,7 @@ Polymer, a library based on Web Components was released by Google in 2013.[18]
 
 在浏览器中像vedio等原生的控件, 如果我们在chrome中勾选 `Show user agent shadow DOM` 就可以将控件展开, 内部的内容就是shadow Dom , 且不会受到外部的样式或者js的影响
 
-```html
+``` html
 <video controls="">
     <source src="https://mdn.mozillademos.org/files/2587/AudioTest%20(1).ogg" type="audio/ogg">
 </video>
@@ -38,12 +39,17 @@ Polymer, a library based on Web Components was released by Google in 2013.[18]
 
 ## HTML Templates
 
-```html
+``` html
 <html>
-    <template>
-        <h1><slot name="title"></slot></h1>
-        <p><slot name="description"></slot></p>
-    </template>
+<template>
+    <h1>
+        <slot name="title"></slot>
+    </h1>
+    <p>
+        <slot name="description"></slot>
+    </p>
+</template>
+
 </html>
 ```
 
@@ -51,7 +57,7 @@ Polymer, a library based on Web Components was released by Google in 2013.[18]
 
 三者一起利用就可以形成 `web components` 
 
-```html
+``` html
 <template id="wgTemplate">
     <style>
         .btn {
@@ -64,7 +70,7 @@ Polymer, a library based on Web Components was released by Google in 2013.[18]
 <script type='text/javascript'>
     var proto = Object.create(HTMLElement.prototype, {
         createdCallback: {
-            value: function () {
+            value: function() {
                 var tp = document.querySelector('#wgTemplate')
                 var clone = document.importNode(tp.content, true)
                 this.createShadowRoot().appendChild(clone)
@@ -72,7 +78,9 @@ Polymer, a library based on Web Components was released by Google in 2013.[18]
         }
     })
 
-    var MyButtom = document.registerElement('my-buttom', { prototype: proto })
+    var MyButtom = document.registerElement('my-buttom', {
+        prototype: proto
+    })
 
     document.body.appendChild(new MyButtom())
 </script>

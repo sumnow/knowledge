@@ -22,7 +22,7 @@ void SetBit(char *p, int posi)
     {  
         p++;  
     }  
-
+    
     *p = *p|(0x01<<(posi%BYTESIZE));//将该Bit位赋值1  
     return;  
 }  
@@ -31,13 +31,13 @@ void BitMapSortDemo()
 {  
     //为了简单起见，我们不考虑负数  
     int num[] = {3,5,2,10,6,12,8,14,9};  
-
+    
     //BufferLen这个值是根据待排序的数据中最大值确定的  
     //待排序中的最大值是14，因此只需要2个Bytes(16个Bit)  
     //就可以了。  
     const int BufferLen = 2;  
     char *pBuffer = new char[BufferLen];  
-
+    
     //要将所有的Bit位置为0，否则结果不可预知。  
     memset(pBuffer,0,BufferLen);  
     for(int i=0;i<9;i++)  
@@ -45,7 +45,7 @@ void BitMapSortDemo()
         //首先将相应Bit位上置为1  
         SetBit(pBuffer,num[i]);  
     }  
-
+    
     //输出排序结果  
     for(int i=0;i<BufferLen;i++)//每次处理一个字节(Byte)  
     {  
