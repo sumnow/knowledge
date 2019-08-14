@@ -33,3 +33,4 @@ Android推荐下载安装 BifrostV
 在[这里](https://github.com/Cenmrev/V2RayX/releases)下载
 
 下载后选择configure来完成配置. 
+

@@ -1,6 +1,6 @@
 # command line
 
-```bash
+``` bash
     // 查看端口服务
     lsof -i:port
     // 杀死进程

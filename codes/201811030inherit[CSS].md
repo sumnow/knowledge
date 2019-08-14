@@ -2,7 +2,7 @@
 
 ### initial
 
-initial 关键字用于设置 CSS 属性为它的默认值, 可作用于任何 CSS 样式。 (IE 不支持该关键字)
+initial 关键字用于设置 CSS 属性为它的默认值, 可作用于任何 CSS 样式. (IE 不支持该关键字)
 
 ### inherit
 
@@ -16,18 +16,22 @@ initial 关键字用于设置 CSS 属性为它的默认值, 可作用于任何 C
 
 比较经典的就是 `font-family` 
 
+``` css
     html {
         font - family: 'PingFang'
     }
-    input, textarea {
+
+    input,
+    textarea {
         font - family: inherit
     }
+```
 
 ### unset
 
-名如其意, unset 关键字我们可以简单理解为不设置。 其实, 它是关键字 initial 和 inherit 的组合。 
+名如其意, unset 关键字我们可以简单理解为不设置. 其实, 它是关键字 initial 和 inherit 的组合. 
 
-什么意思呢？ 也就是当我们给一个 CSS 属性设置了 unset 的话: 
+什么意思呢? 也就是当我们给一个 CSS 属性设置了 unset 的话: 
 
 如果该属性是默认继承属性, 该值等同于 inherit
 如果该属性是非继承属性, 该值等同于 initial

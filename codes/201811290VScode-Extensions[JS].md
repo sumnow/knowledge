@@ -13,13 +13,13 @@
 
 #### 依赖安装
 
-```bash
+``` bash
 npm install - g yo generator - code
 ```
 
 这是一个包括cli命令在内的官方开发工具
 
-```bash
+``` bash
 //cli
 yo code
 ```
@@ -32,29 +32,29 @@ yo code
 
 以 `typescript` 为例, 生成的目录如下
 
-    file: {
-        out: {
-            dir: '输出文件目录', 
-            cd: {
-                src: {
-                    dir: '输出转换后的代码'
-                }, 
-                test: {
-                    dir: '输出测试代码'
-                }
+``` js
+file: {
+    out: {
+        dir: '输出文件目录',
+        cd: {
+            src: {
+                dir: '输出转换后的代码'
+            },
+            test: {
+                dir: '输出测试代码'
             }
-        }, 
-        src: {
-            dir: '代码目录', 
-            cd: {
-                extension.ts: {
-                    file: '代码入口'
-                }
+        }
+    },
+    src: {
+        dir: '代码目录',
+        cd: {
+            extension.ts: {
+                file: '代码入口'
             }
         }
     }
-
-	
+}
+```
 
 #### 开发
 
@@ -86,18 +86,23 @@ yo code
 
 > 注意: 生成的token是无法再次打开查看的, 请保存到一个安全的地方, 这是将来你登录自己账户的 `PAT` 
 
-~~为什么我会知道呢?肯定不可能是我后来发现没法登录, 又重新生成了一个~~
+~~为什么我会知道呢? 肯定不可能是我后来发现没法登录, 又重新生成了一个~~
 
 #### 登录账号
 
-    vsce create - publisher < publisher name >
+``` js
+vsce create - publisher < publisher name >
+```
 
-    
 需要输入邮箱, 和 `PAT` , 接着登录刚才的账号
 
-    Vsce login < publisher name >
+``` js
+Vsce login < publisher name >
+```
 
 至此, 你已经可以开始 `publish` 插件了
 
-    vsce publish
+``` js
+vsce publish
+```
 

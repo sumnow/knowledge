@@ -12,10 +12,8 @@
 
 有些浏览器使用了 `UTF-8`  `GB2312` , 如果html document 没有规定解析方式, 就按照浏览器默认的编码解析. 
 
-```html
-    <meta http - equiv = "Content-Type"
-    content = "text/html; charset="
-    utf-8">
+``` html
+    <meta http - equiv="Content-Type" content="text/html; charset=utf-8">
 ```
 
 例如, 万恶的ie就是用 `gb2312` . 
@@ -40,3 +38,4 @@ encodeURI 是对统一资源标识符 (URI) 全部编码, 而 encodeURIComponent
 
 encodeURIComponent 转义除了字母、 数字、 (、 )、 .、 !、 ~、 *、 '、 -和_之外的所有字符. 
 为了避免服务器收到不可预知的请求, 对任何用户输入的作为 URI 部分的内容都需要用 encodeURIComponent 进行转义. 
+

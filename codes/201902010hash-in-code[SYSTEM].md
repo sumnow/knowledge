@@ -33,7 +33,7 @@ HashMap 是基于 HashTable 的一种数据结构, 在普通哈希表的基础�
 
 在 HashMap 中定义了几个常量:
 
-```java
+``` java
 static final int DEFAULT_INITIAL_CAPACITY = 1 << 4; // aka 16  
 static final int MAXIMUM_CAPACITY = 1 << 30; 
 static final float DEFAULT_LOAD_FACTOR = 0.75f; 
@@ -77,7 +77,7 @@ Redis 是一个高效的 key-value 缓存系统, 也可以理解为基于键值�
 数据结构
 在 Redis 中, 字典是一个 dict 类型的结构体, 定义在 src/dict.h 中:
 
-```C
+``` C
 typedef struct dict {  
     dictht ht[2]; 
     long rehashidx; /* rehashing not in progress if rehashidx == -1 */
@@ -86,7 +86,7 @@ typedef struct dict {
 
 这里的 dictht 是用于存储数据的结构体. 注意到我们定义了一个长度为 2 的数组, 它是为了解决扩容时速度较慢而引入的, 其原理后面会详细介绍, rehashidx 也是在扩容时需要用到. 先看一下 dictht 的定义:
 
-```C
+``` C
 typedef struct dictht {  
     dictEntry **table; 
     unsigned long size; 
@@ -96,7 +96,7 @@ typedef struct dictht {
 
 可见结构体中有一个二维数组 table, 元素类型是 dictEntry, 对应着存储的一个键值对:
 
-```C
+``` C
 typedef struct dictEntry {  
     void *key; 
     union {
@@ -119,22 +119,22 @@ typedef struct dictEntry {
 
 向字典中添加键值对的底层实现如下:
 
-```C
+``` C
 dictEntry *dictAddRaw(dict *d, void *key) {  
     int index; 
     dictEntry *entry; 
     dictht *ht; 
-
+    
     if (dictIsRehashing(d)) _dictRehashStep(d); 
     if ((index = _dictKeyIndex(d, key)) == -1)
         return NULL; 
-
+    
     ht = dictIsRehashing(d) ? &d->ht[1] : &d->ht[0]; 
     entry = zmalloc(sizeof(*entry)); 
     entry->next = ht->table[index]; 
     ht->table[index] = entry; 
     ht->used++; 
-
+    
     dictSetKey(d, entry, key); 
     return entry; 
 }
@@ -153,7 +153,7 @@ dictIsRehashing 函数用来判断哈希表是否正在重新哈希. 所谓的�
 
 在上面给出的 dictAddRaw 方法的实现中, 有两句代码:
 
-```C
+``` C
 if (dictIsRehashing(d)) _dictRehashStep(d); 
 // ...
 ht = dictIsRehashing(d) ? &d->ht[1] : &d->ht[0]; 
@@ -161,10 +161,10 @@ ht = dictIsRehashing(d) ? &d->ht[1] : &d->ht[0];
 
 第二句就是用来选择插入到哪个哈希表中, 第一句话则是迁移 rehashidx 位置上的链表. 它实际上会调用 dictRehash(d, 1), 也就是说是单步长的迁移. dictRehash 函数的实现如下:
 
-```C
+``` C
 int dictRehash(dict *d, int n) {  
     int empty_visits = n*10; /* Max number of empty buckets to visit. */
-
+    
     while(n-- && d->ht[0].used != 0) {
         dictEntry *de, *nextde; 
 
@@ -176,7 +176,7 @@ int dictRehash(dict *d, int n) {
         /* Move all the keys in this bucket from the old to the new hash HT */
         while(de) {
             unsigned int h; 
-
+    
             nextde = de->next; 
             /* Get the index in the new hash table */
             h = dictHashKey(d, de->key) & d->ht[1].sizemask; 
@@ -189,7 +189,7 @@ int dictRehash(dict *d, int n) {
         d->ht[0].table[d->rehashidx] = NULL; 
         d->rehashidx++; 
     }
-
+    
     /* Check if we already rehashed the whole table... */
     if (d->ht[0].used == 0) {
         zfree(d->ht[0].table); 
@@ -198,7 +198,7 @@ int dictRehash(dict *d, int n) {
         d->rehashidx = -1; 
         return 0; 
     }
-
+    
     return 1; 
 }
 ```
