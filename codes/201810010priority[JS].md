@@ -61,39 +61,41 @@
 | 1           | 展开运算符       | n/a            | ... …     |
 | 0           | 逗号          | 从左到右           | … , …     |
 
-这里面new关键字有参与无参区别比较大。 
+这里面new关键字有参与无参区别比较大. 
 
-    function Foo() {
-        getName = function() {
-            alert(1); 
-        }; 
-        return this; 
-    }
-    Foo.getName = function() {
-        alert(2); 
-    }; 
-    Foo.prototype.getName = function() {
-        alert(3); 
-    }; 
-    var getName = function() {
-        alert(4); 
-    }; 
+``` js
+function Foo() {
+    getName = function() {
+        alert(1);
+    };
+    return this;
+}
+Foo.getName = function() {
+    alert(2);
+};
+Foo.prototype.getName = function() {
+    alert(3);
+};
+var getName = function() {
+    alert(4);
+};
 
-    function getName() {
-        alert(5); 
-    }
-    //请写出以下输出结果: 
-    Foo.getName(); //2
-    getName(); //4
-    Foo().getName(); //1
-    getName(); //1
-    new Foo.getName(); //2
-    new Foo().getName(); //3
-    new new Foo().getName(); //3
-    var m = function gse() {
-        console.log(2)
-    }
-    var se = (x) => x + 1
-    console.log(se.name) //se
-    console.log(m.name) //gse
+function getName() {
+    alert(5);
+}
+//请写出以下输出结果: 
+Foo.getName(); //2
+getName(); //4
+Foo().getName(); //1
+getName(); //1
+new Foo.getName(); //2
+new Foo().getName(); //3
+new new Foo().getName(); //3
+var m = function gse() {
+    console.log(2)
+}
+var se = (x) => x + 1
+console.log(se.name) //se
+console.log(m.name) //gse
+```
 
