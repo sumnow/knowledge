@@ -54,7 +54,7 @@ console.profile 和 console.profileEnd 配合一起使用来查看CPU使用相�
 
 ##### table
 
-console.table 可以表格形式输出Array and Object , 但无法输出Set等。 
+console.table 可以表格形式输出Array and Object , 但无法输出Set等. 
 
 ![img](../img/20180312008.png)
 
@@ -77,8 +77,10 @@ console.trace
 | %O               | Formats the value as an expandable JavaScript object.                      |
 | %c               | Formats the output string according to CSS styles you provide.             |
 
-    // 文字
-    console.log("%c3D Text", " text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15); font-size:5em")
-    // 图片背景
-    console.log("%c", "display:block; padding:30px 90px; line-height:60px; background-image:url('https://files.cnblogs.com/files/mydia/7ABFD901E6DB857A3C282B95ED1F8674.gif'); "); 
+``` js
+// 文字
+console.log("%c3D Text", " text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15); font-size:5em")
+// 图片背景
+console.log("%c", "display:block; padding:30px 90px; line-height:60px; background-image:url('https://files.cnblogs.com/files/mydia/7ABFD901E6DB857A3C282B95ED1F8674.gif'); ");
+```
 
