@@ -20,7 +20,7 @@
 
 ### 小程序button
 
- `button` 的 `border` 是在其 `::after` 上
+`button` 的 `border` 是在其 `::after` 上
 
 ### canvas
 
@@ -40,43 +40,45 @@
 
 #### canvas 文字换行
 
-    const obj = {
-        size: 12,
-        // 文字
-        text: 'HELLO',
-        // 行宽
-        width: 270,
-        // 行高
-        height: 18
-    };
-    // 文字换行, 回车或者超出长度都会换行
-    function textWrap(obj) {
-        ctx.setFontSize(obj.size);
-        var reg = /\n/g;
-        // obj.text = obj.text.replace(reg, '灬'); 
-        let arrText = obj.text.split('');
-        let line = '';
-        let arrTr = [];
-        for (let i = 0; i < arrText.length; i++) {
-            var testLine = line + arrText[i];
-            var metrics = ctx.measureText(testLine);
-            var width = metrics.width;
-            if ((width > obj.width && i > 0) || arrText[i].match(reg)) {
-                arrTr.push(line);
-                if (arrText[i].match(reg)) {
-                    line = '';
-                } else {
-                    line = arrText[i];
-                }
+``` js
+const obj = {
+    size: 12,
+    // 文字
+    text: 'HELLO',
+    // 行宽
+    width: 270,
+    // 行高
+    height: 18
+};
+// 文字换行, 回车或者超出长度都会换行
+function textWrap(obj) {
+    ctx.setFontSize(obj.size);
+    var reg = /\n/g;
+    // obj.text = obj.text.replace(reg, '灬'); 
+    let arrText = obj.text.split('');
+    let line = '';
+    let arrTr = [];
+    for (let i = 0; i < arrText.length; i++) {
+        var testLine = line + arrText[i];
+        var metrics = ctx.measureText(testLine);
+        var width = metrics.width;
+        if ((width > obj.width && i > 0) || arrText[i].match(reg)) {
+            arrTr.push(line);
+            if (arrText[i].match(reg)) {
+                line = '';
             } else {
-                line = testLine;
+                line = arrText[i];
             }
-            if (i == arrText.length - 1) {
-                arrTr.push(line);
-            }
+        } else {
+            line = testLine;
         }
-        return arrTr;
+        if (i == arrText.length - 1) {
+            arrTr.push(line);
+        }
     }
+    return arrTr;
+}
+```
 
 #### 组合文字居中
 
@@ -84,15 +86,17 @@
 
 例如: 不同字号或者字体的组合字, 水平居中, 使用下面的方法计算出每个的宽度.
 
-    function handleTexts(_arr = [{
-        text: 'xxx',
-        style: '14px normal'
-    }]) {
-        return _arr.map(e => {
-            ctx.font = e.style;
-            return ctx.measureText(e.text).width;
-        });
-    }
+``` js
+function handleTexts(_arr = [{
+    text: 'xxx',
+    style: '14px normal'
+}]) {
+    return _arr.map(e => {
+        ctx.font = e.style;
+        return ctx.measureText(e.text).width;
+    });
+}
+```
 
 ##### 垂直居中  
 
@@ -108,23 +112,25 @@
 
 > ps: 这个方法已经被废弃了, 必须使用 `button` 来呼起 `OpenSetting` 
 
-    wx.saveImageToPhotosAlbum({
-        filePath: imgpath,
-        success() {
-            console.log('success saved')
-        },
-        fail() {
-            wx.openSetting({
-                success(settingdata) {
-                    if (settingdata.authSetting['scope.writePhotosAlbum']) {
-                        console.log('success auth deny')
-                    } else {
-                        console.log('fail auth deny')
-                    }
+``` js
+wx.saveImageToPhotosAlbum({
+    filePath: imgpath,
+    success() {
+        console.log('success saved')
+    },
+    fail() {
+        wx.openSetting({
+            success(settingdata) {
+                if (settingdata.authSetting['scope.writePhotosAlbum']) {
+                    console.log('success auth deny')
+                } else {
+                    console.log('fail auth deny')
                 }
-            })
-        }
-    })
+            }
+        })
+    }
+})
+```
 
 ### 版本库错误
 
@@ -136,7 +142,7 @@
 
 在需要换行的位置加上 `\r\n` , 即可实现内容的换行. (++注: 微信开发者工具可能看不到效果, 但是真机实测是会换行的++)
 
-```js
+``` js
 wx.showModal({
     title: '书信',
     content: '车马很慢，\r\n书信很远',
