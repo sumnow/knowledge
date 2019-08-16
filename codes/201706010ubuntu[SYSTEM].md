@@ -18,10 +18,10 @@ ubuntu安装傻瓜式, 制作一个启动盘, 然后u盘启动, 然后下一步�
 
 一般分3个区, 依次分是最好的
 
-- /home, 逻辑分区, ext4, 自己看着办, 10G以上吧
-- /swap, 交换分区, swap, 大小与内存相同
-- /boot, 引导分区, ext4, 200m
-- / , 主分区, 之前所有的都是在主分区里的都是可以找到的. 
+* /home, 逻辑分区, ext4, 自己看着办, 10G以上吧
+* /swap, 交换分区, swap, 大小与内存相同
+* /boot, 引导分区, ext4, 200m
+* / , 主分区, 之前所有的都是在主分区里的都是可以找到的. 
 
 然后就是安装等待, 搞定收工, 进了系统以后安装更新, 驱动, 调整设置, 链接wifi, 看看断流不. 
 
@@ -31,7 +31,7 @@ over!
 
 ### 关闭触摸板和启用触摸板
 
-```bash
+``` bash
     sudo modprobe -r psmouse
     sudo modprobe psmouse
 ```
@@ -40,7 +40,7 @@ over!
 
 ### 调节鼠标灵敏度
 
-```bash
+``` bash
     xset m N
     // N 为 0～10
 ```
@@ -85,7 +85,7 @@ over!
 
 > read write execute
 
-```bash
+``` bash
     sudo chmod 777 -R *
 ```
 
@@ -93,7 +93,7 @@ over!
 
 > 赋予脚本写权限
 
-```bash
+``` bash
     chmod +x test.sh
 ```
 
@@ -113,7 +113,9 @@ over!
 
 ### 压缩与解压缩
 
-    tar - c: 建立压缩档案 - x: 解压 - t: 查看内容 - r: 向压缩归档文件末尾追加文件 - u: 更新原压缩包中的文件 - z: 有gzip属性的 - j: 有bz2属性的 - Z: 有compress属性的 - v: 显示所有过程 - O: 将文件解开到标准输出
+``` js
+tar - c: 建立压缩档案 - x: 解压 - t: 查看内容 - r: 向压缩归档文件末尾追加文件 - u: 更新原压缩包中的文件 - z: 有gzip属性的 - j: 有bz2属性的 - Z: 有compress属性的 - v: 显示所有过程 - O: 将文件解开到标准输出
+```
 
 #### tar -cf all.tar *.jpg
 
@@ -137,7 +139,7 @@ over!
 
 #### 压缩
 
-```bash
+``` bash
     tar - cvf jpg.tar * .jpg //将目录里所有jpg文件打包成tar.jpg 
     tar - czf jpg.tar.gz * .jpg //将目录里所有jpg文件打包成jpg.tar后, 并且将其用gzip压缩, 生成一个gzip压缩过的包, 命名为jpg.tar.gz
     tar - cjf jpg.tar.bz2 * .jpg //将目录里所有jpg文件打包成jpg.tar后, 并且将其用bzip2压缩, 生成一个bzip2压缩过的包, 命名为jpg.tar.bz2
@@ -148,7 +150,7 @@ over!
 
 #### 解压
 
-```bash
+``` bash
     tar - xvf file.tar //解压 tar包
     tar - xzvf file.tar.gz //解压tar.gz
     tar - xjvf file.tar.bz2 //解压 tar.bz2
@@ -159,7 +161,9 @@ over!
 
 下面的参数-f是必须的
 
-    -f: 使用档案名字, 切记, 这个参数是最后一个参数, 后面只能接档案名. 
+``` js
+-f: 使用档案名字, 切记, 这个参数是最后一个参数, 后面只能接档案名.
+```
 
 ### sudo
 
@@ -186,60 +190,67 @@ ps -ax | grep node 可以查看node开启的服务进程
 
 ### ubuntu检测到系统程序错误
 
-    sudo rm /
-      var / crash
-    /*//可以清楚错误报告
+``` js
+sudo rm /
+    var / crash
+/*//可以清楚错误报告
+
+```
 
 ### ispci
 
 查看本机硬件信息
 
-    03: 00.0 Network controller: Realtek Semiconductor Co., Ltd.RTL8188CE 802.11 b / g / n WiFi Adapter(rev 01)
-    lsmod //查看模组信息
-    rtl_pci 28672 1 rtl8192ce
-    modinfo rtl8192ce
-    filename: /lib/modules / 4.10 .0 - 21 - generic / kernel / drivers / net / wireless / realtek / rtlwifi / rtl8192ce / rtl8192ce.ko
-    firmware: rtlwifi / rtl8192cfwU_B.bin
-    firmware: rtlwifi / rtl8192cfwU.bin
-    firmware: rtlwifi / rtl8192cfw.bin
-    description: Realtek 8192 C / 8188 C 802.11 n PCI wireless
-    license: GPL
-    author: Larry Finger < Larry.Finger @lwfinger.net > author: Realtek WlanFAE < wlanfae @realtek.com > author: lizhaoming < chaoming_li @realsil.com.cn > srcversion: FF3DA6981A07464051F7FBE
-    alias: pci: v000010ECd00008176sv * sd * bc * sc * i * alias: pci: v000010ECd00008177sv * sd * bc * sc * i * alias: pci: v000010ECd00008178sv * sd * bc * sc * i * alias: pci: v000010ECd00008191sv * sd * bc * sc * i * depends: rtlwifi, rtl_pci, rtl8192c - common, mac80211
-    intree: Y
-    vermagic: 4.10 .0 - 21 - generic SMP mod_unload
-    parm: swenc: Set to 1
-    for software crypto(
+``` js
+03: 00.0 Network controller: Realtek Semiconductor Co., Ltd.RTL8188CE 802.11 b / g / n WiFi Adapter(rev 01)
+lsmod //查看模组信息
+rtl_pci 28672 1 rtl8192ce
+modinfo rtl8192ce
+filename: /lib/modules / 4.10 .0 - 21 - generic / kernel / drivers / net / wireless / realtek / rtlwifi / rtl8192ce / rtl8192ce.ko
+firmware: rtlwifi / rtl8192cfwU_B.bin
+firmware: rtlwifi / rtl8192cfwU.bin
+firmware: rtlwifi / rtl8192cfw.bin
+description: Realtek 8192 C / 8188 C 802.11 n PCI wireless
+license: GPL
+author: Larry Finger < Larry.Finger @lwfinger.net > author: Realtek WlanFAE < wlanfae @realtek.com > author: lizhaoming < chaoming_li @realsil.com.cn > srcversion: FF3DA6981A07464051F7FBE
+alias: pci: v000010ECd00008176sv * sd * bc * sc * i * alias: pci: v000010ECd00008177sv * sd * bc * sc * i * alias: pci: v000010ECd00008178sv * sd * bc * sc * i * alias: pci: v000010ECd00008191sv * sd * bc * sc * i * depends: rtlwifi, rtl_pci, rtl8192c - common, mac80211
+intree: Y
+vermagic: 4.10 .0 - 21 - generic SMP mod_unload
+parm: swenc: Set to 1
+for software crypto(
         default 0)
-      (bool)
-    parm: ips: Set to 0 to not use link power save(
+    (bool)
+parm: ips: Set to 0 to not use link power save(
         default 1)
-      (bool)
-    parm: swlps: Set to 1 to use SW control power save(
+    (bool)
+parm: swlps: Set to 1 to use SW control power save(
         default 0)
-      (bool)
-    parm: fwlps: Set to 1 to use FW control power save(
+    (bool)
+parm: fwlps: Set to 1 to use FW control power save(
         default 1)
-      (bool)
-    parm: debug: Set debug level(0 - 5)(
-      default 0)(int)
+    (bool)
+parm: debug: Set debug level(0 - 5)(
+    default 0)(int)
+```
 
 ### 安装Unity Tweak Tool
 
-    sudo apt - get upadate //获取最新软件包
-    sudo apt - get install unity - tweak - tool //安装
-    unity - tweak - tool //运行
+``` js
+sudo apt - get upadate //获取最新软件包
+sudo apt - get install unity - tweak - tool //安装
+unity - tweak - tool //运行
+```
 
 ### 安装Chrome
 
-```bash
+``` bash
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb//获取压缩包
       sudo dpkg - i google - chrome - stable_current_amd64.deb //解压并安装
 ```
 
 有一定概率出现处理错误, 其实不影响使用, 但是chrome图标变成未知, 可以使用强制安装
 
-```bash
+``` bash
     sudo apt-get -f install
     sudo dpkg -i google-chrome -stable_current_amd64.deb
 ```
@@ -255,14 +266,14 @@ ps -ax | grep node 可以查看node开启的服务进程
 
 卸载
 
-```bash
+``` bash
 	umake web visual - studio - code--remove
 	sudo apt - get remove ubuntu - make
 ```
 
 ### 安装atom
 
-```bash
+``` bash
     sudo add-apt - repository ppa: webupd8team / atom
     sudo apt-get update
     sudo apt-get install atom
@@ -274,69 +285,83 @@ ps -ax | grep node 可以查看node开启的服务进程
 
 ### 安装gnome
 
-	sudo apt intall gnome
+``` js
+sudo apt intall gnome
+```
 
 选择默认管理器为gtm3
 
 ### 安装albert
 
-	howopensource @esprimo: ~$ sudo add - apt - repository ppa: nilarimogard / webupd8
-	howopensource @esprimo: ~$ sudo apt - get update
-	howopensource @esprimo: ~$ sudo apt - get install albert
+``` js
+howopensource @esprimo: ~$ sudo add - apt - repository ppa: nilarimogard / webupd8
+howopensource @esprimo: ~$ sudo apt - get update
+howopensource @esprimo: ~$ sudo apt - get install albert
+```
 
 albert &
 
 ### 安装shadowsocks 
 
-     sudo add - apt - repository ppa: hzwhuang / ss - qt5
-     sudo apt - get update
-     sudo apt - get install shadowsocks - qt5
+``` js
+ sudo add - apt - repository ppa: hzwhuang / ss - qt5
+ sudo apt - get update
+ sudo apt - get install shadowsocks - qt5
+```
 
 然后配置qt5
 
 然后在网络里设置手动代理socket代理 127.0.0.1:1080, 可以全局代理
 或者使用自动代理, 添加一个urlpacwen[文件](https://pan.baidu.com/s/1skMSHnn)
 
-    file: ///home/username/shadowsocks/autoproxy.pac
+``` js
+file: ///home/username/shadowsocks/autoproxy.pac
+```
 
 ### 安装Node
 
 两种方式, 一种是源码安装, 会make很久, 另一种是命令行
 
-    sudo apt - get install nodejs
+``` js
+sudo apt - get install nodejs
+```
 
 这种安装的node版本较低, 而且使用的时候必须使用nodejs来执行, 可以使用如下命令替换成node
 
-    sudo ln - s / usr / bin / nodejs / usr / bin / node
+``` js
+sudo ln - s / usr / bin / nodejs / usr / bin / node
+```
 
 更新node
 
-	sudo apt install npm
-	sudo npm cache clean - f
-	//强制删除npm缓存
-	sudo npm install - g n
-	// 全局安装 n node版本管理工具
-	sudo n stable
-	//安装到最新版本
+``` js
+sudo apt install npm
+sudo npm cache clean - f
+//强制删除npm缓存
+sudo npm install - g n
+// 全局安装 n node版本管理工具
+sudo n stable
+//安装到最新版本
+```
 
-    
-
-    sudo n list
-    // 列出所有node版本
-    sudo n x.xx.x
-    // 切换到某一版本    
-    sudo npm install npm @lastest - g
-    // 更新npm
-    sudo npm install - g yarn
+``` js
+sudo n list
+// 列出所有node版本
+sudo n x.xx.x
+// 切换到某一版本
+sudo npm install npm @lastest - g
+// 更新npm
+sudo npm install - g yarn
+```
 
 ### monogodb
 
-```bash
+``` bash
     sudo apt -key adv--keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" |sudo tee /etc/apt/sources.list.d/mongodb -org -3.4.list
 ```
 
-```bash
+``` bash
     $ sudo apt-get update
     $ sudo apt-get install mongodb - org
     sudo service mongod start //开启服务
@@ -349,7 +374,7 @@ albert &
 
 ### git
 
-```bash
+``` bash
     git在重装系统后需要重新配置具体如下
     git config--global user.name "username"
     git config--global user.email "example@exam.com"
@@ -360,38 +385,50 @@ albert &
 
 ### yarn 的安装
 
-    sudo apt update && sudo apt install curl
-    curl - sS https: //dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-      echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee / etc / apt / sources.list.d / yarn.list
-    sudo apt - get update && sudo apt - get install yarn
+``` js
+sudo apt update && sudo apt install curl
+curl - sS https: //dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee / etc / apt / sources.list.d / yarn.list
+sudo apt - get update && sudo apt - get install yarn
+```
 
 ## 安装wine
 
 1、 安装源
 
-      sudo add - apt - repository ppa: wine / wine - builds
-      sudo apt - get update
+``` js
+  sudo add - apt - repository ppa: wine / wine - builds
+  sudo apt - get update
+```
 
 2、 安装wine
 
-     sudo apt - get install--install - recommends wine - staging
-     sudo apt - get install winehq - staging
+``` js
+ sudo apt - get install--install - recommends wine - staging
+ sudo apt - get install winehq - staging
+```
 
 3、 卸载wine
 
-     1).卸载wine主程序, 在终端里输入:
-       sudo apt - get remove--purge wine
-     2).然后删除wine的目录文件:
-       rm - r~/.wine
-     3).卸载残留不用的软件包:
-       sudo apt - get autoremove
+``` js
+ 1).卸载wine主程序, 在终端里输入:
+     sudo apt - get remove--purge wine
+ 2).然后删除wine的目录文件:
+     rm - r~/.wine
+ 3).卸载残留不用的软件包:
+     sudo apt - get autoremove
+```
 
 ## 清楚命令行历史记录
 
-    histroy - c
+``` js
+histroy - c
+```
 
 ## 调节对比度
 
-    xgamma - gamma .75
-    // 默认1, 在0-1之间的数值
+``` js
+xgamma - gamma .75
+// 默认1, 在0-1之间的数值
+```
 
