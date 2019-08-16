@@ -1,6 +1,6 @@
 # import and export
 
- `import` 和 `export` 是javascript用于模块导入的, 在远古的时候使用的方法是用一个对象作为命名空间来.
+`import` 和 `export` 是javascript用于模块导入的, 在远古的时候使用的方法是用一个对象作为命名空间来.
 
 ## export
 
@@ -11,15 +11,15 @@ export function b() {}
 export class c extend prop {}
 // b.js
 import {
-  a,
-  b,
-  c
+    a,
+    b,
+    c
 } from 'foo'
 ```
 
 > export需要在顶级作用域, 不可以在块级作用域内, 如函数内部或者 `let` 、 `const` 内部
 
- `export default` 是使用默认变量名导出, `import` 可以使用任意变量名赋值
+`export default` 是使用默认变量名导出, `import` 可以使用任意变量名赋值
 
 ``` js
 // export a array
@@ -33,11 +33,11 @@ export default c = 1
 
 ## import
 
- `import` 可以使用as关键字转换到处的方法或类或变量的名字
+`import` 可以使用as关键字转换到处的方法或类或变量的名字
 
 ``` js
 import {
-  a as apple
+    a as apple
 } from 'a'
 ```
 
@@ -58,13 +58,13 @@ apple.p // p(){}
 ``` js
 // 报错
 if (x === 1) {
-  import {
-    foo
-  } from 'module1';
+    import {
+        foo
+    } from 'module1';
 } else {
-  import {
-    foo
-  } from 'module2';
+    import {
+        foo
+    } from 'module2';
 }
 ```
 
@@ -96,11 +96,11 @@ CommonJS 模块输出的是值的拷贝, 也就是说, 一旦输出一个值, �
 var counter = 3;
 
 function incCounter() {
-  counter++;
+    counter++;
 }
 module.exports = {
-  counter: counter,
-  incCounter: incCounter,
+    counter: counter,
+    incCounter: incCounter,
 };
 ```
 
@@ -122,13 +122,13 @@ console.log(mod.counter); // 3
 var counter = 3;
 
 function incCounter() {
-  counter++;
+    counter++;
 }
 module.exports = {
-  get counter() {
-    return counter
-  },
-  incCounter: incCounter,
+    get counter() {
+        return counter
+    },
+    incCounter: incCounter,
 };
 ```
 
@@ -148,15 +148,15 @@ ES6 模块的运行机制与 CommonJS 不一样. JS 引擎对脚本静态分析�
 // lib.js
 export let counter = 3;
 export function incCounter() {
-  counter++;
+    counter++;
 }
 ```
 
 ``` js
 // main.js
 import {
-  counter,
-  incCounter
+    counter,
+    incCounter
 } from './lib';
 console.log(counter); // 3
 incCounter();
