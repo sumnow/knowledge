@@ -4,12 +4,12 @@
 
 CentOs version: 6.0
 
-```bash
+``` bash
     curl -sL https://rpm.nodesource.com/setup_7.x | bash -
-
+    
     // node 8.x 版本
     curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
-
+    
     sudo yum install nodejs -y
 ```
 
@@ -21,7 +21,7 @@ CentOs version: 6.5
 
 安装
 
-```bash
+``` bash
 
     sudo yum install python-setuptools
     sudo yum install python-pip
@@ -30,7 +30,7 @@ CentOs version: 6.5
 
 centos 7
 
-```bash
+``` bash
 
     $ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
     $ python get-pip.py
@@ -38,7 +38,7 @@ centos 7
 
 如果显示wget command not found
 
-```bash
+``` bash
 
     yum -y install wget
 ```
@@ -49,27 +49,27 @@ centOS 7 下可以使用Google BBR算法来加速
 
 2. 默认的端口转发只转发了 9000-9999 的端口, 修改端口可以修改/root/lkl/run.sh和hproxy.cfg中的端口部分; 
 
-3. 只适用 OpenVZ 虚拟化主机。 
+3. 只适用 OpenVZ 虚拟化主机. 
 
-```bash
+``` bash
 
     // 测试通过的方法
     wget --no-check-certificate https://github.com/91yun/uml/raw/master/lkl/install.sh && bash install.sh
-
+    
     // 未测试的方法
     wget --no-check-certificate https://raw.githubusercontent.com/mmmwhy/LKL_BBR/master/lkl/install.sh && bash install.sh
     // ping 通代表成功
     ping 10.0.0.2
 ```
 
-> 效果, 不是非常明显吧, 延迟从30-80ms变成了3-8ms, youtube可以看1080pHD的视频, 还是很值得搞一搞。 
+> 效果, 不是非常明显吧, 延迟从30-80ms变成了3-8ms, youtube可以看1080pHD的视频, 还是很值得搞一搞. 
 
 root目录下新建ss/ssserver.json 
 
-```bash
+``` bash
 
     vim ~/ss/ssserver.json
-
+    
     {
         // host ip address
         "server": "ip address", 
@@ -85,11 +85,11 @@ root目录下新建ss/ssserver.json
 
 运行ss
 
-```bash
+``` bash
 
     nohup ssserver -c /home/ss/ssserver.json -d start &
     ssserver -c /home/ss/ssserver.json -d stop
-
+    
     ssserver -c /etc/shadowsocks.json -d start
     ssserver -c /etc/shadowsocks.json -d stop
 ```
