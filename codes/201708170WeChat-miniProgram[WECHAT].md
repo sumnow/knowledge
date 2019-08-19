@@ -106,30 +106,84 @@ function handleTexts(_arr = [{
 
 #### canvas 图片剪切
 
-##### 保存到相册授权
+### 保存到相册授权
 
 用户可能会拒绝授权, 而后再次点击保存到相册就没有反应了.
 
-> ps: 这个方法已经被废弃了, 必须使用 `button` 来呼起 `OpenSetting` 
+目前有两种方式:
+
+#### 使用button
+
+``` html
+<button open-type="openSetting" bindopensetting="callback">打开设置页</button>
+```
+
+#### 点击触发事件
+
+``` html
+<button bindtap="openSetting">打开设置页</button>  openSetting() {  wx.openSetting()}
+```
+
+> 这个 `openSetting` 可以放在 `getSetting` 的回调里,但是不可以放在`saveImageToPhotosAlbum`的回调里,不晓得微信怎么想的.
+
+基础调试库版本 2.8.0
 
 ``` js
-wx.saveImageToPhotosAlbum({
-    filePath: imgpath,
-    success() {
-        console.log('success saved')
-    },
-    fail() {
-        wx.openSetting({
-            success(settingdata) {
-                if (settingdata.authSetting['scope.writePhotosAlbum']) {
-                    console.log('success auth deny')
-                } else {
-                    console.log('fail auth deny')
+saveToAlbum() {
+    const self = this;
+
+    wx.getSetting({
+      success(res) {
+        console.log(res)
+        if (res.authSetting && res.authSetting && res.authSetting['scope.writePhotosAlbum']) {
+          wx.canvasToTempFilePath({
+            x: 0,
+            y: 0,
+            width: self.data.windowWidth,
+            height: self.data.windowHeight,
+            fileType: 'jpg',
+            canvasId: 'poster-canvas',
+            success: function (res) {
+              wx.saveImageToPhotosAlbum({
+                filePath: res.tempFilePath,
+                success: function (data) {
+                  wx.showToast({
+                    title: '保存成功',
+                    icon: 'none'
+                  });
+                },
+                fail(err) {
+                  wx.showToast({
+                    title: '保存失败',
+                    icon: 'none'
+                  });
                 }
+              });
             }
-        })
-    }
-})
+          });
+        } else {
+          wx.showToast({
+            title: '需要保存到相册的权限',
+            icon: 'none'
+          });
+          wx.openSetting({
+            success(settingdata) {
+              if (settingdata.authSetting['scope.writePhotosAlbum']) {
+                console.log('获取权限成功，再次点击图片保存到相册');
+              } else {
+                console.log('获取权限失败');
+              }
+            },
+            fail(err) {
+              console.log(err)
+            }
+          });
+
+        }
+      }
+    })
+
+  }
 ```
 
 ### 版本库错误
