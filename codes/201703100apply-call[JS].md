@@ -8,14 +8,14 @@ apply和call是一个改变上下文环境的方法, 让一个方法可以在另
 
 ``` js
 function Child(name) {
-  Person.apply(this, arguments)
+    Person.apply(this, arguments)
 }
 
 function Person(name) {
-  this.name = name;
-  this.say = function() {
-    console.log('i am ' + this.name)
-  }
+    this.name = name;
+    this.say = function() {
+        console.log('i am ' + this.name)
+    }
 }
 var tom = new Person('tom');
 var john = new Child('john');
@@ -37,20 +37,20 @@ tom.say.call(john); //i am john
 
 ``` js
 function mynew(clas) {
-  return function() {
-    var o = {
-      'prototype': clas.prototype
+    return function() {
+        var o = {
+            'prototype': clas.prototype
+        }
+        clas.apply(o, arguments);
+        return o;
     }
-    clas.apply(o, arguments);
-    return o;
-  }
 }
 
 function Person(name) {
-  this.name = name;
-  this.say = function() {
-    console.log('i am ' + this.name)
-  }
+    this.name = name;
+    this.say = function() {
+        console.log('i am ' + this.name)
+    }
 }
 var jack = mynew(Person)('jack')
 jack.say() //i am jack
@@ -69,13 +69,13 @@ callee则是arguments专有属性, arguments.callee指向了当前执行当前�
 
 ``` js
 var array1 = [12, "foo", {
-  name "Joe"
+    name "Joe"
 }, -2458];
 var array2 = ["Doe", 555, 100];
 Array.prototype.push.apply(array1, array2);
 console.log('array1 值为 ' + array1); // array1 值为 [12 , "foo" , {name "Joe"} , -2458 , "Doe" , 555 , 100]; 
 Array.apply(null, {
-  length: 10
+    length: 10
 }).map((v, i) => i + 1); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 

@@ -41,38 +41,38 @@ Array.from('foo');
 // ["f", "o", "o"]
 //map转换
 var m = new Map([
-  [1, 2],
-  [2, 4],
-  [4, 8]
+    [1, 2],
+    [2, 4],
+    [4, 8]
 ]);
 Array.from(m); //[[1, 2], [2, 4], [4, 8]]
 // 使用 map 函数转换数组元素
 Array.from([1, 2, 3], x => x + x); // [2, 4, 6]
 // 生成一个数字序列
 Array.from({
-  length: 5
+    length: 5
 }, (v, k) => k); // [0, 1, 2, 3, 4]
 //数组去重
 var arr = [1, 2, 1, 2, 2, 1];
 //new Set 数组去重
 function unique(arr) {
-  return Array.from(new Set(arr)); //去重复
+    return Array.from(new Set(arr)); //去重复
 };
 console.log(unique(arr));
 //es6
 (function(first, ...rest) {
-  log('first', first); //1
-  log('rest', rest); //['Second, 3']
+    log('first', first); //1
+    log('rest', rest); //['Second, 3']
 })(1, 'Second', 3);
 ```
 
 ``` js
 //es5
 (function() {
-  var first = arguments[0];
-  var rest = Array.from(arguments).slice(1);
-  log('first', first);
-  log('rest', rest);
+    var first = arguments[0];
+    var rest = Array.from(arguments).slice(1);
+    log('first', first);
+    log('rest', rest);
 })(1, 'Second', 3)
 ```
 
@@ -113,14 +113,14 @@ var arr = ["a", "b", "c"];
 var iterator = arr.entries();
 // undefined
 for (let e of iterator) {
-  console.log(e);
+    console.log(e);
 }
 // [0, "a"] 
 // [1, "b"] 
 // [2, "c"]
 使用解构, 会更加清晰
 for (const [index, elem] of arr.entries()) {
-  console.log(index + '. ' + elem);
+    console.log(index + '. ' + elem);
 }
 ```
 
@@ -130,7 +130,7 @@ every() 方法测试数组的所有元素是否 `都` 通过了指定函数的�
 
 ``` js
 function isBigEnough(element, index, array) {
-  return (element >= 10);
+    return (element >= 10);
 }
 var passed = [12, 5, 8, 130, 44].every(isBigEnough);
 // passed is false
@@ -142,18 +142,18 @@ passed = [12, 54, 18, 130, 44].every(isBigEnough);
 
 ``` js
 if (!Array.prototype.every) {
-  Array.prototype.every = function(fun /*, thisArg */ ) {
-    'use strict';
-    if (this === void 0 || this === null) throw new TypeError();
-    var t = Object(this);
-    var len = t.length >>> 0;
-    if (typeof fun !== 'function') throw new TypeError();
-    var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
-    for (var i = 0; i < len; i++) {
-      if (i in t && !fun.call(thisArg, t[i], i, t)) return false;
-    }
-    return true;
-  };
+    Array.prototype.every = function(fun /*, thisArg */ ) {
+        'use strict';
+        if (this === void 0 || this === null) throw new TypeError();
+        var t = Object(this);
+        var len = t.length >>> 0;
+        if (typeof fun !== 'function') throw new TypeError();
+        var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
+        for (var i = 0; i < len; i++) {
+            if (i in t && !fun.call(thisArg, t[i], i, t)) return false;
+        }
+        return true;
+    };
 }
 ```
 
@@ -165,7 +165,7 @@ some()方法测试数组中的某些元素是否通过由提供的函数实现�
 
 ``` js
 function isBiggerThan10(element, index, array) {
-  return element > 10;
+    return element > 10;
 }
 [2, 5, 8, 1, 4].some(isBiggerThan10); // false
 [12, 5, 8, 1, 4].some(isBiggerThan10); // true
@@ -186,7 +186,7 @@ arr .fill(value(填充的值), start(开始索引, 可选) , end(结束索引))
 [1, 2, 3].fill(4, NaN, NaN); // [1, 2, 3]
 Array(3).fill(4); // [4, 4, 4]
 [].fill.call({
-  length: 3
+    length: 3
 }, 4); // {0: 4, 1: 4, 2: 4, length: 3}
 ```
 
@@ -196,7 +196,7 @@ Array(3).fill(4); // [4, 4, 4]
 Array.prototype.map(item, index)
 //数组每个平方
 function pow(x) {
-  return x * x;
+    return x * x;
 }
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 arr.map(pow); // [1, 4, 9, 16, 25, 36, 49, 64, 81]
@@ -210,15 +210,15 @@ arr.map(pow); // [1, 4, 9, 16, 25, 36, 49, 64, 81]
 //求和
 var arr = [1, 3, 5, 7, 9];
 arr.reduce(function(x, y) {
-  return x + y;
+    return x + y;
 }); // 25
 //传统数组求和
 Array.prototype.sum = function() {
-  var result = 0;
-  for (var i = 0; i < this.length; i++) {
-    result += this[i];
-  }
-  return result;
+    var result = 0;
+    for (var i = 0; i < this.length; i++) {
+        result += this[i];
+    }
+    return result;
 };
 [1, 4, 7, 2, 10].sum(); // 24
 //不传统求和, 在数组极长的时候效率会指数提高
@@ -231,7 +231,7 @@ eval([1, 4, 7, 2, 10].join('+')) //24
 
 ``` js
 function isBigEnough(value) {
-  return value >= 10;
+    return value >= 10;
 }
 var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 // filtered is [12, 130, 44]
@@ -244,13 +244,13 @@ find()方法返回数组中满足提供的测试功能的第一个元素的值. 
 ``` js
 //一个求素数函数
 function isPrime(element, index, array) {
-  var start = 2;
-  while (start <= Math.sqrt(element)) {
-    if (element % start++ < 1) {
-      return false;
+    var start = 2;
+    while (start <= Math.sqrt(element)) {
+        if (element % start++ < 1) {
+            return false;
+        }
     }
-  }
-  return element > 1;
+    return element > 1;
 }
 console.log([4, 6, 8, 12].find(isPrime)); // undefined, not found
 console.log([4, 5, 8, 12].find(isPrime)); // 5
@@ -266,7 +266,7 @@ findIndex()方法返回数组中满足提供的测试功能的第一个元素的
 
 ``` js
 function logArrayElements(element, index, array) {
-  console.log('a[' + index + '] = ' + element);
+    console.log('a[' + index + '] = ' + element);
 }
 // undefined的项会被略过。 
 [2, 5, , 9].forEach(logArrayElements);
@@ -274,15 +274,15 @@ function logArrayElements(element, index, array) {
 // a[1] = 5
 // a[3] = 9
 function Counter() {
-  this.sum = 0;
-  this.count = 0;
+    this.sum = 0;
+    this.count = 0;
 }
 Counter.prototype.add = function(array) {
-  array.forEach(function(entry) {
-    this.sum += entry;
-    ++this.count;
-  }, this);
-  // ^---- Note
+    array.forEach(function(entry) {
+        this.sum += entry;
+        ++this.count;
+    }, this);
+    // ^---- Note
 };
 var obj = new Counter();
 obj.add([2, 5, 9]);
@@ -373,7 +373,7 @@ silce省略参数, 可以把类数组的形式(具有length)转换到数组
 
 ``` js
 function list() {
-  return Array.prototype.slice.call(arguments);
+    return Array.prototype.slice.call(arguments);
 }
 var list1 = list(...[1, 2, 3, 4]); // [1, 2, 3, 4]
 ```
@@ -386,45 +386,45 @@ sort()方法排序的数组的元素代替, 并返回该数组.
 ``` js
 var numbers = [4, 2, 5, 1, 3];
 numbers.sort(function(a, b) {
-  return a - b;
+    return a - b;
 });
 console.log(numbers);
 // [1, 2, 3, 4, 5]
 var items = [{
-  name: 'Edward',
-  value: 21
+    name: 'Edward',
+    value: 21
 }, {
-  name: 'Sharpe',
-  value: 37
+    name: 'Sharpe',
+    value: 37
 }, {
-  name: 'And',
-  value: 45
+    name: 'And',
+    value: 45
 }, {
-  name: 'The',
-  value: -12
+    name: 'The',
+    value: -12
 }, {
-  name: 'Magnetic',
-  value: 13
+    name: 'Magnetic',
+    value: 13
 }, {
-  name: 'Zeros',
-  value: 37
+    name: 'Zeros',
+    value: 37
 }];
 // sort by value
 items.sort(function(a, b) {
-  return a.value - b.value;
+    return a.value - b.value;
 });
 // sort by name
 items.sort(function(a, b) {
-  var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-  var nameB = b.name.toUpperCase(); // ignore upper and lowercase
-  if (nameA < nameB) {
-    return -1;
-  }
-  if (nameA > nameB) {
-    return 1;
-  }
-  // names must be equal
-  return 0;
+    var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+    var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+        return 1;
+    }
+    // names must be equal
+    return 0;
 });
 ```
 

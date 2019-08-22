@@ -8,19 +8,19 @@
 
 ``` js
 String.prototype.repeatify = String.prototype.repeatify || function(times) {
-  var str = '';
-  //判断是否正整数
-  if (times > 0) {
-    if (typeof times === 'number' && times % 1 === 0) {
-      for (var i = 0; i < times; i++) {
-        str += this;
-      }
-      return str;
+    var str = '';
+    //判断是否正整数
+    if (times > 0) {
+        if (typeof times === 'number' && times % 1 === 0) {
+            for (var i = 0; i < times; i++) {
+                str += this;
+            }
+            return str;
+        }
+    } else {
+        console.log('参数错误')
+        return '';
     }
-  } else {
-    console.log('参数错误')
-    return '';
-  }
 };
 console.log('asd'.repeatify(3.1))
 ```
@@ -29,12 +29,12 @@ console.log('asd'.repeatify(3.1))
 
 ``` js
 String.prototype.repeatify = String.prototype.repeatify || function(times) {
-  var str = '';
-  while (time > 0) {
-    str += this;
-    time--;
-  }
-  return str;
+    var str = '';
+    while (time > 0) {
+        str += this;
+        time--;
+    }
+    return str;
 };
 console.log('asd'.repeatify(3)) //'asdasdasd'
 ```
@@ -44,8 +44,8 @@ console.log('asd'.repeatify(3)) //'asdasdasd'
 ``` js
 var str = [];
 while (times > 0) {
-  str.push(this);
-  times--;
+    str.push(this);
+    times--;
 }
 return str.join('');
 ```
@@ -54,17 +54,17 @@ return str.join('');
 
 ``` js
 String.prototype.repeatify = String.prototype.repeatify || function(times) {
-  var str = '';
-  if (times === 0) {
-    console.log
-    return ''
-  } else {
-    if (times === 1) {
-      return this;
+    var str = '';
+    if (times === 0) {
+        console.log
+        return ''
     } else {
-      return this + this.repeatify(times - 1)
+        if (times === 1) {
+            return this;
+        } else {
+            return this + this.repeatify(times - 1)
+        }
     }
-  }
 };
 console.log('asd'.repeatify(3)) //'asdasdasd'
 ```
@@ -73,7 +73,7 @@ es6中String有repeat方法, 接受一个[0, 无穷)的整数
 
 ``` js
 String.prototype.repeatify = String.prototype.repeatify || function(times) {
-  return times > 0 ? this.repeat(times) : ''
+    return times > 0 ? this.repeat(times) : ''
 };
 console.log('asd'.repeatify(3)) //'asdasdasd'
 ```

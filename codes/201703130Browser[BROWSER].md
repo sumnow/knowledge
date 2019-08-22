@@ -128,10 +128,10 @@ JS引擎一直等待着任务队列中任务的到来, 然后加以处理, 一�
 ``` js
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < items.length; i++) {
-  var item = document.createElement("li");
-  item.appendChild(document.createTextNode("Option " + i); fragment.appendChild(item);
-  }
-  list.appendChild(fragment);
+    var item = document.createElement("li");
+    item.appendChild(document.createTextNode("Option " + i); fragment.appendChild(item);
+    }
+    list.appendChild(fragment);
 ```
 
 同时, 如果具有动画的元素会引起reflow时, 最好将元素绝对定位, 不然每一帧都会引起layout, 十分影响性能. 
@@ -143,13 +143,13 @@ for (var i = 0; i < items.length; i++) {
 var h1 = element1.clientHeight;
 // Write
 requestAnimationFrame(function() {
-  element1.style.height = (h1 * 2) + 'px';
+    element1.style.height = (h1 * 2) + 'px';
 });
 // Read
 var h2 = element2.clientHeight;
 // Write
 requestAnimationFrame(function() {
-  element2.style.height = (h2 * 2) + 'px';
+    element2.style.height = (h2 * 2) + 'px';
 });
 ```
 

@@ -71,9 +71,9 @@ var str1 = String.fromCodePoint(0x20BB7);
 var str2 = String.fromCodePoint(98);
 var str3 = String.fromCodePoint(97, 98, 99);
 if (console && console.log) {
-  console.log(str1); //吉
-  console.log(str2); //b
-  console.log(str3); //abc
+    console.log(str1); //吉
+    console.log(str2); //b
+    console.log(str3); //abc
 }
 ```
 
@@ -88,7 +88,7 @@ log(String.raw `hello \t${name}` ); //hello \tbob
 // The following usage for String.raw is supported but
 // is not typical.
 log(String.raw({
-  raw: 'fred'
+    raw: 'fred'
 }, 'F', 'R', 'E')); //fFrReEd
 ```
 

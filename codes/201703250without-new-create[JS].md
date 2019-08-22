@@ -4,7 +4,7 @@
 
 ``` js
 var JQuery = function(selector, context) {
-  return new JQuery(selector, context)
+    return new JQuery(selector, context)
 }
 ```
 
@@ -12,17 +12,17 @@ var JQuery = function(selector, context) {
 
 ``` js
 var jQuery = function(selector, context) {
-  return new jQuery.prototype.init(selector, context);
+    return new jQuery.prototype.init(selector, context);
 }
 jQuery.prototype = {
-  constructor: jQuery,
-  init: function(selector, context) {
-    // return 不是必须的, 因为作为一个构造函数, 默认会返回 this, 即 new 后生成的实例对象.
-    return this;
-  },
-  hello: function() {
-    console.log('hello')
-  }
+    constructor: jQuery,
+    init: function(selector, context) {
+        // return 不是必须的, 因为作为一个构造函数, 默认会返回 this, 即 new 后生成的实例对象.
+        return this;
+    },
+    hello: function() {
+        console.log('hello')
+    }
 }
 ```
 

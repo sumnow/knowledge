@@ -8,27 +8,27 @@
 
 ``` html
 <style type="text/css">
-  .dd {
-    width: 200px;
-    height: 200px;
-    background: #ccc;
-  }
+    .dd {
+        width: 200px;
+        height: 200px;
+        background: #ccc;
+    }
 </style>
 
 <body>
-  <div class="table-wrap">
-    <div class="dd"></div>
-  </div>
+    <div class="table-wrap">
+        <div class="dd"></div>
+    </div>
 
-  <script type="text/javascript">
-    $('.dd').animate({
-      'height': '400px'
-    }, 2000);
-    console.log('dd初始高度为' + $('.dd').height());
-    setTimeout(function() {
-      console.log($('.dd').height())
-    }, 1000)
-  </script>
+    <script type="text/javascript">
+        $('.dd').animate({
+            'height': '400px'
+        }, 2000);
+        console.log('dd初始高度为' + $('.dd').height());
+        setTimeout(function() {
+            console.log($('.dd').height())
+        }, 1000)
+    </script>
 </body>
 ```
 
@@ -44,26 +44,26 @@
 
 ``` js
 window.onload = function() {
-  console.log(new Date().getTime());
-  setTimeout(function() {
-    console.log('输出');
     console.log(new Date().getTime());
-  }, 100);
-  console.log('sleep');
-  sleep(2000);
-  console.log(new Date().getTime());
-  console.log('end');
+    setTimeout(function() {
+        console.log('输出');
+        console.log(new Date().getTime());
+    }, 100);
+    console.log('sleep');
+    sleep(2000);
+    console.log(new Date().getTime());
+    console.log('end');
 }
 //休眠时间函数
 function sleep(i) {
-  var now = new Date();
-  var _sleepEnd = now.getTime() + i;
-  while (1) {
-    now = new Date();
-    if (now.getTime() > _sleepEnd) {
-      return;
+    var now = new Date();
+    var _sleepEnd = now.getTime() + i;
+    while (1) {
+        now = new Date();
+        if (now.getTime() > _sleepEnd) {
+            return;
+        }
     }
-  }
 }
 ```
 
@@ -88,36 +88,36 @@ animate的变化方法大致为在规定时间内让变动的要素变化.
 
 ``` js
 (function($) {
-  $.fn.extend({
-    myAnimate: function(obj, t) {
-      var tempstyle;
-      for (let i in obj) {
-        tempstyle = i
-      }
-      //初始大小
-      var startStyle = parseInt(this.css(tempstyle));
-      //步长
-      var stepLong = (parseInt(obj[tempstyle]) - startStyle) / t * (1000 / 24);
-      var n = 0;
-      var timer = setInterval(function() {
-        $('.dd').css(tempstyle, startStyle + n * stepLong);
-        if (startStyle + n * stepLong >= parseInt(obj[tempstyle])) {
-          console.log(startStyle + n * stepLong); //400
-          clearInterval(timer);
-          return false;
-        } else {
-          n++;
+    $.fn.extend({
+        myAnimate: function(obj, t) {
+            var tempstyle;
+            for (let i in obj) {
+                tempstyle = i
+            }
+            //初始大小
+            var startStyle = parseInt(this.css(tempstyle));
+            //步长
+            var stepLong = (parseInt(obj[tempstyle]) - startStyle) / t * (1000 / 24);
+            var n = 0;
+            var timer = setInterval(function() {
+                $('.dd').css(tempstyle, startStyle + n * stepLong);
+                if (startStyle + n * stepLong >= parseInt(obj[tempstyle])) {
+                    console.log(startStyle + n * stepLong); //400
+                    clearInterval(timer);
+                    return false;
+                } else {
+                    n++;
+                }
+            }, 1000 / 24);
         }
-      }, 1000 / 24);
-    }
-  })
+    })
 })(jQuery);
 //这个目前只能传入一组属性的对象
 $('.dd').myAnimate({
-  'height': 400
+    'height': 400
 }, 2000);
 setTimeout(function() {
-  console.log('1s后高度为' + ($('.dd').height()))
+    console.log('1s后高度为' + ($('.dd').height()))
 }, 1000)
 ```
 
@@ -131,24 +131,24 @@ setTimeout(function() {
 
 ``` html
 <style type="text/css">
-  .dd {
-    width: 200 px;
-    height: 200 px;
-    background: #ccc;
-    animation: higher 2 s;
-    animation - timing - function: linear;
-  }
-
-  @keyframes higher {
-    100 % {
-      height: 400 px;
+    .dd {
+        width: 200 px;
+        height: 200 px;
+        background: #ccc;
+        animation: higher 2 s;
+        animation - timing - function: linear;
     }
-  }
+
+    @keyframes higher {
+        100 % {
+            height: 400 px;
+        }
+    }
 </style>
 <script>
-  setTimeout(function() {
-    console.log('1s后高度为' + ($('.dd').height()))
-  }, 1000)
+    setTimeout(function() {
+        console.log('1s后高度为' + ($('.dd').height()))
+    }, 1000)
 </script>
 ```
 
@@ -162,14 +162,14 @@ setTimeout(function() {
 
 ``` js
 (function() {
-  var x = function() {
-    console.log(2);
-  }
-  setTimeout('x()', 100); //1
-  setTimeout(x, 100); //2
+    var x = function() {
+        console.log(2);
+    }
+    setTimeout('x()', 100); //1
+    setTimeout(x, 100); //2
 })()
 var x = function() {
-  console.log(1)
+    console.log(1)
 }
 ```
 
@@ -185,9 +185,9 @@ var x = function() {
 
 ``` js
 for (var i = 0; i < 10; i++) {
-  setTimeout(function() {
-    console.log(i);
-  }, 100 * i);
+    setTimeout(function() {
+        console.log(i);
+    }, 100 * i);
 }
 ```
 
@@ -199,13 +199,13 @@ for (var i = 0; i < 10; i++) {
 
 ``` js
 for (var i = 0; i < 10; i++) {
-  // capture the current state of 'i'
-  // by invoking a function with its current value
-  (function(i) {
-    setTimeout(function() {
-      console.log(i);
-    }, 100 * i);
-  })(i);
+    // capture the current state of 'i'
+    // by invoking a function with its current value
+    (function(i) {
+        setTimeout(function() {
+            console.log(i);
+        }, 100 * i);
+    })(i);
 }
 ```
 
@@ -219,12 +219,12 @@ settimeout中this一般指向window, 所以里面获取this都会错误.
 
 ``` js
 function obj() {
-  this.a = 1;
-  this.fn = function() {
-    console.log(this); //window
-    setTimeout(this.fn, 1000);
-    //直接使用this引用当前对象 
-  }
+    this.a = 1;
+    this.fn = function() {
+        console.log(this); //window
+        setTimeout(this.fn, 1000);
+        //直接使用this引用当前对象 
+    }
 }
 var o = new obj();
 o.fn();
@@ -236,12 +236,12 @@ o.fn();
 
 ``` js
 function obj() {
-  this.a = 1;
-  this.fn = function() {
-    console.log(this.a); //1
-    setTimeout(this.fn.bind(this), 1000);
-    //直接使用this引用当前对象 
-  }
+    this.a = 1;
+    this.fn = function() {
+        console.log(this.a); //1
+        setTimeout(this.fn.bind(this), 1000);
+        //直接使用this引用当前对象 
+    }
 }
 var o = new obj();
 o.fn();
@@ -255,14 +255,14 @@ o.fn();
 
 ``` js
 function obj() {
-  this.fn = function() {
-    alert("ok");
-    setTimeout((function(a, b) {
-      return function() {
-        b.call(a);
-      }
-    })(this, this.fn), 1000); //模拟Function.prototype.bind 
-  }
+    this.fn = function() {
+        alert("ok");
+        setTimeout((function(a, b) {
+            return function() {
+                b.call(a);
+            }
+        })(this, this.fn), 1000); //模拟Function.prototype.bind 
+    }
 }
 var o = new obj();
 o.fn();
@@ -272,13 +272,13 @@ o.fn();
 
 ``` js
 function obj() {
-  this.fn = function() {
-    var that = this; //保存当前对象this 
-    alert("ok");
-    setTimeout(function() {
-      that.fn();
-    }, 1000); //通过闭包得到当前作用域, 好访问保存好的对象that 
-  }
+    this.fn = function() {
+        var that = this; //保存当前对象this 
+        alert("ok");
+        setTimeout(function() {
+            that.fn();
+        }, 1000); //通过闭包得到当前作用域, 好访问保存好的对象that 
+    }
 }
 var o = new obj();
 o.fn();
@@ -292,15 +292,15 @@ setInterval和setTimeout略有不同, settimeout总是会执行的(尽管有可�
 
 ``` js
 setTimeout(function() {
-  //processing 
-  setTimeout(arguments.callee, interval);
+    //processing 
+    setTimeout(arguments.callee, interval);
 }, interval);
 ```
 
 ``` js
 function work() {
-  console.log('hello');
-  setTimeout(work, 1000);
+    console.log('hello');
+    setTimeout(work, 1000);
 }
 work();
 ```

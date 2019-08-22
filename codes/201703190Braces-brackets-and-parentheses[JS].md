@@ -6,10 +6,10 @@
 
 ``` js
 var o = {
-  wid: 100,
-  say: function() {
-    console.log('hello')
-  }
+    wid: 100,
+    say: function() {
+        console.log('hello')
+    }
 }
 console.log(o['wid'] === o.wid); //true
 o['say'](); //hello
@@ -20,7 +20,7 @@ o['say'](); //hello
 
 ``` js
 o['no'] = function() {
-  console.log('what?')
+    console.log('what?')
 }
 o['no'](); //what?
 ```
@@ -30,7 +30,7 @@ o['no'](); //what?
 ``` js
 //调用某对象的某方法
 var x = (ele, func) => {
-  console.log(ele[func]());
+    console.log(ele[func]());
 }
 x(o, 'say') //hello
 ```
@@ -70,17 +70,17 @@ do {} while (bool)
 (function() {})()
 //json用eval解析
 function strToJson(str) {
-  // eval 中字符串两旁加了强制运算符() 
-  var json = eval('(' + str + ')');
-  return json;
+    // eval 中字符串两旁加了强制运算符() 
+    var json = eval('(' + str + ')');
+    return json;
 }
 //typeof 
 typeof(null) //'object'
 typeof(function() {
-  return undefined
+    return undefined
 }()) //'undefined'
 typeof(function() {
-  return undefined
+    return undefined
 }) //'function'
 ```
 
@@ -101,11 +101,11 @@ for () {}
 
 ``` js
 try {
-  //... 
+    //... 
 } catch (ex) {
-  //... 
+    //... 
 } finally {
-  //... 
+    //... 
 }
 ```
 
@@ -114,7 +114,7 @@ try {
 ``` js
 function() {}() //error
 {}.constructor //error
-  [].constructor //function Array(){}
+    [].constructor //function Array(){}
 ```
 
 为什么可以获取数组的构造, 无法获取对象的构造函数呢? 
@@ -138,7 +138,7 @@ function() {}() //{}()被认为是复合语句， 而function()缺少定义报�
 
 ``` js
 ({}).constructor! function() {
-  console.log('iifksp')
+    console.log('iifksp')
 }()
 ```
 
