@@ -4,16 +4,16 @@
 
 ``` js
 function Parent() {
-  // 私有属性
-  var _val = 1; // 私有基本属性
-  var _arr = [1]; // 私有引用属性
-  function _fun() {} // 私有函数(引用属性)
-  // 实例属性
-  this.val = 1; // 实例基本属性
-  this.arr = [1]; // 实例引用属性
-  this.fun = function() {
-    log(_val)
-  }; // 实例函数(引用属性)
+    // 私有属性
+    var _val = 1; // 私有基本属性
+    var _arr = [1]; // 私有引用属性
+    function _fun() {} // 私有函数(引用属性)
+    // 实例属性
+    this.val = 1; // 实例基本属性
+    this.arr = [1]; // 实例引用属性
+    this.fun = function() {
+        log(_val)
+    }; // 实例函数(引用属性)
 }
 ```
 
@@ -66,15 +66,15 @@ log(child2.arr);
 
 ``` js
 function New(f) { //f为函数
-  return function() {
-    var o = {
-      'prototype': f.prototype
-      //建立原型链的关系
-    };
-    f.apply(o, arguments);
-    //实现f这个函数的所有属性, 把参数传进f, 相当于实现了函数的所有方法和属性。 
-    return o;
-  }
+    return function() {
+        var o = {
+            'prototype': f.prototype
+            //建立原型链的关系
+        };
+        f.apply(o, arguments);
+        //实现f这个函数的所有属性, 把参数传进f, 相当于实现了函数的所有方法和属性。 
+        return o;
+    }
 }
 ```
 

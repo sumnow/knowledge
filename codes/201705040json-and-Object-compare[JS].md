@@ -5,8 +5,8 @@ js操作json主要两种方法: stringify()和parse(), 都是由内建对象JSON
 ``` js
 var str1 = '{ "name": "cxh", "sex": "man" }';
 var str2 = {
-  name: "cxh",
-  sex: "man"
+    name: "cxh",
+    sex: "man"
 };
 //转换为对象
 var obj = JSON.parse(str1); //{ name: "cxh", sex: "man" }
@@ -14,7 +14,7 @@ var obj = JSON.parse(str1); //{ name: "cxh", sex: "man" }
 var last = JSON.stringify(str2); //"{"name":"cxh", "sex":"man"}"
 ```
 
- `在这里str2 === obj//false` , 引用对象除非指向同一个对象不然是不会相等的. 
+`在这里str2 === obj//false` , 引用对象除非指向同一个对象不然是不会相等的. 
 
 此外
 
@@ -42,44 +42,44 @@ isNaN("ab3") //true
 ``` js
 //比较不包含Array, RegExp, Function的Obejct。 
 function objectEqual(a, b) {
-  if (typeof a === 'object' && typeof b === 'object') {
-    if (!(a instanceof Array) && !(b instanceof Array) && !(a instanceof RegExp) && !(b instanceof RegExp) && !(a instanceof Function) && !(b instanceof Function)) {
-      var aProps = Object.getOwnPropertyNames(a);
-      var bProps = Object.getOwnPropertyNames(b);
-      if (aProps.length != bProps.length) {
-        return false;
-      }
-      for (let i = 0; i < aProps.length; i++) {
-        let propName = aProps[i];
-        if (a[propName] !== b[propName]) {
-          if (typeof a[propName] === 'object' && typeof b[propName] === 'object') {
-            if (!objectEqual(a[propName], b[propName])) {
-              return false
-            };
-          } else {
+    if (typeof a === 'object' && typeof b === 'object') {
+        if (!(a instanceof Array) && !(b instanceof Array) && !(a instanceof RegExp) && !(b instanceof RegExp) && !(a instanceof Function) && !(b instanceof Function)) {
+            var aProps = Object.getOwnPropertyNames(a);
+            var bProps = Object.getOwnPropertyNames(b);
+            if (aProps.length != bProps.length) {
+                return false;
+            }
+            for (let i = 0; i < aProps.length; i++) {
+                let propName = aProps[i];
+                if (a[propName] !== b[propName]) {
+                    if (typeof a[propName] === 'object' && typeof b[propName] === 'object') {
+                        if (!objectEqual(a[propName], b[propName])) {
+                            return false
+                        };
+                    } else {
+                        return false
+                    }
+                }
+            }
+        } else {
             return false
-          }
         }
-      }
+        return true
     } else {
-      return false
+        return false
     }
-    return true
-  } else {
-    return false
-  }
 }
 var obj1 = {
-  st: 1,
-  nd: {
-    rd: 3
-  }
+    st: 1,
+    nd: {
+        rd: 3
+    }
 };
 var obj2 = {
-  st: 1,
-  nd: {
-    rd: 3
-  }
+    st: 1,
+    nd: {
+        rd: 3
+    }
 };
 objectEqual(obj1, obj2); //true
 ```
