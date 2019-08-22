@@ -1,11 +1,10 @@
-
 # 记录兼容性的小问题
 
 ### font-size:0; 
 
-```html
+``` html
     <div class="ms">
-        <img src="11.png" / >
+        <img src="11.png" />
         <img src="22222.jpg" />
     </div>
 ```
@@ -14,19 +13,17 @@ inline-block的元素中间会有一个空格字符, 解决方案:
 
 连写: 
 
-```html
-
-        <img src="11.png" / ><img src="22222.jpg" />
+``` html
+<img src="11.png" /><img src="22222.jpg" />
 ```
 
 或者: 
 
-```html
-
-    <div class="ms" style="font-size:0">
-        <img src="11.png" / >
-        <img src="22222.jpg" />
-    </div>
+``` html
+<div class="ms" style="font-size:0">
+    <img src="11.png" />
+    <img src="22222.jpg" />
+</div>
 ```
 
 ### baseline
@@ -39,7 +36,7 @@ inline-block的元素中间会有一个空格字符, 解决方案:
 
 很久以前, 标题有这么一种写法: 
 
-```css
+``` css
     text-indent:-999px
 ```
 
@@ -47,16 +44,15 @@ inline-block的元素中间会有一个空格字符, 解决方案:
 
 ### 移动端, 弹出数字键盘
 
-```html
-
-    <input type="number" class="ipt-phone" v-model="phone" placeholder="手机号码" pattern="[0-9]*" >
+``` html
+<input type="number" class="ipt-phone" v-model="phone" placeholder="手机号码" pattern="[0-9]*">
 ```
 
 ### 没什么乱用的文字高度撑满
 
 基本文字大小是高度的6/5倍就可以撑满.
 
-```css
+``` css
 .module {
     height: 30px;
     font-size: 36px;
@@ -73,11 +69,16 @@ inline-block的元素中间会有一个空格字符, 解决方案:
 
 ios上的网页滚动不顺滑, 加上这句就好, 其实不用管啥环境, 加上就完事了.
 
-```css
-html, body { scroll-behavior:smooth; }
+``` css
+html,
+body {
+    scroll-behavior: smooth;
+}
 ```
+
 ``` js
     document.links[0].scrollIntoView({
         behavior: "smooth"
     });
 ```
+

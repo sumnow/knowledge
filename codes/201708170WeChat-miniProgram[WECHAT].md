@@ -121,10 +121,10 @@ function handleTexts(_arr = [{
 #### 点击触发事件
 
 ``` html
-<button bindtap="openSetting">打开设置页</button>  openSetting() {  wx.openSetting()}
+<button bindtap="openSetting">打开设置页</button> openSetting() { wx.openSetting()}
 ```
 
-> 这个 `openSetting` 可以放在 `getSetting` 的回调里,但是不可以放在`saveImageToPhotosAlbum`的回调里,不晓得微信怎么想的.
+> 这个 `openSetting` 可以放在 `getSetting` 的回调里, 但是不可以放在 `saveImageToPhotosAlbum` 的回调里, 不晓得微信怎么想的.
 
 基础调试库版本 2.8.0
 
@@ -133,57 +133,57 @@ saveToAlbum() {
     const self = this;
 
     wx.getSetting({
-      success(res) {
-        console.log(res)
-        if (res.authSetting && res.authSetting && res.authSetting['scope.writePhotosAlbum']) {
-          wx.canvasToTempFilePath({
-            x: 0,
-            y: 0,
-            width: self.data.windowWidth,
-            height: self.data.windowHeight,
-            fileType: 'jpg',
-            canvasId: 'poster-canvas',
-            success: function (res) {
-              wx.saveImageToPhotosAlbum({
-                filePath: res.tempFilePath,
-                success: function (data) {
-                  wx.showToast({
-                    title: '保存成功',
+        success(res) {
+            console.log(res)
+            if (res.authSetting && res.authSetting && res.authSetting['scope.writePhotosAlbum']) {
+                wx.canvasToTempFilePath({
+                    x: 0,
+                    y: 0,
+                    width: self.data.windowWidth,
+                    height: self.data.windowHeight,
+                    fileType: 'jpg',
+                    canvasId: 'poster-canvas',
+                    success: function(res) {
+                        wx.saveImageToPhotosAlbum({
+                            filePath: res.tempFilePath,
+                            success: function(data) {
+                                wx.showToast({
+                                    title: '保存成功',
+                                    icon: 'none'
+                                });
+                            },
+                            fail(err) {
+                                wx.showToast({
+                                    title: '保存失败',
+                                    icon: 'none'
+                                });
+                            }
+                        });
+                    }
+                });
+            } else {
+                wx.showToast({
+                    title: '需要保存到相册的权限',
                     icon: 'none'
-                  });
-                },
-                fail(err) {
-                  wx.showToast({
-                    title: '保存失败',
-                    icon: 'none'
-                  });
-                }
-              });
-            }
-          });
-        } else {
-          wx.showToast({
-            title: '需要保存到相册的权限',
-            icon: 'none'
-          });
-          wx.openSetting({
-            success(settingdata) {
-              if (settingdata.authSetting['scope.writePhotosAlbum']) {
-                console.log('获取权限成功，再次点击图片保存到相册');
-              } else {
-                console.log('获取权限失败');
-              }
-            },
-            fail(err) {
-              console.log(err)
-            }
-          });
+                });
+                wx.openSetting({
+                    success(settingdata) {
+                        if (settingdata.authSetting['scope.writePhotosAlbum']) {
+                            console.log('获取权限成功，再次点击图片保存到相册');
+                        } else {
+                            console.log('获取权限失败');
+                        }
+                    },
+                    fail(err) {
+                        console.log(err)
+                    }
+                });
 
+            }
         }
-      }
     })
 
-  }
+}
 ```
 
 ### 版本库错误
