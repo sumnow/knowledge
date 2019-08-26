@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:16:03 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:16:03 GMT+0800 (China Standard Time)
+-->
 # js事件流
 
 ## 事件冒泡

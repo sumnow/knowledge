@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:16:12 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:16:12 GMT+0800 (China Standard Time)
+-->
 # json方法和对象比较
 
 js操作json主要两种方法: stringify()和parse(), 都是由内建对象JSON提供的

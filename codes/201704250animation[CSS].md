@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:16:05 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:16:05 GMT+0800 (China Standard Time)
+-->
 # animation事件接口
 
 来自[链接](https://www.web-tinker.com/article/20338.html)

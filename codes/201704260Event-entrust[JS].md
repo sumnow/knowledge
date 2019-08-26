@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:16:06 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:16:06 GMT+0800 (China Standard Time)
+-->
 # 事件委托
 
 也可以叫事件代理, 将事件绑定在高层的元素上, 由高层元素来查找子元素并执行事件. 

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:16:10 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:16:10 GMT+0800 (China Standard Time)
+-->
 # 字符串模版
 
 ``` js

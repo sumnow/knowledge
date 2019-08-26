@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:16:01 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:16:01 GMT+0800 (China Standard Time)
+-->
 # 函数功能扩展
 
 es6允许函数参数有默认值, 而且如果参数的默认值是变量的话, 会惰性求值. 

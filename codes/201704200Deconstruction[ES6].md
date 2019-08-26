@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:16:00 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:16:00 GMT+0800 (China Standard Time)
+-->
 # es6 解构赋值
 
 本es6教程全都是根据阮老师的es6入门写的, 非常感谢阮老师的无私开源. 附上[链接](http://es6.ruanyifeng.com/#docs/)
