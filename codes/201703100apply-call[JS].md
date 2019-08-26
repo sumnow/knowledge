@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:14:16 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:14:16 GMT+0800 (China Standard Time)
+-->
 # apply call 与 bind 夹着caller和callee
 
 ## apply和call

@@ -1,14 +1,25 @@
+<!--
+Created: Sat Aug 24 2019 10:08:43 GMT+0800 (China Standard Time)
+Modified: Sat Aug 24 2019 10:10:30 GMT+0800 (China Standard Time)
+-->
 # Number
 
 ## Number中的属性
 
 EPSILON:2.220446049250313e-16
+
 MAX_SAFE_INTEGER:9007199254740991//最大整数
+
 MAX_VALUE:1.7976931348623157e+308
+
 MIN_SAFE_INTEGER:-9007199254740991//最小整数
+
 MIN_VALUE:5e-324
+
 NEGATIVE_INFINITY:-Infinity//负无穷
+
 NaN: NaN
+
 POSITIVE_INFINITY: Infinity//正无穷
 
 ## Number的方法: 

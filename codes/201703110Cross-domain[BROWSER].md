@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:14:17 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:14:17 GMT+0800 (China Standard Time)
+-->
 # js中的跨域
 
 参考[http://www.cnblogs.com/2050/p/3191744.html]

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:14:34 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:14:34 GMT+0800 (China Standard Time)
+-->
 # jquery 的无 new 构造
 
 一般的 `class` 在声明之后, 需要 `new className` 来创建对象, 然后调用方法, 然而在 `Jquery` 中使用 `$(selector)` 就可以直接调用方法, 因此应该是直接返回了一个 `Jquery` 实例.

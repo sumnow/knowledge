@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:14:18 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:14:18 GMT+0800 (China Standard Time)
+-->
 # 关于浏览器加载渲染的原理都记录在这里
 
 ### 先说一些比较扯的问题

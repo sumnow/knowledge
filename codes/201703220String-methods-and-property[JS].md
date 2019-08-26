@@ -1,6 +1,8 @@
+<!--
+Created: Mon Aug 26 2019 15:14:41 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:14:47 GMT+0800 (China Standard Time)
+-->
 # typeof以及 String方法属性
-
- 
 
 ## 首先是各个数据类型的typeof
 

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:14:33 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:14:33 GMT+0800 (China Standard Time)
+-->
 # nth-child以及nth-of-type
 
 nth-child可以满足一些独特的元素选择上, 但是有一个nth-of-type的双胞弟弟, 流浪在外, 蛮少见到, 写个代码验一下血统. 

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:14:26 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:14:26 GMT+0800 (China Standard Time)
+-->
 # 前端页面优化提速
 
 ## 减少对服务器的文件请求

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:14:38 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:14:38 GMT+0800 (China Standard Time)
+-->
 # 重复输出字符串
 
 在 String 对象上定义一个 repeatify 函数. 这个函数接受一个整数参数, 来明确字符串需要重复几次. 这个函数要求字符串重复指定的次数. 

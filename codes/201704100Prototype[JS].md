@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:14:36 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:14:36 GMT+0800 (China Standard Time)
+-->
 # 原型
 
 js中的原型是为了完成面向对象的功能, 因此原型结合面向对象会更加容易理解. 

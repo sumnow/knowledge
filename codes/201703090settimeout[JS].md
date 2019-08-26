@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:14:14 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:14:14 GMT+0800 (China Standard Time)
+-->
 # 关于settimeout有些话说
 
 首先, js是单线程的, 通过设置settimeoout这种方式, 让代码运行在其他操作完成之后. 
