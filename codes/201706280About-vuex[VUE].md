@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:17:32 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:17:32 GMT+0800 (China Standard Time)
+-->
 # 关于vuex
 
 vuex是用来解决复杂的组件交互, 毕竟简单的父子组件交互有适合的属性, 但是兄弟组件交互的时候就往往以来事件总线(bus event), 通过新建一个vue实例来专门处理事件分发, 各种$emit和$on, 但是有个问题就是当事件交互非常多的时候, 事件总线会异常庞大, 维护和开发成本增加. 

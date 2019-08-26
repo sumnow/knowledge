@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:17:34 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:17:34 GMT+0800 (China Standard Time)
+-->
 # CORS权限控制
 
 CORS(Corss-origin resource sharing)是一种新的数据交互标准. 

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:17:40 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:17:40 GMT+0800 (China Standard Time)
+-->
 # mini-moc
 
 发送参数即可获得返回的随机结果. 

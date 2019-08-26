@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:17:37 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:17:37 GMT+0800 (China Standard Time)
+-->
 # Math与parseInt
 
 ## Math对象

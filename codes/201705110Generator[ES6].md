@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:17:20 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:17:20 GMT+0800 (China Standard Time)
+-->
 # es6 Generator 
 
 ``` js

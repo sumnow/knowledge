@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:18:11 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:18:11 GMT+0800 (China Standard Time)
+-->
 # Subscription and Publishing
 
 观察者模式

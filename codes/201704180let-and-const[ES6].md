@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:15:57 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:15:57 GMT+0800 (China Standard Time)
+-->
 # ECMAScript 2015
 
 ## let和const

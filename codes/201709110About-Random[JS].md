@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:17:39 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:17:39 GMT+0800 (China Standard Time)
+-->
 # 关于随机
 
 生成随机数, 应用广泛, 有一种比较常见的

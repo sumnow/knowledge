@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:17:47 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:17:47 GMT+0800 (China Standard Time)
+-->
 # import and export
 
 `import` 和 `export` 是javascript用于模块导入的, 在远古的时候使用的方法是用一个对象作为命名空间来.

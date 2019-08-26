@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:18:10 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:18:10 GMT+0800 (China Standard Time)
+-->
 # Object 
 
 Object 对象的属性有 `Object.prototype` , `Object.prototype.__proto__` , `Object.prototype.constructor` 

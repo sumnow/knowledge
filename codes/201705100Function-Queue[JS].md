@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:17:10 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:17:10 GMT+0800 (China Standard Time)
+-->
 # 函数队列   
 
 ``` js

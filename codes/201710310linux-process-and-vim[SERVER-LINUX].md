@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:18:06 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:18:06 GMT+0800 (China Standard Time)
+-->
 # linux 下process与vim命令
 
 代码均在ubuntu(16.04)下测试通过. 
@@ -82,11 +86,11 @@ nohup node serve.js &
 ``` bash
     // install global
     npm install forever -g
-
+    
     service forever start 
 
     forever start index.js
-
+    
     forever list
 ```
 
@@ -99,7 +103,7 @@ nohup node serve.js &
 ``` bash
 
     pwd  // 展示当前路径
-
+    
     cd ~  // 打开用户目录 /Users/{username}
 ```
 
@@ -161,4 +165,5 @@ esc后
 
 ## rename
 
- `rename` 在 `OSX` 下不可用
+`rename` 在 `OSX` 下不可用
+
