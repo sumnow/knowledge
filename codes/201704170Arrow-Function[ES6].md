@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:15:34 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:15:34 GMT+0800 (China Standard Time)
+-->
 # 箭头函数
 
 这是es6中一个很好的一个语法糖, 简化了函数, 特别是匿名函数这样的回调使用. 

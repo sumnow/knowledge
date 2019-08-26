@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:15:31 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:15:31 GMT+0800 (China Standard Time)
+-->
 # js的栈与堆
 
 堆heap与栈stack基本是所有的程序语言中都带有的, 它将数据分配到内存空间来完成各种调用. (当然了, 内存里除了heap和stack还有常量池. )

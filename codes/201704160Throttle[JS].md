@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:15:32 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:15:32 GMT+0800 (China Standard Time)
+-->
 # 函数节流与防抖动
 
 一些函数事件会在短时间内触发很多次, 如resize, scroll. 在用户某些操作时, 可能会引起导致一些严重的性能问题. 解决的方法主要有: 函数防抖动(Debouncing) 和/或 函数节流(Throttling)

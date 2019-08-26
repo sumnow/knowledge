@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:15:29 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:15:29 GMT+0800 (China Standard Time)
+-->
 # js的私有属性和实例属性
 
 谈一谈之前看到的一个问题代码所反映的问题. 
