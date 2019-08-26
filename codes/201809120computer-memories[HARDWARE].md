@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:25 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:29 GMT+0800 (China Standard Time)
+-->
 # 内存
 
 系统分为32位和64位, 代表了内存寻址的大小范围

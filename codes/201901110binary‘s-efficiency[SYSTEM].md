@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:21:05 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:21:05 GMT+0800 (China Standard Time)
+-->
 # 二进制的效率
 
 如果说十进制成为人类所能接受的默认进制方式, 是因为手指有十个, 这个结论看起来倒是挺自然的. 

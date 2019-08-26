@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:21:19 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:21:19 GMT+0800 (China Standard Time)
+-->
 # 信息熵
 
 ## 问题
@@ -52,3 +56,4 @@
 N(N+1) = 100 * 2
 
 求得 `Math.ceil(N)` 为14
+

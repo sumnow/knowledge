@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:11 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:11 GMT+0800 (China Standard Time)
+-->
 # https 详解
 
 https 是在http 协议层的基础上加了ssl加密, 加密方法是使用非对称加密传递对称加密的密钥, 之后就使用对称密钥来加密传递的消息. 

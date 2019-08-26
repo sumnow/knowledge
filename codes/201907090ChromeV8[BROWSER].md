@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:50 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:50 GMT+0800 (China Standard Time)
+-->
 # V8 之旅: 垃圾回收器
 
 在之前的几篇文章当中, 我们深入了V8引擎的实现, 讨论了Full Compiler、Crankshaft以及对象的内部表达. 在这篇文章当中, 我们来看看V8的 垃圾回收器.
@@ -20,11 +24,11 @@
 
 ``` js
 function f() {
-  var obj = {
-    x: 12
-  };
-  g(); // 可能包含一个死循环
-  return obj.x;
+    var obj = {
+        x: 12
+    };
+    g(); // 可能包含一个死循环
+    return obj.x;
 }
 ```
 
@@ -75,14 +79,14 @@ V8将所有属于-230…230-1范围内的小整数(V8内部称其为Smis)以32bi
 	  swap(fromSpace, toSpace)
 	  allocationPtr = toSpace.bottom
 	  scanPtr = toSpace.bottom
-
+    
 	  for i = 0..len(roots):
 	    root = roots[i]
 	    if inFromSpace(root):
 	      rootCopy = copyObject(&allocationPtr, root)
 	      setForwardingAddress(root, rootCopy)
 	      roots[i] = rootCopy
-
+    
 	  while scanPtr < allocationPtr:
 	    obj = object at scanPtr
 	    scanPtr += size(obj)
@@ -96,7 +100,7 @@ V8将所有属于-230…230-1范围内的小整数(V8内部称其为Smis)以32bi
 	          toNeighbor = copyObject(&allocationPtr, fromNeighbor)
 	          setForwardingAddress(fromNeighbor, toNeighbor)
 	        obj[i] = toNeighbor
-
+    
 	def copyObject(*allocationPtr, object):
 	  copy = *allocationPtr
 	  *allocationPtr += size(object)
@@ -140,23 +144,23 @@ Scavenge算法对于快速回收、紧缩小片内存效果很好, 但对于大�
 ``` bash
 	markingDeque = []
 	overflow = false
-
+    
 	def markHeap():
 	  for root in roots:
 	  mark(root)
-
+    
 	do :
 	  if overflow:
 	  overflow = false
 	refillMarkingDeque()
-
+    
 	while !markingDeque.isEmpty():
 	  obj = markingDeque.pop()
 	setMarkBits(obj, BLACK)
 	for neighbor in neighbors(obj):
 	  mark(neighbor)
 	while overflow
-
+    
 	def mark(obj):
 	  if markBits(obj) == WHITE:
 	  setMarkBits(obj, GREY)
@@ -164,7 +168,7 @@ Scavenge算法对于快速回收、紧缩小片内存效果很好, 但对于大�
 	  overflow = true
 	else :
 	  markingDeque.push(obj)
-
+    
 	def refillMarkingDeque():
 	  for each obj on heap:
 	  if markBits(obj) == GREY:

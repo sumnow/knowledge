@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:24 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:24 GMT+0800 (China Standard Time)
+-->
 # 优先级和结合性
 
 | 优先级         | 运算类型        | 关联性            | 运算符       |

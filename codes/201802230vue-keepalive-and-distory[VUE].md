@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:19:21 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:19:21 GMT+0800 (China Standard Time)
+-->
 # vue keepalive and distory
 
 vue 实现的单页面应用中, 常常有些访问频率非常高的页面, 需要 `keepalive` 来保证活性, 例如

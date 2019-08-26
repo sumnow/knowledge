@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:45 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:45 GMT+0800 (China Standard Time)
+-->
 # vscode markdown格式化的插件编写
 
 这是一个markdown格式化的vscode插件的详细编写过程, 之前的准备和之后的发布, 都在[这里]()

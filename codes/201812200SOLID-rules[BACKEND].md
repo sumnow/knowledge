@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:49 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:49 GMT+0800 (China Standard Time)
+-->
 # S. O. L. I. D: 面向对象设计的头 5 大原则
 
 S – 单一职责原则

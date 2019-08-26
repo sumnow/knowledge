@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:19:45 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:19:45 GMT+0800 (China Standard Time)
+-->
 # vue 打包
 
 vue-cli脚手架的配置, build后生成的map是为了调试使用. 

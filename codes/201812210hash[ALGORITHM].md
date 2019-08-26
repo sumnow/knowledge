@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:50 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:50 GMT+0800 (China Standard Time)
+-->
 # hash 在密码里的应用
 
 之前说过一些关于hash在数据结构中的应用, 例如, 建立hash表, 解决hash碰撞的结构等等

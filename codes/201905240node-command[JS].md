@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:34 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:34 GMT+0800 (China Standard Time)
+-->
 # node command
 
 `package.json` 中的 `scripts` 脚本可以用来快速执行命令, 例如

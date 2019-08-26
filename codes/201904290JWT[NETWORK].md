@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:04 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:04 GMT+0800 (China Standard Time)
+-->
 # JSON WEB TOKEN
 
 JSON Web令牌(JWT)是一种 JSON 对象, 在 RFC 7519 中定义为在两方之间表示一组信息的安全方式. JWT 由头部(header), 负载(payload)和签名(signature)组成. 

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:15 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:15 GMT+0800 (China Standard Time)
+-->
 # binary code, inverse code, complement code
 
 ### 原码、 反码、 补码的产生、 应用以及优缺点有哪些? 

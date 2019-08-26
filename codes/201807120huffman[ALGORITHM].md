@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:12 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:12 GMT+0800 (China Standard Time)
+-->
 # huffman编码
 
 huffman编码是一种基于二叉树的常用压缩算法, 常用于压缩文本内容等. 

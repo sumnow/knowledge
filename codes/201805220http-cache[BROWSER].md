@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:19:58 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:19:58 GMT+0800 (China Standard Time)
+-->
 # http 缓存
 
 HTTP报文就是浏览器和服务器间通信时发送及响应的数据块. 

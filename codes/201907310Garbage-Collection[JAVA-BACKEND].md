@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:54 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:54 GMT+0800 (China Standard Time)
+-->
 # Garbage Collection
 
 ## 什么是垃圾回收?
@@ -56,10 +60,10 @@ go语言垃圾回收总体采用的是经典的mark and sweep算法.
 
 ``` js
 function func() {
-  let obj1 = {};
-  let obj2 = {};
-  obj1.a = obj2; // obj1 引用 obj2
-  obj2.a = obj1; // obj2 引用 obj1
+    let obj1 = {};
+    let obj2 = {};
+    obj1.a = obj2; // obj1 引用 obj2
+    obj2.a = obj1; // obj2 引用 obj1
 }
 ```
 
@@ -95,9 +99,9 @@ Node程序运行中, 此进程占用的所有内存称为常驻内存(Resident S
 
 ``` js
 {
-  rss: 2999999,
-  heapTotal: 20300001,
-  heapUsed: 12300000
+    rss: 2999999,
+    heapTotal: 20300001,
+    heapUsed: 12300000
 }
 ```
 

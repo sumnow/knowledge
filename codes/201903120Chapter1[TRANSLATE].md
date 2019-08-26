@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:21:55 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:21:55 GMT+0800 (China Standard Time)
+-->
 
 # Chapter 1
 
@@ -477,3 +481,4 @@ Such values are created by typing in their name (true, null) or value (13, "abc"
 This gives you enough information to use JavaScript as a pocket calculator but not much more. The next chapter will start tying these expressions together into basic programs.
 
 这给你使用js作为一个口袋计算器提供足够的信息, 但不多. 下一章节会开始一起输入这些表达式到基础程序中.
+

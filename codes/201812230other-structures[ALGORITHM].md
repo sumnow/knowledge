@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:53 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:53 GMT+0800 (China Standard Time)
+-->
 # Structures
 
 Let's get acquainted with some of the most common data structures.
@@ -85,3 +89,4 @@ Graphs: Graphs are composed of a set of nodes and edges, just like trees, but wi
 ![img](../img/20181223002.png)
 
 图是一种比较复杂的数据结构, 在存储数据上有着比较复杂和高效的算法, 分别有邻接矩阵 、 邻接表、 十字链表、 邻接多重表、 边集数组等存储结构, 
+

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:19:17 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:19:17 GMT+0800 (China Standard Time)
+-->
 # 微信的问题
 
 微信使用的是自己家的浏览器内核, X5浏览器, 在使用微信浏览器访问vue+axios的页面时候, 出现了options请求, 但拦截了后续请求. 

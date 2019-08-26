@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:47 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:47 GMT+0800 (China Standard Time)
+-->
 # typescript 学习笔记
 
 typescript 本身是js的超集, 静态校验还是很好用滴.

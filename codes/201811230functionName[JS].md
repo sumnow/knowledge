@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:40 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:40 GMT+0800 (China Standard Time)
+-->
 # 获取函数名
 
 `arguments.callee` 可以在函数内部指向当前函数.

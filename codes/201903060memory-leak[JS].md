@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:21:52 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:21:52 GMT+0800 (China Standard Time)
+-->
 # 内存泄漏
 
 Low-level languages like C, have manual memory management primitives such as malloc() and free(). In contrast, JavaScript automatically allocates memory when objects are created and frees it when they are not used anymore (garbage collection). This automaticity is a potential source of confusion: it can give developers the false impression that they don't need to worry about memory management.

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:40 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:40 GMT+0800 (China Standard Time)
+-->
 # 【读薄 CSAPP】肆 链接
 
 不同的代码是如何被拼到一起协同工作的呢? 所谓的静态库, 动态库又是什么? 编译和链接的不同在哪里? 这一讲我们结合一丁点编译原理的内容, 来说说链接那点事儿.
@@ -119,6 +123,10 @@ linux> ./prog
 * 共享目标文件 Shared object file (.so file)
     - 在 windows 中被称为 Dynamic Link Libraries(DLLs), 是类特殊的可重定位目标文件, 可以在链接(静态共享库)时加入目标文件或加载时或运行时(动态共享库)被动态的加载到内存并执行
 
+``` js
+
+```
+
 ## 对象文件格式
 
 上面提到的三种对象文件有统一的格式, 即 Executable and Linkable Format(ELF), 因为, 我们把它们统称为 ELF binaries, 具体的文件格式如下
@@ -150,6 +158,10 @@ linux> ./prog
 * Section header table
     - 每个 section 的大小和偏移量
 
+``` js
+
+```
+
 链接器实际上会处理三种不同的符号, 对应于代码中不同写法的部分:
 
 * 全局符号 Global symbols
@@ -159,6 +171,10 @@ linux> ./prog
 * 本地符号 Local symbols
     - 在当前模块中定义, 只能被当前模块引用的符号, 例如静态函数和静态全局变量
     - 注意, Local linker symbol 并不是 local program variables
+
+``` js
+
+```
 
 ## 链接过程
 
@@ -350,7 +366,7 @@ int main()
     4004de: e8 05 00 00 00   callq 4004e8 <sum> # sum()
     4004e3: 48 83 c4 08      add   $0x8, %rsp
     4004e7: c3               retq 
-
+    
 00000000004004e8 <sum>:
     4004e8: b8 00 00 00 00   mov   $0x0, %eax
     ...
@@ -478,6 +494,10 @@ libtest.o(.text+0x4): Undefined reference to `libfun`
     - 统计函数调用的次数
     - 检测内存泄露
     - 生成地址记录
+
+``` js
+
+```
 
 具体的例子可以参考[Tutorial: Function Interposition in Linux](http://jayconrod.com/posts/23/tutorial-function-interposition-in-linux), 这里不再赘述.
 

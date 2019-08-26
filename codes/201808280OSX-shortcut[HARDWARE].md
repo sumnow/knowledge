@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:21 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:21 GMT+0800 (China Standard Time)
+-->
 # OSX shortcut
 
 ### 键盘
@@ -39,3 +43,4 @@ Command-Shift-G 调出窗口, 可输入绝对路径直达文件夹(Go)
 Command-O 打开所选项. 在Mac里打开文件不像Windows里直接按Enter　　
 
 命令行 `open` 文件 
+

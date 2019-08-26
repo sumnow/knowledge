@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:55 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:55 GMT+0800 (China Standard Time)
+-->
 # 使用osx的一些小方法
 
 ## 挂载NTFS格式的硬盘

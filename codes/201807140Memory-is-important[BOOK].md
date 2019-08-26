@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:15 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:15 GMT+0800 (China Standard Time)
+-->
 # Memory is important
 
 拿两个A物体和B物体, 一定是不同的哦, 关系距离越远越好. 然后想办法用一句话, 或者一段话把他们联系在一起. 就像小学生造句, 看图写作一样, 就这么简单. 熟练之后, 就用3个物体, 4个物体, 甚至更多. 

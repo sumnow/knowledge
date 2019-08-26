@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:38 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:38 GMT+0800 (China Standard Time)
+-->
 # css initial inherit and unset
 
 ### initial
@@ -39,3 +43,4 @@ initial 关键字用于设置 CSS 属性为它的默认值, 可作用于任何 C
 
 部分可继承样式: font-size, font-family, color, text-indent
 部分不可继承样式: border, padding, margin, width, height
+

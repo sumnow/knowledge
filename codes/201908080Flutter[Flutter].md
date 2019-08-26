@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:56 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:56 GMT+0800 (China Standard Time)
+-->
 # flutter
 
 安装基本都是按照官方文档来, 包括下载sdk之类的内容

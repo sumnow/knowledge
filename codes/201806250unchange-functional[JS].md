@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:04 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:04 GMT+0800 (China Standard Time)
+-->
 # 函数式编程不可变变量
 
 函数式编程在于无副作用(Side Effect)函数, 即纯函数. 

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:33 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:33 GMT+0800 (China Standard Time)
+-->
 # hash
 
 hash(散列、 杂凑)函数, 是将任意长度的数据映射到有限长度的域上. 直观解释起来, 就是对一串数据m进行杂糅, 输出另一段固定长度的数据h, 作为这段数据的特征(指纹). 

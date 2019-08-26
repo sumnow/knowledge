@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:21:13 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:21:13 GMT+0800 (China Standard Time)
+-->
 # 编译原理
 
 在阅读本文前, 不妨思考一下这几个问题, 如果没有头绪, 建议看完文章以后再思考一遍. 如果觉得答案显而易见, 恭喜你, 这篇文章并非为你准备的:
@@ -203,20 +207,20 @@ define i32 @square_unsigned(i32 %a) {
         .align 4# 4 字节对齐
         .type m, @objc
         .size m, 4
-
+    
 m:
 
     .long 10# m 的值是 10
         .text
         .global main
         .type main, @function
-
+    
 main:
 
     pushl % ebp
     movl % esp, % ebp
         ...
-
+    
 ```
 
 汇编
@@ -476,7 +480,7 @@ class UIView:
 
 	def __init__(self, param):
 	    objc.msgSend("UIView", "init", param)
-
+    
 ```
 
 这么做的性价比并不高, 如果和 JSPatch 相比, JSPatch 使用了内置的 JavaScriptCore 作为 JavaScript 的解析器, 而 PyObjc 就得自己带一个 libPython.a 解释器. 此外, 由于 iOS 系统的沙盒限制, 非越狱机器并不能拿到 libobjc 库, 所以这个工具只能在越狱手机上使用. 

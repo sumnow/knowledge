@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:19:05 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:19:05 GMT+0800 (China Standard Time)
+-->
 # 笔记本硬件
 
 因为笔记本的自由性较差, 可更换的硬件有限(内存, 硬盘), 所以相对好入门. 

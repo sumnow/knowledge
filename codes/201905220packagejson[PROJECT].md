@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:26 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:30 GMT+0800 (China Standard Time)
+-->
 # 概述
 
 本文档的内容是package.json配置里边的属性含义. package.json必须是一个严格的json文件, 而不仅仅是js里边的一个对象. 其中很多属性可以通过npm-config来生成. 

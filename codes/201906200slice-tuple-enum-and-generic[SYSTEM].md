@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:40 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:43 GMT+0800 (China Standard Time)
+-->
 # 切片, 元组, 枚举和泛型
 
 ## slice and array and tuple

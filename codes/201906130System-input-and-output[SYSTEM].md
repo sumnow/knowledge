@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:39 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:39 GMT+0800 (China Standard Time)
+-->
 # 【读薄 CSAPP】陆 系统输入输出
 
 Linux 系统中 IO 的概念是非常有趣的, 结合『所有东西都是文件』这个抽象, 无论是输入输出重定向, 还是挂载不同的设备, 甚至是网络编程, 都可以由系统输入输出这个统一的模型来进行描述. 这一讲我们就来了解一下以 stdin, stdout 等为代表的系统输入输出.

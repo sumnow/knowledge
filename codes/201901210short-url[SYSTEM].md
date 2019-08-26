@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:21:17 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:21:17 GMT+0800 (China Standard Time)
+-->
 # 短链接
 
 短链接就是, 形态如 `https://tb.am/xxx` , 打开以后会是其他的网址, 这个主要是后面的xxx是怎么得到的, 其实在服务器会有个保存短链接和长链接的对应关系. 

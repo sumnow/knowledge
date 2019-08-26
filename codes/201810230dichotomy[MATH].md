@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:34 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:34 GMT+0800 (China Standard Time)
+-->
 # 二分法
 
 理论的魅力, 在问题的一开始就知道有没有解, 解的范围. 

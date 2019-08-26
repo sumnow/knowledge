@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:21:25 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:21:25 GMT+0800 (China Standard Time)
+-->
 # 冒泡排序(Bubble Sort)
 
 这种排序方法效率很低, 它从一端开始(如从下标0开始), 依次比较相邻两个元素, 将小的放置到大的前面, 直到最后.

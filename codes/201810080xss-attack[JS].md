@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:28 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:28 GMT+0800 (China Standard Time)
+-->
 # xss 攻击
 
 XSS, 即为(Cross Site Scripting), 中文名为跨站脚本, 是发生在目标用户的浏览器层面上的, 当渲染DOM树的过程成发生了不在预期内执行的JS代码时, 就发生了XSS攻击. 

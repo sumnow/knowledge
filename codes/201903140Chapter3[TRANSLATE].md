@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:00 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:00 GMT+0800 (China Standard Time)
+-->
 # Functions
 
 People think that computer science is the art of geniuses but the actual reality is the opposite, just many people doing things that build on each other, like a wall of mini stones. 
@@ -110,19 +114,23 @@ Each scope can "look out" into the scope around it, so x is visible inside the b
 
 每个范围可以看见包裹它的范围里, 因此例子中的x在块中是可见的. 表达式当多个绑定有一个相同的名字--在这个例子里, 代码只会看到最深处的那个值. 例如, 当在 `halve` 函数里的代码引用了n, 它会看到自己的n, 而不是全局的n. 
 
-    const halve = function(n) {
-        return n / 2;
-    };
+``` js
+const halve = function(n) {
+    return n / 2;
+};
+```
 
 ``` js
 
 ```
 
-    let n = 10;
-    console.log(halve(100));
-    // → 50
-    console.log(n);
-    // → 10
+``` js
+let n = 10;
+console.log(halve(100));
+// → 50
+console.log(n);
+// → 10
+```
 
 ### Nested scope
 
@@ -180,7 +188,8 @@ let launchMissiles = function() {
 };
 if (safeMode) {
     launchMissiles = function() {
-        /* do nothing */ };
+        /* do nothing */
+    };
 }
 ```
 
@@ -210,15 +219,19 @@ There is one subtlety with this form of function definition.
 
 这种形式的功能定义有一个微妙之处. 
 
-    console.log("The future says: ", future());
+``` js
+console.log("The future says: ", future());
+```
 
 ``` js
 
 ```
 
-    function future() {
-        return "You'll never have flying cars";
-    }
+``` js
+function future() {
+    return "You'll never have flying cars";
+}
+```
 
 The preceding code works, even though the function is defined below the code that uses it. Function declarations are not part of the regular top-to-bottom flow of control. They are conceptually moved to the top of their scope and can be used by all the code in that scope. This is sometimes useful because it offers the freedom to order code in a way that seems meaningful, without worrying about having to define all functions before they are used. 
 
@@ -279,17 +292,22 @@ There's no deep reason to have both arrow functions and function expressions in 
 
 控制流经函数的方式有些复杂. 让我们近一点观察它. 这里有一个简单的例子, 调用几个函数: 
 
-    function greet(who) {
-        console.log("Hello " + who);
-    }
-    greet("Harry");
-    console.log("Bye");
+``` js
+function greet(who) {
+    console.log("Hello " + who);
+}
+greet("Harry");
+console.log("Bye");
+```
 
 ``` js
 
 ```
 
-    
+``` js
+
+```
+
 A run through this program goes roughly like this: the call to `greet` causes control to jump to the start of that function (line 2). The function calls `console.log` , which takes control, does its job, and then returns control to line 2. There it reaches the end of the greet function, so it returns to the place that called it, which is line 4. The line after that calls console. log again. After that returns, the program reaches its end. 
 
 穿过这个程序的一个流程粗略像这样: 调用 `greet` 导致控制跳到函数的开头(第二行). 函数调用 `cosole.log` , 获得控制权, 做自己的职责, 然后返回控制权到第二行. 它到 `greet` 函数的底部, 因此它返回到调用它的地方, 第4行. 这行后面又调用 `console.log` . 在它返回以后, 程序到了它的结束. 
@@ -320,19 +338,23 @@ Storing this stack requires space in the computer's memory. When the stack grows
 
 存储这个栈需要在计算机内存里的空间. 当栈变得太大, 计算机回失败并且带有一个信息像"溢出栈空间"或者"太多递归". 下面的代码举例说明了这个通过问计算机一个非常困难的问题来导致一个无限在两个函数之间的往复. 相反, 如果计算机具有无限堆栈, 它将是无限的. 事实上, 我们会耗尽所有空间, 或者"溢出栈". 
 
-    function chicken() {
-        return egg();
-    }
+``` js
+function chicken() {
+    return egg();
+}
+```
 
 ``` js
 
 ```
 
-    function egg() {
-        return chicken();
-    }
-    console.log(chicken() + " came first. ");
-    // → ??
+``` js
+function egg() {
+    return chicken();
+}
+console.log(chicken() + " came first. ");
+// → ??
+```
 
 ### Optional Arguments
 
@@ -348,8 +370,10 @@ function square(x) {
 }
 ```
 
-    console.log(square(4, true, "hedgehog")); 
-    // → 16
+``` js
+console.log(square(4, true, "hedgehog"));
+// → 16
+```
 
 We defined square with only one parameter. Yet when we call it with three, the language doesn't complain. It ignores the extra arguments and computes the square of the first one. 
 
@@ -367,19 +391,23 @@ The upside is that this behavior can be used to allow a function to be called wi
 
 积极的方面就是这样的行为可以被用来允许函数用不同数量的参数调用. 例如, 这个 `minus` 函数尝试通过曹祖一个或者两个参数来模仿 - 操作符: 
 
-    function minus(a, b) {
-        if (b === undefined) return -a;
-        else return a - b;
-    }
+``` js
+function minus(a, b) {
+    if (b === undefined) return -a;
+    else return a - b;
+}
+```
 
 ``` js
 
 ```
 
-    console.log(minus(10));
-    // → -10
-    console.log(minus(10, 5));
-    // → 5
+``` js
+console.log(minus(10));
+// → -10
+console.log(minus(10, 5));
+// → 5
+```
 
 If you write an = operator after a parameter, followed by an expression, the value of that expression will replace the argument when it is not given. 
 
@@ -389,22 +417,26 @@ For example, this version of power makes its second argument optional. If you do
 
 例如, 这个版本的 `power` 是他的第二个参数可配置. 如果你不提供它或者传值 `undefined` , 它会默认成2, 然后函数表现得像平方. 
 
-    function power(base, exponent = 2) {
-        let result = 1;
-        for (let count = 0; count < exponent; count++) {
-            result *= base;
-        }
-        return result;
+``` js
+function power(base, exponent = 2) {
+    let result = 1;
+    for (let count = 0; count < exponent; count++) {
+        result *= base;
     }
+    return result;
+}
+```
 
 ``` js
 
 ```
 
-    console.log(power(4));
-    // → 16
-    console.log(power(2, 6));
-    // → 64
+``` js
+console.log(power(4));
+// → 16
+console.log(power(2, 6));
+// → 64
+```
 
 In the next chapter, we will see a way in which a function body can get at the whole list of arguments it was passed. This is helpful because it makes it possible for a function to accept any number of arguments. For example, console. log does this—it outputs all of the values it is given. 
 
@@ -427,21 +459,25 @@ The following code shows an example of this. It defines a function, wrapValue, t
 
 下面的代码展示了一个这样的例子. 他定义了一个函数 `wrapValue` , 它创建了一个局部变量. 然后它返回了一个函数接受并且返回局部变量. 
 
-    function wrapValue(n) {
-        let local = n;
-        return () => local;
-    }
+``` js
+function wrapValue(n) {
+    let local = n;
+    return () => local;
+}
+```
 
 ``` js
 
 ```
 
-    let wrap1 = wrapValue(1);
-    let wrap2 = wrapValue(2);
-    console.log(wrap1());
-    // → 1
-    console.log(wrap2());
-    // → 2
+``` js
+let wrap1 = wrapValue(1);
+let wrap2 = wrapValue(2);
+console.log(wrap1());
+// → 1
+console.log(wrap2());
+// → 2
+```
 
 This is allowed and works as you'd hope—both instances of the binding can still be accessed. This situation is a good demonstration of the fact that local bindings are created anew for every call, and different calls can't trample on one another's local bindings. 
 
@@ -455,23 +491,30 @@ With a slight change, we can turn the previous example into a way to create func
 
 稍作修改, 我们可以将前面的示例转换为创建乘以任意数量的函数的方法. 
 
-    function multiplier(factor) {
-        return number => number * factor;
-    }
+``` js
+function multiplier(factor) {
+    return number => number * factor;
+}
+```
 
 ``` js
 
 ```
 
-    let twice = multiplier(2);
-    console.log(twice(5));
-    // → 10
+``` js
+let twice = multiplier(2);
+console.log(twice(5));
+// → 10
+```
 
 ``` js
 
 ```
 
-    
+``` js
+
+```
+
 The explicit local binding from the wrapValue example isn't really needed since a parameter is itself a local binding. 
 
 在 `wrapValue` 例子里明确的局部变量实际不是必须的, 因为参数本身就是一个局部变量. 
@@ -492,20 +535,24 @@ In the example, multiplier is called and creates an environment in which its fac
 
 函数调用自身是完全可以的, 只要它不经常这样做, 以至于溢出堆栈. 一个函数调用它自己叫做递归调用. 递归允许一些函数用不同的风格书写. 举个例子, 这是次方的替代实现: 
 
-    function power(base, exponent) {
-        if (exponent == 0) {
-            return 1;
-        } else {
-            return base * power(base, exponent - 1);
-        }
+``` js
+function power(base, exponent) {
+    if (exponent == 0) {
+        return 1;
+    } else {
+        return base * power(base, exponent - 1);
     }
+}
+```
 
 ``` js
 
 ```
 
-    console.log(power(2, 3));
-    // → 8
+``` js
+console.log(power(2, 3));
+// → 8
+```
 
 *This is rather close to the way mathematicians define exponentiation and arguably describes the concept more clearly than the looping variant. The function calls itself multiple times with ever smaller exponents to achieve the repeated multiplication*. 
 
@@ -547,45 +594,49 @@ Here is a recursive solution:
 
 这里有一个递归的解决方案:
 
-    function findSolution(target) {
-        function find(current, history) {
-            if (current == target) {
-                return history;
-            } else if (current > target) {
-                return null;
-            } else {
-                return find(current + 5, `(${history} + 5)` ) ||
-                    find(current * 3, `(${history} * 3)` );
-            }
+``` js
+function findSolution(target) {
+    function find(current, history) {
+        if (current == target) {
+            return history;
+        } else if (current > target) {
+            return null;
+        } else {
+            return find(current + 5, `(${history} + 5)` ) ||
+                find(current * 3, `(${history} * 3)` );
         }
-        return find(1, "1");
     }
-    console.log(findSolution(24));
-    // → (((1 * 3) + 5) * 3)
+    return find(1, "1");
+}
+console.log(findSolution(24));
+// → (((1 * 3) + 5) * 3)
+```
 
 ``` js
 
 ```
 
-    // 这是我的解决方案, 确实很差
-    function recursion(m) {
-        if (m === 1) {
-            console.log('success')
-            return;
-        }
-        if (m % 3 === 0) {
-            console.log('*')
-            recursion(m / 3)
+``` js
+// 这是我的解决方案, 确实很差
+function recursion(m) {
+    if (m === 1) {
+        console.log('success')
+        return;
+    }
+    if (m % 3 === 0) {
+        console.log('*')
+        recursion(m / 3)
+    } else {
+        if (m - 5 < 1) {
+            console.log('+')
+            console.log('cant')
         } else {
-            if (m - 5 < 1) {
-                console.log('+')
-                console.log('cant')
-            } else {
-                console.log('+')
-                recursion(m - 5)
-            }
+            console.log('+')
+            recursion(m - 5)
         }
     }
+}
+```
 
 Note that this program doesn't necessarily find the shortest sequence of operations. It is satisfied when it finds any sequence at all. 
 
@@ -688,29 +739,35 @@ We sure can. But just as we're in the process of copying and pasting those four 
 
 我们当然可以. 但是我们在复制和粘贴这四行代码多次的过程中, 我们停下并且重新思考. 有种更好的方式. 这里是一个解决方案:
 
-    function printZeroPaddedWithLabel(number, label) {
-        let numberString = String(number);
-        while (numberString.length < 3) {
-            numberString = "0" + numberString;
-        }
-        console.log( `${numberString} ${label}` );
+``` js
+function printZeroPaddedWithLabel(number, label) {
+    let numberString = String(number);
+    while (numberString.length < 3) {
+        numberString = "0" + numberString;
     }
+    console.log( `${numberString} ${label}` );
+}
+```
 
 ``` js
 
 ```
 
-    function printFarmInventory(cows, chickens, pigs) {
-        printZeroPaddedWithLabel(cows, "Cows");
-        printZeroPaddedWithLabel(chickens, "Chickens");
-        printZeroPaddedWithLabel(pigs, "Pigs");
-    }
+``` js
+function printFarmInventory(cows, chickens, pigs) {
+    printZeroPaddedWithLabel(cows, "Cows");
+    printZeroPaddedWithLabel(chickens, "Chickens");
+    printZeroPaddedWithLabel(pigs, "Pigs");
+}
+```
 
 ``` js
 
 ```
 
-    printFarmInventory(7, 11, 3);
+``` js
+printFarmInventory(7, 11, 3);
+```
 
 It works! But that name, printZeroPaddedWithLabel, is a little awkward. It conflates three things—printing, zero-padding, and adding a label—into a single function.
 
@@ -720,29 +777,35 @@ Instead of lifting out the repeated part of our program wholesale, let's try to 
 
 我们试图找出一个单一的概念, 而不是解除我们程序批发的重复部分. 
 
-    function zeroPad(number, width) {
-        let string = String(number);
-        while (string.length < width) {
-            string = "0" + string;
-        }
-        return string;
+``` js
+function zeroPad(number, width) {
+    let string = String(number);
+    while (string.length < width) {
+        string = "0" + string;
     }
+    return string;
+}
+```
 
 ``` js
 
 ```
 
-    function printFarmInventory(cows, chickens, pigs) {
-        console.log( `${zeroPad(cows, 3)} Cows` );
-        console.log( `${zeroPad(chickens, 3)} Chickens` );
-        console.log( `${zeroPad(pigs, 3)} Pigs` );
-    }
+``` js
+function printFarmInventory(cows, chickens, pigs) {
+    console.log( `${zeroPad(cows, 3)} Cows` );
+    console.log( `${zeroPad(chickens, 3)} Chickens` );
+    console.log( `${zeroPad(pigs, 3)} Pigs` );
+}
+```
 
 ``` js
 
 ```
 
-    printFarmInventory(7, 16, 3);
+``` js
+printFarmInventory(7, 16, 3);
+```
 
 A function with a nice, obvious name like zeroPad makes it easier for someone who reads the code to figure out what it does. And such a function is useful in more situations than just this specific program. For example, you could use it to help print nicely aligned tables of numbers.
 
@@ -782,26 +845,32 @@ This chapter taught you how to write your own functions. The function keyword, w
 
 这个章节教会了你如何写你自己的函数. `function` 关键字, 当用作一个表达式, 可以创建一个函数值. 当用作一个语句, 它可以用来声明一个变量并且给他一个函数作为它的值. 箭头函数用另一种方式创建函数.
 
-    // Define f to hold a function value
-    const f = function(a) {
-        console.log(a + 2);
-    };
+``` js
+// Define f to hold a function value
+const f = function(a) {
+    console.log(a + 2);
+};
+```
 
 ``` js
 
 ```
 
-    // Declare g to be a function
-    function g(a, b) {
-        return a * b * 3.5;
-    }
+``` js
+// Declare g to be a function
+function g(a, b) {
+    return a * b * 3.5;
+}
+```
 
 ``` js
 
 ```
 
-    // A less verbose function value
-    let h = a => a % 3;
+``` js
+// A less verbose function value
+let h = a => a % 3;
+```
 
 A key aspect in understanding functions is understanding scopes. Each block creates a new scope. Parameters and bindings declared in a given scope are local and not visible from the outside. Bindings declared with var behave differently—they end up in the nearest function scope or the global scope.
 
@@ -819,19 +888,23 @@ The previous chapter introduced the standard function Math.min that returns its 
 
 先前的章节介绍了标准函数 `Math.min` , 得到最小的那个参数. 我们可以做一些像这样的事情. 写一个函数 `min` 来获取两个参数并返回他们的最小值.
 
-    // Your code here.
-    function min(...rest) {
-        return rest.sort((a, b) => a - b)[0]
-    }
+``` js
+// Your code here.
+function min(...rest) {
+    return rest.sort((a, b) => a - b)[0]
+}
+```
 
 ``` js
 
 ```
 
-    console.log(min(0, 10));
-    // → 0
-    console.log(min(0, -10));
-    // → -10
+``` js
+console.log(min(0, 10));
+// → 0
+console.log(min(0, -10));
+// → -10
+```
 
 > If you have trouble putting braces and parentheses in the right place to get a valid function definition, start by copying one of the examples in this chapter and modifying it.
 
@@ -867,23 +940,27 @@ Test it on 50 and 75. See how it behaves on -1. Why? Can you think of a way to f
 
 在50和75测试它. 再看看-1的时候是怎么表现的, 为什么? 你可以想到一个方法来修复这个么?
 
-    // Your code here.
-    function isEven(num) {
-        if (num == 1) return false
-        if (num == 0) return true
-        return isEven(num - 2)
-    }
+``` js
+// Your code here.
+function isEven(num) {
+    if (num == 1) return false
+    if (num == 0) return true
+    return isEven(num - 2)
+}
+```
 
 ``` js
 
 ```
 
-    console.log(isEven(50));
-    // → true
-    console.log(isEven(75));
-    // → false
-    console.log(isEven(-1));
-    // → ??
+``` js
+console.log(isEven(50));
+// → true
+console.log(isEven(75));
+// → false
+console.log(isEven(-1));
+// → ??
+```
 
 > Your function will likely look somewhat similar to the inner find function in the recursive findSolution example in this chapter, with an if/else if/else chain that tests which of the three cases applies. The final else, corresponding to the third case, makes the recursive call. Each of the branches should contain a return statement or in some other way arrange for a specific value to be returned.
 
@@ -909,16 +986,20 @@ Next, write a function called countChar that behaves like countBs, except it tak
 
 接下来, 编写一个名为countChar的函数, 其行为类似于countBs, 除了它采用第二个参数指示要计数的字符(而不是仅计算大写的"B"字符). 重写countBs以使用这个新函数. 
 
-    // Your code here.
+``` js
+// Your code here.
+```
 
 ``` js
 
 ```
 
-    console.log(countBs("BBC"));
-    // → 2
-    console.log(countChar("kakkerlak", "k"));
-    // → 4
+``` js
+console.log(countBs("BBC"));
+// → 2
+console.log(countChar("kakkerlak", "k"));
+// → 4
+```
 
 > Your function will need a loop that looks at every character in the string. It can run an index from zero to one below its length (< string.length). If the character at the current position is the same as the one the function is looking for, it adds 1 to a counter variable. Once the loop has finished, the counter can be returned.
 

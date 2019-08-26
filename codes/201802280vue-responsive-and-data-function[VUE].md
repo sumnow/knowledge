@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:19:34 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:19:34 GMT+0800 (China Standard Time)
+-->
 # vue responsive theory and data funtion 
 
 ## vue data function 

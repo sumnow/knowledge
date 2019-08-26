@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:19:08 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:19:08 GMT+0800 (China Standard Time)
+-->
 # 关于记住密码
 
 浏览器有一个记住密码的功能, 我一直奇怪是怎么实现的, 粗略的找了下, 多数答案都是cookie存储的, 我却觉得不对, 因为

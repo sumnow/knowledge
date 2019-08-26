@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:19:07 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:19:07 GMT+0800 (China Standard Time)
+-->
 # 台式机硬件
 
 台式机相对笔记本复杂太多, 主要每个部件都有极强的可变性. 

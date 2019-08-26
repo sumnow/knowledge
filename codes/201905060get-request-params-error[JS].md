@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:12 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:12 GMT+0800 (China Standard Time)
+-->
 # Get 请求的参数错误
 
 get 请求一般会将参数这样 `?key1=value1&key2=value2` 拼接在url的后面

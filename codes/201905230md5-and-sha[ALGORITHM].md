@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:31 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:31 GMT+0800 (China Standard Time)
+-->
 # 常见摘要算法
 
 哈希算法(Hash Algorithm)又称散列算法、 散列函数、 哈希函数, 是一种从任何一种数据中创建小的数字"指纹"的方法. 哈希算法将数据重新打乱混合, 重新创建一个哈希值. 

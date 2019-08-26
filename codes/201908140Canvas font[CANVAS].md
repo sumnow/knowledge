@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:23:01 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:23:01 GMT+0800 (China Standard Time)
+-->
 # canvas 文字
 
 ``` js

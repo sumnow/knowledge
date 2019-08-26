@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:19:14 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:19:14 GMT+0800 (China Standard Time)
+-->
 # html5 History
 
 在左树右表这种场景中, 常见的是url不变, 使用ajax无刷新更新页面信息, 有个问题就是refresh, forward, back之后, 没有办法保存页面的状态. 因为ajax本身不更新浏览器的状态信息. 

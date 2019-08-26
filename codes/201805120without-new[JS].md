@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:19:53 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:19:53 GMT+0800 (China Standard Time)
+-->
 # 无new 构造
 
 ``` js

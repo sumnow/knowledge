@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:19:10 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:19:10 GMT+0800 (China Standard Time)
+-->
 # canvas and requestAnimation
 
 `requestAnimation` 是一个浏览器的内置重绘方法, canvas一般都会使用这个, 来充分利用Gpu的性能, 它与 `setTimeout` 看起来并无二致, 但其实还有几个问题

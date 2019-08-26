@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:28 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:28 GMT+0800 (China Standard Time)
+-->
 # vue nextTick
 
 ## vfor 的 key重复
@@ -276,11 +280,13 @@ function flushSchedulerQueue() {
     //    its watchers can be skipped.
     /*
       给queue排序，这样做可以保证：
+    
 
       1. 组件更新的顺序是从父组件到子组件的顺序, 因为父组件总是比子组件先创建. 
       2. 一个组件的user watchers比render watcher先运行, 因为user watchers往往比render watcher更早创建
       3. 如果一个组件在父组件watcher运行期间被销毁, 它的watcher执行将被跳过. 
 
+    
     */
     queue.sort((a, b) => a.id - b.id)
 

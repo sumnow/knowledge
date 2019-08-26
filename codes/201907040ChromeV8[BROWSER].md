@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:45 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:45 GMT+0800 (China Standard Time)
+-->
 # V8 之旅: 对象表示
 
 在前一篇文章中, 我们观察了V8的简单编译器——Full Compiler. 在我们继续观察Crankshaft之前, 为更好地理解它, 我们首先来看看V8在内存中如何表达对象.
@@ -128,13 +132,13 @@ V8处理通过一种特殊的描述符来处理这种情形: Transition. 当增�
 		"x": TRANSITION to M1 at offset 12
     
 	this.x = x;
-
+    
 	Map M1
 		"x": FIELD at offset 12
 		"y": TRANSITION to M2 at offset 16
     
 	this.y = y;
-
+    
 	Map M2
 		"x": FIELD at offset 12
 		"y": FIELD at offset 16
@@ -151,7 +155,7 @@ V8处理通过一种特殊的描述符来处理这种情形: Transition. 当增�
 		"z": TRANSITION to M3 at offset 20
     
 	this.z = z;
-
+    
 	Map M3
 		"x": FIELD at offset 12
 		"y": FIELD at offset 16
@@ -223,20 +227,20 @@ C++解决这个问题的方法是虚表(译注: 原文v-table). 虚表是一个�
 		"x": TRANSITION to M1 at offset 12
     
 	this.x = x;
-
+    
 	Map M1
 		"x": FIELD at offset 12
 		"y": TRANSITION to M2 at offset 16
     
 	this.y = y;
-
+    
 	Map M2
 		"x": FIELD at offset 12
 		"y": FIELD at offset 16
 		"distance": TRANSITION to M3 
     
 	this.distance = PointDistance;
-
+    
 	Map M3
 		"x": FIELD at offset 12
 		"y": FIELD at offset 16
@@ -254,17 +258,19 @@ function Point(x, y) {
 }
 ```
 
-    
-	Point.prototype.distance = function(p) {
-		var dx = this.x - p.x; 
-		var dy = this.y - p.y; 
-		return Math.sqrt(dx*dx, dy*dy); 
-	}
-    
-	...
-	var u = new Point(1, 2); 
-	var v = new Point(3, 4); 
-	var d = u.distance(v); 
+``` js
+Point.prototype.distance = function(p) {
+        var dx = this.x - p.x;
+        var dy = this.y - p.y;
+        return Math.sqrt(dx * dx, dy * dy);
+    }
+
+    ...
+    var u = new Point(1, 2);
+var v = new Point(3, 4);
+var d = u.distance(v);
+```
+
 这样的代码随处可见, 同时也是实现继承的一种范式, 因为原型还可以有自己的原型.instanceof操作符所针对的就是原型链.
 
 和普通对象一样, V8也会将原型的成员函数以CF描述符来表示. 调用原型的函数会比直接调用对象自己的函数略慢, 因为编译器不仅需要检查目标对象的Map, 同时也要检查原型链上的其他Map. 但这不会产生大的性能问题, 对于开发者来说也不应影响代码书写.
@@ -302,3 +308,4 @@ function copy(a) {
 这篇文章中我们观察了V8内部是如何表示对象及其属性的. V8为通用接口提供了针对具体场景可切换的数据存储模型, 这作为VM语言的一项优势, 对于编译型语言来说是难以企及的: 那些语言要么只能小范围优化, 要么则依赖于程序员对对象结构的控制.
 
 在接下来的文章中, 我们要观察V8的优化编译器——Crankshaft, 以及它是如何利用本文中的这些结构优势来生成高效代码的.
+

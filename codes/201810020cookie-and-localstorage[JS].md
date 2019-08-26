@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:26 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:26 GMT+0800 (China Standard Time)
+-->
 # cookie localstorage sessionstorage
 
 Cookie适合存储一些session信息: 

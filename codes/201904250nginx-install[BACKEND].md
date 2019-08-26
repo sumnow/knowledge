@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:05 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:05 GMT+0800 (China Standard Time)
+-->
 # nginx install
 
 Nginx 是 C语言 开发, 以centOs系统为例子

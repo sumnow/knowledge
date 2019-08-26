@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:14 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:14 GMT+0800 (China Standard Time)
+-->
 # http connection and rpc
 
 ### http 为什么是无状态的
@@ -105,3 +109,4 @@ Server: Apache 0.84
 所以为什么要用rpc调用? 
 
 因为良好的rpc调用是面向服务的封装, 针对服务的可用性和效率等都做了优化. 单纯使用http调用则缺少了这些特性. 
+

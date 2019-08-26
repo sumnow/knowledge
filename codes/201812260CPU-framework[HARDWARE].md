@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:55 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:55 GMT+0800 (China Standard Time)
+-->
 # cpu 架构
 
 CPU主要由运算器、 控制器、 寄存器三部分组成. 运算器就是起着运算的作用, 控制器就是负责发出CPU每条指令所需要的信息, 寄存器就是保存运算或者指令的一些临时文件, 这样可以保证更高的速度. 

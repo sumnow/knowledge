@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:55 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:55 GMT+0800 (China Standard Time)
+-->
 # css 的加载造成影响
 
 1. css并不会阻塞DOM树的解析.

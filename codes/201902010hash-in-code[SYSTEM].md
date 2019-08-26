@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:21:20 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:21:20 GMT+0800 (China Standard Time)
+-->
 # 这次讲讲代码里的hash的实现
 
 大多数语言中的字典都是使用hashMap实现的, hash的本质是一个数组, 每一个元素都放置着key-value.
@@ -167,7 +171,7 @@ int dictRehash(dict *d, int n) {
     
     while(n-- && d->ht[0].used != 0) {
         dictEntry *de, *nextde; 
-
+    
         while(d->ht[0].table[d->rehashidx] == NULL) {
             d->rehashidx++; 
             if (--empty_visits == 0) return 1; 

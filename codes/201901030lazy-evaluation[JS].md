@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:58 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:58 GMT+0800 (China Standard Time)
+-->
 # lazy evaluation
 
 惰性求值
@@ -25,3 +29,4 @@ function getTime() {
 ```
 
 更好的做法应该对入参进行判断.
+

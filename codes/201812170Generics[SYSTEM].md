@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:20:48 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:20:48 GMT+0800 (China Standard Time)
+-->
 # 泛型
 
 泛型旨在将类型参数化.

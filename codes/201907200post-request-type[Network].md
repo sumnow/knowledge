@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:53 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:53 GMT+0800 (China Standard Time)
+-->
 # post请求
 
 ## application/x-www-form-urlencoded
@@ -46,11 +50,11 @@ Google 的 AngularJS 中的 Ajax 功能, 默认就是提交 JSON 字符串. 例�
 
 ``` JS
 var data = {
-  'title': 'test',
-  'sub': [1, 2, 3]
+    'title': 'test',
+    'sub': [1, 2, 3]
 };
 $http.post(url, data).success(function(result) {
-  ...
+    ...
 });
 ```
 

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:52 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:52 GMT+0800 (China Standard Time)
+-->
 # Text encoding
 
 我们经常听到纯文本格式和二进制编码, 什么是纯文本, 什么是二进制呢? 以一个例子做说明. 新建一个文件叫hello.txt, 内容为:
@@ -198,11 +202,11 @@ Java和JS的字符串都是使用UTF-16编码, 因为它有长度比较固定的
 <html>
 
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 </head>
 
 <body>
-  你好world
+    你好world
 </body>
 
 </html>

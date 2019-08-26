@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:46 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:46 GMT+0800 (China Standard Time)
+-->
 # V8 之旅: 优化编译器 CRANKSHAFT
 
 在之前的两篇文章中, 我们讨论了V8的Full Compiler和对象的内部表示. 在几年前, FC生成的原生代码相对于JavaScript来说已经不错了, 但人们对性能的要求与日俱增, 其速度标杆也越来越高, 因此衍生出了Crankshaft.
@@ -67,14 +71,14 @@ Lithium是V8的低级、机器相关的中间代码. 实际上它并不是特别
 ;; 整数的最低位总是0
 	40  tst r0, #1
 	44  beq +188 -> 232
-
+    
 ;; HCheckMaps: 将目标的Map与已知Map对比
 	48  ldr r9, [r0, #-1]
 	52  movw ip, #41857             ;; object:  
 	56  movt ip, #17120
 	60  cmp r9, ip
 	64  bne +172 -> 236
-
+    
 ;; HCheckPrototypeMaps: 检查目标的原型链，
 ;; 以防有同名的只读属性
 	68  movw r2, #38241             ;; object:  Cell for  
@@ -133,8 +137,8 @@ Lithium是V8的低级、机器相关的中间代码. 实际上它并不是特别
 
 ``` js
 function calledOnce() {
-  for (var i = 0; i < 100000; i++)
-  // ... 这里是需要优化的部分
+    for (var i = 0; i < 100000; i++)
+    // ... 这里是需要优化的部分
 }
 ```
 

@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:44 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:44 GMT+0800 (China Standard Time)
+-->
 # node file system
 
 Node.js 文件系统(fs 模块)模块中的方法均有异步和同步版本, 例如读取文件内容的函数有异步的 fs.readFile() 和同步的 fs.readFileSync(). 

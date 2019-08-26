@@ -1,3 +1,7 @@
+<!--
+Created: Mon Aug 26 2019 15:22:01 GMT+0800 (China Standard Time)
+Modified: Mon Aug 26 2019 15:22:01 GMT+0800 (China Standard Time)
+-->
 # 自适应页面
 
 自适应不是一个多么新颖的话题了, 解决方案有bootstrap, 到后来的rem等.
