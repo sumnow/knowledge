@@ -1,6 +1,6 @@
 <!--
 Created: Mon Aug 26 2019 15:22:52 GMT+0800 (China Standard Time)
-Modified: Mon Aug 26 2019 15:22:52 GMT+0800 (China Standard Time)
+Modified: Fri Aug 30 2019 14:39:16 GMT+0800 (China Standard Time)
 -->
 # Text encoding
 
@@ -58,7 +58,7 @@ hello world!
 
 ## UTF编码
 
-1个字节最多只表示0 ~ (2^8 – 1)共256个字符, ASCII使用7位表示128个字符, 能够满足现代英语的要求, 对于特殊符号、亚洲语言、Emoj又应该如何表示? 我们按上面的方法, 查看以下包含中文和Emoji字符的文件存储的是什么:
+1个字节最多只表示0 ~ (2^8 – 1)共256个字符, ASCII使用7位表示128个字符, 能够满足现代英语的要求, 对于特殊符号, 亚洲语言, Emoj又应该如何表示? 我们按上面的方法, 查看以下包含中文和Emoji字符的文件存储的是什么:
 
 we 发 财 ?
 如下图所示:
