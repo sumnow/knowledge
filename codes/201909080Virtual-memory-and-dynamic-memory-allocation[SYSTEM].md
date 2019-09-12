@@ -1,9 +1,8 @@
 <!--
-Created: Wed Sep 11 2019 17:43:12 GMT+0800 (China Standard Time)
-Modified: Wed Sep 11 2019 17:59:17 GMT+0800 (China Standard Time)
+Created: Thu Sep 12 2019 15:50:19 GMT+0800 (China Standard Time)
+Modified: Thu Sep 12 2019 17:14:07 GMT+0800 (China Standard Time)
 -->
-
-# 读薄 CSAPP】柒 虚拟内存与动态内存分配
+# 【读薄 CSAPP】柒 虚拟内存与动态内存分配
 
 [【读薄 CSAPP】陆 系统输入输出](./201906130System-input-and-output[SYSTEM].md)
 
@@ -517,4 +516,9 @@ foo() {
 有了前面的基础, 简要介绍了动态内存分配的基本概念和管理动态内存分配的三种算法. 最后提及了垃圾回收的基本原理和内存使用中常见的错误.
 
 尤其是动态内存分配和垃圾回收的部分, 因为篇幅限制说得比较简单, 一定要对照书本进行阅读和理解.
+
+``` bash
+# bash
+asdasd
+```
 

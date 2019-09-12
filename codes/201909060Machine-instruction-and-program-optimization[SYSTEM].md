@@ -1,8 +1,7 @@
 <!--
 Created: Wed Sep 11 2019 15:39:34 GMT+0800 (China Standard Time)
-Modified: Wed Sep 11 2019 17:59:16 GMT+0800 (China Standard Time)
+Modified: Thu Sep 12 2019 17:14:10 GMT+0800 (China Standard Time)
 -->
-
 # 【读薄 CSAPP】贰 机器指令与程序优化
 
 [【读薄 CSAPP】叁 内存与缓存](./201906180Memory-and-cache[SYSTEM].md)
@@ -185,9 +184,7 @@ salq $2, %rax
 需要两个操作数的指令
 
 ``` bash
-
 # bash
-
 addq Src, Dest -> Dest = Dest + Src
 subq Src, Dest -> Dest = Dest - Src
 imulq Src, Dest -> Dest = Dest * Src
@@ -369,7 +366,7 @@ absdiff:
     
     
     
-
+    
 # x
 
     subq    %rsi, %rax  
@@ -395,7 +392,7 @@ absdiff:
     
     
     
-
+    
 # result = x-y
 
     movq    %rsi, %rdx
@@ -422,7 +419,7 @@ absdiff:
     
     
     
-
+    
 # eval = y-x
 
     cmpq    %rsi, %rdi  
@@ -448,7 +445,7 @@ absdiff:
     
     
     
-
+    
 # x:y
 
     cmovle  %rdx, %rax  
@@ -474,7 +471,7 @@ absdiff:
     
     
     
-
+    
 # if <=, result = eval
 
     ret
@@ -544,7 +541,7 @@ loop:
     
     
     
-
+    
 # result = 0
 
 .L2:                    
@@ -575,7 +572,7 @@ loop:
     
     
     
-
+    
 # t = x & 0x1
 
     addq    %rdx, %rax  
@@ -601,7 +598,7 @@ loop:
     
     
     
-
+    
 # result += t
 
     shrq    %rdi        
@@ -627,7 +624,7 @@ loop:
     
     
     
-
+    
 # x >>= 1
 
     jne     .L2         
@@ -653,7 +650,7 @@ loop:
     
     
     
-
+    
 # if (x) goto loop
 
     rep; ret
@@ -775,7 +772,7 @@ switch_eg:
     
     
     
-
+    
 # x:6
 
     ja      .L8
@@ -811,7 +808,7 @@ switch_eg:
     
     
     
-
+    
 # x = 0
 
     .quad   .L3 
@@ -837,7 +834,7 @@ switch_eg:
     
     
     
-
+    
 # x = 1
 
     .quad   .L5 
@@ -863,7 +860,7 @@ switch_eg:
     
     
     
-
+    
 # x = 2
 
     .quad   .L9 
@@ -889,7 +886,7 @@ switch_eg:
     
     
     
-
+    
 # x = 3
 
     .quad   .L8 
@@ -915,7 +912,7 @@ switch_eg:
     
     
     
-
+    
 # x = 4
 
     .quad   .L7 
@@ -941,7 +938,7 @@ switch_eg:
     
     
     
-
+    
 # x = 5
 
     .quad   .L7 
@@ -967,7 +964,7 @@ switch_eg:
     
     
     
-
+    
 # x = 6
 
 # bash
@@ -977,7 +974,6 @@ switch_eg:
 这里需要注意, 我们先跟 6 进行比较(因为 6 是最大的), 然后利用 ja 指令进行跳转, 为什么, 因为如果是负数的话, ja 是处理无符号数的, 所以负数情况肯定大于 6, 于是直接利用 ja 跳转到 default 的分支.
 
 然后下一句 jmp *. L4(, %rdi, 8) 
-
 # goto *JTab[x], 是一个间接跳转, 通过看上面的跳转列表来进行跳转.
 
 比如说, 直接跳转 jmp . L8, 就直接跳到 . L8 所在的标签, 也就是 x = 0
@@ -1069,7 +1065,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # x 在 %rdi 中，y 在 %rsi 中，dest 在 %rdx 中
 
     400540: push    %rbx            
@@ -1095,7 +1091,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # 通过压栈保存 %rbx
 
     400541: mov     %rdx, %rbx      
@@ -1121,7 +1117,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # 保存 dest
 
     400544: callq   400550 <mult2>  
@@ -1147,7 +1143,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # 调用 mult2(x, y)
 
     
@@ -1173,7 +1169,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # t 在 %rax 中
 
     400549: mov     %rax, (%rbx)    
@@ -1199,7 +1195,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # 结果保存到 dest 中
 
     40054c: pop     %rbx            
@@ -1225,7 +1221,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # 通过出栈恢复原来的 %rbx
 
     40054d: retq                    
@@ -1251,7 +1247,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # 返回
 
     
@@ -1279,7 +1275,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # a 在 %rdi 中，b 在 %rsi 中
 
     400550: mov     %rdi, %rax      
@@ -1305,7 +1301,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # 得到 a 的值
 
     400553: imul    %rsi, %rax      
@@ -1331,7 +1327,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # a * b
 
     
@@ -1357,7 +1353,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # s 在 %rax 中
 
     400557: retq                    
@@ -1383,7 +1379,7 @@ long mult2(long a, long b)
     
     
     
-
+    
 # 返回
 
 ```
@@ -1742,7 +1738,7 @@ Segmentation Fault
     
     
     
-
+    
 # call_echo 部分
 
     4006e8: 48 83 ec 08         sub   $0x8, %rsp
@@ -1971,7 +1967,7 @@ void sum_rows1(double *a, double *b, long n)
     
     
     
-
+    
 # 浮点数载入
 
     addsd   (%rdi), %xmm0           
@@ -1997,7 +1993,7 @@ void sum_rows1(double *a, double *b, long n)
     
     
     
-
+    
 # 浮点数加
 
     movsd   %xmm0, (%rsi, %rax, 8)  
@@ -2023,7 +2019,7 @@ void sum_rows1(double *a, double *b, long n)
     
     
     
-
+    
 # 浮点数保存
 
     addq    $8, %rdi
@@ -2081,7 +2077,7 @@ void sum_rows2(double *a, double *b, long n)
     
     
     
-
+    
 # 浮点数载入 + 加法
 
     addq    $9, %rdi
