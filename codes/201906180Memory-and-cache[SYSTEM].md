@@ -4,9 +4,10 @@ Modified: Mon Aug 26 2019 15:22:38 GMT+0800 (China Standard Time)
 -->
 # 【读薄 CSAPP】叁 内存与缓存
 
-[【读薄 CSAPP】]()
+[贰 机器指令与程序优化](./201909060Machine-instruction-and-program-optimization[SYSTEM].md)
 
-[【读薄 CSAPP】肆 链接](./201906150Link-Control[SYSTEM].md)
+[肆 链接](./201906150Link-Control[SYSTEM].md)
+
 ---
 
 我们知道, 速度越快的存储, 价格也就越贵. 计算机作为工程的结晶, 是如何从一条规则出发, 做到『物美价廉』的呢? 这条规则又是什么呢? 这一讲我们从不同的存储讲起, 看看『带着镣铐跳舞』的最高境界. 

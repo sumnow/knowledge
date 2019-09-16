@@ -4,11 +4,12 @@ Modified: Fri Sep 13 2019 16:36:11 GMT+0800 (China Standard Time)
 -->
 # 【读薄 CSAPP】捌 网络编程
 
-[【读薄 CSAPP】柒 虚拟内存与动态内存分配](./201909080Virtual-memory-and-dynamic-memory-allocation[SYSTEM].md)
+[柒 虚拟内存与动态内存分配](./201909080Virtual-memory-and-dynamic-memory-allocation[SYSTEM].md)
 
-[【读薄 CSAPP】玖 并行与同步](./201909100Parallelism-and-synchronization[SYSTEM].md)
+[玖 并行与同步](./201909100Parallelism-and-synchronization[SYSTEM].md)
 
 ---
+
 在这个网络成为『必需品』的时代, 让我们从最原始的 Socket(套接字)开始, 来看看程序是如何通过网络进行『沟通』的. 更有意思的是, 这一讲我们会介绍如何通过 C 语言从零开始实现自己的服务器程序.
 
 ## 网络架构

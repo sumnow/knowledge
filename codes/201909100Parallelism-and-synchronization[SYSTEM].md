@@ -1,6 +1,6 @@
 # 【读薄 CSAPP】玖 并行与同步
 
-[【读薄 CSAPP】捌 网络编程](./201909090network-programming[SYSTEM].md)
+[捌 网络编程](./201909090network-programming[SYSTEM].md)
 
 ---
 

@@ -4,9 +4,9 @@ Modified: Thu Sep 12 2019 17:14:07 GMT+0800 (China Standard Time)
 -->
 # 【读薄 CSAPP】柒 虚拟内存与动态内存分配
 
-[【读薄 CSAPP】陆 系统输入输出](./201906130System-input-and-output[SYSTEM].md)
+[陆 系统输入输出](./201906130System-input-and-output[SYSTEM].md)
 
-[【读薄 CSAPP】捌 网络编程](./201909090network-programming[SYSTEM].md)
+[捌 网络编程](./201909090network-programming[SYSTEM].md)
 
 ---
 

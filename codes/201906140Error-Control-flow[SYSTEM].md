@@ -4,9 +4,10 @@ Modified: Wed Sep 11 2019 14:42:38 GMT+0800 (China Standard Time)
 -->
 # 【读薄 CSAPP】伍 异常控制流
 
-[【读薄 CSAPP】肆 链接](./201906150Link-Control[SYSTEM].md)
+[肆 链接](./201906150Link-Control[SYSTEM].md)
 
-[【读薄 CSAPP】陆 系统输入输出](./201906130System-input-and-output[SYSTEM].md)
+[陆 系统输入输出](./201906130System-input-and-output[SYSTEM].md)
+
 ---
 
 异常控制流可能是很多人知道却说不清楚具体发生了什么的『著名』概念, 什么是异常? 系统又是怎么处理这个看起来『不一样』的机制的呢? 信号在这里扮演了什么角色? 这一讲我们就来讲讲异常与信号到底是怎么回事儿.

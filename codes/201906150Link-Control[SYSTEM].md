@@ -4,9 +4,10 @@ Modified: Mon Aug 26 2019 15:22:40 GMT+0800 (China Standard Time)
 -->
 # 【读薄 CSAPP】肆 链接
 
-[【读薄 CSAPP】叁 内存与缓存]()
+[叁 内存与缓存](./201906180Memory-and-cache[SYSTEM].md)
 
-[【读薄 CSAPP】伍 异常控制流](./201906140Error-Control-flow[SYSTEM].md)
+[伍 异常控制流](./201906140Error-Control-flow[SYSTEM].md)
+
 ---
 
 不同的代码是如何被拼到一起协同工作的呢? 所谓的静态库, 动态库又是什么? 编译和链接的不同在哪里? 这一讲我们结合一丁点编译原理的内容, 来说说链接那点事儿.

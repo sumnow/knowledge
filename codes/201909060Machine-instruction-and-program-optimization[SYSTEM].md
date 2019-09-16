@@ -4,7 +4,7 @@ Modified: Thu Sep 12 2019 17:14:10 GMT+0800 (China Standard Time)
 -->
 # 【读薄 CSAPP】贰 机器指令与程序优化
 
-[【读薄 CSAPP】叁 内存与缓存](./201906180Memory-and-cache[SYSTEM].md)
+[叁 内存与缓存](./201906180Memory-and-cache[SYSTEM].md)
 
 ---
 
