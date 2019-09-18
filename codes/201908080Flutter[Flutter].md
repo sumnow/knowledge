@@ -1,6 +1,6 @@
 <!--
 Created: Mon Aug 26 2019 15:22:56 GMT+0800 (China Standard Time)
-Modified: Wed Sep 04 2019 10:41:30 GMT+0800 (China Standard Time)
+Modified: Tue Sep 17 2019 17:38:06 GMT+0800 (China Standard Time)
 -->
 # flutter
 
@@ -89,4 +89,24 @@ flutter build apk
 ```
 
 大功告成, 生成的文件在 `/build/app/outputs/apk` 内
+
+## flutter 报错
+
+在 `flutter doctor` 或者 `flutter attach` 时, 出现报错
+
+``` bash
+# bash
+Could not connect to lockdown, error -21
+```
+
+需要卸载 `usbmuxd` 
+
+``` bash
+# bash
+brew install --ignore-dependencies usbmuxd
+# 重新安装
+brew install --HEAD usbmuxd
+```
+
+ 
 
