@@ -1,6 +1,6 @@
 <!--
 Created: Mon Aug 26 2019 15:22:56 GMT+0800 (China Standard Time)
-Modified: Tue Sep 17 2019 17:38:06 GMT+0800 (China Standard Time)
+Modified: Thu Sep 19 2019 17:55:17 GMT+0800 (China Standard Time)
 -->
 # flutter
 
@@ -106,6 +106,26 @@ Could not connect to lockdown, error -21
 brew install --ignore-dependencies usbmuxd
 # 重新安装
 brew install --HEAD usbmuxd
+```
+
+## flutter color 
+
+如何将 `#b74093` 中的十六进制颜色字符串转换为Flutter中的Color?
+
+在Flutter中 Color班级 仅接受 整数 作为参数, 或者可以使用命名构造函数 fromARGB 和 fromRGBO .
+
+所以我们只需要将字符串#b74093转换为整数值. 此外, 我们需要尊重始终需要指定不透明度.
+
+255(完整)不透明度由十六进制值FF表示. 这已经给我们留下了 0xFF . 现在, 我们只需要添加这样的颜色字符串:
+
+``` dart
+    final color = const Color(0xffb74093); 
+```
+
+这些字母可以选择是否大写:
+
+``` dart
+final color = const Color(0xFFB74093); 
 ```
 
  
