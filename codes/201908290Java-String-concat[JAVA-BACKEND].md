@@ -1,6 +1,6 @@
 <!--
 Created: Fri Aug 30 2019 13:41:55 GMT+0800 (China Standard Time)
-Modified: Mon Sep 02 2019 18:12:06 GMT+0800 (China Standard Time)
+Modified: Wed Sep 25 2019 19:56:53 GMT+0800 (China Standard Time)
 -->
 # Java细节: 字符串的拼接
 
@@ -203,10 +203,3 @@ public void explicitUseStringBuider(java.lang.String[]);
 从上面可以看出, 13: if_icmpge 30和27: goto 10构成了一个loop循环, 而0: new #5位于循环之外, 所以不会多次创建StringBuilder.
 
 总的来说, 我们在循环体中需要尽量避免隐式或者显式创建StringBuilder. 所以那些了解代码如何编译, 内部如何执行的人, 写的代码档次都比较高.
-
-*ƒasdad `asd`*
-
-*123123*
-
-*asda *
-
