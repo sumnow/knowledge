@@ -1,14 +1,38 @@
 <!--
 Created: Mon Aug 26 2019 15:17:33 GMT+0800 (China Standard Time)
-Modified: Tue Sep 24 2019 19:26:03 GMT+0800 (China Standard Time)
+Modified: Wed Sep 25 2019 14:39:31 GMT+0800 (China Standard Time)
 -->
 # 微信小程序的问题
 
-## 微信小程序
+## 微信小程序的生命周期
+
+``` js
+onLoad: " 一个页面只会调用一次。 接收页面参数 可以获取wx.navigateTo和wx.redirectTo及 <navigator/> 中的 query。"
+
+onShow: "每次打开页面都会调用一次。"
+
+onReady: "页面初次渲染完成一个页面只会调用一次， 代表页面已经准备妥当， 可以和视图层进行交互。"
+
+onHide: "页面隐藏当navigateTo或底部tab切换时调用。"
+
+onUnload: "页面卸载"
+```
+
+**如果在wepy中使用组件开发方式, 触发的顺序是父onLoad 子onLoad 父onShow** 
+
+## 小程序图片自适应
+
+[Offical link](https://developers.weixin.qq.com/miniprogram/dev/component/image.html)
+
+``` html
+<image mode="aspectFill" />
+```
+
+## 微信小程序的本地数据
 
 小程序的开发版, 体验版, 正式版 共用同一个 `localStorage` , 而 `globalData` 则不同.
 
-### 微信
+### 微信的二维码
 
 微信小程序的二维码传入的 `path` 如果是线上不存在的页面会显示纯白.
 
