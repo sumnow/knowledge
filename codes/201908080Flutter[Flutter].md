@@ -134,3 +134,5 @@ final color = const Color(0xFFB74093);
     final double statusBarHeight = MediaQuery.of(context).padding.top;
 ```
 
+[参考](https://xjlhhz.com/2018/10/08/20181008flutter%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/)
+
