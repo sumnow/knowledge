@@ -1,6 +1,6 @@
 <!--
 Created: Mon Aug 26 2019 15:22:56 GMT+0800 (China Standard Time)
-Modified: Thu Sep 19 2019 17:55:17 GMT+0800 (China Standard Time)
+Modified: Wed Sep 25 2019 19:26:52 GMT+0800 (China Standard Time)
 -->
 # flutter
 
@@ -128,5 +128,9 @@ brew install --HEAD usbmuxd
 final color = const Color(0xFFB74093); 
 ```
 
- 
+## 获取状态栏的高度
+
+``` dart
+    final double statusBarHeight = MediaQuery.of(context).padding.top;
+```
 
