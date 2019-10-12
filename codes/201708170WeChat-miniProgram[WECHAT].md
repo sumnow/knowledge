@@ -1,10 +1,25 @@
 <!--
 Created: Mon Aug 26 2019 15:17:33 GMT+0800 (China Standard Time)
-Modified: Sun Oct 06 2019 20:49:30 GMT+0800 (China Standard Time)
+Modified: Sat Oct 12 2019 10:59:12 GMT+0800 (China Standard Time)
 -->
 # 关于微信小程序
 
 ## 微信小程序
+
+### wx:for 属性的顺序
+
+``` wxml
+<!-- HTML -->
+<view
+    wx:for="{{list}}"
+    wx:for-item="sitem"
+    data-code="{{sitem.departCityCode}}"
+    class="{{sitem.departCityCode == activeid ? 'active' : ''}}"
+    catchtap="handleList"
+>{{sitem.departCityName}}</view>
+```
+
+小程序里如果将class那行移到 `wx:for` 前面, 会无法成功添加 `active` 类, 因为 `sitem` 此时还没有声明
 
 ### 小程序图片自适应
 
@@ -13,6 +28,14 @@ Modified: Sun Oct 06 2019 20:49:30 GMT+0800 (China Standard Time)
 ``` html
 <image mode="aspectFill" />
 ```
+
+> 保持宽度, 高度自适应 `mode="widthFix"` 
+
+### 小程序里的富文本
+
+`rich-text` 里的dom可以通过class和css修改
+
+> 注意: scoped下的无法获取, 因为scoped还带有一个随机的类名.
 
 ### 微信小程序的生命周期
 
@@ -268,7 +291,7 @@ Page({})
 * mixins中的computed执行顺序和vue的相反, 也即先执行component或者页面的定义的, 然后再执行mixins中的
 * 还有就是延迟的问题, mixins的慢于组件或者当前页面定义的, 如果想在当前页面获取mixins的一些值, 会获取不到
 
-#### wepy数组的问题
+### wepy数组的问题
 
 当父组件以
 
@@ -276,7 +299,7 @@ Page({})
 <child arr.sync="arr"></child>
 ```
 
-形式传递一个数组, 如果该数组是异步获取值
+形式传递一个对象数组, 如果该数组是异步获取值
 
 ``` js
     data: {
