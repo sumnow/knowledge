@@ -1,7 +1,8 @@
 <!--
 Created: Thu Oct 10 2019 19:37:47 GMT+0800 (China Standard Time)
-Modified: Fri Oct 11 2019 09:44:00 GMT+0800 (China Standard Time)
+Modified: Sat Oct 12 2019 14:20:40 GMT+0800 (China Standard Time)
 -->
+
 # 隐私管理
 
 在移动广告领域, 设备的ID 是用来追踪一个人的最重要的标识.
@@ -14,55 +15,58 @@ Modified: Fri Oct 11 2019 09:44:00 GMT+0800 (China Standard Time)
 
 既然移动设备ID 如此的重要, 那我们就来聊一聊, 有哪些ID我们是可以使用的:
 
-一, IMEI
+## 可使用的id
+
+###  IMEI
 IMEI是国际移动设备识别码, 一串15位的号码, 每部通过正规渠道销售的GSM手机均有唯一的IMEI码. IMEI码由GSMA协会统一规划, 并授权各地区组织进行分配, 一般由运营商存储在SIM卡中.
 
-1, IOS体系下: 无法获取
-在IOS5.0以后, 苹果官方就屏蔽了获取IMEI号的接口, 因此后续版本的苹果设备都无法获取到IMEI号.
+* IOS体系下, 无法获取: 在IOS5.0以后, 苹果官方就屏蔽了获取IMEI号的接口, 因此后续版本的苹果设备都无法获取到IMEI号.
 
-2, Andriod体系下: 可以获取
-Andriod的手机设备是允许开发者获取IMEI号的, 但在Andriod6.0以后版本需要得到用户的主动授权才能获取.
+* Andriod体系下, 可以获取, Andriod的手机设备是允许开发者获取IMEI号的, 但在Andriod6.0以后版本需要得到用户的主动授权才能获取.
 
-二, IDFA
+### IDFA
+
 苹果和Google针对移动设备推出的 广告标识符
 
-1, IOS体系下: 可以获取
-在IOS6.0以后版本均可以正常获取IDFA, 但手机用户可以手动还原 以及 手动禁止获取(手动关闭广告追踪, 目前关闭的用户占比较小).
+* IOS体系下, 可以获取, 在IOS6.0以后版本均可以正常获取IDFA, 但手机用户可以手动还原 以及 手动禁止获取(手动关闭广告追踪, 目前关闭的用户占比较小).
 
-2, Andriod体系下: 受限获取
-其实在Andriod2.3以后, Google也学苹果推出了IDFA, 用于跟踪广告的唯一标识, 功能基本上与苹果的IDFA是一样一样的. 但是Google的这个IDFA是需要基于Google Play等基础APP的, 在国内环境下, Google的这些基础APP要么无法访问使用, 要么被手机厂商直接去掉了, 因此Android手机上的IDFA在国内没有起到唯一ID的作用.
+* Andriod体系下, 受限获取, 其实在Andriod2.3以后, Google也学苹果推出了IDFA, 用于跟踪广告的唯一标识, 功能基本上与苹果的IDFA是一样一样的. 但是Google的这个IDFA是需要基于Google Play等基础APP的, 在国内环境下, Google的这些基础APP要么无法访问使用, 要么被手机厂商直接去掉了, 因此Android手机上的IDFA在国内没有起到唯一ID的作用.
 
-三, UDID
+### UDID 
+
 原苹果设备的唯一识别ID, 它是40个字符组成.
 
-1, IOS体系下: 无法获取
-在IOS旧版本可以使用, 但在IOS7.0以后版本苹果停用了此ID, 新版都无法获取.
+* IOS体系下, 无法获取, 在IOS旧版本可以使用, 但在IOS7.0以后版本苹果停用了此ID, 新版都无法获取.
 
-2, Andriod体系下: 无法获取
-Andriod体系没有这个ID.
+* Andriod体系下: 无法获取, Andriod体系没有这个ID.
 
-四, MAC
+### MAC
+
 MAC是指无线网卡地址
 
-1, IOS体系下: 无法获取
-在IOS7.0以后版本IOS设备无法获取到MAC(准确说是会返回一个固定值的MAC, 不具有唯一性).
+* IOS体系下, 无法获取, 在IOS7.0以后版本IOS设备无法获取到MAC(准确说是会返回一个固定值的MAC, 不具有唯一性).
 
-2, Andriod体系下: 可以获取
-APP的开发者可以主动获取当前Andriod手机的MAC地址, 另外 如果是通过 WIFI上网 或者 WIFI AP 探针 也都可以获取到当前设备的MAC地址.
+* Andriod体系下: 可以获取, APP的开发者可以主动获取当前Andriod手机的MAC地址, 另外 如果是通过 WIFI上网 或者 WIFI AP 探针 也都可以获取到当前设备的MAC地址.
 
-五, Andriod_ID
+### Andriod_ID
+
 Andriod_ID 是Andriod设备独有的ID, 每一个新设备系统都会随机的分配一个Andriod_ID, 为64位数字. 如果将设备恢复出厂设置, 刷机, 则会生成一个新的ID.
 
-六, 其它 IDFV, openUDID, UUID
+### 其它 IDFV, openUDID, UUID
+
 IDFV 是苹果设备给单个APP自身用于追踪用户的唯一ID, 这个IDFV在一个APP内是唯一的, 跨APP就不唯一了, 因此只能用于单个APP自身用于追踪用户行为.
 
 openUDID 是非官方提供的API, 在IOS和Andriod体系下都可以使用, 效果一般, 有部分公司也会使用这个ID.
 
 UUID由于Andriod体系ID确实太复杂了, 所以还有厂商会根据UUID生成标准在APP中生成UUID来使用.
 
-无论是苹果还是Google, 都越来越注重用户隐私的保护. 因此可以看到, 只要是涉及到 设备的唯一性且不可更改性的ID, 都慢慢的不会苹果/Google推荐使用, 例如 MAC地址, UDID等, 都是与设备永久性绑定, 一旦泄漏涉嫌侵犯用户隐私的. 所以现在厂商都开始推各类的 广告ID, 例如 IDFA, 可用于追踪广告, 也可由用户自主设置.
+## 总结
 
-## andriod 解决方法
+苹果对于没有用户允许的情况下, 获取用户隐私的行为容忍度很低, 反顾, google, 可能作为世界上最大的广告商, 在保护用户隐私上, 始终有些不太地道.
 
-使用 `xposed` 框架, 安装例如 `xprivacy` 等等, 如果没有root还可以使用例如 `tachi` 这种以虚拟机的形式运行xposed框架的框架.
+但客观来说, 由于安卓系统的开源性, 在合理地改动后, 依然可以很好的保护用户的隐私.
+
+### andriod 解决方法
+
+使用 `xposed` 框架(based on root), 安装例如 `xprivacy` 等等, 如果没有root, 还可以使用例如 [tachi](https://taichi.cool) 这种以虚拟机的形式运行xposed框架的框架.
 
