@@ -1,7 +1,8 @@
 <!--
 Created: Mon Aug 26 2019 15:17:33 GMT+0800 (China Standard Time)
-Modified: Sat Oct 12 2019 10:59:12 GMT+0800 (China Standard Time)
+Modified: Mon Oct 14 2019 10:16:07 GMT+0800 (China Standard Time)
 -->
+
 # 关于微信小程序
 
 ## 微信小程序
@@ -20,6 +21,10 @@ Modified: Sat Oct 12 2019 10:59:12 GMT+0800 (China Standard Time)
 ```
 
 小程序里如果将class那行移到 `wx:for` 前面, 会无法成功添加 `active` 类, 因为 `sitem` 此时还没有声明
+
+### 小程序文字里的空格
+
+`\r\t\r\t` 就会显示空格了
 
 ### 小程序图片自适应
 
