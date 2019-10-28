@@ -1,6 +1,6 @@
 <!--
 Created: Mon Aug 26 2019 15:17:33 GMT+0800 (China Standard Time)
-Modified: Mon Oct 14 2019 10:16:07 GMT+0800 (China Standard Time)
+Modified: Wed Oct 23 2019 10:25:25 GMT+0800 (China Standard Time)
 -->
 
 # 关于微信小程序
@@ -25,6 +25,12 @@ Modified: Mon Oct 14 2019 10:16:07 GMT+0800 (China Standard Time)
 ### 小程序文字里的空格
 
 `\r\t\r\t` 就会显示空格了
+
+### 小程序里scroll-view
+
+如果用一个view来作为滚动容器, 然后点击目录, 滚动到对应模块, 安卓会出现抖动, 用scroll-view不会
+
+还有个问题, 就是如果是滚动操作的同时, 高亮提示目录, 点击目录, 滚动到模块, 这样会有个问题, 在点击目录的时候, 同时出发滚动事件, 需要设置一个阈值, 来控制.
 
 ### 小程序图片自适应
 
