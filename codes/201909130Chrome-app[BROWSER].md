@@ -17,7 +17,7 @@ Modified: Wed Sep 25 2019 19:32:09 GMT+0800 (China Standard Time)
 </script>
 ```
 
-这个方法必须要由用户手动触发, 无法自动触发.
+*注意:这个方法必须要由用户手动触发, 无法自动触发, 推荐引导用户进行点击操作, 或者添加到桌面*
 
 针对不同浏览器不同的适配, 所以有下面的解决方案, 或者使用 Sindre Sorhus 的 Screenfull.js 
 
