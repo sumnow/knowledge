@@ -1,7 +1,8 @@
 <!--
 Created: Mon Aug 26 2019 15:18:18 GMT+0800 (China Standard Time)
-Modified: Mon Aug 26 2019 15:18:18 GMT+0800 (China Standard Time)
+Modified: Mon Nov 11 2019 21:48:14 GMT+0800 (China Standard Time)
 -->
+
 # 黑苹果
 
 ### 准备
@@ -20,17 +21,17 @@ Modified: Mon Aug 26 2019 15:18:18 GMT+0800 (China Standard Time)
 
 安装TransMac , 然后打开, 选中u盘, 右键, Format Disk for Mac
 
-> 这样会把硬盘变成efi引导模式. 
+> 这样会把硬盘变成efi引导模式.
 
-然后 Restore with Disk Image, 选中OSX的镜像, 等待写入. 
+然后 Restore with Disk Image, 选中OSX的镜像, 等待写入.
 
-完成后将efi文件拷贝到u盘目录下覆盖. 
+完成后, 使用可以读取efi分区的软件(直接拷贝会被格式化), 将efi文件拷贝到u盘目录下覆盖.
 
 #### 第二步
 
 重启电脑, 然后u盘启动, 然后进入osx的引导页面
 
-抹掉硬盘, 格式为hfs+ 日志式 格式, 应该是最短的那个带mac格式的. 
+抹掉硬盘, 格式为 `MacOs 日志` hfs+ 日志式 格式, 应该是最短的那个带mac格式的.
 
 然后可以进行安装了, 安装OSX, 这里举例, 安装的磁盘名字为Disk, 
 
@@ -40,13 +41,25 @@ Modified: Mon Aug 26 2019 15:18:18 GMT+0800 (China Standard Time)
 
 #### 第三步
 
-在此, efi文件如果没问题的话, 笔记本多数硬件都是可驱动的了. 
+在此, efi文件如果没问题的话, 笔记本多数硬件都是可驱动的了.
 
-然后重启机器, 每次选择boot macos in disk 就好. 
+然后重启机器, 每次选择boot macos in disk 就好.
 
-如果进来以后, 依然进入旧系统, 说明电脑的efi有问题. 
+如果进来以后, 依然进入旧系统, 说明电脑的efi有问题.
 
-需要在efi分区下, 将之前的efi文件夹拷贝覆盖, 再此重启解决问题. 
+需要在efi分区下, 将之前的efi文件夹拷贝覆盖, 再此重启解决问题.
 
-> efi里包括了声卡显卡等驱动, 其中网卡是及其难以驱动的, 只有极少的网卡有能驱动的幸运. 
+> efi里包括了声卡显卡等驱动, 其中网卡是及其难以驱动的, 只有极少的网卡有能驱动的幸运.
+
+## 问题
+
+如果遇到 安装器资源已过期 这样的提示, 解决方法:
+
+1. 修改bios里的时间到2015年
+
+2. 不插网线
+
+3. 将用不到的硬盘先拔出
+
+4. 将 `fakeSMC` 换成最新的.
 
