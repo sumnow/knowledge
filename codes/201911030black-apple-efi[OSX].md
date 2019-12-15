@@ -1,6 +1,6 @@
 <!--
 Created: Tue Nov 05 2019 20:52:17 GMT+0800 (China Standard Time)
-Modified: Mon Dec 09 2019 18:00:51 GMT+0800 (China Standard Time)
+Modified: Fri Dec 13 2019 10:44:55 GMT+0800 (China Standard Time)
 -->
 
 # 什么是EFI文件?
@@ -49,5 +49,4 @@ EFI系统分区(英语: EFI system partition, 简写为ESP), 是一个FAT或FAT3
 `FakeSmc.kext` 是用来欺骗系统, 让它可以安装在非官方硬件上.
 
 声卡驱动 [AppleALC](https://github.com/acidanthera/AppleALC/tree/master/Resources), 查阅以后, 修改成合适的id值, 注入config, plist
-
 

@@ -1,6 +1,6 @@
 <!--
 Created: Mon Aug 26 2019 15:20:58 GMT+0800 (China Standard Time)
-Modified: Tue Dec 10 2019 16:19:41 GMT+0800 (China Standard Time)
+Modified: Fri Dec 13 2019 09:48:38 GMT+0800 (China Standard Time)
 -->
 
 # 求值策略(Evaluation strategy)
@@ -106,4 +106,5 @@ Haskell是最周知的使用传需求调用求值的语言.
 ### 最小化求值
 
 又被叫做短路求值(Short-circuit evaluation), 是一种逻辑运算符的求值策略. 只有当第一个运算数的值无法确定逻辑运算的结果时, 才对第二个运算数进行求值.
+
 
