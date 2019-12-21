@@ -5,6 +5,8 @@ Modified: Mon Dec 16 2019 17:13:59 GMT+0800 (China Standard Time)
 
 # Etag
 
+[HTTP: Generating ETag Header](https://stackoverflow.com/questions/4533/http-generating-etag-header)
+
 关于 etag 的生成需要满足几个条件
 
 1. 当文件不会更改时，ETag 值保持不变。所以不能单纯使用 inode
