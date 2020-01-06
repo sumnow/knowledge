@@ -1,0 +1,3 @@
+# hackintosh
+
+修改屏幕的刷新率,只需要注入edid即可,使用edid manager 在window下导出报告的二进制,然后将二进制代码注入edid即可按照屏幕参数开启更高的刷新率
