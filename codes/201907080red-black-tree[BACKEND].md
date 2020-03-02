@@ -4,6 +4,8 @@ Modified: Mon Aug 26 2019 15:22:51 GMT+0800 (China Standard Time)
 -->
 # 红黑树
 
+[资料](https://juejin.im/post/5df4aaefe51d45581269a6d2)
+
 ## 二叉查找树
 
 由于红黑树本质上就是一棵二叉查找树, 所以在了解红黑树之前, 咱们先来看下二叉查找树.

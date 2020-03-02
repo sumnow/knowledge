@@ -1,7 +1,8 @@
 <!--
 Created: Thu Sep 12 2019 15:50:19 GMT+0800 (China Standard Time)
-Modified: Thu Sep 12 2019 17:14:07 GMT+0800 (China Standard Time)
+Modified: Fri Dec 13 2019 10:44:52 GMT+0800 (China Standard Time)
 -->
+
 # 【读薄 CSAPP】柒 虚拟内存与动态内存分配
 
 [陆 系统输入输出](./201906130System-input-and-output[SYSTEM].md)
@@ -250,7 +251,7 @@ void foo(int n) {
 
 现在我们可以来看看如何去评测具体的分配算法了. 假设给定一个 malloc 和 free 的请求的序列:
 
-$$ 𝑅_0, 𝑅_1, ..., 𝑅_𝑘, ..., 𝑅_{𝑛−1} $$ 
+$$ 𝑅_0, 𝑅_1, ... , 𝑅_𝑘, ... , 𝑅_{𝑛−1} $$ 
 
 目标是尽可能提高吞吐量以及内存利用率(注意, 这两个目标常常是冲突的)
 
