@@ -1,12 +1,13 @@
 <!--
 Created: Mon Aug 26 2019 15:20:48 GMT+0800 (China Standard Time)
-Modified: Mon Aug 26 2019 15:20:48 GMT+0800 (China Standard Time)
+Modified: Tue Dec 17 2019 15:40:22 GMT+0800 (China Standard Time)
 -->
+
 # 泛型
 
 泛型旨在将类型参数化.
 
-使用有泛型类、 泛型接口、 泛型方法三种方式.
+使用有泛型类, 泛型接口, 泛型方法, 泛型约束等方式.
 
 ## 泛型方法
 
@@ -52,5 +53,21 @@ createArray = function<T>(length: number, value: T): Array<T> {
 }
 ​
 createArray(3, 'x'); // ['x', 'x', 'x']
+```
+
+### 泛型约束
+
+当我们需要一个参数满足具有某些属性的时候, 
+
+``` typescript
+// code
+interface Lengthwise {
+    length: number;
+}
+
+function loggingIdentity<T extends Lengthwise>(arg: T): T {
+    console.log(arg.length); 
+    return arg;
+}
 ```
 
