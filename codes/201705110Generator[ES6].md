@@ -2,13 +2,14 @@
 Created: Mon Aug 26 2019 15:17:20 GMT+0800 (China Standard Time)
 Modified: Mon Aug 26 2019 15:17:20 GMT+0800 (China Standard Time)
 -->
+
 # es6 Generator 
 
 ``` js
 function* helloWorldGenerator() {
-    yield 'hello';
-    yield 'world';
-    return 'ending';
+  yield 'hello';
+  yield 'world';
+  return 'ending';
 }
 var hw = helloWorldGenerator();
 hw.next()
@@ -26,33 +27,54 @@ hw.next()
 3. 如果没有再遇到新的yield表达式, 就一直运行到函数结束, 直到return语句为止, 并将return语句后面的表达式的值, 作为返回的对象的value属性值. 
 4. 如果该函数没有return语句, 则返回的对象的value属性值为undefined. 
 
-Generator 函数可以不用yield表达式, 这时就变成了一个单纯的暂缓执行函数. 
+Generator 函数可以不用yield表达式, 这时就变成了一个单纯的暂缓执行函数.
 
 ``` js
 function* f() {
-    console.log('执行了! ')
+  console.log('执行了! ')
 }
 //如果f不是Generator函数这次赋值就已经执行了。 
 var generator = f();
 setTimeout(function() {
-    generator.next() //只会在这里执行
+  generator.next() //只会在这里执行
 }, 2000);
 ```
 
-使用 `for of` 循环可以直接遍历, 当next第一次done为true时, 就会结束. 
+使用 `for of` 循环可以直接遍历, 当next第一次done为true时, 就会结束.
 
 ``` js
 function* foo() {
-    yield 1;
-    yield 2;
-    yield 3;
-    yield 4;
-    yield 5;
-    return 6;
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+  yield 5;
+  return 6;
 }
 for (let v of foo()) {
-    console.log(v);
+  console.log(v);
 }
 // 1 2 3 4 5
+```
+
+生成器函数还可以配合Symbol.iterator
+
+``` JS
+// JavaScript
+class Foo {
+  constructor(...args) {
+      this.args = args;
+    }
+    *[Symbol.iterator]() {
+      for (let arg of this.args) {
+        yield arg;
+      }
+    }
+}
+
+var a = new Foo('1', '2')
+console.log(a)
+var s = a[Symbol.iterator]
+s.next()
 ```
 
