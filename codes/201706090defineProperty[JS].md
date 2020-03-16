@@ -2,18 +2,20 @@
 Created: Mon Aug 26 2019 15:17:26 GMT+0800 (China Standard Time)
 Modified: Mon Aug 26 2019 15:17:26 GMT+0800 (China Standard Time)
 -->
+
 # defineProperty
 
 先说说getter/setter
 
 ``` js
 const obj = {
-    get prop() {
-        return "Getter";
-    },
-    set prop(value) {
-        console.log("Setter: " + value);
-    }
+  get prop() {
+    return "Getter";
+  },
+  set prop(value) {
+    console.log("Setter: " + value);
+    return value
+  }
 }
 obj.prop // 'Getter'
 obj.prop = '123'
@@ -37,16 +39,18 @@ delte obj.prop
 
 ``` js
 const obj2 = Object.defineProperty({}, 'prop', {
-    get() {
-        return 123
-    },
-    set(value) {
-        console.log('Setter' + value)
-    }
-    enumerable: true,
-    configurable: true
+  get() {
+    return 123
+  },
+  set(value) {
+    console.log('Setter' + value)
+  },
+  enumerable: true,
+  configurable: true
 });
 ```
+
+**注意: 如果想要改写set, 一定不要加 `return` , 否则改动都会无效**
 
 属性特性: 
 
@@ -59,16 +63,16 @@ const obj2 = Object.defineProperty({}, 'prop', {
 | enumerable   | false     |
 | configurable | false     |
 
-注意, 不可以同时指定访问器和值或者可写属性, 也就是说, value和writable 与 get和set 无法同时指定
+**注意, 不可以同时指定访问器和值或者可写属性, 也就是说, value和writable 与 get和set 无法同时指定**
 
 ``` js
 const obj2 = Object.defineProperty({}, 'prop', {
-    value: 'time',
-    writable: true,
-    // get () {return 123}, 
-    // set (value) {console.log('Setter'+value)}, 
-    enumerable: true,
-    configurable: true
+  value: 'time',
+  writable: true,
+  // get () {return 123}, 
+  // set (value) {console.log('Setter'+value)}, 
+  enumerable: true,
+  configurable: true
 });
 // 去掉注释会报错:
 // Uncaught TypeError: Invalid property descriptor. Cannot both specify accessors and a value or writable attribute
@@ -80,29 +84,29 @@ const obj2 = Object.defineProperty({}, 'prop', {
 
 ``` js
 const obj3 = Object.defineProperty({}, {
-    foo: {
-        value: 123,
-        enumerable: true
-    },
-    bar: {
-        value: "abc",
-        enumerable: true
-    }
+  foo: {
+    value: 123,
+    enumerable: true
+  },
+  bar: {
+    value: "abc",
+    enumerable: true
+  }
 })
 ```
 
-Object.create也可以接受第二个参数, 来构造新的实例. 
+Object.create也可以接受第二个参数, 来构造新的实例.
 
 ``` js
 const obj4 = Object.create(Object.prototype, {
-    foo: {
-        value: 123,
-        enumerable: true
-    },
-    bar: {
-        value: "abc",
-        enumerable: true
-    }
+  foo: {
+    value: 123,
+    enumerable: true
+  },
+  bar: {
+    value: "abc",
+    enumerable: true
+  }
 });
 ```
 
@@ -125,24 +129,24 @@ Object.getOwnPropertyDescriptor({}, "toString")
 
 ``` js
 var proto = Object.defineProperties({}, {
-    foo: {
-        value: 1,
-        enumerable: true
-    },
-    bar: {
-        value: 2,
-        enumerable: false
-    }
+  foo: {
+    value: 1,
+    enumerable: true
+  },
+  bar: {
+    value: 2,
+    enumerable: false
+  }
 });
 var obj = Object.create(proto, {
-    baz: {
-        value: 1,
-        enumerable: true
-    },
-    qux: {
-        value: 2,
-        enumerable: false
-    }
+  baz: {
+    value: 1,
+    enumerable: true
+  },
+  qux: {
+    value: 2,
+    enumerable: false
+  }
 });
 Object.getPrototypetypeof(obj)
 //可以获取obj的原型
@@ -152,7 +156,14 @@ obj.hasOwnProperty(propName)
 //obj自身是否有某个属性, 非继承
 ```
 
-可枚举性只影响两种操作, 一是for-in, 一是Object.keys()
+可枚举性只影响四种操作
+
+* for... in循环: 只遍历对象自身的和继承的可枚举的属性.
+* Object.keys(): 返回对象自身的所有可枚举的属性的键名.
+* JSON.stringify(): 只串行化对象自身的可枚举的属性.
+* Object.assign(): 忽略enumerable为false的属性, 只拷贝对象自身的可枚举的属性
+
+实际上, 引入"可枚举"(enumerable)这个概念的最初目的, 就是让某些属性可以规避掉for... in操作, 不然所有内部属性和方法都会被遍历到. 比如, 对象原型的toString方法, 以及数组的length属性, 就通过"可枚举性", 从而避免被for... in遍历到.
 
 ``` js
 for (var x in obj) console.log(x); //不会遍历不可枚举的属性
@@ -181,17 +192,17 @@ Object.getOwnPropertyNames(obj)
 Object.assign(target, ...sources)
 ```
 
-`Object.assign()` 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象. 它将返回目标对象. 
+`Object.assign()` 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象. 它将返回目标对象.
 
-拷贝的值如果时引用属性, 会依然存在引用关系, 应当生成一个新对象来解决这个问题. 
+拷贝的值如果时引用属性, 会依然存在引用关系, 应当生成一个新对象来解决这个问题.
 
 ``` js
 // deep clone 
 obj1 = {
-    a: 0,
-    b: {
-        c: 0
-    }
+  a: 0,
+  b: {
+    c: 0
+  }
 };
 let obj3 = JSON.parse(JSON.stringify(obj1));
 obj1.a = 4;
@@ -201,12 +212,12 @@ console.log(JSON.stringify(obj3)); // { a: 0, b: { c: 0}}
 
 ## Object.entries(obj)
 
-`Object.entries()` 方法返回一个给定对象自身可枚举属性的键值对数组, 其排列与使用 for...in 循环遍历该对象时返回的顺序一致(区别在于 for-in 循环也枚举原型链中的属性). 
+`Object.entries()` 方法返回一个给定对象自身可枚举属性的键值对数组, 其排列与使用 for... in 循环遍历该对象时返回的顺序一致(区别在于 for-in 循环也枚举原型链中的属性).
 
 ``` js
 const obj = {
-    foo: 'bar',
-    baz: 42
+  foo: 'bar',
+  baz: 42
 };
 console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
 ```
@@ -215,8 +226,8 @@ console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
 
 ``` js
 var obj = {
-    foo: "bar",
-    baz: 42
+  foo: "bar",
+  baz: 42
 };
 var map = new Map(Object.entries(obj));
 console.log(map); // Map { foo: "bar", baz: 42 }
@@ -228,9 +239,9 @@ console.log(map); // Map { foo: "bar", baz: 42 }
 
 ``` js
 o = {
-    get foo() {
-        return 17;
-    }
+  get foo() {
+    return 17;
+  }
 };
 d = Object.getOwnPropertyDescriptor(o, 'foo');
 // {
