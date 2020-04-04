@@ -25,7 +25,7 @@ Modified: Thu Apr 02 2020 16:01:14 GMT+0800 (China Standard Time)
 
 ``` JS
 // JavaScript
-function fun() {
+function func() {
   return 'hello'
 }
 func
