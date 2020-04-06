@@ -4,7 +4,7 @@ Modified: Mon Aug 26 2019 15:22:53 GMT+0800 (China Standard Time)
 -->
 # post请求
 
-## application/x-www-form-urlencoded
+## application/x-www-form-urlencoded 
 
 这应该是最常见的 POST 提交数据的方式了. 浏览器的原生 `<form>` 表单, 如果不设置 enctype 属性, 那么最终就会以 `application/x-www-form-urlencoded` 方式提交数据. 请求类似于下面这样(无关的请求头在本文中都省略掉了):
 
