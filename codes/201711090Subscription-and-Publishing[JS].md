@@ -173,3 +173,92 @@ school.emit('exam')
 
 应用十分广泛, 例如webpack里的hook, promise里的then等等都是依托发布订阅模式的
 
+
+
+``` JS
+// JavaScript
+
+
+// 订阅发布模式
+// ----
+
+function observer(data) {
+    if (data instanceof Object) {
+        new Observe(data)
+    } else {
+        return;
+    }
+}
+
+class Observe {
+    constructor(data) {
+        this.handler(data)
+    }
+    handler(data) {
+        const arr = Object.keys(data)
+        for (let val of arr) {
+            defineReactive(data, val, data[val])
+        }
+    }
+}
+
+function defineReactive(data, key, val) {
+    const dep = new Dep()
+    Object.defineProperty(data, key, {
+        get() {
+            dep.addSub()
+            return val
+        },
+        set(newVal) {
+            val = newVal
+            dep.notify();
+        }
+    })
+
+}
+let target = null
+class Dep {
+    constructor() {
+        this.subs = []
+    }
+    addSub() {
+        if (target && !this.subs.includes(target)) {
+            this.subs.push(target)
+        }
+    }
+    notify() {
+        this.subs.forEach(({ fn }) => fn());
+    }
+}
+
+function pushTarget(watch) {
+    target = watch
+}
+
+class Watch {
+    constructor(exp, fn) {
+        this.exp = exp
+        this.fn = fn
+        pushTarget(this)
+        data[exp]
+    }
+}
+
+var data = {
+    a: 1,
+    b: 2,
+    sum: 3
+}
+observer(data)
+
+
+
+new Watch('a', () => {
+    data.sum = data.a + data.b
+})
+
+new Watch('b', () => {
+    data.sum = data.a + data.b
+})
+// ----
+```
