@@ -13,5 +13,4 @@ reduce 的默认值
 
 手写一个call bind apply
 
-不定参数的颗粒化的那个题目
 
