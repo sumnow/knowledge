@@ -1,6 +1,6 @@
 <!--
 Created: Fri Dec 28 2018 17:59:19 GMT+0800 (China Standard Time)
-Modified: Wed Apr 08 2020 19:41:44 GMT+0800 (China Standard Time)
+Modified: Wed Apr 08 2020 19:55:07 GMT+0800 (China Standard Time)
 -->
 
 # 私有变量
@@ -47,7 +47,7 @@ class Example {
     this.getName = function() {
       return _private
     }
-
+    // 也可以包装一下用init()来执行this.getName = function(){}等等
   }
 }
 
