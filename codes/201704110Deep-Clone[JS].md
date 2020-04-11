@@ -1,6 +1,6 @@
 <!--
 Created: Mon Aug 26 2019 15:15:20 GMT+0800 (China Standard Time)
-Modified: Fri Apr 10 2020 16:39:54 GMT+0800 (China Standard Time)
+Modified: Sat Apr 11 2020 18:11:57 GMT+0800 (China Standard Time)
 -->
 
 # 深拷贝 深克隆
@@ -97,6 +97,46 @@ function DeepCopy(obj) {
     return result;
   }
   return dp(obj);
+}
+```
+
+## 处理嵌套层级特别深的对象
+
+嵌套很深的时候, 会有很深的函数调用栈, 这样容易栈溢出, 所以我们采用while循环改写即可.
+
+``` JS
+// JavaScript
+
+function fn1(obj) {
+  const result = {}
+  const objArr = [{
+    parent: result,
+    key: '',
+    data: obj
+  }]
+  while (objArr.length) {
+    l = objArr.pop()
+    const parent = l.parent;
+    const key = l.key;
+    const data = l.data;
+    let o = parent;
+    if (key != '') {
+      o[key] = data instanceof Array ? [] : {}
+      o = o[key]
+    }
+    for (i in data) {
+      if (typeof data[i] != 'object') {
+        o[i] = data[i]
+      } else {
+        objArr.push({
+          parent: o,
+          key: i,
+          data: data[i]
+        })
+      }
+    }
+  }
+  return result
 }
 ```
 
