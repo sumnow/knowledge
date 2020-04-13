@@ -1,9 +1,9 @@
 <!--
 Created: Fri Apr 10 2020 16:42:59 GMT+0800 (China Standard Time)
-Modified: Fri Apr 10 2020 17:15:42 GMT+0800 (China Standard Time)
+Modified: Sat Apr 11 2020 18:10:07 GMT+0800 (China Standard Time)
 -->
 
-# 关于递归爆战
+# 关于递归爆栈
 
 函数 caller 运行时, 调用其他函数 called , js引起会在调用栈中新开一个调用帧存储作用域和上下文信息, 而caller的调用帧信息仍需要保存. 而内存中调用栈存储信息有限, 递归情况下, 如果递归层次过深会导致调用栈耗光而引起stack overflow —— 爆栈.
 
