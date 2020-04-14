@@ -56,6 +56,8 @@ test文件中是 hello 字符, 以及 hello_(space), 仅仅一个空格, 让hash
 
 而当使用哈希表进行查询的时候, 就是再次使用哈希函数将key转换为对应的数组下标, 并定位到该空间获取value, 如此一来, 就可以充分利用到数组的定位性能进行数据定位.
 
+`hashMap` 广泛使用在多个数据结构中, 例如python的字典, go的map
+
 ### hash function
 
 hash函数的构造在hashMap中显得十分重要, 说几种常见的
