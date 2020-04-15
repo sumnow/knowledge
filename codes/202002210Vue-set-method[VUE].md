@@ -1,6 +1,6 @@
 <!--
 Created: Mon Feb 10 2020 11:27:54 GMT+0800 (China Standard Time)
-Modified: Tue Mar 03 2020 16:10:16 GMT+0800 (China Standard Time)
+Modified: Wed Apr 15 2020 15:55:06 GMT+0800 (China Standard Time)
 -->
 
 # Vue set 方法
@@ -11,8 +11,7 @@ Modified: Tue Mar 03 2020 16:10:16 GMT+0800 (China Standard Time)
 
 这么写就可以了 `this.$set(this.data, "key", value')` , 如果使用Vue.set就要这么写了
 
-``` JS
-// JavaScript
+``` TS
 
 var vm = new Vue({
     el: '#test',
@@ -31,7 +30,7 @@ Vue.set(vm.info, 'sex', '男');
 
 两者使用的是同一个函数.
 
-``` JS
+``` TS
 // JavaScript
 
 function set(target: Array < any > | Object, key: any, val: any): any {
