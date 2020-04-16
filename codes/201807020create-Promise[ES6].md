@@ -1,9 +1,163 @@
 <!--
 Created: Mon Aug 26 2019 15:20:08 GMT+0800 (China Standard Time)
-Modified: Wed Apr 01 2020 09:17:48 GMT+0800 (China Standard Time)
+Modified: Thu Apr 16 2020 18:17:38 GMT+0800 (China Standard Time)
 -->
 
 # 从头写个Promise
+
+思路, 首先看一个例子
+
+``` JS
+// JavaScript
+new Promise((res) => {
+  res('hello')
+}).then(e => {
+  console.log(e + ' world') // hello world
+}).then(e => {
+  console.log(e + '!') // undefined!
+})
+```
+
+## 写个形式
+
+照着样子写一个
+
+``` JS
+// JavaScript
+
+function mypromise(fn) {
+  this.value = '';
+  const self = this;
+  // 方法不要像我这样写,应该挂到property下
+  this.then = function(fnl) {
+    fnl(self.value)
+    return this
+  }
+  // 保存值用来传递给then
+  this.resolve = function(e) {
+    self.value = e;
+  }
+  fn(this.resolve);
+}
+
+// hello world 
+// hello!
+// 这里有问题,因为then里返回了this 
+```
+
+## 考虑异步的问题
+
+``` JS
+// JavaScript
+var p = new mypromise((res) => {
+  setTimeout(() => {
+    res('hello')
+    console.log('12')
+  }, 1000);
+})
+
+p.then(e => {
+  console.log(e + ' world')
+}).then(e => {
+  console.log(e + '!')
+})
+```
+
+上面写的一旦在 `promise` 里包裹一个定时器, 就失去了不会把value传递给then, 会先用空的value执行then, 最后再输出定时器的改变
+
+为了解决这个问题, 我们就需要一个状态管理, 以及发布订阅模式, 就是把then作为订阅事件, resolve做为触发点.
+
+``` JS
+// JavaScript
+
+function mypromise(fn) {
+  this.status = 'pending';
+  this.value = '';
+  this.stack = [];
+  const self = this;
+  this.then = function(fnl) {
+    if (self.status != 'onfulfilled') {
+      self.stack.push(fnl)
+    }
+    // fnl(self.value)
+    return self
+  }
+  this.resolve = function(e) {
+    if (self.status == 'pending') {
+      self.status = 'onfulfilled'
+      self.value = e;
+      self.stack.forEach(e => {
+        e(self.value)
+      })
+    }
+  }
+  fn(this.resolve);
+}
+```
+
+## 实现异步调用
+
+只需要在resolve里, 调用队列使用一个定时器, 同时考虑是否可能会返回mypromise
+
+``` JS
+// JavaScript
+function mypromise(fn) {
+  this.status = 'pending';
+  this.value = '';
+  this.stack = [];
+  const self = this;
+  this.then = function(fnl) {
+    fnl = typeof fnl === 'function' ? fnl : function(v) {
+      return v;
+    };
+    if (self.status != 'onfulfilled') {
+      let _p = new mypromise(res => {
+        self.stack.push(function(v) {
+          var x = fnl(self.value)
+          res(x)
+        })
+      })
+      return _p
+    } else {
+      let _p = new mypromise(res => {
+        console.log(self.value)
+        var x = fnl(self.value)
+        if (x instanceof mypromise) {
+          x.then(function(data) {
+            resolve(data)
+          });
+          return;
+        }
+        res(x)
+      })
+      return _p
+    }
+  }
+  this.resolve = function(e) {
+    if (e instanceof mypromise) {
+      return e.then(self.resolve);
+    }
+    setTimeout(() => {
+      if (self.status == 'pending') {
+        self.status = 'onfulfilled'
+        self.value = e;
+        self.stack.forEach(e => {
+          e(self.value)
+        })
+      }
+    })
+  }
+  fn(self.resolve);
+}
+```
+
+就是这样, 下面考虑一下race, all等等
+
+race方法是当有一个返回就立刻返回
+
+all方法是当所有都返回就立刻返回
+
+## 其他的方法
 
 [text](https://blog.csdn.net/weixin_34326558/article/details/88817737)
 
