@@ -1,6 +1,6 @@
 <!--
 Created: Wed Apr 22 2020 16:17:39 GMT+0800 (China Standard Time)
-Modified: Wed Apr 22 2020 16:59:06 GMT+0800 (China Standard Time)
+Modified: Thu Apr 23 2020 11:24:32 GMT+0800 (China Standard Time)
 -->
 
 # 建造者模式
@@ -38,6 +38,9 @@ Modified: Wed Apr 22 2020 16:59:06 GMT+0800 (China Standard Time)
 
 ``` Go
 // Go
+package main
+
+import "fmt"
 
 // 产品
 type Product struct{
@@ -96,3 +99,11 @@ func main(){
     // {123, 456}
 }
 ```
+
+建造者模式如果在只有一个具体建造者的话, 那抽象建造者就可以省略了, 侧重点在于对一个初始产品的一系列处理, 
+
+建造者(Builder)模式创建的是复杂对象, 其产品的各个部分经常面临着剧烈的变化, 但将它们组合在一起的算法却相对稳定, 所以它通常在以下场合使用. 
+
+创建的对象较复杂, 由多个部件构成, 各部件面临着复杂的变化, 但构件间的建造顺序是稳定的. 
+
+创建复杂对象的算法独立于该对象的组成部分以及它们的装配方式, 即产品的构建过程和最终的表示是独立的. 
