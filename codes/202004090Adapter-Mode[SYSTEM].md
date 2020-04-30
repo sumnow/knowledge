@@ -1,6 +1,6 @@
 <!--
 Created: Fri Apr 24 2020 18:03:09 GMT+0800 (China Standard Time)
-Modified: Sat Apr 25 2020 22:45:50 GMT+0800 (China Standard Time)
+Modified: Mon Apr 27 2020 13:39:27 GMT+0800 (China Standard Time)
 -->
 
 # 适配器模式
@@ -100,8 +100,8 @@ type ObjectAdapter struct {
 
 // 对象适配器的方法
 func (obAdpter *ObjectAdapter) call(){
-	 ad := Adaptee{}
-	 ad.specialCall()
+	ad := Adaptee{}
+	ad.specialCall()
 }
 
 func main() {
@@ -121,3 +121,67 @@ func main() {
 ## 模式的扩展
 
 适配器模式(Adapter)可扩展为双向适配器模式, 双向适配器类既可以把适配者接口转换成目标接口, 也可以把目标接口转换成适配者接口
+
+``` Go
+// Go
+package main
+
+import "fmt"
+
+// 目标接口
+type TwoWayTargetInterface interface {
+	call()
+}
+
+type TwoWayTarget struct {
+}
+
+func (tt *TwoWayTarget) call () {
+	fmt.Println("目标方法")
+}
+
+// 适配者接口
+type TwoWayAdapteeInterface interface {
+	specialCall()
+}
+type TwoWayAdaptee struct {
+}
+func (ta *TwoWayAdaptee) specialCall () {
+	fmt.Println("适配方法")
+}
+
+// 双向适配器
+type TwoWayAdapter struct {
+	target TwoWayTarget
+	adaptee TwoWayAdaptee
+}
+
+func (twAdpter *TwoWayAdapter) call(){
+	twAdpter.adaptee.specialCall()
+}
+func (twAdpter *TwoWayAdapter) specialCall(){
+	twAdpter.target.call()
+}
+func main() {
+	// 适配者调用目标方法
+	adpte := TwoWayAdaptee{}
+	targ := TwoWayTarget{}
+	ad := TwoWayAdapter{targ,adpte}
+	fmt.Println("目标调用适配者方法")
+	ad.call()
+	fmt.Println("适配者调用目标方法")
+	ad.specialCall()
+}
+// 目标调用适配者方法
+// 适配方法
+// 适配者调用目标方法
+// 目标方法
+
+```
+
+适配器模式很形象的例子就是国标插头, 插头转换器, 和欧标插座, 插头的功能是取电, 插座的作用是供电, 但是因为标准不同, 没法直接调用, 因此需要转换器处理取电方法, 连接到供电方法上. 再例如脏数据, 需要处理才能使用, 那么处理脏数据的函数, 其实就是一个简单实现的适配器模式
+
+
+
+
+
