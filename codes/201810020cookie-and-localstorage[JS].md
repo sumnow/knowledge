@@ -1,6 +1,6 @@
 <!--
 Created: Mon Aug 26 2019 15:20:26 GMT+0800 (China Standard Time)
-Modified: Mon Aug 26 2019 15:20:26 GMT+0800 (China Standard Time)
+Modified: Fri May 08 2020 19:12:56 GMT+0800 (China Standard Time)
 -->
 
 # cookie localstorage sessionstorage
@@ -20,6 +20,21 @@ Cookie适合存储一些session信息:
 3. cookie会每次随http请求一起发送, 浪费带宽
 4. cookie设置了domain可以在子域共享跨域
 5. 可以使用爬虫抓取、
+
+### 关于domain跨域
+
+不同协议, 不同域名, 不同端口被视为跨域, 但cookie为了同一服务商的登录, 例如 `www.dd.com` , `aaa.dd.com` , 是同一个服务商, 可以依赖这个做一个消息的互通.
+
+### 第三方Cookie
+
+Cookie 是您访问过的网站创建的文件, 用于存储浏览信息, 例如您的网站偏好设置或个人资料信息. 共有两种类型的 Cookie: 
+
+1. 第一方 Cookie 是由地址栏中列出的网站域设置的 Cookie, 
+2. 而第三方 Cookie 来自在网页上嵌入广告或图片等项的其他域来源. 第一方Cookie和第三方Cookie, 都是网站在客户端上存放的一小块数据. 他们都由某个域存放, 只能被这个域访问. 他们的区别其实并不是技术上的区别, 而是使用方式上的区别.
+
+比如, 访问A这个网站, 这个网站设置了一个Cookie, 这个Cookie也只能被A这个域下的网页读取, 这就是第一方Cookie. 如果还是访问A这个网站, 网页里有用到B网站的一张图片, 浏览器在B请求图片的时候, B设置了一个Cookie, 那这个Cookie只能被B这个域访问, 反而不能被A这个域访问, 因为对我们来说, 我们实际是在访问A这个网站被设置了一个B这个域下的Cookie, 所 以叫第三方Cookie.
+
+目前浏览器已经开始禁用第三方的cookie了, 可以看[这里](https://juejin.im/post/5e97124df265da47b27d97ff)
 
 ### httponly
 
@@ -50,4 +65,3 @@ sessionstorage适合存储浏览状态等:
 2. 有效期为到浏览器关闭
 3. 不会随http请求一起发送
 4. 不能被爬虫读取
-
