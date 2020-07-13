@@ -181,3 +181,6 @@ declare function interfaced(arg: Interface): Interface;
 
 另一方面, 如果你无法通过接口来描述一个类型并且需要使用联合类型或元组类型, 这时通常会使用类型别名.
 
+## 高级类型
+
+[高级类型](http://aprilandjan.github.io/typescript/2018/12/25/advanced-types-in-typescript/)
