@@ -1,7 +1,8 @@
 <!--
 Created: Mon Aug 26 2019 15:22:26 GMT+0800 (China Standard Time)
-Modified: Mon Aug 26 2019 15:22:30 GMT+0800 (China Standard Time)
+Modified: Sat Aug 22 2020 18:32:14 GMT+0800 (China Standard Time)
 -->
+
 # 概述
 
 本文档的内容是package.json配置里边的属性含义. package.json必须是一个严格的json文件, 而不仅仅是js里边的一个对象. 其中很多属性可以通过npm-config来生成. 
@@ -18,11 +19,11 @@ name会成为url的一部分, 不能含有url非法字符
 
 下面是官网文档的一些建议: 
 
-1. 不要使用和node核心模块一样的名称
+01. 不要使用和node核心模块一样的名称
 2. name中不要含有"js"和"node". It's assumed that it's js, since you're writing a package.json file, and you can specify the engine using the "engines" field. (See below.)
-3. name属性会成为模块url、 命令行中的一个参数或者一个文件夹名称, 任何非url安全的字符在name中都不能使用, 也不能以"_"或"."开头
+03. name属性会成为模块url、 命令行中的一个参数或者一个文件夹名称, 任何非url安全的字符在name中都不能使用, 也不能以"_"或"."开头
 4. name属性也许会被写在require()的参数中, 所以最好取个简短而语义化的值. 
-5. 创建一个模块前可以先到后边的网址查查name是否已经被占用. https://www.npmjs.com/
+05. 创建一个模块前可以先到后边的网址查查name是否已经被占用. https://www.npmjs.com/
 6. name属性可以有一些前缀如 e.g. @myorg/mypackage. 在npm-scope(7)的文档中可以看到详细说明
 
 ## version
@@ -47,8 +48,8 @@ version必须可以被npm依赖的一个node-semver模块解析. 具体规则见
 
 ``` js
 {
-    "url": "https://github.com/owner/project/issues",
-    "email": "project@hostname.com"
+  "url": "https://github.com/owner/project/issues",
+  "email": "project@hostname.com"
 }
 ```
 
@@ -63,9 +64,9 @@ url和email可以任意填或不填, 如果只填一个, 可以直接写成一�
 
 ``` js
 {
-    "name": "Barney Rubble",
-    "email": "b@rubble.com",
-    "url": "http://barnyrubble.tumblr.com/"
+  "name": "Barney Rubble",
+  "email": "b@rubble.com",
+  "url": "http://barnyrubble.tumblr.com/"
 }
 ```
 
@@ -85,9 +86,9 @@ main属性指定了程序的主入口文件. 意思是, 如果你的模块被命
 
 ``` js
 {
-    "bin": {
-        "myapp": "./cli.js"
-    }
+  "bin": {
+    "myapp": "./cli.js"
+  }
 }
 ```
 
@@ -95,9 +96,9 @@ main属性指定了程序的主入口文件. 意思是, 如果你的模块被命
 
 ``` js
 {
-    "name": "my-program",
-    "version": "1.2.5",
-    "bin": "./path/to/program"
+  "name": "my-program",
+  "version": "1.2.5",
+  "bin": "./path/to/program"
 }
 ```
 
@@ -105,11 +106,11 @@ main属性指定了程序的主入口文件. 意思是, 如果你的模块被命
 
 ``` js
 {
-    "name": "my-program",
-    "version": "1.2.5",
-    "bin": {
-        "my-program": "./path/to/program"
-    }
+  "name": "my-program",
+  "version": "1.2.5",
+  "bin": {
+    "my-program": "./path/to/program"
+  }
 }
 ```
 
@@ -119,11 +120,11 @@ main属性指定了程序的主入口文件. 意思是, 如果你的模块被命
 
 ``` js
 {
-    "name": "foo",
-    "version": "1.2.3",
-    "description": "A packaged foo fooer for fooing foos",
-    "main": "foo.js",
-    "man": "./man/doc.1"
+  "name": "foo",
+  "version": "1.2.3",
+  "description": "A packaged foo fooer for fooing foos",
+  "main": "foo.js",
+  "man": "./man/doc.1"
 }
 ```
 
@@ -131,11 +132,11 @@ main属性指定了程序的主入口文件. 意思是, 如果你的模块被命
 
 ``` js
 {
-    "name": "foo",
-    "version": "1.2.3",
-    "description": "A packaged foo fooer for fooing foos",
-    "main": "foo.js",
-    "man": ["./man/foo.1", "./man/bar.1"]
+  "name": "foo",
+  "version": "1.2.3",
+  "description": "A packaged foo fooer for fooing foos",
+  "main": "foo.js",
+  "man": ["./man/foo.1", "./man/bar.1"]
 }
 ```
 
@@ -143,11 +144,11 @@ main属性指定了程序的主入口文件. 意思是, 如果你的模块被命
 
 ``` js
 {
-    "name": "foo",
-    "version": "1.2.3",
-    "description": "A packaged foo fooer for fooing foos",
-    "main": "foo.js",
-    "man": ["./man/foo.1", "./man/foo.2"]
+  "name": "foo",
+  "version": "1.2.3",
+  "description": "A packaged foo fooer for fooing foos",
+  "main": "foo.js",
+  "man": ["./man/foo.1", "./man/foo.2"]
 }
 ```
 
@@ -183,13 +184,13 @@ CommonJs通过directories来制定一些方法来描述模块的结构, 看看np
 
 ``` js
 "repository": {
-    "type": "git",
-    "url": "https://github.com/npm/npm.git"
+  "type": "git",
+  "url": "https://github.com/npm/npm.git"
 }
 
 "repository": {
-    "type": "svn",
-    "url": "https://v8.googlecode.com/svn/trunk/"
+  "type": "svn",
+  "url": "https://v8.googlecode.com/svn/trunk/"
 }
 ```
 
@@ -223,10 +224,10 @@ http.createServer(...).listen(process.env.npm_package_config_port)
 
 ``` js
 {
-    "name": "foo",
-    "config": {
-        "port": "8080"
-    }
+  "name": "foo",
+  "config": {
+    "port": "8080"
+  }
 }
 ```
 
@@ -236,25 +237,25 @@ dependencies属性是一个对象, 配置模块依赖的模块列表, key是模�
 
 ## version 精确匹配版本
 
-1. \> version 必须大于某个版本
+01. `\>version` 必须大于某个版本
 
-2. \>= version 大于等于
+02. `\>=version` 大于等于
 
-3. < version 小于
+03. `<version` 小于
 
-4. <=versionversion 小于
+04. `<=versionversion` 小于
 
-5. ~version "约等于", 具体规则详见semver文档
+05. `~version` "约等于", 具体规则详见semver文档
 
-6. ^version "兼容版本"具体规则详见semver文档
+06. `^version` "兼容版本"具体规则详见semver文档
 
-7. 1.2.x 仅一点二点几的版本
+07. `1.2.x` 仅一点二点几的版本
 
-8. http://… 见下面url作为denpendencies的说明
+08. http://… 见下面url作为denpendencies的说明
 
-任何版本
+09. `latest` 即为最新版本
 
-"" 空字符, 和*相同
+10. 任何版本 "" 空字符, 和*相同
 
 version1 - version2 相当于 >=version1 <=version2.
 
@@ -266,24 +267,24 @@ user/repo See 见下面GitHub仓库的说明
 
 tag 发布的一个特殊的标签, 见npm-tag的文档 https://docs.npmjs.com/getting-started/using-tags
 
-path/path/path 见下面本地模块的说明下面的写法都是可以的:
+`path/path/path` 见下面本地模块的说明下面的写法都是可以的:
 
 ``` js
 {
-    "dependencies": {
-        "foo": "1.0.0 - 2.9999.9999",
-        "bar": ">=1.0.2 <2.1.2",
-        "baz": ">1.0.2 <=2.3.4",
-        "boo": "2.0.1",
-        "qux": "<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0",
-        "asd": "http://asdf.com/asdf.tar.gz",
-        "til": "~1.2",
-        "elf": "~1.2.3",
-        "two": "2.x",
-        "thr": "3.3.x",
-        "lat": "latest",
-        "dyl": "file:../dyl"
-    }
+  "dependencies": {
+    "foo": "1.0.0 - 2.9999.9999",
+    "bar": ">=1.0.2 <2.1.2",
+    "baz": ">1.0.2 <=2.3.4",
+    "boo": "2.0.1",
+    "qux": "<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0",
+    "asd": "http://asdf.com/asdf.tar.gz",
+    "til": "~1.2",
+    "elf": "~1.2.3",
+    "two": "2.x",
+    "thr": "3.3.x",
+    "lat": "latest",
+    "dyl": "file:../dyl"
+  }
 }
 ```
 
@@ -296,10 +297,10 @@ Git url可以像下面一样:
 
 ``` js
 git: //github.com/user/project.git#commit-ish
-    git + ssh: //user@hostname:project.git#commit-ish
-    git + ssh: //user@hostname/project.git#commit-ish
-    git + http: //user@hostname/project/blah.git#commit-ish
-    git + https: //user@hostname/project/blah.git#commit-ish
+  git + ssh: //user@hostname:project.git#commit-ish
+  git + ssh: //user@hostname/project.git#commit-ish
+  git + http: //user@hostname/project/blah.git#commit-ish
+  git + https: //user@hostname/project/blah.git#commit-ish
 ```
 
 commit-ish 可以是任意标签, 哈希值, 或者可以检出的分支, 默认是master分支. 
@@ -310,12 +311,12 @@ commit-ish 可以是任意标签, 哈希值, 或者可以检出的分支, 默认
 
 ``` js
 {
-    "name": "foo",
-    "version": "0.0.0",
-    "dependencies": {
+  "name": "foo",
+  "version": "0.0.0",
+  "dependencies": {
 
-        "express": "visionmedia/express",
-        "mocha": "visionmedia/mocha#4727d357ea"
+    "express": "visionmedia/express",
+    "mocha": "visionmedia/mocha#4727d357ea"
 ```
 
 ``` js
@@ -329,18 +330,18 @@ npm2.0.0版本以上可以提供一个本地路径来安装一个本地的模块
 
 ``` js
 .. / foo / bar~/foo/bar
-    . / foo / bar /
-    foo / bar
+  . / foo / bar /
+  foo / bar
 ```
 
 package.json 生成的相对路径如下:
 
 ``` js
 {
-    "name": "baz",
-    "dependencies": {
+  "name": "baz",
+  "dependencies": {
 
-        "bar": "file:../foo/bar"
+    "bar": "file:../foo/bar"
 ```
 
 ``` js
@@ -356,19 +357,19 @@ package.json 生成的相对路径如下:
 
 ``` js
 {
-    "name": "ethopia-waza",
-    "description": "a delightfully fruity coffee varietal",
-    "version": "1.2.3",
-    "devDependencies": {
+  "name": "ethopia-waza",
+  "description": "a delightfully fruity coffee varietal",
+  "version": "1.2.3",
+  "devDependencies": {
 
-        "coffee-script": "~1.6.3"
+    "coffee-script": "~1.6.3"
 ```
 
 ``` js
 },
 "scripts": {
 
-    "prepublish": "coffee -o lib/ -c src/waza.coffee"
+  "prepublish": "coffee -o lib/ -c src/waza.coffee"
 ```
 
 ``` js
@@ -385,11 +386,11 @@ prepublish脚本会在发布之前运行, 因此用户在使用之前就不用�
 
 ``` js
 {
-    "name": "tea-latte",
-    "version": "1.3.5",
-    "peerDependencies": {
+  "name": "tea-latte",
+  "version": "1.3.5",
+  "peerDependencies": {
 
-        "tea": "2.x"
+    "tea": "2.x"
 ```
 
 ``` js
@@ -409,13 +410,13 @@ prepublish脚本会在发布之前运行, 因此用户在使用之前就不用�
 
 ``` js
 try {
-    var foo = require('foo')
-    var fooVersion = require('foo/package.json').version
+  var foo = require('foo')
+  var fooVersion = require('foo/package.json').version
 } catch (er) {
-    foo = null
+  foo = null
 }
 if (notGoodFooVersion(fooVersion)) {
-    foo = null
+  foo = null
 }
 
 // .. then later in your program ..
@@ -423,7 +424,7 @@ if (notGoodFooVersion(fooVersion)) {
 
 ``` js
 if (foo) {
-    foo.doFooThings()
+  foo.doFooThings()
 }
 ```
 
@@ -461,7 +462,23 @@ optionalDependencies 中的配置会覆盖dependencies中的配置, 最好只在
 
 npm设置了一些默认参数, 如: "scripts": {"start": "node server.js"}如果模块根目录下有一个server.js文件, 那么npm start会默认运行这个文件. "scripts":{"preinstall": "node-gyp rebuild"}如果模块根目录下有binding.gyp, npm将默认用node-gyp来编译preinstall的脚本"contributors": […]若模块根目录下有AUTHORS 文件, 则npm会按Name (url)格式解析每一行的数据添加到contributors中, 可以用#添加行注释
 
+## cross-env
+
+`cross-env` 是用来设置环境变量的
+
+``` JSON
+// JavaScript
+cross-env NODE_ENV=sit webpack config.js
+```
+
+但是有时候会无效, 例如:
+
+``` BASH
+# BASH
+cross-env NODE_ENV=sit webpack && npm run serve
+```
+
+原因是因为 `cross-env` 里不能有 `&&` , 会导致后一个语句里没有 `NODE_ENV`
 ---
 
 [参考](https://zoucz.com/blog/2016/02/17/npm-package/)
-
