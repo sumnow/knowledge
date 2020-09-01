@@ -1,7 +1,8 @@
 <!--
 Created: Mon Aug 26 2019 15:22:42 GMT+0800 (China Standard Time)
-Modified: Mon Aug 26 2019 15:22:42 GMT+0800 (China Standard Time)
+Modified: Tue Sep 01 2020 19:54:52 GMT+0800 (China Standard Time)
 -->
+
 # nginx 配置
 
 ## 配置一览
@@ -295,3 +296,156 @@ http
 }
 ```
 
+## Nginx的location语法
+
+### 普通匹配
+
+location = URI { configuration } # 精确匹配
+
+location ^~ URI { configuration } # 非正则匹配, 表示URI以某个常规字符串开头
+
+location [space] URI { configuration} # 前缀匹配, 匹配后, 继续更长前缀匹配和正则匹配.
+ 
+ 
+
+### 正则匹配
+
+location ~ URI { configuration } # 区分大小写匹配
+
+location ~* URI { configuration } # 不区分大小写匹配
+
+location !~ URI { configuration } # 区分大小写不匹配
+
+location !~* URI { configuration } # 不区分大小写不匹配
+
+### 内部重定向
+
+location @name { configuration } # 定义一个location, 用于处理内部重定向
+各个匹配之间的优先级顺序为:
+
+(location =) > (location 完整路径) > (location ^~ 路径) > (location ~, ~* 正则顺序) > (location 部分起始路径) > (/)
+
+###  location正则表达式书写示例
+
+#### 等号( = )
+
+表示完全匹配规则才执行操作
+
+``` BASH
+# BASH
+location = /index{
+	[configuration A]
+}
+```
+
+当URL为 `http://{domain-name}/index` 时, 才会执行配置中操作.
+
+#### 波浪号 ( ~ )
+
+表示执行正则匹配, 但区分大小写
+
+location ~ /page/\d{1, 2} {
+
+    [ configuration B ]
+
+}
+URL为http://{domain-name}/page/1匹配结尾数字为1~99时, 配置生效
+
+#### 波浪号与星号( ~* )
+
+表示执行正则匹配, 但不区分大小写
+
+``` BASH
+# BASH
+location ~* /\.(jpg|jpeg|gif)$ {
+    [ configuration C ]
+}
+```
+
+匹配所有URL以.jpg、.jpeg、.gif结尾时, 配置生效
+
+#### 脱字符与波浪号( ^~ )
+
+表示普通字符匹配, 前缀匹配有效, 配置生效
+
+``` BASH
+# BASH
+location ^~ /images/ {
+	[ cofigurations D ]
+}
+```
+
+URL为http://{domain_name}/images/1.gif时, 配置生效.
+
+####  @符号
+
+定义一个location, 用于处理内部重定向
+
+``` BASH
+# BASH
+location @error {
+    proxy_pass http://error;
+}
+error_page 404 @error;
+```
+
+#### 一个综合示例
+
+``` BASH
+# BASH
+
+location  = / {
+  # 精确匹配 / ，主机名后面不能带任何字符串
+  [ configuration A ] 
+}
+
+location  / {
+  # 因为所有的地址都以 / 开头，所以这条规则将匹配到所有请求
+  # 但是正则和最长字符串会优先匹配
+  [ configuration B ] 
+}
+
+location /documents/ {
+  # 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索
+  # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条
+  [ configuration C ] 
+}
+
+location ~ /documents/Abc {
+  # 匹配任何以 /documents/ 开头的地址，匹配符合以后，还要继续往下搜索
+  # 只有后面的正则表达式没有匹配到时，这一条才会采用这一条
+  [ configuration CC ] 
+}
+
+location ^~ /images/ {
+  # 匹配任何以 /images/ 开头的地址，匹配符合以后，停止往下搜索正则，采用这一条。
+  [ configuration D ] 
+}
+
+location ~* \.(gif|jpg|jpeg)$ {
+  # 匹配所有以 gif,jpg或jpeg 结尾的请求
+  # 然而，所有请求 /images/ 下的图片会被 config D 处理，因为 ^~ 到达不了这一条正则
+  [ configuration E ] 
+}
+
+location /images/ {
+  # 字符匹配到 /images/，继续往下，会发现 ^~ 存在
+  [ configuration F ] 
+}
+
+location /images/abc {
+  # 最长字符匹配到 /images/abc，继续往下，会发现 ^~ 存在
+  # F与G的放置顺序是没有关系的
+  [ configuration G ] 
+}
+
+location ~ /images/abc/ {
+  # 只有去掉 config D 才有效：先最长匹配 config G 开头的地址，继续往下搜索，匹配到这一条正则，采用
+    [ configuration H ] 
+}
+```
+
+
+## 参考
+
+https://ivanzz1001.github.io/records/post/nginx/2018/11/20/nginx-source_part56_2
