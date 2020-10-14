@@ -31,7 +31,6 @@ child.stderr 获取标准错误输出
 
 ``` JS
 // JavaScript
-复制代码
 var spawn = require('child_process').spawn;
 free = spawn('free', ['-m']);
 
@@ -133,6 +132,23 @@ callfile.execFile('change_password.sh', ['-H', ip, '-U', username, '-P', passwor
     callback(err, stdout, stderr);
 });
 ```
+
+### 根据输出,自动填入
+
+例如登录ssh
+
+``` BASH
+# BASH
+#!/usr/bin/expect
+spawn ssh root@192.168.9.65
+expect {                 
+    "*yes/no" { send "yes\n"; exp_continue}
+    "*password:" { send "Deji123Svn\n" }
+}
+interact
+```
+
+
 
 ## 补充材料
 
