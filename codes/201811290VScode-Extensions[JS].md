@@ -94,19 +94,30 @@ file: {
 
 #### 登录账号
 
-``` js
-vsce create - publisher < publisher name >
+``` BASH
+vsce create-publisher <publisher name>
 ```
 
 需要输入邮箱, 和 `PAT` , 接着登录刚才的账号
 
-``` js
-Vsce login < publisher name >
+``` BASH
+vsce login <publisher name>
 ```
 
 至此, 你已经可以开始 `publish` 插件了
 
-``` js
+``` BASH
 vsce publish
 ```
+
+### token过期
+
+过期只需要重新到[这里](https://aex.dev.azure.com/me?mkt=zh-CN) 生成新的token, 然后执行
+
+``` BASH
+vsce login <publisher name>
+
+```
+
+然后将token粘贴即可
 
