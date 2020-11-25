@@ -1,6 +1,6 @@
 <!--
 Created: Mon Aug 26 2019 15:22:42 GMT+0800 (China Standard Time)
-Modified: Tue Sep 01 2020 19:54:52 GMT+0800 (China Standard Time)
+Modified: Wed Nov 25 2020 15:02:57 GMT+0800 (China Standard Time)
 -->
 
 # nginx 配置
@@ -389,6 +389,16 @@ location @error {
 error_page 404 @error;
 ```
 
+#### 禁用HTML缓存
+
+``` BASH
+# BASH
+location ~.*\.(js|css|html|png|jpg)$
+{
+    add_header Cache-Control no-cache;
+}
+```
+
 #### 一个综合示例
 
 ``` BASH
@@ -444,7 +454,6 @@ location ~ /images/abc/ {
     [ configuration H ] 
 }
 ```
-
 
 ## 参考
 
